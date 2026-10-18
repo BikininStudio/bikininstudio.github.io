@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8FHTFV0DZN');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Demo Aplikasi Kasir Kopi Rindang · Bikinin Studio</title>
+  <meta name="description" content="Demo aplikasi kasir UMKM yang bisa di-install di HP: pilih menu, bayar tunai atau QRIS, struk, riwayat, dan laporan omzet harian. Dibuat oleh Bikinin Studio.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/kasir-kopi-rindang/">
+  <meta name="theme-color" content="#2F4A3A">
+  <meta property="og:title" content="Demo Aplikasi Kasir Kopi Rindang · Bikinin Studio">
+  <meta property="og:description" content="Contoh aplikasi kasir UMKM: transaksi, struk, riwayat, dan laporan omzet. Bisa di-install di HP.">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/kasir-kopi-rindang.jpg">
+  <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/kasir-kopi-rindang.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Kasir KR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../demo.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body data-demo="kasir-kopi-rindang" data-label="Aplikasi kasir Kopi Rindang">
+  <div class="stage">
+    <aside class="about">
+      <p class="about-eyebrow">DEMO APLIKASI</p>
+      <h1>Aplikasi kasir untuk UMKM</h1>
+      <p>Coba langsung: pilih menu, bayar, dan lihat laporan omzet. Semua data cuma tersimpan di perangkatmu.</p>
+      <ul>
+        <li>Transaksi cepat dengan keranjang & diskon</li>
+        <li>Bayar tunai (kembalian otomatis) atau QRIS</li>
+        <li>Struk siap cetak 58 mm</li>
+        <li>Riwayat & laporan omzet harian</li>
+        <li>Bisa di-install di HP dan jalan offline</li>
+      </ul>
+      <p class="about-note">Versi asli bisa disesuaikan: stok, banyak kasir, laporan bulanan, sampai koneksi printer Bluetooth.</p>
+    </aside>
+
+    <div class="phone">
+      <div class="app" id="app">
+        <header class="app-head">
+          <div>
+            <span class="brand">kopi rindang</span>
+            <span class="sub" id="today"></span>
+          </div>
+          <button class="install" id="install" type="button" hidden>⬇ Pasang aplikasi</button>
+        </header>
+
+        <main>
+          <!-- Kasir -->
+          <section class="view" id="view-kasir" aria-label="Kasir">
+            <label class="sr-only" for="search">Cari menu</label>
+            <input id="search" class="search" type="search" placeholder="Cari menu…" autocomplete="off">
+            <div class="chips" id="cats" role="group" aria-label="Kategori menu"></div>
+            <div class="menu-grid" id="menu"></div>
+          </section>
+
+          <!-- Riwayat -->
+          <section class="view" id="view-riwayat" aria-label="Riwayat" hidden>
+            <h2>Riwayat hari ini</h2>
+            <p class="muted" id="history-sum"></p>
+            <ul class="history" id="history"></ul>
+          </section>
+
+          <!-- Laporan -->
+          <section class="view" id="view-laporan" aria-label="Laporan" hidden>
+            <h2>Laporan hari ini</h2>
+            <div class="stats" id="stats"></div>
+            <div class="card">
+              <h3>Metode pembayaran</h3>
+              <div class="split" id="split"></div>
+            </div>
+            <div class="card">
+              <h3>Menu terlaris</h3>
+              <ol class="bars" id="top"></ol>
+            </div>
+            <div class="card">
+              <h3>Omzet per jam</h3>
+              <div class="hours" id="hours"></div>
+            </div>
+            <p class="muted small">Termasuk transaksi contoh yang dibuat otomatis untuk demo.</p>
+            <button class="btn-ghost" id="reset" type="button">Reset data demo</button>
+          </section>
+        </main>
+
+        <button class="cart-bar" id="cart-bar" type="button" hidden>
+          <span><b id="cart-count">0 item</b><small id="cart-hint">Lihat keranjang</small></span>
+          <span class="cart-total" id="cart-total">Rp 0</span>
+        </button>
+
+        <nav class="tabbar" aria-label="Navigasi aplikasi">
+          <button type="button" data-view="kasir" aria-current="page"><span aria-hidden="true">🧾</span>Kasir</button>
+          <button type="button" data-view="riwayat"><span aria-hidden="true">🕘</span>Riwayat</button>
+          <button type="button" data-view="laporan"><span aria-hidden="true">📊</span>Laporan</button>
+        </nav>
+
+        <!-- Keranjang -->
+        <div class="sheet" id="cart-sheet" hidden>
+          <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+            <div class="sheet-head"><h2 id="cart-title">Keranjang</h2><button class="x" data-close aria-label="Tutup">×</button></div>
+            <ul class="cart-list" id="cart-list"></ul>
+            <div class="discounts" role="group" aria-label="Diskon">
+              <span>Diskon</span>
+              <button type="button" data-disc="0" aria-pressed="true">0%</button>
+              <button type="button" data-disc="5">Member 5%</button>
+              <button type="button" data-disc="10">10%</button>
+            </div>
+            <dl class="totals" id="cart-totals"></dl>
+            <div class="row-btns">
+              <button class="btn-ghost" id="clear-cart" type="button">Kosongkan</button>
+              <button class="btn" id="to-pay" type="button">Bayar</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pembayaran -->
+        <div class="sheet" id="pay-sheet" hidden>
+          <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="pay-title">
+            <div class="sheet-head"><h2 id="pay-title">Pembayaran</h2><button class="x" data-close aria-label="Tutup">×</button></div>
+            <p class="pay-total">Total <b id="pay-total">Rp 0</b></p>
+            <div class="seg" role="tablist" aria-label="Metode pembayaran">
+              <button role="tab" type="button" data-method="Tunai" aria-selected="true">💵 Tunai</button>
+              <button role="tab" type="button" data-method="QRIS" aria-selected="false">📱 QRIS</button>
+            </div>
+            <div id="pay-cash">
+              <label for="cash">Uang diterima</label>
+              <input id="cash" type="text" inputmode="numeric" placeholder="0" autocomplete="off">
+              <div class="quick" id="quick"></div>
+              <p class="change">Kembalian <b id="change">Rp 0</b></p>
+              <button class="btn btn-block" id="pay-cash-btn" type="button" disabled>Selesaikan pembayaran</button>
+            </div>
+            <div id="pay-qris" hidden>
+              <div class="qr" id="qr" aria-label="Kode QR contoh"></div>
+              <p class="muted small center">QR ini cuma contoh. Di versi asli, QRIS toko kamu yang tampil.</p>
+              <button class="btn btn-block" id="pay-qris-btn" type="button">Tandai sudah dibayar (simulasi)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Struk -->
+        <div class="sheet" id="receipt-sheet" hidden>
+          <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="receipt-title">
+            <div class="sheet-head"><h2 id="receipt-title">Struk</h2><button class="x" data-close aria-label="Tutup">×</button></div>
+            <div class="receipt" id="receipt"></div>
+            <div class="row-btns">
+              <button class="btn-ghost" id="print" type="button">🖨 Cetak</button>
+              <button class="btn-ghost" data-demo-action="Ini demo. Di versi asli, struk terkirim ke WhatsApp pelanggan.">Kirim via WA</button>
+            </div>
+            <button class="btn btn-block" data-close type="button">Transaksi baru</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../assets/analytics.js"></script>
+  <script src="../demo.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

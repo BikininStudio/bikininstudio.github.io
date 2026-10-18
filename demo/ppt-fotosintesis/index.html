@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8FHTFV0DZN');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo PPT Fotosintesis · Bikinin Studio</title>
+  <meta name="description" content="Demo 10 slide presentasi materi IPA Fotosintesis yang ceria dan mudah dibaca, dibuat oleh Bikinin Studio.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/ppt-fotosintesis/">
+  <meta property="og:title" content="Demo PPT Fotosintesis · Bikinin Studio">
+  <meta property="og:description" content="Contoh presentasi 10 slide untuk materi belajar: diagram, kuis, dan rangkuman.">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/ppt-fotosintesis.jpg">
+  <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/ppt-fotosintesis.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../demo.css">
+  <style>
+    :root { --navy: #1F3A5F; --green: #3FA34D; --yellow: #F6C445; --bg: #EEF3F8; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--navy); font-family: "Poppins", system-ui, sans-serif; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 16px 56px; }
+    header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 8px 24px; margin-bottom: 18px; }
+    h1 { font: 800 clamp(24px, 4vw, 34px) "Nunito", sans-serif; margin: 0; }
+    header p { margin: 4px 0 0; color: #4F6177; font-size: 14px; }
+    .stage { position: relative; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 18px 40px rgba(31, 58, 95, .15); aspect-ratio: 16 / 9; touch-action: pan-y; }
+    .stage img { width: 100%; height: 100%; display: block; object-fit: contain; }
+    .controls { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 18px 0; }
+    .controls button { border: 0; background: var(--navy); color: #fff; height: 44px; min-width: 44px; padding: 0 16px; border-radius: 999px; font: 600 15px "Poppins", sans-serif; cursor: pointer; }
+    .controls button:disabled { opacity: .35; cursor: default; }
+    .controls .fs { background: var(--green); }
+    .counter { font-weight: 600; min-width: 64px; text-align: center; }
+    .progress { height: 6px; background: #D5DEE9; border-radius: 999px; overflow: hidden; }
+    .progress span { display: block; height: 100%; background: var(--yellow); transition: width .2s ease; }
+    .thumbs { display: grid; grid-template-columns: repeat(10, 1fr); gap: 8px; margin-top: 18px; }
+    .thumbs button { border: 3px solid transparent; padding: 0; border-radius: 8px; overflow: hidden; cursor: pointer; background: #fff; }
+    .thumbs button[aria-current="true"] { border-color: var(--yellow); }
+    .thumbs img { width: 100%; display: block; aspect-ratio: 16 / 9; object-fit: cover; }
+    .hint { font-size: 13px; color: #4F6177; text-align: center; margin-top: 14px; }
+    button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 2px; }
+    @media (max-width: 700px) { .thumbs { grid-template-columns: repeat(5, 1fr); } }
+  </style>
+</head>
+<body data-demo="ppt-fotosintesis" data-label="PPT Fotosintesis">
+  <main class="wrap">
+    <header>
+      <div>
+        <h1>Fotosintesis · IPA Kelas 8</h1>
+        <p>Presentasi 10 slide: tujuan belajar, diagram, persamaan reaksi, kuis, dan rangkuman.</p>
+      </div>
+    </header>
+    <div class="stage" id="stage"><img id="slide" src="img/slide-01.png" alt="Slide 1"></div>
+    <div class="controls">
+      <button id="prev" aria-label="Slide sebelumnya">‹ Sebelumnya</button>
+      <span class="counter" id="counter" aria-live="polite">1 / 10</span>
+      <button id="next" aria-label="Slide berikutnya">Berikutnya ›</button>
+      <button id="fs" class="fs" aria-label="Layar penuh">⛶</button>
+    </div>
+    <div class="progress" aria-hidden="true"><span id="bar"></span></div>
+    <div class="thumbs" id="thumbs"></div>
+    <p class="hint">Pakai tombol panah di keyboard, atau geser slide di HP.</p>
+  </main>
+
+  <script src="../../assets/analytics.js"></script>
+  <script src="../demo.js"></script>
+  <script>
+    const TITLES = ["Cover", "Tujuan pembelajaran", "Pengertian", "Bahan dan hasil", "Persamaan reaksi", "Reaksi terang vs gelap", "Faktor", "Fakta menarik", "Kuis", "Rangkuman"];
+    const N = TITLES.length;
+    const slide = document.getElementById("slide");
+    const counter = document.getElementById("counter");
+    const bar = document.getElementById("bar");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    const thumbs = document.getElementById("thumbs");
+    const pad = (n) => String(n).padStart(2, "0");
+    let i = 0;
+    TITLES.forEach((t, k) => {
+      const b = document.createElement("button");
+      b.innerHTML = `<img src="img/slide-${pad(k + 1)}.png" alt="Slide ${k + 1}: ${t}" loading="lazy">`;
+      b.addEventListener("click", () => go(k));
+      thumbs.appendChild(b);
+    });
+    function go(k) {
+      i = Math.max(0, Math.min(N - 1, k));
+      slide.src = `img/slide-${pad(i + 1)}.png`;
+      slide.alt = `Slide ${i + 1}: ${TITLES[i]}`;
+      counter.textContent = `${i + 1} / ${N}`;
+      bar.style.width = `${((i + 1) / N) * 100}%`;
+      prev.disabled = i === 0;
+      next.disabled = i === N - 1;
+      [...thumbs.children].forEach((b, k2) => b.setAttribute("aria-current", String(k2 === i)));
+    }
+    prev.onclick = () => go(i - 1);
+    next.onclick = () => go(i + 1);
+    document.getElementById("fs").onclick = () => {
+      const stage = document.getElementById("stage");
+      if (document.fullscreenElement) document.exitFullscreen(); else if (stage.requestFullscreen) stage.requestFullscreen();
+    };
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(i + 1); }
+      if (e.key === "ArrowLeft") go(i - 1);
+    });
+    let x0 = null;
+    const stage = document.getElementById("stage");
+    stage.addEventListener("touchstart", (e) => (x0 = e.touches[0].clientX), { passive: true });
+    stage.addEventListener("touchend", (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+    go(0);
+  </script>
+</body>
+</html>

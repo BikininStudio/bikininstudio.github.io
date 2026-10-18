@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8FHTFV0DZN');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Feed Instagram Kopi Rindang · Bikinin Studio</title>
+  <meta name="description" content="Demo desain feed Instagram 9 post untuk kedai kopi fiktif Kopi Rindang, dibuat oleh Bikinin Studio.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/feed-kopi-rindang/">
+  <meta property="og:title" content="Demo Feed Instagram Kopi Rindang · Bikinin Studio">
+  <meta property="og:description" content="Contoh feed IG 9 post yang rapi dan konsisten untuk UMKM kuliner.">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/feed-kopi-rindang.jpg">
+  <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/feed-kopi-rindang.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../demo.css">
+  <style>
+    :root { --green: #2F4A3A; --cream: #F4EBDD; --terra: #C8663B; --esp: #3B2A20; --sage: #A7B79A; --line: #E6DCCB; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #FBF7F0; color: var(--esp); font-family: "Poppins", system-ui, sans-serif; }
+    .wrap { max-width: 935px; margin: 0 auto; padding: 32px 16px 64px; }
+    .profile { display: grid; grid-template-columns: 150px 1fr; gap: 32px; align-items: center; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+    .avatar { width: 150px; height: 150px; border-radius: 50%; background: var(--green); color: var(--cream); display: grid; place-items: center; font: italic 700 44px "Playfair Display", serif; box-shadow: 0 0 0 4px #FBF7F0, 0 0 0 7px var(--terra); }
+    .handle { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .handle h1 { font-size: 22px; font-weight: 500; margin: 0; }
+    .follow { background: var(--green); color: #fff; border: 0; border-radius: 8px; padding: 8px 18px; font: 600 14px "Poppins", sans-serif; cursor: pointer; }
+    .stats { display: flex; gap: 28px; list-style: none; padding: 0; margin: 16px 0; font-size: 15px; }
+    .stats b { font-weight: 600; }
+    .bio { font-size: 14px; line-height: 1.6; margin: 0; }
+    .bio strong { display: block; }
+    .highlights { display: flex; gap: 22px; padding: 24px 0; overflow-x: auto; }
+    .hl { text-align: center; font-size: 12px; flex: none; }
+    .hl span { display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; border: 1px solid var(--line); margin-bottom: 6px; font-size: 24px; background: var(--cream); }
+    .tabs { display: flex; justify-content: center; gap: 48px; border-top: 1px solid var(--line); font-size: 12px; letter-spacing: .12em; font-weight: 600; }
+    .tabs span { padding: 14px 0; border-top: 1px solid var(--esp); margin-top: -1px; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .grid button { border: 0; padding: 0; cursor: zoom-in; background: var(--cream); aspect-ratio: 1; }
+    .grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .grid button:focus-visible { outline: 3px solid var(--terra); outline-offset: 2px; }
+    .note { text-align: center; font-size: 13px; color: #7A6A5E; margin-top: 24px; }
+    .viewer { position: fixed; inset: 0; z-index: 1050; background: rgba(20, 14, 10, .9); display: grid; place-items: center; padding: 16px; }
+    .viewer[hidden] { display: none; }
+    .viewer img { max-width: min(92vw, 640px); max-height: 80vh; border-radius: 6px; }
+    .viewer button { position: absolute; background: rgba(255,255,255,.15); color: #fff; border: 0; width: 48px; height: 48px; border-radius: 50%; font-size: 24px; cursor: pointer; }
+    .viewer .prev { left: 16px; top: 50%; } .viewer .next { right: 16px; top: 50%; } .viewer .close { right: 16px; top: 16px; }
+    .viewer p { position: absolute; bottom: 16px; color: #fff; font-size: 14px; margin: 0; }
+    @media (max-width: 600px) {
+      .profile { grid-template-columns: 84px 1fr; gap: 18px; }
+      .avatar { width: 84px; height: 84px; font-size: 26px; }
+      .stats { gap: 16px; font-size: 13px; }
+      .tabs { gap: 24px; }
+    }
+  </style>
+</head>
+<body data-demo="feed-kopi-rindang" data-label="Feed Instagram Kopi Rindang">
+  <main class="wrap">
+    <section class="profile">
+      <div class="avatar" aria-hidden="true">kr</div>
+      <div>
+        <div class="handle"><h1>kopirindang</h1><button class="follow" data-demo-action="Ini demo profil Instagram. Desain feed-nya bisa kamu pesan di Bikinin Studio.">Ikuti</button></div>
+        <ul class="stats"><li><b>9</b> postingan</li><li><b>Demo</b> pengikut</li><li><b>Demo</b> mengikuti</li></ul>
+        <p class="bio"><strong>Kopi Rindang ☕</strong>Tempat teduh buat ngopi pelan-pelan.<br>Kopi lokal, sangrai sendiri · Bandung<br>Buka setiap hari 08.00–22.00</p>
+      </div>
+    </section>
+    <div class="highlights" aria-hidden="true">
+      <div class="hl"><span>☕</span>Menu</div>
+      <div class="hl"><span>🎉</span>Promo</div>
+      <div class="hl"><span>📍</span>Lokasi</div>
+      <div class="hl"><span>💬</span>Ulasan</div>
+    </div>
+    <div class="tabs" aria-hidden="true"><span>▦ POSTINGAN</span></div>
+    <div class="grid" id="grid"></div>
+    <p class="note">Klik tiap post untuk lihat ukuran penuh. 9 desain ini dibuat sebagai satu set, dengan pola warna selang-seling biar profilnya rapi.</p>
+  </main>
+
+  <div class="viewer" id="viewer" hidden>
+    <button class="close" aria-label="Tutup">×</button>
+    <button class="prev" aria-label="Post sebelumnya">‹</button>
+    <img id="viewer-img" alt="">
+    <button class="next" aria-label="Post berikutnya">›</button>
+    <p id="viewer-count"></p>
+  </div>
+
+  <script src="../../assets/analytics.js"></script>
+  <script src="../demo.js"></script>
+  <script>
+    const TITLES = ["Perkenalan brand", "Menu andalan", "Promo Jumat", "Testimoni", "Edukasi Arabika vs Robusta", "Di balik layar", "Quote", "Giveaway", "Lokasi & jam buka"];
+    const grid = document.getElementById("grid");
+    const viewer = document.getElementById("viewer");
+    const img = document.getElementById("viewer-img");
+    const count = document.getElementById("viewer-count");
+    let idx = 0;
+    TITLES.forEach((t, i) => {
+      const b = document.createElement("button");
+      b.innerHTML = `<img src="img/post-${i + 1}.png" alt="Post ${i + 1}: ${t}" loading="lazy">`;
+      b.addEventListener("click", () => open(i));
+      grid.appendChild(b);
+    });
+    function show(i) {
+      idx = (i + TITLES.length) % TITLES.length;
+      img.src = `img/post-${idx + 1}.png`;
+      img.alt = `Post ${idx + 1}: ${TITLES[idx]}`;
+      count.textContent = `${idx + 1}/${TITLES.length} · ${TITLES[idx]}`;
+    }
+    function open(i) { show(i); viewer.hidden = false; viewer.querySelector(".close").focus(); }
+    viewer.querySelector(".prev").onclick = () => show(idx - 1);
+    viewer.querySelector(".next").onclick = () => show(idx + 1);
+    viewer.querySelector(".close").onclick = () => (viewer.hidden = true);
+    viewer.addEventListener("click", (e) => { if (e.target === viewer) viewer.hidden = true; });
+    document.addEventListener("keydown", (e) => {
+      if (viewer.hidden) return;
+      if (e.key === "ArrowLeft") show(idx - 1);
+      if (e.key === "ArrowRight") show(idx + 1);
+      if (e.key === "Escape") viewer.hidden = true;
+    });
+  </script>
+</body>
+</html>

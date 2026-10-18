@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8FHTFV0DZN');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Brand Kit Bikinin Studio · Logo, Warna & Font</title>
+  <meta name="description" content="Contoh brand kit: varian logo, palet warna, font, dan penerapan logo Bikinin Studio.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/brand-kit-bikinin/">
+  <meta property="og:title" content="Demo Brand Kit Bikinin Studio">
+  <meta property="og:description" content="Varian logo, palet warna, font, dan contoh penerapan. Seperti ini hasil paket logo Standard & Premium.">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/brand-kit-bikinin.jpg">
+  <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/brand-kit-bikinin.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../demo.css">
+  <style>
+    :root { --ink: #14142B; --violet: #5B3DF5; --lime: #D7F75B; --muted: #55557A; --line: #E3E3EC; --soft: #F4F4F7; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; color: var(--ink); font-family: "Poppins", system-ui, sans-serif; line-height: 1.6; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 20px 72px; }
+    h1, h2 { font-family: "Montserrat", sans-serif; font-weight: 800; letter-spacing: -.01em; line-height: 1.15; }
+    h1 { font-size: clamp(28px, 5vw, 44px); margin: 0 0 8px; }
+    h2 { font-size: 24px; margin: 56px 0 18px; }
+    .lead { color: var(--muted); max-width: 640px; margin: 0; }
+    .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--violet); margin: 0 0 8px; }
+    .logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .logo-card { border-radius: 18px; padding: 40px 28px; display: grid; place-items: center; min-height: 220px; position: relative; border: 1px solid var(--line); }
+    .logo-card img { max-height: 110px; width: auto; max-width: 100%; }
+    .logo-card.tall img { max-height: 170px; }
+    .logo-card figcaption { position: absolute; left: 18px; bottom: 12px; font-size: 12px; font-weight: 600; color: var(--muted); }
+    .logo-card.dark { background: var(--ink); border-color: var(--ink); }
+    .logo-card.violet { background: var(--violet); border-color: var(--violet); }
+    .logo-card.dark figcaption, .logo-card.violet figcaption { color: #C9C9D6; }
+    figure { margin: 0; }
+    .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .swatch { border-radius: 18px; overflow: hidden; border: 1px solid var(--line); }
+    .swatch .chip { height: 130px; }
+    .swatch div.meta { padding: 14px 16px; }
+    .swatch strong { display: block; }
+    .swatch button { margin-top: 8px; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 4px 12px; font: 500 13px "Poppins", sans-serif; cursor: pointer; }
+    .type { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .type-card { background: var(--soft); border-radius: 18px; padding: 28px; }
+    .type-card .big { font-size: 44px; line-height: 1.1; margin: 8px 0; }
+    .type-card .m { font-family: "Montserrat", sans-serif; font-weight: 800; }
+    .type-card small { color: var(--muted); }
+    .apps { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; align-items: stretch; }
+    .card-mock { background: var(--ink); color: #fff; border-radius: 16px; padding: 26px; aspect-ratio: 1.75; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 18px 40px rgba(20,20,43,.25); }
+    .card-mock img { height: 34px; width: auto; align-self: flex-start; }
+    .card-mock p { margin: 0; font-size: 13px; color: #C9C9D6; }
+    .card-mock b { color: #fff; font-size: 16px; }
+    .app-box { background: var(--soft); border-radius: 16px; display: grid; place-items: center; padding: 24px; text-align: center; font-size: 13px; color: var(--muted); }
+    .avatar { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 10px; box-shadow: 0 0 0 3px #fff, 0 0 0 6px #E1306C; }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .app-icon { width: 96px; height: 96px; border-radius: 22px; overflow: hidden; margin: 0 auto 10px; box-shadow: 0 10px 24px rgba(20,20,43,.2); }
+    .app-icon img { width: 100%; height: 100%; }
+    .rules { background: var(--soft); border-radius: 18px; padding: 24px 28px; color: var(--muted); }
+    .rules li { margin: 6px 0; }
+    @media (max-width: 760px) {
+      .logos, .type, .apps { grid-template-columns: 1fr; }
+      .swatches { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body data-demo="brand-kit-bikinin" data-label="Brand kit Bikinin Studio" data-fiktif="false">
+  <main class="wrap">
+    <p class="eyebrow">Brand kit</p>
+    <h1>Bikinin Studio</h1>
+    <p class="lead">Contoh isi brand kit yang kamu dapat di paket logo Standard &amp; Premium: varian logo untuk tiap kebutuhan, palet warna, font, dan contoh penerapan.</p>
+
+    <h2>Varian logo</h2>
+    <div class="logos">
+      <figure class="logo-card"><img src="img/logo-monokrom.png" alt="Logo monokrom Bikinin Studio"><figcaption>Logo utama · monokrom</figcaption></figure>
+      <figure class="logo-card"><img src="img/logo-utama.png" alt="Logo berwarna Bikinin Studio"><figcaption>Versi berwarna</figcaption></figure>
+      <figure class="logo-card violet"><img src="img/logo-putih.png" alt="Logo versi terang Bikinin Studio"><figcaption>Di atas latar gelap / ungu</figcaption></figure>
+      <figure class="logo-card tall"><img src="img/logo-tumpuk.png" alt="Logo bertumpuk Bikinin Studio"><figcaption>Bertumpuk · stiker & kemasan</figcaption></figure>
+    </div>
+
+    <h2>Palet warna</h2>
+    <div class="swatches" id="swatches"></div>
+
+    <h2>Font</h2>
+    <div class="type">
+      <div class="type-card"><small>Judul & logo</small><p class="big m">Montserrat</p><small>ExtraBold · Bold</small></div>
+      <div class="type-card"><small>Teks isi & caption</small><p class="big">Poppins</p><small>Regular · Medium · SemiBold</small></div>
+    </div>
+
+    <h2>Contoh penerapan</h2>
+    <div class="apps">
+      <div class="card-mock" aria-label="Contoh kartu nama">
+        <img src="img/logo-putih.png" alt="">
+        <div><b>Nama Kamu</b><p>Desainer · 0877-6329-2786</p><p>@bikinin_studio</p></div>
+      </div>
+      <div class="app-box"><div><div class="avatar"><img src="img/foto-profil-ig.png" alt="Foto profil Instagram"></div>Foto profil IG / WA</div></div>
+      <div class="app-box"><div><div class="app-icon"><img src="img/ikon.png" alt="Ikon aplikasi"></div>Ikon aplikasi & favicon</div></div>
+    </div>
+
+    <h2>Aturan pakai</h2>
+    <ul class="rules">
+      <li>Jangan ubah proporsi logo atau memutar logonya.</li>
+      <li>Beri ruang kosong di sekeliling logo, minimal setinggi titik pada huruf "b".</li>
+      <li>Pakai versi monokrom di dokumen dan latar terang, versi terang di latar gelap.</li>
+      <li>Gunakan warna di luar palet hanya untuk foto, bukan untuk elemen brand.</li>
+    </ul>
+  </main>
+
+  <script src="../../assets/analytics.js"></script>
+  <script src="../demo.js"></script>
+  <script>
+    const COLORS = [
+      { name: "Ink", hex: "#14142B", use: "Warna utama, teks & logo" },
+      { name: "Putih", hex: "#FFFFFF", use: "Latar" },
+      { name: "Ungu Bikinin", hex: "#5B3DF5", use: "Aksen & link" },
+      { name: "Lime Spark", hex: "#D7F75B", use: "Highlight & promo" }
+    ];
+    const wrap = document.getElementById("swatches");
+    COLORS.forEach((c) => {
+      const el = document.createElement("div");
+      el.className = "swatch";
+      el.innerHTML = `<div class="chip" style="background:${c.hex}"></div><div class="meta"><strong>${c.name}</strong><span>${c.hex}</span><br><small>${c.use}</small><br><button type="button">Salin kode</button></div>`;
+      el.querySelector("button").addEventListener("click", async (e) => {
+        try { await navigator.clipboard.writeText(c.hex); e.target.textContent = "Tersalin ✓"; }
+        catch { e.target.textContent = c.hex; }
+        setTimeout(() => (e.target.textContent = "Salin kode"), 1500);
+      });
+      wrap.appendChild(el);
+    });
+  </script>
+</body>
+</html>

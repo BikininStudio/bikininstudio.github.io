@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8FHTFV0DZN');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Katalog Digital Rasa Nusa · Bikinin Studio</title>
+  <meta name="description" content="Demo katalog digital UMKM sambal rumahan Rasa Nusa: kategori, harga, keranjang, dan pesan via WhatsApp. Dibuat oleh Bikinin Studio.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/katalog-rasa-nusa/">
+  <meta property="og:title" content="Demo Katalog Digital Rasa Nusa · Bikinin Studio">
+  <meta property="og:description" content="Contoh katalog digital UMKM yang bisa dibagikan lewat link WA.">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/katalog-rasa-nusa.jpg">
+  <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/katalog-rasa-nusa.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../demo.css">
+  <style>
+    :root { --red: #B23A2E; --mus: #E3A72F; --dark: #2B1D16; --tint: #F7E9E6; --pink: #F3C9C2; --muted: #6B5A52; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #FFFAF7; color: var(--dark); font-family: "Poppins", system-ui, sans-serif; padding-bottom: 96px; }
+    .hero { background: var(--red); color: #fff; padding: 28px 16px 64px; }
+    .hero-in { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
+    .mark { width: 64px; height: 64px; flex: none; border-radius: 18px; background: var(--mus); color: var(--dark); display: grid; place-items: center; font-size: 30px; }
+    .hero h1 { margin: 0; font-size: 28px; font-weight: 800; }
+    .hero p { margin: 2px 0 0; color: var(--pink); font-size: 14px; }
+    .wrap { max-width: 960px; margin: -40px auto 0; padding: 0 16px; }
+    .search { width: 100%; padding: 14px 18px; border-radius: 14px; border: 0; font: 15px "Poppins", sans-serif; box-shadow: 0 8px 24px rgba(43, 29, 22, .12); }
+    .search:focus-visible { outline: 3px solid var(--mus); }
+    .chips { display: flex; gap: 8px; overflow-x: auto; padding: 18px 0 8px; }
+    .chip { flex: none; border: 1.5px solid #EAD6D0; background: #fff; color: var(--dark); border-radius: 999px; padding: 8px 16px; font: 600 14px "Poppins", sans-serif; cursor: pointer; }
+    .chip[aria-pressed="true"] { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .info { display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 18px; font-size: 13px; color: var(--muted); }
+    .info span { background: var(--tint); padding: 4px 10px; border-radius: 999px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+    .item { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 6px 18px rgba(43, 29, 22, .07); display: flex; flex-direction: column; }
+    .pic { aspect-ratio: 4 / 3; display: grid; place-items: center; font-size: 52px; position: relative; }
+    .pic small { position: absolute; bottom: 8px; left: 10px; font-size: 11px; color: rgba(43,29,22,.6); }
+    .pic .label { position: absolute; top: 10px; left: 10px; background: var(--mus); color: var(--dark); font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+    .body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; }
+    .body h2 { font-size: 16px; margin: 0 0 4px; }
+    .body p { font-size: 13px; color: var(--muted); margin: 0 0 12px; flex: 1; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .price { font-weight: 800; color: var(--red); }
+    .qty { display: flex; align-items: center; gap: 8px; }
+    .qty button { width: 34px; height: 34px; border-radius: 50%; border: 0; background: var(--red); color: #fff; font-size: 18px; font-weight: 700; cursor: pointer; }
+    .qty button.minus { background: var(--tint); color: var(--red); }
+    .qty span { min-width: 16px; text-align: center; font-weight: 700; }
+    .empty { text-align: center; color: var(--muted); padding: 32px; }
+    .cart { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(560px, calc(100% - 32px)); z-index: 900;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 12px 12px 20px;
+      background: var(--dark); color: #fff; border-radius: 18px; box-shadow: 0 14px 30px rgba(43,29,22,.35); }
+    .cart[hidden] { display: none; }
+    .cart small { color: var(--pink); display: block; font-size: 12px; }
+    .cart strong { font-size: 18px; }
+    .cart button { border: 0; background: #25D366; color: #fff; border-radius: 12px; padding: 12px 16px; font: 700 14px "Poppins", sans-serif; cursor: pointer; }
+    .foot { text-align: center; color: var(--muted); font-size: 13px; margin: 32px 0 0; }
+    button:focus-visible { outline: 3px solid var(--mus); outline-offset: 2px; }
+  </style>
+</head>
+<body data-demo="katalog-rasa-nusa" data-label="Katalog digital Rasa Nusa">
+  <header class="hero">
+    <div class="hero-in">
+      <div class="mark" aria-hidden="true">🌶️</div>
+      <div><h1>Rasa Nusa</h1><p>Sambal rumahan, pedasnya jujur · Bandung</p></div>
+    </div>
+  </header>
+  <main class="wrap">
+    <label class="visually-hidden" for="q" style="position:absolute;left:-9999px">Cari produk</label>
+    <input id="q" class="search" type="search" placeholder="Cari sambal atau paket…">
+    <div class="chips" id="chips" role="group" aria-label="Kategori"></div>
+    <div class="info"><span>🕗 Order 08.00–20.00</span><span>🚚 Kirim H+1</span><span>✅ Halal & PIRT</span></div>
+    <div class="grid" id="grid"></div>
+    <p class="foot">Foto produk di demo ini diganti ilustrasi. Di versi asli, pakai foto produk kamu sendiri.</p>
+  </main>
+
+  <div class="cart" id="cart" hidden>
+    <div><small id="cart-count">0 item</small><strong id="cart-total">Rp 0</strong></div>
+    <button id="checkout" type="button">Pesan via WhatsApp</button>
+  </div>
+
+  <script src="../../assets/analytics.js"></script>
+  <script src="../demo.js"></script>
+  <script>
+    const PRODUCTS = [
+      { id: "bawang", name: "Sambal Bawang", desc: "Gurih, pedas sedang. Cocok buat semua lauk.", price: 25000, cat: "Sambal", emoji: "🧄", bg: "#F7E9E6", label: "Terlaris" },
+      { id: "cumi", name: "Sambal Cumi", desc: "Cumi asin melimpah, pedasnya mantap.", price: 35000, cat: "Sambal", emoji: "🦑", bg: "#F3C9C2" },
+      { id: "matah", name: "Sambal Matah", desc: "Segar khas Bali, serai & daun jeruk.", price: 28000, cat: "Sambal", emoji: "🌿", bg: "#EEF3E6" },
+      { id: "teri", name: "Sambal Teri", desc: "Teri medan renyah, pedas manis.", price: 30000, cat: "Sambal", emoji: "🐟", bg: "#FFF1D6" },
+      { id: "roa", name: "Sambal Roa", desc: "Ikan roa asap khas Manado.", price: 38000, cat: "Sambal", emoji: "🔥", bg: "#F7E9E6", label: "Baru" },
+      { id: "trio", name: "Paket Trio", desc: "Bawang + Cumi + Matah, hemat Rp 8rb.", price: 80000, cat: "Paket hemat", emoji: "🎁", bg: "#FFF1D6" },
+      { id: "reseller", name: "Paket Reseller Pemula", desc: "12 botol campur, diskon 15%.", price: 300000, cat: "Paket hemat", emoji: "📦", bg: "#F3C9C2" },
+      { id: "kerupuk", name: "Kerupuk Kulit", desc: "Teman makan sambal, 100 gr.", price: 15000, cat: "Pelengkap", emoji: "🥨", bg: "#EEF3E6" }
+    ];
+    const CATS = ["Semua", ...new Set(PRODUCTS.map((p) => p.cat))];
+    const cart = {};
+    let cat = "Semua";
+    const rp = (n) => "Rp " + n.toLocaleString("id-ID");
+
+    const chips = document.getElementById("chips");
+    CATS.forEach((c) => {
+      const b = document.createElement("button");
+      b.className = "chip"; b.type = "button"; b.textContent = c;
+      b.setAttribute("aria-pressed", String(c === cat));
+      b.onclick = () => { cat = c; [...chips.children].forEach((x) => x.setAttribute("aria-pressed", String(x === b))); render(); };
+      chips.appendChild(b);
+    });
+    document.getElementById("q").addEventListener("input", render);
+
+    function render() {
+      const q = document.getElementById("q").value.trim().toLowerCase();
+      const grid = document.getElementById("grid");
+      grid.innerHTML = "";
+      const list = PRODUCTS.filter((p) => (cat === "Semua" || p.cat === cat) && (!q || (p.name + p.desc).toLowerCase().includes(q)));
+      if (!list.length) { grid.innerHTML = `<p class="empty">Produk nggak ketemu. Coba kata lain ya.</p>`; return; }
+      list.forEach((p) => {
+        const el = document.createElement("article");
+        el.className = "item";
+        el.innerHTML = `
+          <div class="pic" style="background:${p.bg}" aria-hidden="true">${p.emoji}${p.label ? `<span class="label">${p.label}</span>` : ""}</div>
+          <div class="body"><h2>${p.name}</h2><p>${p.desc}</p>
+            <div class="row"><span class="price">${rp(p.price)}</span>
+              <div class="qty">${cart[p.id] ? `<button class="minus" aria-label="Kurangi ${p.name}">−</button><span>${cart[p.id]}</span>` : ""}<button class="plus" aria-label="Tambah ${p.name}">+</button></div>
+            </div></div>`;
+        el.querySelector(".plus").onclick = () => { cart[p.id] = (cart[p.id] || 0) + 1; render(); };
+        const minus = el.querySelector(".minus");
+        if (minus) minus.onclick = () => { cart[p.id]--; if (!cart[p.id]) delete cart[p.id]; render(); };
+        grid.appendChild(el);
+      });
+      updateCart();
+    }
+    function updateCart() {
+      const ids = Object.keys(cart);
+      const count = ids.reduce((s, id) => s + cart[id], 0);
+      const total = ids.reduce((s, id) => s + cart[id] * PRODUCTS.find((p) => p.id === id).price, 0);
+      document.getElementById("cart").hidden = !count;
+      document.getElementById("cart-count").textContent = `${count} item`;
+      document.getElementById("cart-total").textContent = rp(total);
+    }
+    document.getElementById("checkout").onclick = () => {
+      const lines = Object.keys(cart).map((id) => { const p = PRODUCTS.find((x) => x.id === id); return `${cart[id]}x ${p.name}`; });
+      demoToast(`Ini demo. Di versi asli, pesanan (${lines.join(", ")}) langsung terkirim ke WhatsApp toko.`);
+    };
+    render();
+  </script>
+</body>
+</html>
