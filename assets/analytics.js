@@ -2,7 +2,10 @@
 // Google tag GA4 sendiri ditempel di <head> tiap halaman (snippet resmi dari Google).
 window.BIKININ = {
   GA_ID: "G-8FHTFV0DZN",     // Catatan saja; yang aktif adalah snippet di <head>
-  WA_NUMBER: "6287763292786"
+  WA_NUMBER: "6287763292786",
+  // URL web app Google Apps Script buat nyatet brief dari form order ke Google Sheets
+  // (lihat _tools/apps-script/PASANG-FORM-SHEETS.md). Kosong = form cuma buka WhatsApp, nggak nyatet.
+  SHEET_URL: "https://script.google.com/macros/s/AKfycbz6b3PM0d5C6CJizzwkHf4KufsortUaC8jYvsNvYG_swcCErmV6ICw_iIVRtdjObEf0/exec"
 };
 
 (function () {
@@ -14,6 +17,14 @@ window.BIKININ = {
   window.track = function (name, params) { gtag("event", name, params || {}); };
 
   // Link WhatsApp + penanda sumber, biar order dari web bisa dihitung di chat.
+  // Kirim brief ke Google Sheets di belakang layar. sendBeacon tetap jalan walau tab pindah ke WhatsApp,
+  // dan kalau gagal nggak ganggu apa-apa (WA tetap kebuka).
+  window.sendBrief = function (data) {
+    const url = window.BIKININ.SHEET_URL;
+    if (!url || !navigator.sendBeacon) return false;
+    try { return navigator.sendBeacon(url, new URLSearchParams(data)); } catch (e) { return false; }
+  };
+
   window.waLink = function (text, source) {
     const msg = text + "\n\n(via " + (source || "web") + ")";
     return "https://wa.me/" + window.BIKININ.WA_NUMBER + "?text=" + encodeURIComponent(msg);

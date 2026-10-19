@@ -44,13 +44,20 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://bikininstudio.github.io/#bisnis",
     "name": "Bikinin Studio",
     "url": "https://bikininstudio.github.io/",
     "logo": "https://bikininstudio.github.io/icon-512.png",
     "image": "https://bikininstudio.github.io/assets/og-image.jpg",
     "description": "Jasa desain konten, PPT, logo, katalog UMKM, dan pembuatan website untuk UMKM dan pelajar.",
     "telephone": "+6287763292786",
-    "areaServed": "ID",
+    "areaServed": [
+      { "@type": "City", "name": "Bekasi" },
+      { "@type": "AdministrativeArea", "name": "Jabodetabek" },
+      { "@type": "Country", "name": "Indonesia" }
+    ],
+    "openingHours": "Mo-Su 00:00-23:59",
+    "knowsAbout": ["Desain feed Instagram", "Desain PPT", "Desain logo", "Desain katalog", "Pembuatan website UMKM"],
     "priceRange": "Rp 3.000 - Rp 3.000.000",
     "sameAs": [
       "https://www.instagram.com/bikinin_studio",
@@ -61,7 +68,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -78,9 +85,10 @@
       <nav id="nav" class="nav">
         <a href="#layanan">Layanan</a>
         <a href="#harga">Harga</a>
+        <a href="hitung-harga/">Hitung harga</a>
         <a href="#portofolio">Portofolio</a>
+        <a href="tips/">Tips</a>
         <a href="#faq">FAQ</a>
-        <a href="#order">Order</a>
         <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
       </nav>
     </div>
@@ -186,6 +194,7 @@
             <span class="service-price">Mulai Rp 400rb →</span>
           </a>
         </div>
+        <p class="service-more">Detail tiap layanan: <a href="jasa-desain-feed-instagram/">Feed IG</a> · <a href="jasa-ppt/">PPT</a> · <a href="jasa-logo/">Logo</a> · <a href="jasa-katalog-menu/">Katalog &amp; menu</a> · <a href="jasa-website-umkm/">Website &amp; aplikasi</a> · atau <a href="hitung-harga/">hitung estimasi harganya</a></p>
       </div>
     </section>
 
@@ -276,7 +285,7 @@
         <div class="order-copy">
           <p class="eyebrow">Form order</p>
           <h2>Isi brief, langsung <em>terkirim ke WhatsApp</em></h2>
-          <p>Isi form ini, terus klik tombolnya. WhatsApp bakal kebuka dengan pesan yang udah tersusun rapi, tinggal kirim. Data kamu nggak disimpan di mana pun.</p>
+          <p id="order-note">Isi form ini, terus klik tombolnya. WhatsApp bakal kebuka dengan pesan yang udah tersusun rapi, tinggal kirim. Brief kamu juga kami catat biar nggak hilang walaupun chat-nya kehapus.</p>
           <p class="online"><span class="dot" aria-hidden="true"></span>Admin online 24/7</p>
           <a class="wa-direct" data-wa="order_direct" href="#">atau chat langsung: 0877-6329-2786</a>
         </div>
@@ -304,18 +313,37 @@
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="f-paket">Paket / budget</label>
+              <label for="f-paket">Paket</label>
               <input id="f-paket" name="paket" type="text" placeholder="contoh: Paket 10 feed">
             </div>
+            <div class="field">
+              <label for="f-budget">Budget kira-kira</label>
+              <select id="f-budget" name="budget">
+                <option value="">Belum tahu</option>
+                <option>Di bawah Rp 100rb</option>
+                <option>Rp 100–300rb</option>
+                <option>Rp 300rb–1jt</option>
+                <option>Rp 1–3jt</option>
+                <option>Di atas Rp 3jt</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
             <div class="field">
               <label for="f-deadline">Deadline</label>
               <input id="f-deadline" name="deadline" type="date">
             </div>
+            <div class="field">
+              <label for="f-ref">Link referensi</label>
+              <input id="f-ref" name="referensi" type="url" inputmode="url" placeholder="akun IG / contoh desain">
+            </div>
           </div>
           <div class="field">
             <label for="f-detail">Detail kebutuhan</label>
-            <textarea id="f-detail" name="detail" rows="4" placeholder="Warna yang disukai, referensi, teks yang mau dimasukin, dll."></textarea>
+            <textarea id="f-detail" name="detail" rows="4" placeholder="Warna yang disukai, teks yang mau dimasukin, ukuran, dll."></textarea>
           </div>
+          <div class="hp-field" aria-hidden="true"><label for="f-web">Jangan diisi</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <label class="form-check"><input type="checkbox" name="setuju" id="f-setuju" required> <span>Saya setuju brief ini dicatat untuk keperluan order, sesuai <a href="kebijakan-privasi/">Kebijakan Privasi</a>.</span></label>
           <p id="form-error" class="form-error" role="alert" hidden>Nama dan layanan wajib diisi ya.</p>
           <button type="submit" class="btn btn-primary btn-block">Kirim ke WhatsApp</button>
           <p class="form-legal">Dengan order, kamu setuju dengan <a href="syarat-ketentuan/">Syarat &amp; Ketentuan</a> kami.</p>
@@ -378,8 +406,17 @@
         <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <a href="jasa-desain-feed-instagram/">Desain feed IG</a>
+        <a href="jasa-ppt/">PPT &amp; presentasi</a>
+        <a href="jasa-logo/">Logo &amp; branding</a>
+        <a href="jasa-katalog-menu/">Katalog &amp; menu</a>
+        <a href="jasa-website-umkm/">Website &amp; aplikasi</a>
+        <a href="hitung-harga/">Hitung harga</a>
+      </div>
+      <div class="footer-links">
         <a href="studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="studi-kasus/kopi-rindang/">Studi kasus</a>
+        <a href="tips/">Tips</a>
         <a href="syarat-ketentuan/">Syarat &amp; Ketentuan</a>
         <a href="kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
