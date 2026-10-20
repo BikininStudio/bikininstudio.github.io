@@ -51,7 +51,8 @@ img { max-width: 100%; display: block; }
 h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; margin: 0 0 .5em; }
 h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; }
 h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
-h1 em, h2 em { font-style: normal; color: var(--violet); }
+h1 em, h2 em { font-style: normal; color: inherit; }
+.hero h1 em { color: var(--violet); }
 h3 { font-size: 1.12rem; font-weight: 600; font-family: var(--font-body); letter-spacing: 0; }
 p { margin: 0 0 1em; }
 a { color: inherit; }
@@ -105,8 +106,7 @@ input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px
   font-weight: 500; font-size: .85rem; padding: 6px 15px; border-radius: 999px; margin-bottom: 22px;
 }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin: 28px 0 24px; }
-.hero-points { display: flex; flex-wrap: wrap; gap: 10px 24px; list-style: none; padding: 0; margin: 0; color: var(--hero-muted); font-size: .95rem; }
-.hero-points li::before { content: "✓"; font-weight: 700; margin-right: 8px; color: var(--hero-text); }
+.hero-small { margin: 0; color: var(--hero-muted); font-size: .95rem; }
 /* Hero visual: animated showcase. --px/--py (-1..1) are set by script.js for a subtle mouse parallax. */
 .hero-visual { position: relative; height: 460px; --px: 0; --py: 0; }
 .hero-visual > * { translate: calc(var(--px) * var(--depth, 0) * 1px) calc(var(--py) * var(--depth, 0) * 1px); }
@@ -249,7 +249,7 @@ a.work { display: block; text-decoration: none; cursor: pointer; }
   background: var(--ink); color: #fff; border-radius: 28px; padding: 56px;
 }
 .trust-lead h2 { color: #fff; }
-.trust-lead h2 em { color: var(--lime); }
+.trust-lead h2 em { color: inherit; }
 .trust-lead p { color: #BDB7AA; margin: 0 0 26px; font-size: 1.05rem; }
 .btn-accent { background: var(--accent); color: var(--on-accent); }
 .trust-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; }

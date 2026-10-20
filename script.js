@@ -239,12 +239,12 @@ if (!SHEET_ON) {
   form.querySelector(".form-check").hidden = true;
   form.setuju.required = false;
   const copy = document.getElementById("order-note");
-  if (copy) copy.textContent = "Isi form ini, terus klik tombolnya. WhatsApp bakal kebuka dengan pesan yang udah tersusun rapi, tinggal kirim.";
+  if (copy) copy.textContent = "Isi form ini, terus klik tombolnya. WhatsApp bakal kebuka dengan pesan yang udah tersusun, tinggal kirim.";
 }
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const d = Object.fromEntries(new FormData(form).entries());
-  if (d.website) return; // honeypot: only bots fill the hidden field
+  if (d.kode_cadangan) return; // honeypot: only bots fill the hidden field
   if (!d.nama.trim() || !d.layanan) {
     formError.textContent = "Nama dan layanan wajib diisi ya.";
     formError.hidden = false;
@@ -351,7 +351,7 @@ function initAssistant() {
   const reply = (topic, q) => {
     track("asisten_tanya", { topik: topic ? topic.id : "tidak_dikenal" });
     say("bot", topic ? topic.answer() :
-      `<p>Pertanyaan ini belum bisa kami jawab otomatis. Tanya langsung ke admin ya, online 24/7.</p>${waBtn(`Halo Bikinin Studio, saya mau tanya: ${q}`)}`);
+      `<p>Pertanyaan ini belum bisa kami jawab otomatis. Tanya langsung ke admin di WhatsApp ya.</p>${waBtn(`Halo Bikinin Studio, saya mau tanya: ${q}`)}`);
   };
   say("bot", "<p>Halo! Mau tahu apa dulu? Pilih topik di bawah atau ketik pertanyaanmu.</p><p>Kalau mau ngobrol sama orangnya, klik <b>Chat admin</b> di atas.</p>");
 

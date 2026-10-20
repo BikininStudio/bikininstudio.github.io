@@ -21,8 +21,14 @@ window.BIKININ = {
   // dan kalau gagal nggak ganggu apa-apa (WA tetap kebuka).
   window.sendBrief = function (data) {
     const url = window.BIKININ.SHEET_URL;
-    if (!url || !navigator.sendBeacon) return false;
-    try { return navigator.sendBeacon(url, new URLSearchParams(data)); } catch (e) { return false; }
+    if (!url) return false;
+    const body = new URLSearchParams(data);
+    try {
+      if (window.fetch) { fetch(url, { method: "POST", mode: "no-cors", keepalive: true, body }).catch(() => {}); return true; }
+      return navigator.sendBeacon ? navigator.sendBeacon(url, body) : false;
+    } catch (e) {
+      try { return navigator.sendBeacon(url, body); } catch (e2) { return false; }
+    }
   };
 
   window.waLink = function (text, source) {
