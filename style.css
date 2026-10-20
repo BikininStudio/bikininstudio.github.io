@@ -575,3 +575,20 @@ details p { color: var(--muted); margin: 12px 0 0; }
 }
 #calc { min-height: 760px; }
 @media (max-width: 860px) { #calc { min-height: 1180px; } }
+
+/* Isi paket di kartu harga, judul blok portofolio, kalimat "baru buka" */
+.incl { margin: -4px 0 16px; font-size: .86rem; line-height: 1.5; color: var(--muted); }
+.incl b { color: var(--text); font-weight: 600; }
+.price-card.featured .incl, .price-card.featured .incl b { color: inherit; opacity: .85; }
+.gallery-head { margin: 28px 0 6px; font-size: 1.2rem; }
+#gallery-real { margin-bottom: 12px; }
+.trust-new { font-size: .95rem !important; }
+.trust-new[hidden] { display: none; }
+.calc-intro { grid-column: 1 / -1; margin: 0 0 22px; }
+.calc-why { font-size: .85rem; line-height: 1.5; opacity: .8; margin: 0 0 16px; }
+.calc-item small.calc-incl { margin-top: 3px; font-style: normal; }
+/* HP: karya asli digeser ke samping biar beranda nggak makin panjang */
+@media (max-width: 600px) {
+  #gallery-real { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  #gallery-real .work { flex: 0 0 78%; scroll-snap-align: start; }
+}

@@ -23,6 +23,7 @@
 
   box.innerHTML = `
     <div class="order-form calc-form">
+      <p class="calc-hint calc-intro"><b>Paket</b> = isi pesananmu (jumlah desain, konsep, revisi, format file). <b>Tambahan</b> = biaya opsional di luar paket, misalnya ekspres 1x24 jam atau revisi ekstra. Hasilnya <b>harga minimal</b>, bukan harga pasti.<br>Contoh: Paket 10 feed + ekspres = mulai Rp 156.000, DP Rp 78.000.</p>
       <div class="calc-step">
         <h2>1. Pilih layanan</h2>
         <div class="tabs" role="tablist" aria-label="Kategori layanan">${Object.keys(CAT).map((k) =>
@@ -40,9 +41,10 @@
     <aside class="calc-result" aria-live="polite">
       <p class="eyebrow">Estimasi kamu</p>
       <dl id="calc-rows"></dl>
-      <p class="calc-total-label">Estimasi total</p>
+      <p class="calc-total-label">Estimasi minimal</p>
       <p class="calc-total" id="calc-total"></p>
       <p class="calc-dp" id="calc-dp"></p>
+      <p class="calc-why">Bisa lebih tinggi kalau teks/foto belum siap, butuh revisi di luar paket, atau ada fitur tambahan. Harga final kami kirim sebelum mulai kerja.</p>
       <a class="btn btn-block" id="calc-wa" target="_blank" rel="noopener" href="#">Kirim rincian ke WhatsApp</a>
       <p class="calc-note" id="calc-note"></p>
     </aside>`;
@@ -61,7 +63,7 @@
     document.getElementById("calc-items").innerHTML = items().map((it, i) => `
       <label class="calc-item">
         <input type="radio" name="paket" value="${i}" ${i === state.idx ? "checked" : ""}>
-        <span>${esc(it.name)}<small>${esc(it.desc)}</small></span>
+        <span>${esc(it.name)}<small>${esc(it.desc)}</small>${it.incl ? `<small class="calc-incl">Termasuk: ${esc(it.incl)}</small>` : ""}</span>
         <b>${esc(it.price.replace("Mulai ", ""))}${it.unit ? `<small>${it.unit}</small>` : ""}</b>
       </label>`).join("");
     renderOpts();
@@ -101,7 +103,7 @@
     document.getElementById("calc-rows").innerHTML = rows.map(([a, b]) => `<dt>${esc(a)}</dt><dd>${b}</dd>`).join("");
     document.getElementById("calc-total").textContent = "mulai " + rp(r.total);
     document.getElementById("calc-dp").textContent = "DP 50%: " + rp(r.total / 2);
-    document.getElementById("calc-note").textContent = PRICES[state.cat].note + " Ini estimasi dari harga \"mulai dari\"; harga final dikirim setelah lihat brief.";
+    document.getElementById("calc-note").textContent = PRICES[state.cat].note + "";
     const lines = [
       "Halo Bikinin Studio, saya udah hitung estimasi di web:\n",
       `Layanan: ${CAT[state.cat]}`,
@@ -109,7 +111,7 @@
       r.express && "Ekspres 1x24 jam: ya",
       r.rev && `Revisi tambahan: ${state.rev}x`,
       state.cat === "web" && state.maint && "Maintenance bulanan: ya",
-      `Estimasi: mulai ${rp(r.total)}`,
+      `Estimasi minimal: ${rp(r.total)}`,
       "\nBoleh dibantu info lanjutnya?",
     ].filter(Boolean);
     document.getElementById("calc-wa").href = waLink(lines.join("\n"), "kalkulator");

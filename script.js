@@ -20,39 +20,42 @@ const DEMOS = {
 };
 
 // ===== Price list (samain dengan promosi/daftar-harga.md) =====
+// Harga perkenalan berlaku untuk sekian klien pertama (juga ditulis di S&K lewat build-pages.js)
+const KUOTA_PERKENALAN = 10;
+// incl = isi paket yang dijanjikan (revisi, file, waktu); tampil di kartu harga, halaman layanan, dan kalkulator
 const PRICES = {
   desain: {
     items: [
-      { name: "Feed / poster satuan", desc: "Siap posting di IG & WA", price: "Mulai Rp 15rb", unit: "/desain", demo: "feed" },
-      { name: "Paket 10 feed", desc: "Hemat buat konten sebulan", price: "Mulai Rp 120rb", featured: "PALING HEMAT", demo: "feed" },
-      { name: "Paket bulanan", desc: "20 post + jadwal posting", price: "Mulai Rp 250rb", demo: "feed" },
-      { name: "PPT tugas", desc: "Sekolah & kuliah, minimal 10 slide", price: "Mulai Rp 3rb", unit: "/slide", demo: "ppt" },
-      { name: "PPT sidang / lomba", desc: "Per deck, desain premium", price: "Mulai Rp 100rb", demo: "ppt" }
+      { name: "Feed / poster satuan", desc: "Siap posting di IG & WA", price: "Mulai Rp 15rb", unit: "/desain", incl: "2 revisi · PNG/JPG · 1–2 hari", demo: "feed" },
+      { name: "Paket 10 feed", desc: "Hemat buat konten sebulan", price: "Mulai Rp 120rb", featured: "PALING HEMAT", incl: "2 revisi/desain · PNG/JPG + file Canva · 3–5 hari", demo: "feed" },
+      { name: "Paket bulanan", desc: "20 post + jadwal posting", price: "Mulai Rp 250rb", incl: "2 revisi/desain · jadwal posting · dikirim bertahap", demo: "feed" },
+      { name: "PPT tugas", desc: "Sekolah & kuliah, minimal 10 slide", price: "Mulai Rp 3rb", unit: "/slide", incl: "1 revisi · PPTX + PDF · 1–3 hari", demo: "ppt" },
+      { name: "PPT sidang / lomba", desc: "Per deck, desain premium", price: "Mulai Rp 100rb", incl: "3 revisi · PPTX + PDF · 2–4 hari", demo: "ppt" }
     ],
-    note: "Harga perkenalan. Revisi tambahan mulai Rp 10rb. Pengerjaan ekspres 1x24 jam +30%."
+    note: `Harga perkenalan untuk ${KUOTA_PERKENALAN} klien pertama. Revisi tambahan mulai Rp 10rb. Pengerjaan ekspres 1x24 jam +30%.`
   },
   logo: {
     items: [
-      { name: "Logo Basic", desc: "2 konsep, 2 revisi, file PNG & JPG", price: "Mulai Rp 75rb", demo: "brand" },
-      { name: "Logo Standard", desc: "3 konsep, file vektor, mini brand guide", price: "Mulai Rp 200rb", featured: "REKOMENDASI KAMI", demo: "brand" },
-      { name: "Logo Premium", desc: "Logo + brand kit + template sosmed", price: "Mulai Rp 500rb", demo: "brand" }
+      { name: "Logo Basic", desc: "Logo simpel buat mulai jualan", price: "Mulai Rp 75rb", incl: "2 konsep · 2 revisi · PNG & JPG · tanpa file vektor", demo: "brand" },
+      { name: "Logo Standard", desc: "Siap dipakai di kemasan, spanduk, sampai merek", price: "Mulai Rp 200rb", featured: "REKOMENDASI KAMI", incl: "3 konsep · 3 revisi · file vektor + mini brand guide", demo: "brand" },
+      { name: "Logo Premium", desc: "Logo + brand kit + template sosmed", price: "Mulai Rp 500rb", incl: "3 konsep · 5 revisi · file vektor + brand kit", demo: "brand" }
     ],
     note: "Semua logo dibuat dari nol, jadi lebih aman kalau nanti mau didaftarkan sebagai merek."
   },
   katalog: {
     items: [
-      { name: "Menu / pricelist", desc: "1–2 halaman", price: "Mulai Rp 35rb", demo: "katalog" },
-      { name: "Katalog digital", desc: "8–12 halaman, siap share di WA", price: "Mulai Rp 125rb", featured: "REKOMENDASI KAMI", demo: "katalog" },
-      { name: "Katalog + menu cetak", desc: "File siap cetak, ukuran bebas", price: "Mulai Rp 200rb", demo: "katalog" }
+      { name: "Menu / pricelist", desc: "1–2 halaman", price: "Mulai Rp 35rb", incl: "2 revisi · PNG/PDF · 2–3 hari", demo: "katalog" },
+      { name: "Katalog digital", desc: "8–12 halaman, siap share di WA", price: "Mulai Rp 125rb", featured: "REKOMENDASI KAMI", incl: "3 revisi · PDF + gambar per halaman · 3–5 hari", demo: "katalog" },
+      { name: "Katalog + menu cetak", desc: "File siap cetak, ukuran bebas", price: "Mulai Rp 200rb", incl: "3 revisi · file siap cetak · 3–5 hari", demo: "katalog" }
     ],
     note: "Bonus 1 desain promo buat status WA untuk setiap paket katalog."
   },
   web: {
     items: [
-      { name: "Landing page", desc: "1 halaman, cocok buat promo", price: "Mulai Rp 400rb", demo: "landing" },
-      { name: "Company profile", desc: "4–6 halaman", price: "Mulai Rp 1jt", featured: "REKOMENDASI KAMI", demo: "compro" },
-      { name: "Toko online", desc: "Katalog produk + checkout", price: "Mulai Rp 2jt", demo: "ggstore" },
-      { name: "Aplikasi sederhana", desc: "Kasir, booking, atau katalog", price: "Mulai Rp 3jt", demo: ["app", "booking"] }
+      { name: "Landing page", desc: "1 halaman, cocok buat promo", price: "Mulai Rp 400rb", incl: "2x revisi besar · ±1 minggu", demo: "landing" },
+      { name: "Company profile", desc: "4–6 halaman", price: "Mulai Rp 1jt", featured: "REKOMENDASI KAMI", incl: "3x revisi besar · 2–3 minggu", demo: "compro" },
+      { name: "Toko online", desc: "Katalog produk + checkout", price: "Mulai Rp 2jt", incl: "3x revisi besar · 3–4 minggu", demo: "ggstore" },
+      { name: "Aplikasi sederhana", desc: "Kasir, booking, atau katalog", price: "Mulai Rp 3jt", incl: "revisi sesuai kesepakatan · 3–6 minggu", demo: ["app", "booking"] }
     ],
     note: "Domain & hosting dibayar terpisah (± Rp 300–800rb/tahun). Maintenance mulai Rp 100rb/bulan. Aplikasi yang lebih kompleks dihitung setelah survei kebutuhan."
   }
@@ -68,14 +71,14 @@ const WORKS = [
   { src: "demo-katalog-rasa-nusa.webp", title: "Katalog digital Rasa Nusa", cat: "web", label: "Proyek konsep", demo: "katalog" },
   { src: "feed-kopi-rindang.webp", title: "Feed Instagram Kopi Rindang", cat: "feed", label: "Proyek konsep", demo: "feed" },
   { src: "belajar-01.webp", title: "Slide PPT Fotosintesis", cat: "presentasi", label: "Proyek konsep", demo: "ppt" },
-  { src: "logo-semua.webp", title: "Logo & brand kit Bikinin Studio", cat: "logo", label: "Karya sendiri", demo: "brand" },
+  { src: "logo-semua.webp", title: "Logo & brand kit Bikinin Studio", cat: "logo", label: "Karya sendiri", badge: "Karya sendiri", demo: "brand" },
   { src: "logo-kopi-rindang.webp", title: "Logo Kopi Rindang", cat: "logo", label: "Proyek konsep" },
   { src: "logo-gentra-barbershop.webp", title: "Logo Gentra Barbershop", cat: "logo", label: "Proyek konsep" },
   { src: "logo-rasa-nusa.webp", title: "Logo Rasa Nusa", cat: "logo", label: "Proyek konsep" },
   { src: "logo-arunika-logistik.webp", title: "Logo Arunika Logistik", cat: "logo", label: "Proyek konsep" },
   { src: "logo-lipatin-laundry.webp", title: "Logo Lipatin Laundry", cat: "logo", label: "Proyek konsep" },
   { src: "logo-pahamin-les.webp", title: "Logo Pahamin Les Privat", cat: "logo", label: "Proyek konsep" },
-  { src: "carousel-promo.webp", title: "Carousel promo Bikinin Studio", cat: "feed", label: "Karya sendiri" },
+  { src: "carousel-promo.webp", title: "Carousel promo Bikinin Studio", cat: "feed", label: "Karya sendiri", badge: "Karya sendiri" },
   { src: "umkm-07.webp", title: "Profil usaha Rasa Nusa", cat: "presentasi", label: "Proyek konsep" },
   { src: "perusahaan-06.webp", title: "Company profile Arunika (slide)", cat: "presentasi", label: "Proyek konsep" }
 ];
@@ -124,6 +127,7 @@ function renderPrices(key) {
       <h3></h3>
       <p class="desc"></p>
       <p class="price">${it.price} ${it.unit ? `<small>${it.unit}</small>` : ""}</p>
+      ${it.incl ? `<p class="incl"><b>Termasuk:</b> ${it.incl}</p>` : ""}
       <a class="btn btn-order" target="_blank" rel="noopener">Pesan paket ini</a>
       ${[].concat(it.demo || []).map((d) => `<a class="price-demo" href="${DEMOS[d].url}">Lihat demo: ${DEMOS[d].label} →</a>`).join("")}`;
     card.querySelector("h3").textContent = it.name;
@@ -152,34 +156,38 @@ renderPrices("desain");
 // ===== Portfolio gallery + filter + lightbox =====
 const gallery = document.getElementById("gallery");
 const galleryMore = document.getElementById("gallery-more");
-const PREVIEW_COUNT = 6; // "Semua" starts with the first 6 works so the page stays short on phones
+// "Semua" starts with a few works so the page stays short (4 on phones, 6 on wider screens)
+const PREVIEW_COUNT = matchMedia("(max-width: 600px)").matches ? 4 : 6;
 let showAll = false;
+// Real work (own store, own brand) gets its own block above the concept projects
+const isReal = (w) => w.label !== "Proyek konsep";
+function workEl(w) {
+  const el = document.createElement(w.demo || w.link ? "a" : "button");
+  el.className = "work";
+  if (w.demo || w.link) {
+    el.href = w.link || DEMOS[w.demo].url;
+  } else {
+    el.type = "button";
+    el.addEventListener("click", () => openLightbox(w));
+  }
+  el.innerHTML = `
+    <div class="work-thumb">
+      <img loading="lazy" src="assets/portfolio/${w.src}" alt="">
+      ${w.demo ? `<span class="live-badge">Demo live</span>` : w.badge ? `<span class="live-badge real">${w.badge}</span>` : ""}
+    </div>
+    <div class="work-info"><h3></h3><span class="work-tag">${CAT_NAME[w.cat]}</span><span class="work-tag">${w.label}</span></div>`;
+  el.querySelector("img").alt = w.title;
+  el.querySelector("h3").textContent = w.title;
+  return el;
+}
+WORKS.filter(isReal).forEach((w) => document.getElementById("gallery-real").appendChild(workEl(w)));
 function renderGallery(filter) {
   gallery.innerHTML = "";
-  const list = WORKS.filter((w) => filter === "semua" || (filter === "demo" ? w.demo : w.cat === filter));
+  const list = WORKS.filter((w) => !isReal(w) && (filter === "semua" || (filter === "demo" ? w.demo : w.cat === filter)));
   const clipped = filter === "semua" && !showAll && list.length > PREVIEW_COUNT;
   galleryMore.hidden = !clipped;
   galleryMore.querySelector("button").textContent = `Lihat semua karya (${list.length})`;
-  (clipped ? list.slice(0, PREVIEW_COUNT) : list)
-    .forEach((w) => {
-      const el = document.createElement(w.demo || w.link ? "a" : "button");
-      el.className = "work";
-      if (w.demo || w.link) {
-        el.href = w.link || DEMOS[w.demo].url;
-      } else {
-        el.type = "button";
-        el.addEventListener("click", () => openLightbox(w));
-      }
-      el.innerHTML = `
-        <div class="work-thumb">
-          <img loading="lazy" src="assets/portfolio/${w.src}" alt="">
-          ${w.demo ? `<span class="live-badge">Demo live</span>` : w.badge ? `<span class="live-badge real">${w.badge}</span>` : ""}
-        </div>
-        <div class="work-info"><h3></h3><span class="work-tag">${CAT_NAME[w.cat]}</span><span class="work-tag">${w.label}</span></div>`;
-      el.querySelector("img").alt = w.title;
-      el.querySelector("h3").textContent = w.title;
-      gallery.appendChild(el);
-    });
+  (clipped ? list.slice(0, PREVIEW_COUNT) : list).forEach((w) => gallery.appendChild(workEl(w)));
 }
 function setFilter(name) {
   document.querySelectorAll(".filter").forEach((x) => x.classList.toggle("is-active", x.dataset.filter === name));
@@ -213,8 +221,12 @@ function closeLightbox() {
 lightbox.addEventListener("click", (e) => { if (e.target === lightbox || e.target.classList.contains("lightbox-close")) closeLightbox(); });
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !lightbox.hidden) closeLightbox(); });
 
+document.querySelectorAll("[data-kuota]").forEach((el) => { el.textContent = KUOTA_PERKENALAN; });
+
 // ===== Testimonials =====
 if (TESTIMONIALS.length) {
+  const fresh = document.getElementById("trust-new"); // "belum ada testimoni" line goes away once real ones exist
+  if (fresh) fresh.hidden = true;
   const section = document.getElementById("testimoni");
   section.innerHTML = `<div class="container"><p class="eyebrow">Testimoni</p><h2>Kata klien kami</h2><div id="testimonial-list" class="testimonial-grid"></div></div>`;
   const list = document.getElementById("testimonial-list");
