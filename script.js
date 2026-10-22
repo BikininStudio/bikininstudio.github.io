@@ -65,6 +65,7 @@ const PRICES = {
 // ===== Portfolio =====
 const WORKS = [
   { src: "ggstore.webp", title: "Toko online GgStore (PrestaShop)", cat: "web", label: "Karya asli", link: "studi-kasus/ggstore/", badge: "Karya asli" },
+  { src: "demo-catatan-keuangan.webp", title: "Aplikasi catatan keuangan", cat: "web", label: "Karya sendiri", demo: "keuangan" },
   { src: "demo-booking-gentra.webp", title: "Aplikasi booking Gentra Barbershop", cat: "web", label: "Proyek konsep", demo: "booking" },
   { src: "demo-kasir-kopi-rindang.webp", title: "Aplikasi kasir Kopi Rindang", cat: "web", label: "Proyek konsep", demo: "app", link: "studi-kasus/aplikasi-kasir/" },
   { src: "demo-kopi-rindang.webp", title: "Landing page Kopi Rindang", cat: "web", label: "Proyek konsep", demo: "landing" },
