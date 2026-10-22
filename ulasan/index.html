@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8FHTFV0DZN');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kasih Ulasan · Bikinin Studio</title>
+  <meta name="description" content="Halaman ulasan untuk klien Bikinin Studio yang ordernya udah selesai.">
+  <link rel="canonical" href="https://bikininstudio.github.io/ulasan/">
+  <meta name="theme-color" content="#14142B">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bikinin Studio">
+  <meta property="og:locale" content="id_ID">
+  <meta property="og:url" content="https://bikininstudio.github.io/ulasan/">
+  <meta property="og:title" content="Kasih Ulasan · Bikinin Studio">
+  <meta property="og:description" content="Halaman ulasan untuk klien Bikinin Studio yang ordernya udah selesai.">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <meta name="robots" content="noindex">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../" class="brand" aria-label="Bikinin Studio, ke beranda">
+        <img class="brand-logo" src="../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav" class="nav">
+        <a href="../#layanan">Layanan</a>
+        <a href="../#harga">Harga</a>
+        <a href="../hitung-harga/">Hitung harga</a>
+        <a href="../#portofolio">Portofolio</a>
+        <a href="../tips/">Tips</a>
+        <a href="../#faq">FAQ</a>
+        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <p class="breadcrumb"><a href="../">Beranda</a> / Ulasan</p>
+        <h1>Kasih ulasan</h1>
+        <p class="lead">Makasih udah order di Bikinin Studio! Ceritain pengalaman kamu, jujur aja, termasuk kalau ada yang kurang. Ulasan tampil di web setelah dicek admin.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container review-wrap">
+        <form id="review-form" class="order-form" novalidate>
+          <div class="field">
+            <label for="r-kode">Kode order *</label>
+            <input id="r-kode" name="kode" type="text" autocomplete="off" maxlength="30" placeholder="contoh: BKN-2610-01" required>
+            <small class="field-hint">Ada di pesan WhatsApp dari admin waktu file final dikirim.</small>
+          </div>
+          <fieldset class="field star-field">
+            <legend>Rating *</legend>
+            <div class="star-input">
+              <input type="radio" id="r-star5" name="rating" value="5"><label for="r-star5" title="5 bintang"><span class="sr-only">5 bintang</span>★</label>
+              <input type="radio" id="r-star4" name="rating" value="4"><label for="r-star4" title="4 bintang"><span class="sr-only">4 bintang</span>★</label>
+              <input type="radio" id="r-star3" name="rating" value="3"><label for="r-star3" title="3 bintang"><span class="sr-only">3 bintang</span>★</label>
+              <input type="radio" id="r-star2" name="rating" value="2"><label for="r-star2" title="2 bintang"><span class="sr-only">2 bintang</span>★</label>
+              <input type="radio" id="r-star1" name="rating" value="1"><label for="r-star1" title="1 bintang"><span class="sr-only">1 bintang</span>★</label>
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="r-nama">Nama *</label>
+            <input id="r-nama" name="nama" type="text" autocomplete="name" maxlength="60" required>
+            <small class="field-hint">Boleh nama lengkap, nama panggilan, atau inisial.</small>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="r-usaha">Nama usaha / sekolah</label>
+              <input id="r-usaha" name="usaha" type="text" maxlength="60">
+            </div>
+            <div class="field">
+              <label for="r-layanan">Layanan</label>
+              <select id="r-layanan" name="layanan">
+                <option value="">Pilih layanan</option>
+                <option>Desain konten / feed IG</option>
+                <option>PPT / presentasi</option>
+                <option>Logo &amp; branding</option>
+                <option>Katalog / menu UMKM</option>
+                <option>Website</option>
+                <option>Aplikasi</option>
+                <option>Lainnya</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="r-ulasan">Ulasan *</label>
+            <textarea id="r-ulasan" name="ulasan" rows="5" minlength="20" maxlength="500" placeholder="Gimana hasilnya, prosesnya, dan cara kami ngobrol sama kamu?" required></textarea>
+            <small class="field-hint" id="r-count">0/500 karakter, minimal 20</small>
+          </div>
+          <div class="hp-field" aria-hidden="true"><input aria-label="-" name="kode_cadangan" type="text" tabindex="-1" autocomplete="off"></div>
+          <label class="form-check"><input type="checkbox" name="izin" checked> <span>Boleh ditampilkan di web Bikinin (nama, usaha, layanan, rating, dan ulasan). Kalau nggak dicentang, ulasan cuma dibaca admin.</span></label>
+          <p id="review-error" class="form-error" role="alert" hidden></p>
+          <button type="submit" class="btn btn-primary btn-block">Kirim ulasan</button>
+          <p class="form-legal">Mau ulasanmu dihapus nanti? Bilang aja lewat <a data-wa="ulasan" href="#">WhatsApp</a>.</p>
+        </form>
+        <div id="review-done" class="order-form review-done" hidden tabindex="-1">
+          <h2>Makasih banyak! 🙏</h2>
+          <p>Ulasan kamu udah masuk dan bakal tampil di web setelah dicek admin.</p>
+          <a class="btn btn-ghost" href="../">Ke beranda</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <img class="footer-logo" src="../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
+        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+      </div>
+      <div class="footer-links">
+        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+      </div>
+      <div class="footer-links">
+        <a href="../jasa-desain-feed-instagram/">Desain feed IG</a>
+        <a href="../jasa-ppt/">PPT &amp; presentasi</a>
+        <a href="../jasa-logo/">Logo &amp; branding</a>
+        <a href="../jasa-katalog-menu/">Katalog &amp; menu</a>
+        <a href="../jasa-website-umkm/">Website &amp; aplikasi</a>
+        <a href="../hitung-harga/">Hitung harga</a>
+      </div>
+      <div class="footer-links">
+        <a href="../studi-kasus/ggstore/">Karya asli: GgStore</a>
+        <a href="../studi-kasus/kopi-rindang/">Studi kasus</a>
+        <a href="../tips/">Tips</a>
+        <a href="../syarat-ketentuan/">Syarat &amp; Ketentuan</a>
+        <a href="../kebijakan-privasi/">Kebijakan Privasi</a>
+      </div>
+    </div>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+  </footer>
+  <script src="../assets/analytics.js"></script>
+  <script src="../assets/page.js"></script>
+  <script src="../assets/ulasan.js"></script>
+</body>
+</html>

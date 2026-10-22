@@ -226,23 +226,45 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !lightbo
 
 document.querySelectorAll("[data-kuota]").forEach((el) => { el.textContent = KUOTA_PERKENALAN; });
 
-// ===== Testimonials =====
-if (TESTIMONIALS.length) {
+// ===== Testimonials: TESTIMONIALS above + reviews approved in the Sheet (tab Ulasan, Tampil = Ya) =====
+const starText = (n) => "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n);
+function renderTestimonials(items) {
+  if (!items.length) return;
   const fresh = document.getElementById("trust-new"); // "belum ada testimoni" line goes away once real ones exist
   if (fresh) fresh.hidden = true;
+  const rated = items.filter((t) => t.rating);
+  const avg = rated.length ? rated.reduce((s, t) => s + t.rating, 0) / rated.length : 0;
   const section = document.getElementById("testimoni");
-  section.innerHTML = `<div class="container"><p class="eyebrow">Testimoni</p><h2>Kata klien kami</h2><div id="testimonial-list" class="testimonial-grid"></div></div>`;
+  section.innerHTML = `<div class="container"><p class="eyebrow">Testimoni</p><h2>Kata klien kami</h2>
+    ${rated.length ? `<p class="review-avg"><span class="stars" aria-hidden="true">${starText(Math.round(avg))}</span> <b>${avg.toLocaleString("id-ID", { maximumFractionDigits: 1 })} dari 5</b> · ${rated.length} ulasan</p>` : ""}
+    <div id="testimonial-list" class="testimonial-grid"></div>
+    <p class="review-note">Ulasan dari klien asli, ditampilkan dengan izin mereka.</p></div>`;
   const list = document.getElementById("testimonial-list");
-  TESTIMONIALS.forEach((t) => {
+  items.forEach((t) => {
     const card = document.createElement("figure");
     card.className = "testimonial";
-    card.innerHTML = `<blockquote></blockquote><figcaption><strong></strong><span></span></figcaption>`;
+    card.innerHTML = `${t.rating ? `<p class="stars" aria-label="Rating ${t.rating} dari 5">${starText(t.rating)}</p>` : ""}<blockquote></blockquote><figcaption><strong></strong><span></span></figcaption>`;
     card.querySelector("blockquote").textContent = `“${t.text}”`;
     card.querySelector("strong").textContent = t.name + (t.business ? `, ${t.business}` : "");
-    card.querySelector("span").textContent = t.service || "";
+    card.querySelector("span").textContent = [t.service, t.date].filter(Boolean).join(" · ");
     list.appendChild(card);
   });
-  document.getElementById("testimoni").hidden = false;
+  section.hidden = false;
+}
+renderTestimonials(TESTIMONIALS);
+if (window.BIKININ.SHEET_URL && window.fetch) {
+  fetch(window.BIKININ.SHEET_URL + "?ulasan=1")
+    .then((r) => r.json())
+    .then((d) => {
+      const approved = (Array.isArray(d.ulasan) ? d.ulasan : [])
+        .filter((u) => u && u.teks && u.nama)
+        .map((u) => ({
+          text: String(u.teks), name: String(u.nama), business: String(u.usaha || ""), service: String(u.layanan || ""),
+          rating: Math.min(5, Math.max(1, Math.round(Number(u.rating)) || 5)), date: String(u.bulan || ""),
+        }));
+      if (approved.length) renderTestimonials(TESTIMONIALS.concat(approved));
+    })
+    .catch(() => {}); // Sheet unreachable or old script: page stays as is
 }
 
 // ===== Order form -> WhatsApp =====

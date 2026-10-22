@@ -592,3 +592,23 @@ details p { color: var(--muted); margin: 12px 0 0; }
   #gallery-real { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px; }
   #gallery-real .work { flex: 0 0 78%; scroll-snap-align: start; }
 }
+
+/* ===== Ulasan: form (ulasan/) + bintang di testimoni beranda ===== */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.review-wrap { max-width: 640px; }
+.field-hint { color: var(--muted); font-size: .82rem; }
+.star-field { border: 0; padding: 0; margin: 0 0 18px; }
+.star-field legend { padding: 0; margin-bottom: 6px; font-weight: 600; }
+.star-input { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 4px; }
+.star-input input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.star-input label { font-size: 2.1rem; line-height: 1; color: var(--line); cursor: pointer; transition: color .15s; }
+.star-input label:hover, .star-input label:hover ~ label,
+.star-input input:checked ~ label { color: #E3A008; }
+.star-input input:focus-visible + label { outline: 3px solid var(--violet); outline-offset: 2px; border-radius: 4px; }
+.review-done { text-align: center; }
+.review-done:focus { outline: none; }
+.stars { color: #E3A008; letter-spacing: 2px; margin: 0 0 10px; }
+.review-avg { margin: 8px 0 0; color: var(--muted); }
+.review-avg .stars { margin: 0 6px 0 0; }
+.review-avg b { color: var(--text); }
+.review-note { color: var(--muted); font-size: .85rem; margin: 18px 0 0; }
