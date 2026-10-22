@@ -128,7 +128,8 @@ window.PRICES = {
         "incl": "revisi sesuai kesepakatan · 3–6 minggu",
         "demo": [
           "app",
-          "booking"
+          "booking",
+          "keuangan"
         ]
       }
     ],

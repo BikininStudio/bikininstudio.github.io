@@ -16,6 +16,7 @@ const DEMOS = {
   compro: { url: "demo/arunika/", label: "Company profile Arunika" },
   app: { url: "demo/kasir-kopi-rindang/", label: "Aplikasi kasir Kopi Rindang" },
   booking: { url: "demo/booking-gentra/", label: "Aplikasi booking Gentra Barbershop" },
+  keuangan: { url: "https://bikininstudio.github.io/catatan-keuangan/?demo=1", label: "Aplikasi catatan keuangan (login + database)" },
   ggstore: { url: "studi-kasus/ggstore/", label: "Studi kasus toko GgStore (karya asli)" }
 };
 
@@ -55,7 +56,7 @@ const PRICES = {
       { name: "Landing page", desc: "1 halaman, cocok buat promo", price: "Mulai Rp 400rb", incl: "2x revisi besar · ±1 minggu", demo: "landing" },
       { name: "Company profile", desc: "4–6 halaman", price: "Mulai Rp 1jt", featured: "REKOMENDASI KAMI", incl: "3x revisi besar · 2–3 minggu", demo: "compro" },
       { name: "Toko online", desc: "Katalog produk + checkout", price: "Mulai Rp 2jt", incl: "3x revisi besar · 3–4 minggu", demo: "ggstore" },
-      { name: "Aplikasi sederhana", desc: "Kasir, booking, atau katalog", price: "Mulai Rp 3jt", incl: "revisi sesuai kesepakatan · 3–6 minggu", demo: ["app", "booking"] }
+      { name: "Aplikasi sederhana", desc: "Kasir, booking, atau katalog", price: "Mulai Rp 3jt", incl: "revisi sesuai kesepakatan · 3–6 minggu", demo: ["app", "booking", "keuangan"] }
     ],
     note: "Domain & hosting dibayar terpisah (± Rp 300–800rb/tahun). Maintenance mulai Rp 100rb/bulan. Aplikasi yang lebih kompleks dihitung setelah survei kebutuhan."
   }
@@ -129,7 +130,7 @@ function renderPrices(key) {
       <p class="price">${it.price} ${it.unit ? `<small>${it.unit}</small>` : ""}</p>
       ${it.incl ? `<p class="incl"><b>Termasuk:</b> ${it.incl}</p>` : ""}
       <a class="btn btn-order" target="_blank" rel="noopener">Pesan paket ini</a>
-      ${[].concat(it.demo || []).map((d) => `<a class="price-demo" href="${DEMOS[d].url}">Lihat demo: ${DEMOS[d].label} →</a>`).join("")}`;
+      ${[].concat(it.demo || []).map((d) => `<a class="price-demo" href="${DEMOS[d].url}"${/^https?:/.test(DEMOS[d].url) ? ' target="_blank" rel="noopener"' : ""}>Lihat demo: ${DEMOS[d].label} →</a>`).join("")}`;
     card.querySelector("h3").textContent = it.name;
     card.querySelector(".desc").textContent = it.desc;
     const order = card.querySelector(".btn-order");
@@ -166,6 +167,7 @@ function workEl(w) {
   el.className = "work";
   if (w.demo || w.link) {
     el.href = w.link || DEMOS[w.demo].url;
+    if (/^https?:/.test(w.link || DEMOS[w.demo].url)) { el.target = "_blank"; el.rel = "noopener"; }
   } else {
     el.type = "button";
     el.addEventListener("click", () => openLightbox(w));
