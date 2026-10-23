@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-Qp27AjCfIUPgOkC2vL9mzByGvpOJT7J6DI4nk4PwbtM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
   <script>
@@ -13,23 +15,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Studi Kasus Kopi Rindang · Bikinin Studio</title>
-  <meta name="description" content="Proses Bikinin Studio membangun brand kedai kopi dari nol: logo, feed Instagram, landing page, sampai aplikasi kasir. Proyek konsep.">
+  <meta name="description" content="Proses Bikinin Studio membangun identitas kedai kopi dari nol: logo, feed Instagram, landing page, hingga aplikasi kasir. Proyek konsep dengan brand fiktif.">
   <link rel="canonical" href="https://bikininstudio.github.io/studi-kasus/kopi-rindang/">
-  <meta name="theme-color" content="#14142B">
+  <meta name="theme-color" content="#F5F3EE">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bikinin Studio">
   <meta property="og:locale" content="id_ID">
   <meta property="og:url" content="https://bikininstudio.github.io/studi-kasus/kopi-rindang/">
   <meta property="og:title" content="Studi Kasus Kopi Rindang · Bikinin Studio">
-  <meta property="og:description" content="Proses Bikinin Studio membangun brand kedai kopi dari nol: logo, feed Instagram, landing page, sampai aplikasi kasir. Proyek konsep.">
+  <meta property="og:description" content="Proses Bikinin Studio membangun identitas kedai kopi dari nol: logo, feed Instagram, landing page, hingga aplikasi kasir. Proyek konsep dengan brand fiktif.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="../../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
@@ -41,23 +41,23 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
         <span></span><span></span><span></span>
       </button>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" aria-label="Menu utama">
         <a href="../../#layanan">Layanan</a>
-        <a href="../../#harga">Harga</a>
-        <a href="../../hitung-harga/">Hitung harga</a>
-        <a href="../../#portofolio">Portofolio</a>
-        <a href="../../tips/">Tips</a>
+        <a href="../../#portofolio">Karya</a>
+        <a href="../../#proses">Proses</a>
+        <a href="../../#harga">Paket UMKM</a>
         <a href="../../#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+        <a class="btn btn-primary btn-sm" href="../../#order">Minta penawaran</a>
       </nav>
     </div>
   </header>
   <main>
     <section class="page-hero">
       <div class="container">
+        <p class="breadcrumb"><a href="../../">Beranda</a> / Studi kasus</p>
         <p class="eyebrow">Studi kasus · proyek konsep, brand fiktif</p>
-        <h1>Kopi Rindang: dari coretan sampai aplikasi kasir</h1>
-        <p class="lead">Kopi Rindang itu brand fiktif yang kami bikin buat nunjukin cara kerja kami dari awal. Prosesnya sama persis dengan yang bakal kamu alami: brief, konsep, revisi, sampai semua file siap dipakai.</p>
+        <h1>Kopi Rindang: dari sketsa hingga aplikasi kasir</h1>
+        <p class="lead">Kopi Rindang adalah brand fiktif yang kami buat untuk memperlihatkan cara kerja kami dari awal. Prosesnya sama dengan yang akan Anda alami: brief, konsep, revisi, hingga seluruh file siap dipakai.</p>
       </div>
     </section>
 
@@ -66,9 +66,9 @@
         <div class="case-row">
           <div class="case-text">
             <span class="case-step">01 · Brief</span>
-            <h2>Kedai kecil, suasananya teduh</h2>
-            <p>Bayangkan pemiliknya chat kami begini: <em>"Kedai kopi di Bandung, banyak pohon, pelanggannya mahasiswa yang nugas. Pengen kelihatan hangat, bukan kafe mewah."</em></p>
-            <p>Dari situ kami catat tiga kata kunci: <strong>teduh, lokal, pelan-pelan</strong>. Semua keputusan desain setelahnya harus nyambung ke tiga kata itu.</p>
+            <h2>Kedai kecil dengan suasana teduh</h2>
+            <p>Misalkan pemiliknya menyampaikan: <em>"Kedai kopi di Bandung, banyak pepohonan, pelanggannya mahasiswa yang mengerjakan tugas. Ingin terlihat hangat, bukan kafe mewah."</em></p>
+            <p>Dari situ kami menetapkan tiga kata kunci: <strong>teduh, lokal, tenang</strong>. Setiap keputusan desain berikutnya harus selaras dengan ketiganya.</p>
           </div>
           <img class="case-img" src="../../assets/studi-kasus/sketsa.webp" alt="Lembar sketsa: cangkir, biji kopi, pohon, dan daun, dengan daun dilingkari" loading="lazy" width="720" height="900">
         </div>
@@ -76,10 +76,10 @@
         <div class="case-row reverse">
           <div class="case-text">
             <span class="case-step">02 · Logo</span>
-            <h2>Daun yang tulangnya belahan biji kopi</h2>
-            <p>Kami coret empat ide: cangkir, biji kopi, pohon, dan daun. Yang dipilih daun, karena bentuknya mirip biji kopi dan langsung bilang "rindang".</p>
-            <p>Bentuknya dirapikan pakai grid biar seimbang. Warnanya hijau teduh, terakota, dan krem, dengan huruf Fraunces yang hangat (gratis dipakai komersial).</p>
-            <p class="case-price">Paket ini: Logo Standard, mulai Rp 200rb</p>
+            <h2>Daun yang tulangnya membentuk belahan biji kopi</h2>
+            <p>Kami menjajaki empat gagasan: cangkir, biji kopi, pohon, dan daun. Daun dipilih karena bentuknya menyerupai biji kopi sekaligus langsung menyiratkan "rindang".</p>
+            <p>Bentuknya disempurnakan dengan grid agar seimbang. Warnanya hijau teduh, terakota, dan krem, dengan huruf Fraunces yang hangat (bebas dipakai komersial).</p>
+            <p class="case-price">Paket: Logo Standard, mulai Rp 200rb</p>
           </div>
           <div class="case-pair">
             <img class="case-img" src="../../assets/studi-kasus/grid.webp" alt="Konstruksi logo daun di atas grid" loading="lazy" width="720" height="900">
@@ -90,20 +90,20 @@
         <div class="case-row">
           <div class="case-text">
             <span class="case-step">03 · Feed Instagram</span>
-            <h2>9 post pertama yang senada</h2>
-            <p>Cuma pakai 3 warna dan 2 font, isinya diselang-seling: menu andalan, promo, tips ngopi, testimoni, dan suasana kedai. Hasilnya feed yang langsung dikenali sebagai Kopi Rindang.</p>
-            <p class="case-price">Paket ini: Paket 10 feed, mulai Rp 120rb</p>
+            <h2>Sembilan unggahan pertama yang selaras</h2>
+            <p>Hanya tiga warna dan dua jenis huruf, dengan isi yang bergantian: menu andalan, promo, tips menyeduh, testimoni, dan suasana kedai. Hasilnya feed yang langsung dikenali sebagai Kopi Rindang.</p>
+            <p class="case-price">Paket: Paket 10 feed, mulai Rp 120rb</p>
             <a class="case-link" href="../../demo/feed-kopi-rindang/">Lihat feed lengkapnya →</a>
           </div>
-          <img class="case-img wide" src="../../assets/portfolio/feed-kopi-rindang.webp" alt="Grid 9 post Instagram Kopi Rindang" loading="lazy">
+          <img class="case-img wide" src="../../assets/portfolio/feed-kopi-rindang.webp" alt="Grid 9 unggahan Instagram Kopi Rindang" loading="lazy">
         </div>
 
         <div class="case-row reverse">
           <div class="case-text">
             <span class="case-step">04 · Landing page</span>
-            <h2>Satu halaman: menu, promo, lokasi</h2>
-            <p>Link di bio Instagram diarahkan ke halaman ini. Pembeli bisa lihat menu dan harga, promo hari Jumat, jam buka, lalu langsung pesan antar lewat WhatsApp.</p>
-            <p class="case-price">Paket ini: Landing page, mulai Rp 400rb</p>
+            <h2>Satu halaman: menu, promo, dan lokasi</h2>
+            <p>Tautan di bio Instagram diarahkan ke halaman ini. Pengunjung dapat melihat menu dan harga, promo mingguan, jam buka, lalu memesan antar melalui WhatsApp.</p>
+            <p class="case-price">Paket: Landing page, mulai Rp 400rb</p>
             <a class="case-link" href="../../demo/kopi-rindang/">Buka demo landing page →</a>
           </div>
           <img class="case-img wide" src="../../assets/portfolio/demo-kopi-rindang.webp" alt="Tampilan landing page Kopi Rindang" loading="lazy">
@@ -112,9 +112,9 @@
         <div class="case-row">
           <div class="case-text">
             <span class="case-step">05 · Aplikasi kasir</span>
-            <h2>Kasir di HP, laporan omzet otomatis</h2>
-            <p>Tap menu, bayar tunai atau QRIS, struk keluar, dan omzet harian langsung kecatat. Bisa di-install di HP dan tetap jalan walau sinyal putus.</p>
-            <p class="case-price">Paket ini: Aplikasi sederhana, mulai Rp 3jt</p>
+            <h2>Kasir di ponsel, laporan omzet otomatis</h2>
+            <p>Pilih menu, bayar tunai atau QRIS, struk terbit, dan omzet harian langsung tercatat. Aplikasi dapat dipasang di ponsel dan tetap berjalan saat sinyal terputus.</p>
+            <p class="case-price">Paket: Aplikasi sederhana, mulai Rp 3jt</p>
             <a class="case-link" href="../../demo/kasir-kopi-rindang/">Coba aplikasi kasirnya →</a>
           </div>
           <div class="case-phone"><img src="../../assets/hero/hp-kasir.webp" alt="Layar aplikasi kasir Kopi Rindang" loading="lazy" width="390" height="764"></div>
@@ -125,8 +125,8 @@
     <section class="section section-alt">
       <div class="container case-cta">
         <div>
-          <h2>Kalau ini usahamu, mulai dari mana?</h2>
-          <p class="section-sub">Nggak harus sekaligus. Kebanyakan usaha mulai dari logo dan feed dulu, baru lanjut ke web atau aplikasi kalau udah butuh.</p>
+          <h2>Bila ini usaha Anda, mulai dari mana?</h2>
+          <p class="section-sub">Tidak harus sekaligus. Kebanyakan usaha memulai dari logo dan konten, lalu melanjutkan ke website atau aplikasi saat dibutuhkan.</p>
         </div>
         <ul class="case-cost">
           <li><span>Logo Standard</span><b>mulai Rp 200rb</b></li>
@@ -134,7 +134,10 @@
           <li><span>Landing page</span><b>mulai Rp 400rb</b></li>
           <li><span>Aplikasi kasir</span><b>mulai Rp 3jt</b></li>
         </ul>
-        <a class="btn btn-primary" data-wa="studi_kasus" data-wa-text="Halo Bikinin Studio, saya habis baca studi kasus Kopi Rindang dan mau tanya buat usaha saya." href="#">Ceritain usahamu di WA</a>
+        <div class="cta-row">
+          <a class="btn btn-primary" data-wa="studi_kasus" data-wa-text="Halo Bikinin Studio, saya telah membaca studi kasus Kopi Rindang dan ingin berkonsultasi untuk usaha saya." href="#">Konsultasi via WhatsApp</a>
+          <a class="btn btn-ghost" href="../../#order">Minta penawaran</a>
+        </div>
       </div>
     </section>
   </main>
@@ -142,15 +145,18 @@
     <div class="container footer-inner">
       <div>
         <img class="footer-logo" src="../../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
-        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+        <p>Studio desain independen (usaha perorangan) di Bekasi. Identitas visual, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.</p>
       </div>
       <div class="footer-links">
-        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
-        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
-        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
-        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+        <span class="footer-head">Kontak</span>
+        <a data-wa="footer" href="#">WhatsApp 0877-6329-2786</a>
+        <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Layanan</span>
         <a href="../../jasa-desain-feed-instagram/">Desain feed IG</a>
         <a href="../../jasa-ppt/">PPT &amp; presentasi</a>
         <a href="../../jasa-logo/">Logo &amp; branding</a>
@@ -159,6 +165,8 @@
         <a href="../../hitung-harga/">Hitung harga</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Informasi</span>
+        <a href="../../assets/dokumen/company-profile-bikinin-studio.pdf" download>Company profile (PDF)</a>
         <a href="../../studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="../../studi-kasus/kopi-rindang/">Studi kasus</a>
         <a href="../../tips/">Tips</a>
@@ -166,9 +174,9 @@
         <a href="../../kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
     </div>
-    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Situs ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
   </footer>
-  <script src="../../assets/analytics.js"></script>
-  <script src="../../assets/page.js"></script>
+  <script src="../../assets/analytics.js" defer></script>
+  <script src="../../assets/page.js" defer></script>
 </body>
 </html>

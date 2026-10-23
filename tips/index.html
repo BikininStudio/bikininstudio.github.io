@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-Qp27AjCfIUPgOkC2vL9mzByGvpOJT7J6DI4nk4PwbtM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
   <script>
@@ -12,24 +14,22 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tips Desain & Jualan untuk UMKM · Bikinin Studio</title>
-  <meta name="description" content="Tips praktis buat UMKM dan pelajar: feed jualan yang enak dilihat, PPT sidang yang gampang dipahami, sampai kapan butuh website.">
+  <title>Tips Desain & Pemasaran · Bikinin Studio</title>
+  <meta name="description" content="Tips praktis untuk usaha dan presentasi: feed yang efektif, PPT yang mudah diikuti, hingga kapan usaha membutuhkan website.">
   <link rel="canonical" href="https://bikininstudio.github.io/tips/">
-  <meta name="theme-color" content="#14142B">
+  <meta name="theme-color" content="#F5F3EE">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bikinin Studio">
   <meta property="og:locale" content="id_ID">
   <meta property="og:url" content="https://bikininstudio.github.io/tips/">
-  <meta property="og:title" content="Tips Desain & Jualan untuk UMKM · Bikinin Studio">
-  <meta property="og:description" content="Tips praktis buat UMKM dan pelajar: feed jualan yang enak dilihat, PPT sidang yang gampang dipahami, sampai kapan butuh website.">
+  <meta property="og:title" content="Tips Desain & Pemasaran · Bikinin Studio">
+  <meta property="og:description" content="Tips praktis untuk usaha dan presentasi: feed yang efektif, PPT yang mudah diikuti, hingga kapan usaha membutuhkan website.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
   <script type="application/ld+json">
 {
@@ -72,14 +72,13 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
         <span></span><span></span><span></span>
       </button>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" aria-label="Menu utama">
         <a href="../#layanan">Layanan</a>
-        <a href="../#harga">Harga</a>
-        <a href="../hitung-harga/">Hitung harga</a>
-        <a href="../#portofolio">Portofolio</a>
-        <a href="../tips/">Tips</a>
+        <a href="../#portofolio">Karya</a>
+        <a href="../#proses">Proses</a>
+        <a href="../#harga">Paket UMKM</a>
         <a href="../#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+        <a class="btn btn-primary btn-sm" href="../#order">Minta penawaran</a>
       </nav>
     </div>
   </header>
@@ -87,29 +86,29 @@
     <section class="page-hero">
       <div class="container">
         <p class="breadcrumb"><a href="../">Beranda</a> / Tips</p>
-        <h1>Tips desain &amp; jualan</h1>
-        <p class="lead">Catatan dari kerjaan kami sehari-hari, buat kamu yang mau ngerapiin sendiri dulu sebelum order.</p>
+        <h1>Tips desain &amp; pemasaran</h1>
+        <p class="lead">Catatan dari pekerjaan kami sehari-hari, untuk Anda yang ingin merapikan materi sendiri sebelum memesan.</p>
       </div>
     </section>
     <section class="section">
       <div class="container">
         <div class="service-grid tips-grid">
           <a class="service-card" href="../tips/kesalahan-feed-jualan/">
-            <img src="../assets/portfolio/feed-kopi-rindang.webp" alt="Feed Instagram Kopi Rindang (proyek konsep) dengan warna dan huruf yang konsisten" loading="lazy">
-            <h3>3 Kesalahan Feed Jualan yang Bikin Orang Males Beli</h3>
-            <p>Tulisan kebanyakan, warna gonta-ganti, dan nggak ada harga: tiga kesalahan feed Instagram UMKM yang paling sering, plus cara benerinnya tanpa harus jago desain.</p>
+            <img src="../assets/portfolio/thumb/feed-kopi-rindang.webp" alt="Feed Instagram Kopi Rindang (proyek konsep) dengan warna dan huruf yang konsisten" loading="lazy" width="720" height="720">
+            <h3>3 Kesalahan Feed Jualan yang Membuat Calon Pembeli Ragu</h3>
+            <p>Teks terlalu padat, warna yang berganti-ganti, dan harga yang tidak dicantumkan: tiga kesalahan feed Instagram usaha yang paling sering, beserta cara memperbaikinya tanpa harus mahir desain.</p>
             <span class="service-price">4 menit baca →</span>
           </a>
           <a class="service-card" href="../tips/ppt-sidang-rapi/">
-            <img src="../assets/portfolio/belajar-04.webp" alt="Slide PPT dengan diagram bahan dan hasil fotosintesis" loading="lazy">
-            <h3>Cara Bikin PPT Sidang yang Rapi (dan yang Bikin Penguji Bingung)</h3>
-            <p>Panduan singkat bikin PPT sidang skripsi atau lomba yang enak diikutin: aturan teks per slide, cara nampilin data, dan kesalahan yang bikin penguji susah ngikutin.</p>
+            <img src="../assets/portfolio/thumb/belajar-04.webp" alt="Slide PPT dengan diagram bahan dan hasil fotosintesis (proyek konsep)" loading="lazy" width="720" height="405">
+            <h3>Cara Menyusun PPT Sidang yang Rapi dan Mudah Diikuti</h3>
+            <p>Panduan singkat menyusun presentasi sidang skripsi, lomba, atau paparan kantor: aturan teks per slide, cara menampilkan data, dan kesalahan yang membuat audiens sulit mengikuti.</p>
             <span class="service-price">5 menit baca →</span>
           </a>
           <a class="service-card" href="../tips/landing-page-vs-instagram/">
-            <img src="../assets/portfolio/demo-kopi-rindang.webp" alt="Landing page Kopi Rindang (proyek konsep) di layar laptop" loading="lazy">
-            <h3>Landing Page vs Instagram Aja: Kapan UMKM Butuh Website?</h3>
-            <p>Instagram cukup buat jualan, atau perlu website juga? Bedanya landing page dan Instagram buat UMKM, tanda-tanda kamu udah butuh website, dan kisaran biayanya.</p>
+            <img src="../assets/portfolio/thumb/demo-kopi-rindang.webp" alt="Landing page Kopi Rindang (proyek konsep) di layar laptop" loading="lazy" width="720" height="450">
+            <h3>Landing Page atau Cukup Instagram: Kapan Usaha Membutuhkan Website?</h3>
+            <p>Apakah Instagram sudah cukup, atau usaha Anda membutuhkan website? Perbedaan landing page dan Instagram, tanda-tanda Anda sudah membutuhkan website, dan kisaran biayanya.</p>
             <span class="service-price">4 menit baca →</span>
           </a>
         </div>
@@ -120,15 +119,18 @@
     <div class="container footer-inner">
       <div>
         <img class="footer-logo" src="../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
-        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+        <p>Studio desain independen (usaha perorangan) di Bekasi. Identitas visual, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.</p>
       </div>
       <div class="footer-links">
-        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
-        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
-        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
-        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+        <span class="footer-head">Kontak</span>
+        <a data-wa="footer" href="#">WhatsApp 0877-6329-2786</a>
+        <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Layanan</span>
         <a href="../jasa-desain-feed-instagram/">Desain feed IG</a>
         <a href="../jasa-ppt/">PPT &amp; presentasi</a>
         <a href="../jasa-logo/">Logo &amp; branding</a>
@@ -137,6 +139,8 @@
         <a href="../hitung-harga/">Hitung harga</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Informasi</span>
+        <a href="../assets/dokumen/company-profile-bikinin-studio.pdf" download>Company profile (PDF)</a>
         <a href="../studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="../studi-kasus/kopi-rindang/">Studi kasus</a>
         <a href="../tips/">Tips</a>
@@ -144,9 +148,9 @@
         <a href="../kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
     </div>
-    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Situs ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
   </footer>
-  <script src="../assets/analytics.js"></script>
-  <script src="../assets/page.js"></script>
+  <script src="../assets/analytics.js" defer></script>
+  <script src="../assets/page.js" defer></script>
 </body>
 </html>

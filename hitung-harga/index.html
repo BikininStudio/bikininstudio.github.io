@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-Qp27AjCfIUPgOkC2vL9mzByGvpOJT7J6DI4nk4PwbtM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
   <script>
@@ -15,7 +17,7 @@
   <title>Hitung Estimasi Harga · Bikinin Studio</title>
   <meta name="description" content="Kalkulator estimasi harga jasa desain feed, PPT, logo, katalog, dan website di Bikinin Studio. Pilih paket, tambah opsi, dan kirim rinciannya ke WhatsApp.">
   <link rel="canonical" href="https://bikininstudio.github.io/hitung-harga/">
-  <meta name="theme-color" content="#14142B">
+  <meta name="theme-color" content="#F5F3EE">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bikinin Studio">
   <meta property="og:locale" content="id_ID">
@@ -27,9 +29,7 @@
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
   <script type="application/ld+json">
 {
@@ -77,14 +77,13 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
         <span></span><span></span><span></span>
       </button>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" aria-label="Menu utama">
         <a href="../#layanan">Layanan</a>
-        <a href="../#harga">Harga</a>
-        <a href="../hitung-harga/">Hitung harga</a>
-        <a href="../#portofolio">Portofolio</a>
-        <a href="../tips/">Tips</a>
+        <a href="../#portofolio">Karya</a>
+        <a href="../#proses">Proses</a>
+        <a href="../#harga">Paket UMKM</a>
         <a href="../#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+        <a class="btn btn-primary btn-sm" href="../#order">Minta penawaran</a>
       </nav>
     </div>
   </header>
@@ -93,7 +92,7 @@
       <div class="container">
         <p class="breadcrumb"><a href="../">Beranda</a> / Hitung harga</p>
         <h1>Hitung estimasi harga</h1>
-        <p class="lead">Pilih layanan dan paketnya, tambah opsi kalau perlu, terus kirim rinciannya ke WhatsApp. Harga final kami kirim setelah lihat brief, sebelum mulai dikerjakan.</p>
+        <p class="lead">Pilih layanan dan paket, tambahkan opsi bila perlu, lalu kirim rinciannya ke WhatsApp. Harga final kami kirim dalam penawaran tertulis setelah brief dipelajari, sebelum pekerjaan dimulai.</p>
       </div>
     </section>
     <section class="section">
@@ -120,15 +119,18 @@
     <div class="container footer-inner">
       <div>
         <img class="footer-logo" src="../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
-        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+        <p>Studio desain independen (usaha perorangan) di Bekasi. Identitas visual, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.</p>
       </div>
       <div class="footer-links">
-        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
-        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
-        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
-        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+        <span class="footer-head">Kontak</span>
+        <a data-wa="footer" href="#">WhatsApp 0877-6329-2786</a>
+        <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Layanan</span>
         <a href="../jasa-desain-feed-instagram/">Desain feed IG</a>
         <a href="../jasa-ppt/">PPT &amp; presentasi</a>
         <a href="../jasa-logo/">Logo &amp; branding</a>
@@ -137,6 +139,8 @@
         <a href="../hitung-harga/">Hitung harga</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Informasi</span>
+        <a href="../assets/dokumen/company-profile-bikinin-studio.pdf" download>Company profile (PDF)</a>
         <a href="../studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="../studi-kasus/kopi-rindang/">Studi kasus</a>
         <a href="../tips/">Tips</a>
@@ -144,11 +148,11 @@
         <a href="../kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
     </div>
-    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Situs ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
   </footer>
-  <script src="../assets/analytics.js"></script>
-  <script src="../assets/page.js"></script>
-  <script src="../assets/harga-data.js"></script>
-  <script src="../assets/kalkulator.js"></script>
+  <script src="../assets/analytics.js" defer></script>
+  <script src="../assets/page.js" defer></script>
+  <script src="../assets/harga-data.js" defer></script>
+  <script src="../assets/kalkulator.js" defer></script>
 </body>
 </html>

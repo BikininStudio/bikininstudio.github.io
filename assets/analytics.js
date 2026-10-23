@@ -31,6 +31,22 @@ window.BIKININ = {
     }
   };
 
+  // Versi yang menunggu hasil kirim (dipakai form ulasan: pesan "terima kasih" hanya muncul kalau terkirim).
+  // mode no-cors bikin balasan nggak bisa dibaca, tapi gagal jaringan (offline, URL mati, diblokir) tetap ketahuan.
+  window.sendBriefAsync = function (data) {
+    const url = window.BIKININ.SHEET_URL;
+    if (!url) return Promise.resolve(false);
+    const body = new URLSearchParams(data);
+    if (!window.fetch) return Promise.resolve(navigator.sendBeacon ? navigator.sendBeacon(url, body) : false);
+    return fetch(url, { method: "POST", mode: "no-cors", keepalive: true, body }).then(() => true, () => false);
+  };
+
+  // Hitung unduhan company profile (tombol di beranda + link di footer semua halaman)
+  document.addEventListener("click", function (e) {
+    const a = e.target.closest && e.target.closest('a[href$="company-profile-bikinin-studio.pdf"]');
+    if (a) window.track("unduh_company_profile", { lokasi: a.closest("footer") ? "footer" : "beranda" });
+  });
+
   window.waLink = function (text, source) {
     const msg = text + "\n\n(via " + (source || "web") + ")";
     return "https://wa.me/" + window.BIKININ.WA_NUMBER + "?text=" + encodeURIComponent(msg);

@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-Qp27AjCfIUPgOkC2vL9mzByGvpOJT7J6DI4nk4PwbtM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
   <script>
@@ -13,23 +15,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Studi Kasus GgStore · Bikinin Studio</title>
-  <meta name="description" content="Toko online perlengkapan olahraga GgStore: katalog per kategori, varian warna & ukuran, ongkir per wilayah, dan pesan lewat WhatsApp. Karya asli Bikinin Studio.">
+  <meta name="description" content="Toko online perlengkapan olahraga GgStore: katalog per kategori, varian warna dan ukuran, ongkos kirim per wilayah, dan pemesanan melalui WhatsApp. Karya asli Bikinin Studio.">
   <link rel="canonical" href="https://bikininstudio.github.io/studi-kasus/ggstore/">
-  <meta name="theme-color" content="#14142B">
+  <meta name="theme-color" content="#F5F3EE">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bikinin Studio">
   <meta property="og:locale" content="id_ID">
   <meta property="og:url" content="https://bikininstudio.github.io/studi-kasus/ggstore/">
   <meta property="og:title" content="Studi Kasus GgStore · Bikinin Studio">
-  <meta property="og:description" content="Toko online perlengkapan olahraga GgStore: katalog per kategori, varian warna & ukuran, ongkir per wilayah, dan pesan lewat WhatsApp. Karya asli Bikinin Studio.">
+  <meta property="og:description" content="Toko online perlengkapan olahraga GgStore: katalog per kategori, varian warna dan ukuran, ongkos kirim per wilayah, dan pemesanan melalui WhatsApp. Karya asli Bikinin Studio.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="../../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
@@ -41,23 +41,23 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
         <span></span><span></span><span></span>
       </button>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" aria-label="Menu utama">
         <a href="../../#layanan">Layanan</a>
-        <a href="../../#harga">Harga</a>
-        <a href="../../hitung-harga/">Hitung harga</a>
-        <a href="../../#portofolio">Portofolio</a>
-        <a href="../../tips/">Tips</a>
+        <a href="../../#portofolio">Karya</a>
+        <a href="../../#proses">Proses</a>
+        <a href="../../#harga">Paket UMKM</a>
         <a href="../../#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+        <a class="btn btn-primary btn-sm" href="../../#order">Minta penawaran</a>
       </nav>
     </div>
   </header>
   <main>
     <section class="page-hero">
       <div class="container">
+        <p class="breadcrumb"><a href="../../">Beranda</a> / Studi kasus</p>
         <p class="eyebrow">Studi kasus · karya asli, toko online milik kami sendiri</p>
         <h1>GgStore: toko online <em>perlengkapan olahraga</em></h1>
-        <p class="lead">Ini toko kami sendiri, bukan brand fiktif. GgStore jualan sport tape, kinesiotape, foamwrap, kaos kaki grip, sampai kompres. Produknya banyak varian warna dan ukuran, jadi tokonya harus gampang dicari dan gampang dipesan.</p>
+        <p class="lead">Ini toko kami sendiri, bukan brand fiktif. GgStore menjual sport tape, kinesiotape, foamwrap, kaus kaki grip, hingga kompres. Produknya memiliki banyak varian warna dan ukuran, sehingga toko harus mudah ditelusuri dan mudah dipesan.</p>
       </div>
     </section>
 
@@ -67,8 +67,8 @@
           <div class="case-text">
             <span class="case-step">01 · Kebutuhan</span>
             <h2>Puluhan produk, ratusan pilihan warna</h2>
-            <p>Satu jenis tape bisa punya belasan warna. Kalau cuma dipajang di chat atau marketplace, pembeli capek nanya satu-satu. Jadi butuh katalog sendiri yang rapi per kategori, lengkap dengan harga dan stok tiap varian.</p>
-            <p>Pembayaran dan konfirmasi tetap bisa lewat WhatsApp, biar pembeli yang belum terbiasa checkout online juga gampang pesan.</p>
+            <p>Satu jenis tape dapat memiliki belasan warna. Bila hanya ditampilkan lewat chat atau marketplace, pembeli harus menanyakannya satu per satu. Karena itu dibutuhkan katalog sendiri yang tersusun per kategori, lengkap dengan harga dan stok setiap varian.</p>
+            <p>Pembayaran dan konfirmasi tetap dapat dilakukan melalui WhatsApp, agar pembeli yang belum terbiasa checkout daring juga mudah memesan.</p>
           </div>
           <img class="case-img wide" src="../../assets/studi-kasus/ggstore/beranda-desktop.webp" alt="Beranda GgStore dengan banner dan produk populer" loading="lazy" width="1440" height="1400">
         </div>
@@ -76,9 +76,9 @@
         <div class="case-row reverse">
           <div class="case-text">
             <span class="case-step">02 · Katalog per kategori</span>
-            <h2>Dikelompokkan biar gampang dicari</h2>
-            <p>Produk dibagi per kebutuhan: Tape &amp; Kinesiotape, Perawatan &amp; Pemulihan, Support &amp; Pelindung, sampai Belanja per Olahraga. Tiap kategori punya sub-kategori sendiri, misalnya Body Tape atau Kaos Kaki Grip.</p>
-            <p>Ada juga pencarian katalog dan tampilan bahasa Indonesia.</p>
+            <h2>Dikelompokkan agar mudah ditemukan</h2>
+            <p>Produk dibagi sesuai kebutuhan: Tape &amp; Kinesiotape, Perawatan &amp; Pemulihan, Support &amp; Pelindung, hingga Belanja per Olahraga. Setiap kategori memiliki subkategori, misalnya Body Tape atau Kaus Kaki Grip.</p>
+            <p>Tersedia juga pencarian katalog dan tampilan berbahasa Indonesia.</p>
           </div>
           <img class="case-img wide" src="../../assets/studi-kasus/ggstore/kategori-desktop.webp" alt="Halaman kategori Body Tape di GgStore" loading="lazy" width="1440" height="1500">
         </div>
@@ -86,23 +86,23 @@
         <div class="case-row">
           <div class="case-text">
             <span class="case-step">03 · Halaman produk</span>
-            <h2>Pilih warna, langsung pesan lewat WA</h2>
-            <p>Pembeli pilih warna dan jumlah, harga tampil termasuk pajak, dan stok tiap varian kecatat otomatis. Selain tombol beli, ada tombol <strong>Pesan via WhatsApp</strong> yang langsung bawa nama produknya ke chat. Tombol WA melayang juga muncul di semua halaman.</p>
-            <p>Ongkir dihitung per <strong>zona wilayah</strong> yang diatur sendiri dari panel admin.</p>
+            <h2>Pilih warna, langsung pesan melalui WhatsApp</h2>
+            <p>Pembeli memilih warna dan jumlah, harga tampil termasuk pajak, dan stok setiap varian tercatat otomatis. Selain tombol beli, tersedia tombol <strong>Pesan via WhatsApp</strong> yang langsung membawa nama produk ke percakapan. Tombol WhatsApp melayang juga tersedia di semua halaman.</p>
+            <p>Ongkos kirim dihitung per <strong>zona wilayah</strong> yang diatur sendiri dari panel admin.</p>
           </div>
           <img class="case-img wide" src="../../assets/studi-kasus/ggstore/produk-desktop.webp" alt="Halaman produk Fingertape Solid dengan pilihan warna dan tombol Pesan via WhatsApp" loading="lazy" width="1440" height="650">
         </div>
 
         <div class="case-row reverse">
           <div class="case-text">
-            <span class="case-step">04 · Di HP</span>
-            <h2>Enak dipakai dari HP</h2>
-            <p>Tampilannya menyesuaikan layar HP. Menu, pencarian, keranjang, dan tombol WA tetap gampang dijangkau jempol.</p>
-            <p class="case-price">Toko online kayak gini: mulai Rp 2jt</p>
+            <span class="case-step">04 · Di ponsel</span>
+            <h2>Nyaman digunakan dari ponsel</h2>
+            <p>Tampilan menyesuaikan layar ponsel. Menu, pencarian, keranjang, dan tombol WhatsApp tetap mudah dijangkau dengan ibu jari.</p>
+            <p class="case-price">Toko online serupa: mulai Rp 2jt</p>
           </div>
           <div class="case-pair">
-            <img class="case-img" src="../../assets/studi-kasus/ggstore/beranda-hp.webp" alt="Beranda GgStore di HP" loading="lazy" width="390" height="1100">
-            <img class="case-img" src="../../assets/studi-kasus/ggstore/produk-hp.webp" alt="Halaman produk GgStore di HP" loading="lazy" width="390" height="1200">
+            <img class="case-img" src="../../assets/studi-kasus/ggstore/beranda-hp.webp" alt="Beranda GgStore di ponsel" loading="lazy" width="390" height="1100">
+            <img class="case-img" src="../../assets/studi-kasus/ggstore/produk-hp.webp" alt="Halaman produk GgStore di ponsel" loading="lazy" width="390" height="1200">
           </div>
         </div>
       </div>
@@ -111,16 +111,19 @@
     <section class="section section-alt">
       <div class="container case-cta">
         <div>
-          <h2>Mau toko online sendiri?</h2>
-          <p class="section-sub">Kami bikinin dari katalog, varian produk, ongkir, sampai tombol pesan lewat WhatsApp. Domain dan hosting dibayar terpisah.</p>
-          <p class="section-sub" style="font-size:.85rem">Dibangun pakai PrestaShop. Harga produk di screenshot cuma contoh.</p>
+          <h2>Membutuhkan toko online sendiri?</h2>
+          <p class="section-sub">Kami membangunnya mulai dari katalog, varian produk, ongkos kirim, hingga tombol pemesanan melalui WhatsApp. Domain dan hosting dibayar terpisah.</p>
+          <p class="section-sub" style="font-size:.85rem">Dibangun dengan PrestaShop. Harga produk di tangkapan layar hanya contoh.</p>
         </div>
         <ul class="case-cost">
           <li><span>Toko online</span><b>mulai Rp 2jt</b></li>
           <li><span>Katalog digital (tanpa checkout)</span><b>mulai Rp 125rb</b></li>
           <li><span>Landing page</span><b>mulai Rp 400rb</b></li>
         </ul>
-        <a class="btn btn-primary" data-wa="studi_kasus_ggstore" data-wa-text="Halo Bikinin Studio, saya habis lihat studi kasus GgStore dan mau tanya soal toko online." href="#">Tanya toko online di WA</a>
+        <div class="cta-row">
+          <a class="btn btn-primary" data-wa="studi_kasus_ggstore" data-wa-text="Halo Bikinin Studio, saya telah melihat studi kasus GgStore dan ingin berkonsultasi mengenai toko online." href="#">Konsultasi via WhatsApp</a>
+          <a class="btn btn-ghost" href="../../#order">Minta penawaran</a>
+        </div>
       </div>
     </section>
   </main>
@@ -128,15 +131,18 @@
     <div class="container footer-inner">
       <div>
         <img class="footer-logo" src="../../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
-        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+        <p>Studio desain independen (usaha perorangan) di Bekasi. Identitas visual, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.</p>
       </div>
       <div class="footer-links">
-        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
-        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
-        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
-        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+        <span class="footer-head">Kontak</span>
+        <a data-wa="footer" href="#">WhatsApp 0877-6329-2786</a>
+        <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Layanan</span>
         <a href="../../jasa-desain-feed-instagram/">Desain feed IG</a>
         <a href="../../jasa-ppt/">PPT &amp; presentasi</a>
         <a href="../../jasa-logo/">Logo &amp; branding</a>
@@ -145,6 +151,8 @@
         <a href="../../hitung-harga/">Hitung harga</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Informasi</span>
+        <a href="../../assets/dokumen/company-profile-bikinin-studio.pdf" download>Company profile (PDF)</a>
         <a href="../../studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="../../studi-kasus/kopi-rindang/">Studi kasus</a>
         <a href="../../tips/">Tips</a>
@@ -152,9 +160,9 @@
         <a href="../../kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
     </div>
-    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Situs ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
   </footer>
-  <script src="../../assets/analytics.js"></script>
-  <script src="../../assets/page.js"></script>
+  <script src="../../assets/analytics.js" defer></script>
+  <script src="../../assets/page.js" defer></script>
 </body>
 </html>

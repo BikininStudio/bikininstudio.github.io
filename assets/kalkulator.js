@@ -1,6 +1,6 @@
 // Kalkulator estimasi harga (halaman hitung-harga/). Datanya dari window.PRICES (assets/harga-data.js, digenerate
 // build-pages.js dari script.js), jadi harga di sini selalu sama dengan daftar harga di web.
-// Aturan tambahan sama dengan catatan harga: ekspres 1x24 jam +30%, revisi tambahan desain mulai Rp 10rb.
+// Aturan tambahan sama dengan catatan harga: ekspres 1x24 jam +30% (bukan untuk web / paket noExpress), revisi tambahan Rp 10rb hanya untuk kategori extraRevisi (desain).
 // Butuh assets/analytics.js (waLink, track).
 (function () {
   const box = document.getElementById("calc");
@@ -23,7 +23,7 @@
 
   box.innerHTML = `
     <div class="order-form calc-form">
-      <p class="calc-hint calc-intro"><b>Paket</b> = isi pesananmu (jumlah desain, konsep, revisi, format file). <b>Tambahan</b> = biaya opsional di luar paket, misalnya ekspres 1x24 jam atau revisi ekstra. Hasilnya <b>harga minimal</b>, bukan harga pasti.<br>Contoh: Paket 10 feed + ekspres = mulai Rp 156.000, DP Rp 78.000.</p>
+      <p class="calc-hint calc-intro"><b>Paket</b> adalah isi pesanan Anda (jumlah desain, konsep, revisi, dan format file). <b>Tambahan</b> adalah biaya opsional di luar paket, misalnya ekspres 1x24 jam atau, untuk desain konten &amp; PPT, revisi tambahan. Hasilnya adalah <b>harga minimal</b>, bukan harga pasti.<br>Contoh: Paket 10 feed + ekspres = mulai Rp 156.000, DP Rp 78.000.</p>
       <div class="calc-step">
         <h2>1. Pilih layanan</h2>
         <div class="tabs" role="tablist" aria-label="Kategori layanan">${Object.keys(CAT).map((k) =>
@@ -44,13 +44,16 @@
       <p class="calc-total-label">Estimasi minimal</p>
       <p class="calc-total" id="calc-total"></p>
       <p class="calc-dp" id="calc-dp"></p>
-      <p class="calc-why">Bisa lebih tinggi kalau teks/foto belum siap, butuh revisi di luar paket, atau ada fitur tambahan. Harga final kami kirim sebelum mulai kerja.</p>
+      <p class="calc-why">Harga dapat lebih tinggi bila teks/foto belum siap, diperlukan revisi di luar paket, atau ada fitur tambahan. Harga final tercantum di penawaran tertulis sebelum pekerjaan dimulai.</p>
       <a class="btn btn-block" id="calc-wa" target="_blank" rel="noopener" href="#">Kirim rincian ke WhatsApp</a>
       <p class="calc-note" id="calc-note"></p>
     </aside>`;
 
   const items = () => PRICES[state.cat].items;
   const item = () => items()[state.idx];
+  // Ekspres: semua layanan kecuali web dan paket yang dikirim bertahap (noExpress). Revisi tambahan: hanya kategori dengan extraRevisi.
+  const canExpress = () => state.cat !== "web" && !item().noExpress;
+  const canRevisi = () => Boolean(PRICES[state.cat].extraRevisi);
   // quantity applies to per-unit prices; PPT tugas has "minimal 10 slide" in its description
   const qtyRule = (it) => {
     if (!it.unit) return null;
@@ -74,11 +77,13 @@
     const qr = qtyRule(it);
     state.qty = qr ? Math.max(qr.min, state.qty) : 1;
     const web = state.cat === "web";
+    if (!canExpress()) state.express = false; // switching to a package without these options must not keep a hidden charge
+    if (!canRevisi()) state.rev = 0;
     document.getElementById("calc-opts").innerHTML = [
       qr && `<div class="calc-opt"><label for="calc-qty">${qr.label}${qr.min > 1 ? ` <small>(minimal ${qr.min})</small>` : ""}</label>
         <input id="calc-qty" type="number" inputmode="numeric" min="${qr.min}" max="500" value="${state.qty}"></div>`,
-      !web && `<div class="calc-opt"><label><input id="calc-express" type="checkbox" ${state.express ? "checked" : ""}> Ekspres 1x24 jam <small>(+30%, menyesuaikan antrean)</small></label></div>`,
-      !web && `<div class="calc-opt"><label for="calc-rev">Revisi tambahan <small>(di luar jatah paket, Rp 10rb/x)</small></label>
+      canExpress() && `<div class="calc-opt"><label><input id="calc-express" type="checkbox" ${state.express ? "checked" : ""}> Ekspres 1x24 jam <small>(+30%, menyesuaikan antrean)</small></label></div>`,
+      canRevisi() && `<div class="calc-opt"><label for="calc-rev">Revisi tambahan <small>(di luar jatah paket, Rp 10rb per revisi)</small></label>
         <input id="calc-rev" type="number" inputmode="numeric" min="0" max="20" value="${state.rev}"></div>`,
       web && `<div class="calc-opt"><label><input id="calc-maint" type="checkbox" ${state.maint ? "checked" : ""}> Maintenance bulanan <small>(update isi &amp; perbaikan, Rp 100rb/bulan)</small></label></div>`,
       web && `<p class="calc-hint">Domain &amp; hosting dibayar terpisah, sekitar Rp 300–800rb per tahun. Kami bantu daftarnya.</p>`,
@@ -89,8 +94,8 @@
   function calc() {
     const it = item();
     const base = toNum(it.price) * state.qty;
-    const express = state.express && state.cat !== "web" ? Math.round(base * EXPRESS) : 0;
-    const rev = state.cat !== "web" ? state.rev * REVISI : 0;
+    const express = state.express && canExpress() ? Math.round(base * EXPRESS) : 0;
+    const rev = canRevisi() ? state.rev * REVISI : 0;
     return { it, base, express, rev, total: base + express + rev };
   }
 
@@ -105,14 +110,14 @@
     document.getElementById("calc-dp").textContent = "DP 50%: " + rp(r.total / 2);
     document.getElementById("calc-note").textContent = PRICES[state.cat].note + "";
     const lines = [
-      "Halo Bikinin Studio, saya udah hitung estimasi di web:\n",
+      "Halo Bikinin Studio, saya sudah menghitung estimasi di situs:\n",
       `Layanan: ${CAT[state.cat]}`,
       `Paket: ${r.it.name}${r.it.unit ? ` (${state.qty}${r.it.unit.replace("/", " ")})` : ""}`,
       r.express && "Ekspres 1x24 jam: ya",
       r.rev && `Revisi tambahan: ${state.rev}x`,
       state.cat === "web" && state.maint && "Maintenance bulanan: ya",
       `Estimasi minimal: ${rp(r.total)}`,
-      "\nBoleh dibantu info lanjutnya?",
+      "\nMohon informasi selanjutnya.",
     ].filter(Boolean);
     document.getElementById("calc-wa").href = waLink(lines.join("\n"), "kalkulator");
   }

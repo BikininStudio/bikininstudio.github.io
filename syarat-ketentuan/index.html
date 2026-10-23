@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-Qp27AjCfIUPgOkC2vL9mzByGvpOJT7J6DI4nk4PwbtM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
   <script>
@@ -13,23 +15,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Syarat & Ketentuan · Bikinin Studio</title>
-  <meta name="description" content="Syarat dan ketentuan order jasa desain, logo, katalog, dan website di Bikinin Studio: pembayaran, revisi, pembatalan, dan hak atas karya.">
+  <meta name="description" content="Syarat dan ketentuan pemesanan jasa desain dan website di Bikinin Studio: penawaran, pembayaran, revisi, pembatalan, kerahasiaan, dan hak atas karya.">
   <link rel="canonical" href="https://bikininstudio.github.io/syarat-ketentuan/">
-  <meta name="theme-color" content="#14142B">
+  <meta name="theme-color" content="#F5F3EE">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bikinin Studio">
   <meta property="og:locale" content="id_ID">
   <meta property="og:url" content="https://bikininstudio.github.io/syarat-ketentuan/">
   <meta property="og:title" content="Syarat & Ketentuan · Bikinin Studio">
-  <meta property="og:description" content="Syarat dan ketentuan order jasa desain, logo, katalog, dan website di Bikinin Studio: pembayaran, revisi, pembatalan, dan hak atas karya.">
+  <meta property="og:description" content="Syarat dan ketentuan pemesanan jasa desain dan website di Bikinin Studio: penawaran, pembayaran, revisi, pembatalan, kerahasiaan, dan hak atas karya.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -41,89 +41,98 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
         <span></span><span></span><span></span>
       </button>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" aria-label="Menu utama">
         <a href="../#layanan">Layanan</a>
-        <a href="../#harga">Harga</a>
-        <a href="../hitung-harga/">Hitung harga</a>
-        <a href="../#portofolio">Portofolio</a>
-        <a href="../tips/">Tips</a>
+        <a href="../#portofolio">Karya</a>
+        <a href="../#proses">Proses</a>
+        <a href="../#harga">Paket UMKM</a>
         <a href="../#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+        <a class="btn btn-primary btn-sm" href="../#order">Minta penawaran</a>
       </nav>
     </div>
   </header>
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Biar sama-sama jelas</p>
-        <h1>Syarat &amp; Ketentuan Order</h1>
-        <p class="lead">Berlaku sejak 22 Oktober 2026. Dengan order di Bikinin Studio, kamu dianggap setuju dengan poin-poin di bawah. Ada yang kurang jelas? Tanya aja dulu, gratis.</p>
+        <p class="breadcrumb"><a href="../">Beranda</a> / Syarat &amp; Ketentuan</p>
+        <h1>Syarat &amp; Ketentuan</h1>
+        <p class="lead">Berlaku sejak 23 Oktober 2026. Ketentuan ini berlaku untuk setiap pemesanan di Bikinin Studio, kecuali diatur lain dalam penawaran atau perjanjian kerja tertulis yang disepakati bersama.</p>
       </div>
     </section>
     <section class="section">
       <div class="container prose">
-        <h2>1. Pemesanan &amp; brief</h2>
+        <h2>1. Tentang Bikinin Studio</h2>
         <ul>
-          <li>Order dilakukan lewat WhatsApp atau form di web. Ceritakan kebutuhanmu selengkap mungkin: teks, warna, referensi, ukuran, dan deadline.</li>
-          <li>Pengerjaan dimulai setelah brief lengkap <strong>dan</strong> DP diterima. Waktu pengerjaan dihitung sejak saat itu.</li>
+          <li>Bikinin Studio adalah studio desain independen berbentuk usaha perorangan yang berdomisili di Bekasi, Jawa Barat, dan melayani klien secara daring.</li>
+          <li>Kontak resmi: WhatsApp <a data-wa="sk" href="#">0877-6329-2786</a> dan email <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>. Bikinin Studio tidak menghubungi klien dari nomor atau alamat lain.</li>
         </ul>
 
-        <h2>2. Harga</h2>
+        <h2>2. Pemesanan, brief, dan penawaran</h2>
         <ul>
-          <li>Harga di web adalah <strong>harga perkenalan untuk 10 klien pertama</strong> dengan format "mulai dari". Setelah kuota itu terisi, harga normal kami umumkan di web. Order yang harganya udah disepakati tetap pakai harga lama.</li>
-          <li>Isi tiap paket (jumlah konsep, revisi, format file, dan perkiraan waktu) tertulis di kartu harga dan jadi bagian dari kesepakatan.</li>
-          <li>Harga final kami kirim setelah lihat brief, <strong>sebelum</strong> mulai dikerjakan, dan nggak berubah selama brief-nya sama.</li>
-          <li>Kalau di tengah jalan ada tambahan di luar brief awal (halaman, desain, fitur), biayanya kami sampaikan dulu dan baru dikerjakan setelah kamu setuju.</li>
+          <li>Pemesanan dilakukan melalui WhatsApp, email, atau form di situs ini. Klien menyampaikan kebutuhan selengkap mungkin: tujuan, materi, referensi, ukuran, dan tenggat.</li>
+          <li>Sebelum pekerjaan dimulai, Bikinin Studio mengirim penawaran harga tertulis yang memuat ruang lingkup, jumlah revisi, harga, jadwal, dan skema pembayaran.</li>
+          <li>Pekerjaan dimulai setelah penawaran disetujui <strong>dan</strong> DP atau termin pertama diterima. Jadwal pengerjaan dihitung sejak saat itu.</li>
+          <li>Atas permintaan klien, kesepakatan dapat dituangkan dalam perjanjian kerja tertulis dan/atau perjanjian kerahasiaan (NDA). Bila ada perbedaan, isi perjanjian tertulis yang berlaku.</li>
         </ul>
 
-        <h2>3. Pembayaran</h2>
+        <h2>3. Harga</h2>
         <ul>
-          <li>DP 50% di awal, pelunasan setelah kamu lihat dan setuju dengan hasilnya, sebelum file final dikirim.</li>
-          <li>Pembayaran lewat transfer bank, e-wallet, atau QRIS ke rekening/akun atas nama yang kami kirim lewat WhatsApp resmi 0877-6329-2786. Hati-hati dengan nomor lain yang mengaku Bikinin.</li>
+          <li>Harga paket di situs adalah <strong>harga perkenalan untuk 10 klien pertama</strong> dalam format "mulai dari". Setelah kuota terpenuhi, harga normal diumumkan di situs. Pesanan yang harganya sudah disepakati tetap memakai harga tersebut.</li>
+          <li>Isi setiap paket (jumlah konsep, revisi, format file, dan perkiraan waktu) tercantum di kartu harga atau penawaran dan menjadi bagian dari kesepakatan.</li>
+          <li>Harga dalam penawaran tidak berubah selama ruang lingkup tidak berubah. Pekerjaan di luar ruang lingkup awal (halaman, desain, atau fitur tambahan) disampaikan biayanya terlebih dahulu dan baru dikerjakan setelah disetujui klien.</li>
         </ul>
 
-        <h2>4. Revisi</h2>
+        <h2>4. Pembayaran, invoice, dan kwitansi</h2>
         <ul>
-          <li>Jumlah revisi sesuai paket yang dipilih. Revisi tambahan untuk desain mulai Rp 10rb, untuk web dan aplikasi dihitung sesuai tingkat kesulitannya.</li>
-          <li>Revisi artinya perbaikan dari konsep yang sudah dipilih. Ganti konsep total atau ganti brief dihitung sebagai pesanan baru.</li>
+          <li>Skema umum: DP 50% di awal dan pelunasan setelah klien menyetujui hasil, sebelum file final dikirim.</li>
+          <li>Untuk proyek besar, pembayaran dapat dibagi beberapa termin sesuai yang tercantum di penawaran atau perjanjian.</li>
+          <li>Invoice dan kwitansi atas nama Bikinin Studio diterbitkan untuk setiap pembayaran.</li>
+          <li>Pembayaran melalui transfer bank, e-wallet, atau QRIS ke rekening/akun yang dikirim melalui kontak resmi di poin 1. Waspadai pihak lain yang mengatasnamakan Bikinin Studio.</li>
         </ul>
 
-        <h2>5. Waktu pengerjaan</h2>
+        <h2>5. Revisi</h2>
         <ul>
-          <li>Perkiraan: desain konten 1–3 hari, logo 3–7 hari, katalog 3–5 hari, website 1–4 minggu, tergantung jumlah halaman.</li>
+          <li>Jumlah revisi sesuai paket atau penawaran. Revisi tambahan untuk desain mulai Rp 10rb per revisi; untuk web dan aplikasi dihitung sesuai tingkat kesulitan.</li>
+          <li>Revisi adalah perbaikan atas konsep yang sudah dipilih. Penggantian konsep secara total atau perubahan brief dihitung sebagai pesanan baru.</li>
+        </ul>
+
+        <h2>6. Waktu pengerjaan</h2>
+        <ul>
+          <li>Perkiraan waktu tercantum di setiap paket dan di penawaran. Sebagai gambaran: desain konten 1–3 hari, logo 3–7 hari, katalog 2–5 hari, website 1–4 minggu, tergantung ruang lingkup.</li>
           <li>Layanan ekspres 1x24 jam tersedia dengan biaya tambahan 30%, menyesuaikan antrean.</li>
-          <li>Kalau feedback atau materi dari kamu terlambat, jadwal selesai ikut mundur.</li>
+          <li>Keterlambatan materi atau umpan balik dari klien menggeser jadwal penyelesaian secara wajar.</li>
         </ul>
 
-        <h2>6. Pembatalan</h2>
+        <h2>7. Pembatalan</h2>
         <ul>
-          <li>Batal <strong>sebelum</strong> mulai dikerjakan: DP dikembalikan penuh.</li>
-          <li>Batal <strong>setelah</strong> mulai dikerjakan: DP tidak dikembalikan, karena sudah dipakai untuk waktu dan proses desain.</li>
+          <li>Pembatalan <strong>sebelum</strong> pekerjaan dimulai: DP dikembalikan penuh.</li>
+          <li>Pembatalan <strong>setelah</strong> pekerjaan dimulai: DP tidak dikembalikan karena telah digunakan untuk waktu dan proses desain. Untuk skema termin, termin yang sudah dibayar untuk tahap yang telah dikerjakan tidak dikembalikan.</li>
         </ul>
 
-        <h2>7. Hak atas karya</h2>
+        <h2>8. Hak atas karya dan kerahasiaan</h2>
         <ul>
-          <li>Setelah lunas, hasil desain <strong>sepenuhnya milik kamu</strong>. Kamu bebas memakai dan mengubahnya.</li>
-          <li>Kami boleh menampilkan hasilnya di portofolio, web, dan media sosial Bikinin. Kalau proyekmu perlu dirahasiakan, bilang di awal dan kami nggak akan memajangnya.</li>
-          <li>Font, foto, atau ikon dari pihak ketiga mengikuti lisensinya masing-masing. Kami utamakan yang gratis untuk komersial dan akan kasih tahu kalau ada yang berbayar.</li>
-          <li>Logo kami buat dari nol. Pendaftaran merek ke DJKI tetap mengikuti proses pemeriksaan di sana.</li>
-          <li>Setelah selesai, kamu boleh (nggak wajib) kasih ulasan. Ulasan cuma tampil di web dengan izinmu, nggak kami ubah isinya, dan bisa dihapus kapan aja atas permintaanmu.</li>
+          <li>Setelah pelunasan, hasil desain <strong>sepenuhnya menjadi milik klien</strong>. Klien bebas memakai dan mengubahnya.</li>
+          <li>Bikinin Studio dapat menampilkan hasil pekerjaan di portofolio, situs, dan media sosial, <strong>kecuali</strong> klien meminta proyek dirahasiakan atau terikat NDA.</li>
+          <li>Informasi dan materi klien dijaga kerahasiaannya dan hanya dipakai untuk proyek yang bersangkutan.</li>
+          <li>Font, foto, atau ikon pihak ketiga mengikuti lisensinya masing-masing. Kami mengutamakan aset yang bebas dipakai komersial dan memberi tahu bila ada yang berbayar.</li>
+          <li>Logo dibuat dari nol. Pendaftaran merek ke DJKI tetap mengikuti proses pemeriksaan di DJKI.</li>
+          <li>Setelah proyek selesai, klien boleh (tidak wajib) memberi ulasan. Ulasan hanya tampil di situs dengan izin klien, tidak diubah isinya, dan dapat dihapus kapan saja atas permintaan klien.</li>
         </ul>
 
-        <h2>8. Materi dari klien</h2>
+        <h2>9. Materi dari klien</h2>
         <ul>
-          <li>Foto, teks, logo lama, dan materi lain yang kamu kirim harus milik kamu atau sudah ada izinnya. Tanggung jawab atas materi tersebut ada di kamu.</li>
-          <li>Kami berhak menolak pesanan yang melanggar hukum, menjiplak karya orang lain, atau berisi SARA/konten dewasa.</li>
+          <li>Foto, teks, logo lama, dan materi lain yang dikirim klien harus milik klien atau sudah memiliki izin. Tanggung jawab atas materi tersebut ada pada klien.</li>
+          <li>Bikinin Studio berhak menolak pesanan yang melanggar hukum, menjiplak karya pihak lain, atau memuat SARA/konten dewasa.</li>
         </ul>
 
-        <h2>9. Website &amp; aplikasi</h2>
+        <h2>10. Website dan aplikasi</h2>
         <ul>
-          <li>Domain dan hosting dibayar terpisah (sekitar Rp 300–800rb per tahun). Kami bantu proses daftarnya.</li>
-          <li>Perubahan atau penambahan setelah serah terima masuk maintenance, mulai Rp 100rb/bulan.</li>
+          <li>Domain dan hosting dibayar terpisah (sekitar Rp 300–800rb per tahun). Kami membantu pendaftarannya atas nama klien.</li>
+          <li>Perubahan atau penambahan setelah serah terima masuk layanan pemeliharaan, mulai Rp 100rb per bulan, atau dihitung terpisah sesuai penawaran.</li>
         </ul>
 
-        <h2>10. Kontak</h2>
-        <p>Pertanyaan soal syarat ini: WhatsApp <a data-wa="sk" href="#">0877-6329-2786</a> (admin online 24/7).</p>
+        <h2>11. Kontak</h2>
+        <p>Pertanyaan mengenai ketentuan ini dapat disampaikan melalui WhatsApp <a data-wa="sk" href="#">0877-6329-2786</a> atau email <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>.</p>
       </div>
     </section>
   </main>
@@ -131,15 +140,18 @@
     <div class="container footer-inner">
       <div>
         <img class="footer-logo" src="../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
-        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+        <p>Studio desain independen (usaha perorangan) di Bekasi. Identitas visual, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.</p>
       </div>
       <div class="footer-links">
-        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
-        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
-        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
-        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+        <span class="footer-head">Kontak</span>
+        <a data-wa="footer" href="#">WhatsApp 0877-6329-2786</a>
+        <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Layanan</span>
         <a href="../jasa-desain-feed-instagram/">Desain feed IG</a>
         <a href="../jasa-ppt/">PPT &amp; presentasi</a>
         <a href="../jasa-logo/">Logo &amp; branding</a>
@@ -148,6 +160,8 @@
         <a href="../hitung-harga/">Hitung harga</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Informasi</span>
+        <a href="../assets/dokumen/company-profile-bikinin-studio.pdf" download>Company profile (PDF)</a>
         <a href="../studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="../studi-kasus/kopi-rindang/">Studi kasus</a>
         <a href="../tips/">Tips</a>
@@ -155,9 +169,9 @@
         <a href="../kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
     </div>
-    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Situs ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
   </footer>
-  <script src="../assets/analytics.js"></script>
-  <script src="../assets/page.js"></script>
+  <script src="../assets/analytics.js" defer></script>
+  <script src="../assets/page.js" defer></script>
 </body>
 </html>

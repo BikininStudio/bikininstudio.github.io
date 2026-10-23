@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-Qp27AjCfIUPgOkC2vL9mzByGvpOJT7J6DI4nk4PwbtM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
   <script>
@@ -13,23 +15,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kebijakan Privasi · Bikinin Studio</title>
-  <meta name="description" content="Data apa yang dipakai web Bikinin Studio dan untuk apa: Google Analytics, form order, kalkulator harga, dan chat WhatsApp.">
+  <meta name="description" content="Data apa yang dipakai situs Bikinin Studio dan untuk apa: Google Analytics, form brief dan ulasan, kalkulator, hosting, dan komunikasi WhatsApp/email.">
   <link rel="canonical" href="https://bikininstudio.github.io/kebijakan-privasi/">
-  <meta name="theme-color" content="#14142B">
+  <meta name="theme-color" content="#F5F3EE">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bikinin Studio">
   <meta property="og:locale" content="id_ID">
   <meta property="og:url" content="https://bikininstudio.github.io/kebijakan-privasi/">
   <meta property="og:title" content="Kebijakan Privasi · Bikinin Studio">
-  <meta property="og:description" content="Data apa yang dipakai web Bikinin Studio dan untuk apa: Google Analytics, form order, kalkulator harga, dan chat WhatsApp.">
+  <meta property="og:description" content="Data apa yang dipakai situs Bikinin Studio dan untuk apa: Google Analytics, form brief dan ulasan, kalkulator, hosting, dan komunikasi WhatsApp/email.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -41,49 +41,52 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
         <span></span><span></span><span></span>
       </button>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" aria-label="Menu utama">
         <a href="../#layanan">Layanan</a>
-        <a href="../#harga">Harga</a>
-        <a href="../hitung-harga/">Hitung harga</a>
-        <a href="../#portofolio">Portofolio</a>
-        <a href="../tips/">Tips</a>
+        <a href="../#portofolio">Karya</a>
+        <a href="../#proses">Proses</a>
+        <a href="../#harga">Paket UMKM</a>
         <a href="../#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+        <a class="btn btn-primary btn-sm" href="../#order">Minta penawaran</a>
       </nav>
     </div>
   </header>
   <main>
     <section class="page-hero">
       <div class="container">
-        <p class="eyebrow">Data kamu</p>
+        <p class="breadcrumb"><a href="../">Beranda</a> / Kebijakan Privasi</p>
         <h1>Kebijakan Privasi</h1>
-        <p class="lead">Berlaku sejak 22 Oktober 2026. Singkatnya: kami cuma pakai data yang perlu buat ngerjain pesananmu, dan nggak kami jual ke siapa pun.</p>
+        <p class="lead">Berlaku sejak 23 Oktober 2026. Bikinin Studio hanya memakai data yang diperlukan untuk menangani pesanan Anda dan tidak menjual data kepada siapa pun.</p>
       </div>
     </section>
     <section class="section">
       <div class="container prose">
-        <h2>Statistik kunjungan</h2>
-        <p>Web ini memakai Google Analytics 4 buat menghitung jumlah kunjungan, halaman yang dibuka, dan tombol yang diklik (misalnya tombol WhatsApp atau topik yang ditanya ke asisten). Data ini anonim, jadi kami nggak tahu siapa kamu. Kamu bisa memblokirnya lewat pengaturan browser atau ekstensi pemblokir iklan.</p>
+        <h2>Pengelola data</h2>
+        <p>Pengelola data adalah Bikinin Studio, usaha perorangan di Bekasi, Jawa Barat. Kontak: WhatsApp <a data-wa="privasi" href="#">0877-6329-2786</a> atau email <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>.</p>
 
-        <h2>Form order</h2>
-        <p>Isian form order (nama, nama usaha, layanan, paket, budget, deadline, link referensi, dan detail kebutuhan) kami simpan di catatan order kami di <strong>Google Sheets</strong>, supaya brief kamu nggak hilang walaupun chat-nya kehapus. Form ini nggak minta nomor HP, email, atau data pembayaran. Setelah itu, isiannya disusun jadi pesan WhatsApp yang baru terkirim kalau kamu menekan kirim di aplikasi WhatsApp.</p>
-        <p>Catatan order cuma bisa dibuka admin Bikinin, dipakai buat ngurus pesananmu, dan dihapus paling lambat 1 tahun setelah proyek selesai. Kamu bisa minta dihapus lebih cepat (lihat di bawah).</p>
+        <h2>Statistik kunjungan</h2>
+        <p>Situs ini memakai Google Analytics 4 untuk menghitung jumlah kunjungan, halaman yang dibuka, dan tombol yang diklik (misalnya tombol WhatsApp atau topik yang ditanyakan ke asisten). Kami tidak dapat mengetahui identitas Anda dari data ini. Anda dapat memblokirnya melalui pengaturan browser atau ekstensi pemblokir.</p>
+
+        <h2>Hosting dan font</h2>
+        <p>Situs ini di-host di GitHub Pages. Seperti layanan hosting pada umumnya, GitHub dapat mencatat alamat IP pengunjung untuk keperluan keamanan dan operasional, sesuai kebijakan privasi GitHub.</p>
+        <p>Huruf (font) di halaman utama, halaman layanan, dan halaman informasi disimpan di server situs ini sendiri, sehingga tidak ada permintaan ke Google Fonts. Halaman <strong>demo</strong> (contoh landing page, katalog, dan aplikasi) masih memuat huruf dari Google Fonts, sehingga alamat IP Anda terkirim ke Google saat membuka halaman tersebut.</p>
+
+        <h2>Form brief</h2>
+        <p>Isian form brief (nama, perusahaan/usaha, layanan, ruang lingkup, anggaran, tenggat, link referensi, dan detail kebutuhan) kami simpan di catatan pesanan di <strong>Google Sheets</strong>, agar brief Anda tidak hilang walaupun percakapan terhapus. Form ini tidak meminta nomor HP, email, atau data pembayaran. Setelah itu isiannya disusun menjadi pesan WhatsApp yang baru terkirim jika Anda menekan kirim di aplikasi WhatsApp.</p>
+        <p>Catatan pesanan hanya dapat dibuka pengelola, dipakai untuk menangani pesanan Anda, dan dihapus paling lambat 1 tahun setelah proyek selesai, atau lebih cepat atas permintaan Anda.</p>
 
         <h2>Ulasan</h2>
-        <p>Setelah order selesai, kamu bisa kasih ulasan lewat link dari admin. Isiannya (kode order, nama, usaha, layanan, rating, dan ulasan) disimpan di Google Sheets yang sama. Ulasan cuma tampil di web kalau kamu centang izin tampil <strong>dan</strong> admin udah mengeceknya. Yang tampil hanya nama, usaha, layanan, rating, ulasan, dan bulan-tahunnya. Kode order nggak pernah ditampilkan. Mau ulasanmu diubah atau dihapus? Bilang aja lewat WhatsApp.</p>
+        <p>Setelah pesanan selesai, Anda dapat memberi ulasan melalui link dari kami. Isiannya (kode pesanan, nama, usaha, layanan, rating, dan ulasan) disimpan di Google Sheets yang sama. Ulasan hanya tampil di situs jika Anda memberi izin <strong>dan</strong> sudah kami periksa. Yang ditampilkan hanya nama, usaha, layanan, rating, ulasan, serta bulan dan tahunnya; kode pesanan tidak pernah ditampilkan.</p>
 
-        <h2>Asisten &amp; kalkulator harga</h2>
-        <p>Asisten otomatis dan kalkulator harga <strong>nggak menyimpan</strong> apa pun yang kamu ketik atau pilih. Jawaban dan hitungannya dibuat langsung di browser kamu.</p>
-        <p>Web ini menyimpan satu penanda kecil di browser kamu (<em>sessionStorage</em>) supaya balon sapaan asisten nggak muncul berulang kali. Penanda ini hilang sendiri saat tab ditutup.</p>
+        <h2>Asisten, kalkulator, dan halaman demo</h2>
+        <p>Asisten otomatis dan kalkulator harga <strong>tidak menyimpan</strong> apa pun yang Anda ketik atau pilih; jawabannya dibuat langsung di browser Anda.</p>
+        <p>Aplikasi demo (kasir dan booking) menyimpan data contoh di penyimpanan browser Anda (<em>localStorage</em>). Data tersebut tidak dikirim ke mana pun dan dapat dihapus dengan membersihkan data situs di browser.</p>
 
-        <h2>Chat WhatsApp</h2>
-        <p>Nama, nomor, dan isi chat yang kamu kirim cuma dipakai buat ngerjain dan ngurus pesananmu: brief, harga, revisi, dan pengiriman file. Kami nggak membagikannya ke pihak lain dan nggak memakainya buat promosi tanpa izin kamu.</p>
+        <h2>WhatsApp, email, dan file</h2>
+        <p>Nama, nomor, alamat email, isi percakapan, serta file dan materi yang Anda kirim hanya dipakai untuk mengerjakan dan mengurus pesanan Anda. Kami tidak membagikannya kepada pihak lain dan tidak memakainya untuk promosi tanpa izin Anda. Hasil desain dapat kami tampilkan di portofolio sesuai <a href="../syarat-ketentuan/">Syarat &amp; Ketentuan</a>, kecuali Anda meminta proyek dirahasiakan atau terikat NDA.</p>
 
-        <h2>File &amp; materi</h2>
-        <p>Foto, logo, dan materi yang kamu kirim hanya dipakai untuk proyekmu. Hasil desain bisa kami tampilkan di portofolio sesuai <a href="../syarat-ketentuan/">Syarat &amp; Ketentuan</a>, kecuali kamu minta dirahasiakan.</p>
-
-        <h2>Minta hapus data</h2>
-        <p>Mau isian form, chat, atau file kamu dihapus dari catatan dan perangkat kami? Kirim permintaan lewat WhatsApp <a data-wa="privasi" href="#">0877-6329-2786</a>.</p>
+        <h2>Permintaan hapus data</h2>
+        <p>Untuk meminta isian form, percakapan, atau file Anda dihapus dari catatan dan perangkat kami, kirim permintaan melalui WhatsApp <a data-wa="privasi" href="#">0877-6329-2786</a> atau email <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>.</p>
       </div>
     </section>
   </main>
@@ -91,15 +94,18 @@
     <div class="container footer-inner">
       <div>
         <img class="footer-logo" src="../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
-        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+        <p>Studio desain independen (usaha perorangan) di Bekasi. Identitas visual, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.</p>
       </div>
       <div class="footer-links">
-        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
-        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
-        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
-        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+        <span class="footer-head">Kontak</span>
+        <a data-wa="footer" href="#">WhatsApp 0877-6329-2786</a>
+        <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Layanan</span>
         <a href="../jasa-desain-feed-instagram/">Desain feed IG</a>
         <a href="../jasa-ppt/">PPT &amp; presentasi</a>
         <a href="../jasa-logo/">Logo &amp; branding</a>
@@ -108,6 +114,8 @@
         <a href="../hitung-harga/">Hitung harga</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Informasi</span>
+        <a href="../assets/dokumen/company-profile-bikinin-studio.pdf" download>Company profile (PDF)</a>
         <a href="../studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="../studi-kasus/kopi-rindang/">Studi kasus</a>
         <a href="../tips/">Tips</a>
@@ -115,9 +123,9 @@
         <a href="../kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
     </div>
-    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Situs ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
   </footer>
-  <script src="../assets/analytics.js"></script>
-  <script src="../assets/page.js"></script>
+  <script src="../assets/analytics.js" defer></script>
+  <script src="../assets/page.js" defer></script>
 </body>
 </html>

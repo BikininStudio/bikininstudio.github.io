@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-Qp27AjCfIUPgOkC2vL9mzByGvpOJT7J6DI4nk4PwbtM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
   <script>
@@ -12,10 +14,10 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Bikinin Studio · Jasa Desain, Logo, Katalog & Website untuk UMKM</title>
-  <meta name="description" content="Bikinin Studio: jasa desain konten, PPT, logo, katalog UMKM, sampai website. Harga ramah UMKM & pelajar, order langsung via WhatsApp.">
+  <title>Bikinin Studio · Studio Desain Brand, Presentasi & Website</title>
+  <meta name="description" content="Bikinin Studio: studio desain independen untuk bisnis, instansi, dan UMKM. Identitas visual, company profile, presentasi, katalog, dan website, dengan penawaran tertulis, invoice, dan perjanjian kerja.">
   <link rel="canonical" href="https://bikininstudio.github.io/">
-  <meta name="theme-color" content="#14142B">
+  <meta name="theme-color" content="#F5F3EE">
 
   <!-- Search Console terverifikasi lewat tag Google Analytics di atas: jangan hapus tag GA -->
 
@@ -24,14 +26,14 @@
   <meta property="og:site_name" content="Bikinin Studio">
   <meta property="og:locale" content="id_ID">
   <meta property="og:url" content="https://bikininstudio.github.io/">
-  <meta property="og:title" content="Bikinin Studio · Desain, Logo, Katalog & Website untuk UMKM">
-  <meta property="og:description" content="Jasa desain konten, PPT, logo, katalog, sampai website. Mulai Rp 15rb, order langsung via WhatsApp.">
+  <meta property="og:title" content="Bikinin Studio · Studio Desain Brand, Presentasi & Website">
+  <meta property="og:description" content="Identitas visual, company profile, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM. Penawaran tertulis, invoice & kwitansi, perjanjian kerja.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og-image.jpg">
   <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Bikinin Studio: jasa desain, logo, katalog, dan website untuk UMKM">
+  <meta property="og:image:alt" content="Bikinin Studio: studio desain brand, presentasi, katalog, dan website">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Favicon -->
@@ -49,16 +51,17 @@
     "url": "https://bikininstudio.github.io/",
     "logo": "https://bikininstudio.github.io/icon-512.png",
     "image": "https://bikininstudio.github.io/assets/og-image.jpg",
-    "description": "Jasa desain konten, PPT, logo, katalog UMKM, dan pembuatan website untuk UMKM dan pelajar.",
+    "description": "Studio desain independen (usaha perorangan) di Bekasi: identitas visual, company profile, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.",
     "telephone": "+6287763292786",
+    "email": "bikininstudio@gmail.com",
     "areaServed": [
       { "@type": "City", "name": "Bekasi" },
       { "@type": "AdministrativeArea", "name": "Jabodetabek" },
       { "@type": "Country", "name": "Indonesia" }
     ],
     "openingHours": "Mo-Su 00:00-23:59",
-    "knowsAbout": ["Desain feed Instagram", "Desain PPT", "Desain logo", "Desain katalog", "Pembuatan website UMKM"],
-    "priceRange": "Rp 3.000 - Rp 3.000.000",
+    "knowsAbout": ["Identitas visual dan logo", "Company profile", "Desain presentasi", "Desain katalog", "Pembuatan website"],
+    "priceRange": "Rp 3.000 - Rp 3.000.000+",
     "sameAs": [
       "https://www.instagram.com/bikinin_studio",
       "https://www.tiktok.com/@bikinin_studio",
@@ -66,64 +69,63 @@
     ]
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
+  <!-- @header:start (diisi _tools/build-pages.js, jangan diedit di sini) -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#beranda" class="brand" aria-label="Bikinin Studio, ke beranda">
+      <a href="./" class="brand" aria-label="Bikinin Studio, ke beranda">
         <img class="brand-logo" src="assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
       </a>
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
         <span></span><span></span><span></span>
       </button>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" aria-label="Menu utama">
         <a href="#layanan">Layanan</a>
-        <a href="#harga">Harga</a>
-        <a href="hitung-harga/">Hitung harga</a>
-        <a href="#portofolio">Portofolio</a>
-        <a href="tips/">Tips</a>
+        <a href="#portofolio">Karya</a>
+        <a href="#proses">Proses</a>
+        <a href="#harga">Paket UMKM</a>
         <a href="#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+        <a class="btn btn-primary btn-sm" href="#order">Minta penawaran</a>
       </nav>
     </div>
   </header>
+  <!-- @header:end -->
 
   <main>
-    <!-- ===== Hero / landing ===== -->
+    <!-- ===== Hero ===== -->
     <section id="beranda" class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <span class="badge">Desain mulai 15rb · Logo 75rb · Web 400rb</span>
-          <h1>Bikinin desain, logo, sampai website buat <em>usahamu.</em></h1>
-          <p class="lead">Jasa kreatif untuk UMKM dan pelajar: feed Instagram, presentasi, logo, katalog produk, sampai website. Harga jelas, revisi jelas, order cukup lewat WhatsApp.</p>
+          <p class="eyebrow">Studio desain independen · Bekasi</p>
+          <h1>Desain brand, presentasi, dan website untuk <em>bisnis dan instansi.</em></h1>
+          <p class="lead">Bikinin Studio mengerjakan identitas visual, company profile, materi presentasi, katalog, dan website, dari brief sampai file final. Setiap proyek dimulai dengan penawaran tertulis dan diakhiri dengan serah terima yang jelas.</p>
           <div class="hero-cta">
-            <a class="btn btn-primary" data-wa="hero" href="#">Order via WhatsApp</a>
-            <a class="btn btn-ghost" href="#harga">Lihat harga</a>
+            <a class="btn btn-primary" href="#order">Minta penawaran</a>
+            <a class="btn btn-ghost" data-wa="hero" href="#">Konsultasi WhatsApp</a>
           </div>
-          <a class="demo-link" href="#portofolio" data-filter-jump="demo">Coba demo live: aplikasi kasir &amp; booking, landing page, katalog →</a>
-          <p class="hero-small">Bayar DP 50% buat mulai, sisanya setelah kamu lihat hasilnya.</p>
+          <ul class="hero-facts">
+            <li>Penawaran harga tertulis sebelum pekerjaan dimulai</li>
+            <li>Perjanjian kerja dan NDA bila diperlukan</li>
+            <li>Invoice dan kwitansi untuk setiap pembayaran</li>
+          </ul>
         </div>
+        <!-- Tumpukan karya yang berganti otomatis + HP demo aplikasi (script.js: initHeroShowcase). Label jujur per kartu. -->
         <div class="hero-visual" aria-hidden="true">
-          <!-- Tumpukan karya yang gonta-ganti otomatis (script.js: initHeroShowcase) -->
           <div class="hv-deck-wrap">
-            <span class="hv-label">Feed IG · Kopi Rindang</span>
+            <span class="hv-label">Karya asli · Toko online GgStore</span>
             <div class="hv-deck">
-              <img class="deck-card" data-label="Feed IG · Kopi Rindang" src="assets/hero/card-feed.webp" alt="">
-              <img class="deck-card" data-label="Logo · Gentra Barbershop" src="assets/hero/card-logo-gentra.webp" alt="" loading="lazy">
-              <img class="deck-card" data-label="Carousel promo · Bikinin" src="assets/hero/card-promo.webp" alt="" loading="lazy">
-              <img class="deck-card" data-label="Logo · Rasa Nusa" src="assets/hero/card-logo-rasa.webp" alt="" loading="lazy">
-              <img class="deck-card" data-label="PPT tugas · Fotosintesis" src="assets/hero/card-ppt.webp" alt="" loading="lazy">
+              <img class="deck-card" data-label="Karya asli · Toko online GgStore" src="assets/portfolio/ggstore.webp" alt="" width="1280" height="800">
+              <img class="deck-card" data-label="Company profile · Arunika (konsep)" src="assets/portfolio/demo-arunika.webp" alt="" width="1280" height="800" loading="lazy">
+              <img class="deck-card" data-label="Logo · Gentra Barbershop (konsep)" src="assets/hero/card-logo-gentra.webp" alt="" width="800" height="500" loading="lazy">
+              <img class="deck-card" data-label="Presentasi perusahaan (konsep)" src="assets/portfolio/perusahaan-06.webp" alt="" width="1280" height="720" loading="lazy">
+              <img class="deck-card" data-label="Karya sendiri · Carousel promo Bikinin" src="assets/hero/card-promo.webp" alt="" width="800" height="500" loading="lazy">
             </div>
             <div class="hv-dots"></div>
           </div>
-
-          <!-- HP dengan layar demo aplikasi -->
           <div class="hv-phone-wrap">
             <div class="hv-phone">
               <img class="hp-screen" src="assets/hero/hp-kasir.webp" alt="">
@@ -131,95 +133,88 @@
               <img class="hp-screen" src="assets/hero/hp-tiket.webp" alt="" loading="lazy">
             </div>
           </div>
-
-          <span class="hv-note">Contoh karya · brand fiktif / proyek konsep</span>
+          <span class="hv-note">Contoh karya · karya asli &amp; proyek konsep (brand fiktif)</span>
         </div>
       </div>
     </section>
 
-    <!-- ===== Pita karya berjalan (isi digandakan oleh initStrip di script.js biar nyambung tanpa putus) ===== -->
-    <section class="strip" aria-label="Contoh karya Bikinin Studio">
-      <div class="strip-track">
-        <img src="assets/hero/card-feed.webp" alt="" loading="lazy" width="800" height="500">
-        <img src="assets/hero/card-logo-gentra.webp" alt="" loading="lazy" width="800" height="500">
-        <img src="assets/portfolio/demo-booking-gentra.webp" alt="" loading="lazy" width="1280" height="800">
-        <img src="assets/hero/card-ppt.webp" alt="" loading="lazy" width="800" height="500">
-        <img src="assets/hero/card-logo-rasa.webp" alt="" loading="lazy" width="800" height="500">
-        <img src="assets/hero/svc-katalog.webp" alt="" loading="lazy" width="800" height="500">
-        <img src="assets/hero/card-promo.webp" alt="" loading="lazy" width="800" height="500">
-        <img src="assets/portfolio/logo-lipatin-laundry.webp" alt="" loading="lazy" width="1400" height="875">
-        <img src="assets/portfolio/demo-arunika.webp" alt="" loading="lazy" width="1280" height="800">
-      </div>
-      <p class="strip-note container">contoh karya · proyek konsep</p>
+    <!-- ===== Bukti cara kerja (semua butir sudah dikonfirmasi pemilik) ===== -->
+    <section class="proofbar" aria-label="Cara kerja Bikinin Studio">
+      <ul>
+        <li><b>Brief &amp; penawaran tertulis</b><span>Ruang lingkup, harga, dan jadwal disepakati di awal</span></li>
+        <li><b>Revisi tercantum per paket</b><span>Tidak ada biaya tambahan yang tidak disebutkan</span></li>
+        <li><b>DP atau termin</b><span>Termin tersedia untuk proyek besar</span></li>
+        <li><b>File final setelah pelunasan</b><span>Hak atas desain diserahkan penuh</span></li>
+      </ul>
     </section>
 
     <!-- ===== Layanan ===== -->
     <section id="layanan" class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Yang bisa kami kerjain</h2>
-          <p class="section-sub">Konten, logo, katalog, dan web dikerjain di satu tempat, jadi warnanya nyambung semua.</p>
+          <div>
+            <p class="eyebrow">Layanan</p>
+            <h2>Satu studio untuk identitas, materi, dan kanal digital Anda</h2>
+          </div>
+          <p class="section-sub">Logo, presentasi, katalog, dan website dikerjakan di satu tempat dengan satu sistem visual, sehingga semua materi terlihat konsisten.</p>
         </div>
         <div class="service-grid">
-          <a class="service-card" href="#harga" data-tab-jump="desain">
-            <img src="assets/hero/card-feed.webp" alt="Contoh feed Instagram Kopi Rindang" loading="lazy" width="800" height="500">
-            <h3>Desain Konten &amp; PPT</h3>
-            <p>Feed Instagram, poster promo, sampai presentasi tugas, sidang, dan lomba.</p>
-            <span class="service-price">Mulai Rp 15rb →</span>
+          <a class="service-card" href="jasa-logo/">
+            <img src="assets/portfolio/thumb/logo-arunika-logistik.webp" alt="Logo Arunika Logistik (proyek konsep)" loading="lazy" width="720" height="450">
+            <h3>Identitas visual &amp; logo</h3>
+            <p>Logo orisinal dari nol, palet warna, tipografi, dan panduan brand untuk dipakai tim Anda.</p>
+            <span class="service-price">Detail layanan →</span>
           </a>
-          <a class="service-card" href="#harga" data-tab-jump="logo">
-            <img src="assets/hero/card-logo-gentra.webp" alt="Contoh logo Gentra Barbershop" loading="lazy" width="800" height="500">
-            <h3>Logo &amp; Branding</h3>
-            <p>Logo orisinal dari nol, lengkap dengan palet warna dan panduan brand.</p>
-            <span class="service-price">Mulai Rp 75rb →</span>
+          <a class="service-card" href="jasa-website-umkm/">
+            <img src="assets/portfolio/thumb/demo-arunika.webp" alt="Contoh company profile Arunika Logistik (proyek konsep)" loading="lazy" width="720" height="450">
+            <h3>Company profile &amp; website</h3>
+            <p>Landing page, company profile, dan toko online yang cepat dibuka dan mudah ditemukan di Google.</p>
+            <span class="service-price">Detail layanan →</span>
           </a>
-          <a class="service-card" href="#harga" data-tab-jump="katalog">
-            <img src="assets/hero/svc-katalog.webp" alt="Contoh katalog digital Rasa Nusa" loading="lazy" width="640" height="400">
-            <h3>Katalog UMKM</h3>
-            <p>Menu, pricelist, dan katalog produk, versi digital buat WA atau siap cetak.</p>
-            <span class="service-price">Mulai Rp 35rb →</span>
+          <a class="service-card" href="jasa-ppt/">
+            <img src="assets/portfolio/thumb/perusahaan-06.webp" alt="Slide grafik company profile (proyek konsep)" loading="lazy" width="720" height="405">
+            <h3>Desain presentasi</h3>
+            <p>Deck perusahaan, laporan, dan materi paparan: isi dari Anda, struktur dan desain dari kami.</p>
+            <span class="service-price">Detail layanan →</span>
           </a>
-          <a class="service-card" href="#harga" data-tab-jump="web">
-            <img src="assets/portfolio/demo-arunika.webp" alt="Contoh company profile Arunika Logistik" loading="lazy" width="1280" height="800">
-            <h3>Website &amp; Aplikasi</h3>
-            <p>Landing page, company profile, toko online, sampai aplikasi sederhana.</p>
-            <span class="service-price">Mulai Rp 400rb →</span>
+          <a class="service-card" href="jasa-katalog-menu/">
+            <img src="assets/hero/thumb/svc-katalog.webp" alt="Contoh katalog digital Rasa Nusa (proyek konsep)" loading="lazy" width="640" height="400">
+            <h3>Katalog produk &amp; menu</h3>
+            <p>Katalog digital untuk dibagikan dan file siap cetak sesuai ukuran percetakan.</p>
+            <span class="service-price">Detail layanan →</span>
+          </a>
+          <a class="service-card" href="jasa-desain-feed-instagram/">
+            <img src="assets/hero/thumb/card-feed.webp" alt="Contoh feed Instagram Kopi Rindang (proyek konsep)" loading="lazy" width="720" height="450">
+            <h3>Konten media sosial</h3>
+            <p>Feed, poster, dan materi kampanye dengan gaya yang konsisten di semua kanal.</p>
+            <span class="service-price">Detail layanan →</span>
+          </a>
+          <a class="service-card" href="studi-kasus/aplikasi-kasir/">
+            <img src="assets/portfolio/thumb/demo-kasir-kopi-rindang.webp" alt="Aplikasi kasir Kopi Rindang (proyek konsep)" loading="lazy" width="720" height="450">
+            <h3>Aplikasi web sederhana</h3>
+            <p>Kasir, booking, atau katalog internal yang disesuaikan dengan alur kerja Anda.</p>
+            <span class="service-price">Lihat contoh →</span>
           </a>
         </div>
-        <p class="service-more">Detail tiap layanan: <a href="jasa-desain-feed-instagram/">Feed IG</a> · <a href="jasa-ppt/">PPT</a> · <a href="jasa-logo/">Logo</a> · <a href="jasa-katalog-menu/">Katalog &amp; menu</a> · <a href="jasa-website-umkm/">Website &amp; aplikasi</a> · atau <a href="hitung-harga/">hitung estimasi harganya</a></p>
+        <p class="service-more">Perlu angka cepat? <a href="hitung-harga/">Hitung estimasi harga</a> atau lihat <a href="#harga">paket UMKM &amp; pelajar</a>.</p>
       </div>
     </section>
 
-    <!-- ===== Harga ===== -->
-    <section id="harga" class="section section-alt">
+    <!-- ===== Karya ===== -->
+    <section id="portofolio" class="section section-alt">
       <div class="container">
-        <h2>Daftar harga</h2>
-        <p class="section-sub">Harga perkenalan untuk <span data-kuota>10</span> klien pertama. Angkanya harga minimal; total pastinya kami kirim setelah lihat brief, sebelum mulai kerja. Isi tiap paket ada di baris "Termasuk".</p>
-        <div class="tabs" role="tablist" aria-label="Kategori layanan">
-          <button role="tab" class="tab" aria-selected="true" data-tab="desain">Desain &amp; PPT</button>
-          <button role="tab" class="tab" aria-selected="false" data-tab="logo">Logo</button>
-          <button role="tab" class="tab" aria-selected="false" data-tab="katalog">Katalog</button>
-          <button role="tab" class="tab" aria-selected="false" data-tab="web">Web &amp; Aplikasi</button>
-        </div>
-        <div id="price-panel" class="price-grid" role="tabpanel" aria-live="polite"></div>
-        <p id="price-note" class="note"></p>
-      </div>
-    </section>
-
-    <!-- ===== Portofolio ===== -->
-    <section id="portofolio" class="section">
-      <div class="container">
+        <p class="eyebrow">Karya</p>
         <h2>Portofolio</h2>
         <h3 class="gallery-head">Karya asli</h3>
-        <p class="section-sub">Dipakai beneran: toko online dan identitas Bikinin sendiri. Karya klien masuk ke sini begitu ada.</p>
+        <p class="section-sub">Dipakai sungguhan: toko online dan identitas Bikinin Studio sendiri. Karya klien ditambahkan di sini setelah ada izin dari klien.</p>
         <div id="gallery-real" class="gallery"></div>
         <h3 class="gallery-head">Proyek konsep &amp; demo</h3>
-        <p class="section-sub">Brand fiktif buat nunjukin gaya dan kemampuan kami, bukan klien asli. Tanda <strong>Demo live</strong> bisa dicoba langsung. Prosesnya: <a href="studi-kasus/kopi-rindang/">studi kasus Kopi Rindang →</a></p>
+        <p class="section-sub">Brand fiktif untuk menunjukkan gaya dan kemampuan kami, bukan klien sungguhan. Yang bertanda <strong>Demo live</strong> bisa dicoba langsung. Contoh proses: <a href="studi-kasus/kopi-rindang/">studi kasus Kopi Rindang →</a></p>
         <div class="filters" role="group" aria-label="Filter portofolio">
           <button class="filter is-active" data-filter="semua">Semua</button>
           <button class="filter" data-filter="demo">Demo live</button>
           <button class="filter" data-filter="web">Web &amp; aplikasi</button>
-          <button class="filter" data-filter="feed">Feed IG</button>
+          <button class="filter" data-filter="feed">Media sosial</button>
           <button class="filter" data-filter="presentasi">Presentasi</button>
           <button class="filter" data-filter="logo">Logo</button>
         </div>
@@ -228,179 +223,251 @@
       </div>
     </section>
 
-    <!-- ===== Kepercayaan (pengganti testimoni di awal) ===== -->
-    <section id="jaminan" class="section">
+    <!-- ===== Proses kerja ===== -->
+    <section id="proses" class="section">
       <div class="container">
-        <div class="trust-block">
-          <div class="trust-lead">
-            <h2>Kamu lihat hasilnya dulu, <em>baru lunas</em></h2>
-            <p>Bayar DP 50% buat mulai. Sisanya dibayar setelah kamu lihat desainnya dan bilang oke.</p>
-            <p class="trust-new" id="trust-new">Kami baru buka, jadi belum ada testimoni klien. Makanya pembayarannya dibikin begini: kamu nggak bayar penuh sebelum lihat hasilnya.</p>
-            <a class="btn btn-accent" data-wa="jaminan" href="#">Tanya dulu, gratis</a>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Proses</p>
+            <h2>Lima tahap, setiap tahap ada hasilnya</h2>
           </div>
-          <ul class="trust-list">
+          <p class="section-sub">Anda selalu tahu pekerjaan sedang di tahap mana, dokumen apa yang diterima, dan kapan pembayaran jatuh tempo.</p>
+        </div>
+        <ol class="steps steps-5">
+          <li><span class="step-num">01</span><h3>Konsultasi &amp; brief</h3><p>Kebutuhan, tujuan, materi, dan tenggat dibahas lewat WhatsApp, email, atau form di bawah.</p><span class="step-out"><b>Hasil:</b> ringkasan kebutuhan</span></li>
+          <li><span class="step-num">02</span><h3>Penawaran tertulis</h3><p>Rincian pekerjaan, jumlah revisi, harga, dan jadwal dikirim sebelum pekerjaan dimulai.</p><span class="step-out"><b>Hasil:</b> dokumen penawaran</span></li>
+          <li><span class="step-num">03</span><h3>Kesepakatan &amp; DP</h3><p>Perjanjian kerja atau NDA bila diperlukan, lalu DP atau termin pertama.</p><span class="step-out"><b>Hasil:</b> perjanjian, invoice, kwitansi</span></li>
+          <li><span class="step-num">04</span><h3>Pengerjaan &amp; revisi</h3><p>Anda menerima pratinjau untuk ditinjau. Revisi sesuai jumlah yang tercantum di penawaran.</p><span class="step-out"><b>Hasil:</b> pratinjau yang disetujui</span></li>
+          <li><span class="step-num">05</span><h3>Pelunasan &amp; serah terima</h3><p>File final, file sumber sesuai paket, dan hak atas desain diserahkan setelah pelunasan.</p><span class="step-out"><b>Hasil:</b> file final, kwitansi lunas</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== Legalitas & dokumen ===== -->
+    <section id="legalitas" class="section section-alt">
+      <div class="container legal-block">
+        <div class="legal-id">
+          <p class="eyebrow">Tentang usaha</p>
+          <h2>Bikinin Studio</h2>
+          <p>Studio desain independen (usaha perorangan) yang berbasis di Bekasi dan melayani klien di seluruh Indonesia secara daring.</p>
+          <dl>
+            <dt>Bentuk usaha</dt><dd>Usaha perorangan</dd>
+            <dt>Domisili</dt><dd>Bekasi, Jawa Barat</dd>
+            <dt>WhatsApp</dt><dd><a data-wa="legalitas" href="#">0877-6329-2786</a></dd>
+            <dt>Email</dt><dd><a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a></dd>
+          </dl>
+          <a class="btn btn-accent btn-sm legal-pdf" href="assets/dokumen/company-profile-bikinin-studio.pdf" download>Unduh company profile (PDF)</a>
+          <p class="trust-new" id="trust-new">Kami studio yang baru berjalan, sehingga belum ada testimoni klien. Karena itu pelunasan dilakukan setelah Anda melihat dan menyetujui hasilnya.</p>
+        </div>
+        <div>
+          <p class="eyebrow">Dokumen &amp; pembayaran</p>
+          <h2>Yang Anda terima dalam setiap proyek</h2>
+          <ul class="doc-list">
             <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
-              <div><h3>Preview sebelum pelunasan</h3><p>Kamu nggak bayar penuh buat sesuatu yang belum kamu lihat.</p></div>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+              <div><h3>Penawaran harga tertulis</h3><p>Ruang lingkup, jumlah revisi, harga, dan jadwal. Harga tidak berubah selama brief tidak berubah.</p></div>
             </li>
             <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4Z"/><path d="m13.5 6.5 4 4"/></svg>
-              <div><h3>Revisi jelas dari awal</h3><p>Jumlah revisi tertulis di tiap paket, jadi nggak ada biaya kejutan.</p></div>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 4.4 3.4 8.3 8 9 4.6-.7 8-4.6 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+              <div><h3>Perjanjian kerja &amp; NDA</h3><p>Perjanjian tertulis dan perjanjian kerahasiaan dapat ditandatangani atas permintaan Anda. Proyek rahasia tidak dipajang di portofolio.</p></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h3"/></svg>
+              <div><h3>Invoice &amp; kwitansi</h3><p>Diterbitkan atas nama Bikinin Studio untuk setiap pembayaran, termasuk DP dan pelunasan.</p></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16M8 15v-4M12 15V8M16 15v-6"/></svg>
+              <div><h3>DP atau pembayaran termin</h3><p>Umumnya DP 50% dan pelunasan sebelum file final. Untuk proyek besar, pembayaran dapat dibagi beberapa termin.</p></div>
             </li>
             <li>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/><path d="m9 13 2 2 4-4"/></svg>
-              <div><h3>File siap pakai</h3><p>PNG, JPG, atau PDF siap upload dan cetak. Bisa minta file Canva buat kamu edit sendiri.</p></div>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
-              <div><h3>Demo bisa dicoba sebelum order</h3><p>Aplikasi kasir, booking, landing page, dan katalog di portofolio bisa kamu pakai langsung.</p></div>
+              <div><h3>Hak atas desain</h3><p>Setelah lunas, hasil desain sepenuhnya milik Anda. Detail lengkap di <a href="syarat-ketentuan/">Syarat &amp; Ketentuan</a>.</p></div>
             </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== Testimoni (otomatis muncul kalau TESTIMONIALS di script.js diisi) ===== -->
-    <section id="testimoni" class="section" hidden></section>
-
-    <!-- ===== Cara order ===== -->
-    <section class="section">
+    <!-- ===== Paket UMKM & pelajar ===== -->
+    <section id="harga" class="section">
       <div class="container">
-        <h2>Cara order</h2>
-        <ol class="steps">
-          <li><span class="step-num">1</span><h3>Chat admin via WhatsApp</h3><p>Ceritain kebutuhanmu, atau isi form di bawah biar lebih cepat.</p></li>
-          <li><span class="step-num">2</span><h3>Kirim brief &amp; bayar DP 50%</h3><p>Kami kirim total harga dan estimasi waktu sebelum mulai kerja.</p></li>
-          <li><span class="step-num">3</span><h3>Terima desain + revisi</h3><p>Revisi sesuai paket, pelunasan sebelum file final dikirim.</p></li>
-        </ol>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Paket UMKM &amp; pelajar</p>
+            <h2>Paket harga tetap untuk usaha kecil dan pelajar</h2>
+          </div>
+          <p class="section-sub">Harga perkenalan untuk <span data-kuota>10</span> klien pertama. Angka di bawah adalah harga minimal; total pasti dikirim setelah brief diterima, sebelum pekerjaan dimulai. Proyek perusahaan dan instansi dihitung lewat penawaran.</p>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Kategori paket">
+          <button role="tab" class="tab" id="tab-desain" aria-selected="true" aria-controls="price-panel" data-tab="desain">Desain &amp; PPT</button>
+          <button role="tab" class="tab" id="tab-logo" aria-selected="false" aria-controls="price-panel" tabindex="-1" data-tab="logo">Logo</button>
+          <button role="tab" class="tab" id="tab-katalog" aria-selected="false" aria-controls="price-panel" tabindex="-1" data-tab="katalog">Katalog</button>
+          <button role="tab" class="tab" id="tab-web" aria-selected="false" aria-controls="price-panel" tabindex="-1" data-tab="web">Web &amp; Aplikasi</button>
+        </div>
+        <div id="price-panel" class="price-grid" role="tabpanel" aria-labelledby="tab-desain" aria-live="polite"></div>
+        <p id="price-note" class="note"></p>
       </div>
     </section>
 
-    <!-- ===== Form order ===== -->
+    <!-- ===== Testimoni (otomatis muncul kalau ada ulasan asli yang disetujui) ===== -->
+    <section id="testimoni" class="section" hidden></section>
+
+    <!-- ===== Form brief ===== -->
     <section id="order" class="section section-alt">
       <div class="container order-wrap">
         <div class="order-copy">
-          <h2>Form order</h2>
-          <p id="order-note">Isi form ini, terus klik tombolnya. WhatsApp bakal kebuka dengan pesan yang udah tersusun, tinggal kirim. Brief kamu juga kami catat biar nggak hilang walaupun chat-nya kehapus.</p>
-          <p class="online"><span class="dot" aria-hidden="true"></span>Admin online 24/7</p>
-          <a class="wa-direct" data-wa="order_direct" href="#">atau chat langsung: 0877-6329-2786</a>
+          <p class="eyebrow">Minta penawaran</p>
+          <h2>Ceritakan kebutuhan Anda</h2>
+          <p id="order-note">WhatsApp akan terbuka dengan pesan yang sudah tersusun, dan brief Anda kami catat agar tidak hilang. Penawaran tertulis kami kirim setelah brief dipelajari.</p>
+          <ul class="contact-list">
+            <li><span>WhatsApp</span><a class="wa-direct" data-wa="order_direct" href="#">0877-6329-2786</a></li>
+            <li><span>Email</span><a href="mailto:bikininstudio@gmail.com?subject=Permintaan%20penawaran">bikininstudio@gmail.com</a></li>
+          </ul>
+          <p class="online"><span class="dot" aria-hidden="true"></span>WhatsApp aktif 24 jam</p>
         </div>
         <form id="order-form" class="order-form" novalidate>
           <div class="field">
-            <label for="f-nama">Nama kamu *</label>
+            <label for="f-nama">Nama *</label>
             <input id="f-nama" name="nama" type="text" autocomplete="name" required>
           </div>
           <div class="field">
-            <label for="f-usaha">Nama usaha / brand</label>
-            <input id="f-usaha" name="usaha" type="text">
+            <label for="f-usaha">Perusahaan / instansi / usaha</label>
+            <input id="f-usaha" name="usaha" type="text" autocomplete="organization">
           </div>
           <div class="field">
             <label for="f-layanan">Layanan *</label>
             <select id="f-layanan" name="layanan" required>
               <option value="">Pilih layanan</option>
-              <option>Desain konten / feed IG</option>
-              <option>PPT / presentasi</option>
               <option>Logo &amp; branding</option>
-              <option>Katalog / menu UMKM</option>
+              <option>Company profile</option>
               <option>Website</option>
               <option>Aplikasi</option>
+              <option>PPT / presentasi</option>
+              <option>Katalog / menu UMKM</option>
+              <option>Desain konten / feed IG</option>
               <option>Lainnya</option>
             </select>
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="f-paket">Paket</label>
-              <input id="f-paket" name="paket" type="text" placeholder="contoh: Paket 10 feed">
+              <label for="f-paket">Paket / ruang lingkup</label>
+              <input id="f-paket" name="paket" type="text" placeholder="contoh: company profile 5 halaman">
             </div>
             <div class="field">
-              <label for="f-budget">Budget kira-kira</label>
+              <label for="f-budget">Perkiraan anggaran</label>
               <select id="f-budget" name="budget">
-                <option value="">Belum tahu</option>
+                <option value="">Belum ditentukan</option>
                 <option>Di bawah Rp 100rb</option>
                 <option>Rp 100–300rb</option>
                 <option>Rp 300rb–1jt</option>
                 <option>Rp 1–3jt</option>
-                <option>Di atas Rp 3jt</option>
+                <option>Rp 3–10jt</option>
+                <option>Di atas Rp 10jt</option>
               </select>
             </div>
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="f-deadline">Deadline</label>
+              <label for="f-deadline">Tenggat</label>
               <input id="f-deadline" name="deadline" type="date">
             </div>
             <div class="field">
               <label for="f-ref">Link referensi</label>
-              <input id="f-ref" name="referensi" type="url" inputmode="url" placeholder="akun IG / contoh desain">
+              <input id="f-ref" name="referensi" type="url" inputmode="url" placeholder="situs, akun IG, atau contoh desain">
             </div>
           </div>
           <div class="field">
             <label for="f-detail">Detail kebutuhan</label>
-            <textarea id="f-detail" name="detail" rows="4" placeholder="Warna yang disukai, teks yang mau dimasukin, ukuran, dll."></textarea>
+            <textarea id="f-detail" name="detail" rows="4" placeholder="Tujuan, jumlah halaman/desain, dokumen yang dibutuhkan (penawaran, perjanjian, NDA), dll."></textarea>
           </div>
           <div class="hp-field" aria-hidden="true"><input id="f-web" aria-label="-" name="kode_cadangan" type="text" tabindex="-1" autocomplete="off"></div>
-          <label class="form-check"><input type="checkbox" name="setuju" id="f-setuju" required> <span>Saya setuju brief ini dicatat untuk keperluan order, sesuai <a href="kebijakan-privasi/">Kebijakan Privasi</a>.</span></label>
-          <p id="form-error" class="form-error" role="alert" hidden>Nama dan layanan wajib diisi ya.</p>
-          <button type="submit" class="btn btn-primary btn-block">Kirim ke WhatsApp</button>
-          <p class="form-legal">Dengan order, kamu setuju dengan <a href="syarat-ketentuan/">Syarat &amp; Ketentuan</a> kami.</p>
+          <label class="form-check"><input type="checkbox" name="setuju" id="f-setuju" required> <span>Saya setuju brief ini dicatat untuk keperluan penawaran dan pesanan, sesuai <a href="kebijakan-privasi/">Kebijakan Privasi</a>.</span></label>
+          <p id="form-error" class="form-error" role="alert" hidden>Mohon isi nama dan layanan.</p>
+          <button type="submit" class="btn btn-primary btn-block">Kirim brief via WhatsApp</button>
+          <p class="form-legal">Pemesanan mengikuti <a href="syarat-ketentuan/">Syarat &amp; Ketentuan</a> kami.</p>
         </form>
       </div>
     </section>
 
-    <!-- ===== FAQ ===== -->
+    <!-- ===== FAQ (asisten membaca jawaban dari sini: jaga kata kunci di judul) ===== -->
     <section id="faq" class="section">
       <div class="container faq-wrap">
-        <p class="eyebrow">FAQ</p>
-        <h2>Yang sering <em>ditanyain</em></h2>
-        <details>
-          <summary>Berapa lama pengerjaannya?</summary>
-          <p>Desain konten 1–3 hari, logo 3–7 hari, katalog 3–5 hari, website 1–4 minggu tergantung jumlah halaman. Butuh cepat? Ada layanan ekspres 1x24 jam dengan biaya tambahan 30%.</p>
-        </details>
-        <details>
-          <summary>Revisinya berapa kali?</summary>
-          <p>Sesuai paket yang dipilih. Revisi tambahan untuk desain mulai Rp 10rb, untuk web dan aplikasi dihitung sesuai tingkat kesulitannya.</p>
-        </details>
-        <details>
-          <summary>Pembayarannya gimana?</summary>
-          <p>DP 50% di awal, pelunasan sebelum file final dikirim. Bisa transfer bank, e-wallet, atau QRIS.</p>
-        </details>
-        <details>
-          <summary>Harga website udah termasuk domain dan hosting?</summary>
-          <p>Belum. Domain dan hosting dibayar terpisah, sekitar Rp 300–800rb per tahun. Kami bantu proses daftarnya.</p>
-        </details>
-        <details>
-          <summary>Kalau batal di tengah jalan gimana?</summary>
-          <p>Batal sebelum mulai dikerjakan, DP kami kembalikan penuh. Kalau sudah mulai dikerjakan, DP hangus. Detailnya ada di Syarat &amp; Ketentuan.</p>
-        </details>
-        <details>
-          <summary>Kenapa harganya murah?</summary>
-          <p>Kami baru mulai, jadi pakai harga perkenalan buat <span data-kuota>10</span> klien pertama. Setelah itu harga naik ke harga normal, dan yang udah deal tetap pakai harga lama. Isi paket dan jumlah revisinya nggak dikurangin.</p>
-        </details>
-        <details>
-          <summary>Bisa order dari luar kota?</summary>
-          <p>Bisa. Semua dikerjain online, brief dan file dikirim lewat WhatsApp atau email.</p>
-        </details>
-        <details>
-          <summary>File apa aja yang aku dapet?</summary>
-          <p>Desain dalam format PNG/JPG/PDF siap pakai. Logo paket Standard ke atas dapat file vektor. Bisa juga minta file Canva yang bisa diedit sendiri.</p>
-        </details>
+        <div class="faq-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Pertanyaan yang sering diajukan</h2>
+          <p class="section-sub">Belum terjawab? Hubungi kami lewat <a data-wa="faq" href="#">WhatsApp</a> atau <a href="mailto:bikininstudio@gmail.com">email</a>.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Apakah tersedia penawaran tertulis, invoice, dan kwitansi?</summary>
+            <p>Ya. Penawaran harga tertulis dikirim sebelum pekerjaan dimulai, dan invoice serta kwitansi atas nama Bikinin Studio diterbitkan untuk setiap pembayaran.</p>
+          </details>
+          <details>
+            <summary>Bisakah menandatangani perjanjian kerja atau NDA?</summary>
+            <p>Bisa. Perjanjian kerja tertulis dan perjanjian kerahasiaan (NDA) dapat ditandatangani atas permintaan Anda. Proyek yang dirahasiakan tidak kami tampilkan di portofolio.</p>
+          </details>
+          <details>
+            <summary>Apa bentuk usaha Bikinin Studio?</summary>
+            <p>Bikinin Studio adalah studio desain independen berbentuk usaha perorangan, berbasis di Bekasi, dan melayani klien di seluruh Indonesia secara daring.</p>
+          </details>
+          <details>
+            <summary>Berapa lama pengerjaannya?</summary>
+            <p>Perkiraan waktu tercantum di setiap paket dan di penawaran. Sebagai gambaran: desain konten dan PPT tugas 1–3 hari, logo 3–7 hari, katalog 2–5 hari, website 1–4 minggu tergantung jumlah halaman. Layanan ekspres 1x24 jam tersedia dengan biaya tambahan 30%, menyesuaikan antrean.</p>
+          </details>
+          <details>
+            <summary>Bagaimana sistem pembayarannya?</summary>
+            <p>Umumnya DP 50% di awal dan pelunasan sebelum file final dikirim. Untuk proyek besar, pembayaran dapat dibagi beberapa termin sesuai penawaran. Pembayaran melalui transfer bank, e-wallet, atau QRIS.</p>
+          </details>
+          <details>
+            <summary>Revisinya berapa kali?</summary>
+            <p>Sesuai paket atau penawaran yang disepakati. Revisi tambahan untuk desain mulai Rp 10rb, untuk web dan aplikasi dihitung sesuai tingkat kesulitannya.</p>
+          </details>
+          <details>
+            <summary>Siapa pemilik hak atas desainnya?</summary>
+            <p>Setelah pelunasan, hasil desain sepenuhnya milik Anda. Font, foto, atau ikon pihak ketiga mengikuti lisensinya masing-masing dan akan kami informasikan bila ada yang berbayar.</p>
+          </details>
+          <details>
+            <summary>Bagaimana jika proyek dibatalkan?</summary>
+            <p>Jika dibatalkan sebelum pekerjaan dimulai, DP dikembalikan penuh. Jika sudah mulai dikerjakan, DP hangus. Detailnya ada di Syarat &amp; Ketentuan.</p>
+          </details>
+          <details>
+            <summary>Apakah harga website sudah termasuk domain dan hosting?</summary>
+            <p>Belum. Domain dan hosting dibayar terpisah, sekitar Rp 300–800rb per tahun. Kami bantu proses pendaftarannya atas nama Anda.</p>
+          </details>
+          <details>
+            <summary>File apa saja yang saya terima?</summary>
+            <p>File siap pakai (PNG/JPG/PDF) dan, sesuai paket, file sumber seperti vektor logo, PPTX, atau file Canva yang bisa Anda sunting sendiri.</p>
+          </details>
+          <details>
+            <summary>Mengapa paket UMKM harganya terjangkau?</summary>
+            <p>Kami studio yang baru berjalan, sehingga memakai harga perkenalan untuk <span data-kuota>10</span> klien pertama. Isi paket dan jumlah revisinya tidak dikurangi. Klien yang sudah sepakat tetap memakai harga lama.</p>
+          </details>
+          <details>
+            <summary>Bisa melayani klien dari luar kota?</summary>
+            <p>Bisa. Seluruh proses dilakukan secara daring: brief, pratinjau, dan file dikirim lewat WhatsApp atau email.</p>
+          </details>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
+  <!-- @footer:start (diisi _tools/build-pages.js, jangan diedit di sini) -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
         <img class="footer-logo" src="assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
-        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+        <p>Studio desain independen (usaha perorangan) di Bekasi. Identitas visual, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.</p>
       </div>
       <div class="footer-links">
-        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
-        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
-        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
-        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+        <span class="footer-head">Kontak</span>
+        <a data-wa="footer" href="#">WhatsApp 0877-6329-2786</a>
+        <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Layanan</span>
         <a href="jasa-desain-feed-instagram/">Desain feed IG</a>
         <a href="jasa-ppt/">PPT &amp; presentasi</a>
         <a href="jasa-logo/">Logo &amp; branding</a>
@@ -409,6 +476,8 @@
         <a href="hitung-harga/">Hitung harga</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Informasi</span>
+        <a href="assets/dokumen/company-profile-bikinin-studio.pdf" download>Company profile (PDF)</a>
         <a href="studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="studi-kasus/kopi-rindang/">Studi kasus</a>
         <a href="tips/">Tips</a>
@@ -416,18 +485,19 @@
         <a href="kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
     </div>
-    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Situs ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
   </footer>
+  <!-- @footer:end -->
 
   <!-- Asisten otomatis (jawaban dari data harga & FAQ di halaman ini; isi dibangun oleh initAssistant di script.js) -->
   <button class="assist-btn" type="button" aria-expanded="false" aria-controls="assist" aria-label="Buka asisten Bikinin">
-    <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h.01M12 10h.01M16 10h.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 10h.01M12 10h.01M16 10h.01" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
     <span>Tanya</span>
   </button>
   <div id="assist" class="assist" role="dialog" aria-label="Asisten Bikinin" hidden></div>
 
   <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" hidden>
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau karya" hidden>
     <button class="lightbox-close" aria-label="Tutup">×</button>
     <figure>
       <img id="lightbox-img" alt="">
@@ -435,7 +505,7 @@
     </figure>
   </div>
 
-  <script src="assets/analytics.js"></script>
-  <script src="script.js"></script>
+  <script src="assets/analytics.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

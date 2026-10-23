@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-Qp27AjCfIUPgOkC2vL9mzByGvpOJT7J6DI4nk4PwbtM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
   <script>
@@ -12,24 +14,22 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kasih Ulasan · Bikinin Studio</title>
-  <meta name="description" content="Halaman ulasan untuk klien Bikinin Studio yang ordernya udah selesai.">
+  <title>Beri Ulasan · Bikinin Studio</title>
+  <meta name="description" content="Halaman ulasan untuk klien Bikinin Studio yang pesanannya telah selesai.">
   <link rel="canonical" href="https://bikininstudio.github.io/ulasan/">
-  <meta name="theme-color" content="#14142B">
+  <meta name="theme-color" content="#F5F3EE">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bikinin Studio">
   <meta property="og:locale" content="id_ID">
   <meta property="og:url" content="https://bikininstudio.github.io/ulasan/">
-  <meta property="og:title" content="Kasih Ulasan · Bikinin Studio">
-  <meta property="og:description" content="Halaman ulasan untuk klien Bikinin Studio yang ordernya udah selesai.">
+  <meta property="og:title" content="Beri Ulasan · Bikinin Studio">
+  <meta property="og:description" content="Halaman ulasan untuk klien Bikinin Studio yang pesanannya telah selesai.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
   <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../style.css">
   <meta name="robots" content="noindex">
 </head>
@@ -42,14 +42,13 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
         <span></span><span></span><span></span>
       </button>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" aria-label="Menu utama">
         <a href="../#layanan">Layanan</a>
-        <a href="../#harga">Harga</a>
-        <a href="../hitung-harga/">Hitung harga</a>
-        <a href="../#portofolio">Portofolio</a>
-        <a href="../tips/">Tips</a>
+        <a href="../#portofolio">Karya</a>
+        <a href="../#proses">Proses</a>
+        <a href="../#harga">Paket UMKM</a>
         <a href="../#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+        <a class="btn btn-primary btn-sm" href="../#order">Minta penawaran</a>
       </nav>
     </div>
   </header>
@@ -57,17 +56,17 @@
     <section class="page-hero">
       <div class="container">
         <p class="breadcrumb"><a href="../">Beranda</a> / Ulasan</p>
-        <h1>Kasih ulasan</h1>
-        <p class="lead">Makasih udah order di Bikinin Studio! Ceritain pengalaman kamu, jujur aja, termasuk kalau ada yang kurang. Ulasan tampil di web setelah dicek admin.</p>
+        <h1>Beri ulasan</h1>
+        <p class="lead">Terima kasih telah memesan di Bikinin Studio. Silakan ceritakan pengalaman Anda secara jujur, termasuk hal yang masih kurang. Ulasan tampil di situs setelah kami periksa.</p>
       </div>
     </section>
     <section class="section">
       <div class="container review-wrap">
         <form id="review-form" class="order-form" novalidate>
           <div class="field">
-            <label for="r-kode">Kode order *</label>
+            <label for="r-kode">Kode pesanan *</label>
             <input id="r-kode" name="kode" type="text" autocomplete="off" maxlength="30" placeholder="contoh: BKN-2610-01" required>
-            <small class="field-hint">Ada di pesan WhatsApp dari admin waktu file final dikirim.</small>
+            <small class="field-hint">Tercantum di pesan WhatsApp dari kami saat file final dikirim.</small>
           </div>
           <fieldset class="field star-field">
             <legend>Rating *</legend>
@@ -86,7 +85,7 @@
           </div>
           <div class="field-row">
             <div class="field">
-              <label for="r-usaha">Nama usaha / sekolah</label>
+              <label for="r-usaha">Perusahaan / usaha / instansi</label>
               <input id="r-usaha" name="usaha" type="text" maxlength="60">
             </div>
             <div class="field">
@@ -105,18 +104,18 @@
           </div>
           <div class="field">
             <label for="r-ulasan">Ulasan *</label>
-            <textarea id="r-ulasan" name="ulasan" rows="5" minlength="20" maxlength="500" placeholder="Gimana hasilnya, prosesnya, dan cara kami ngobrol sama kamu?" required></textarea>
+            <textarea id="r-ulasan" name="ulasan" rows="5" minlength="20" maxlength="500" placeholder="Bagaimana hasil, proses, dan komunikasi selama pengerjaan?" required></textarea>
             <small class="field-hint" id="r-count">0/500 karakter, minimal 20</small>
           </div>
           <div class="hp-field" aria-hidden="true"><input aria-label="-" name="kode_cadangan" type="text" tabindex="-1" autocomplete="off"></div>
-          <label class="form-check"><input type="checkbox" name="izin" checked> <span>Boleh ditampilkan di web Bikinin (nama, usaha, layanan, rating, dan ulasan). Kalau nggak dicentang, ulasan cuma dibaca admin.</span></label>
+          <label class="form-check"><input type="checkbox" name="izin" checked> <span>Boleh ditampilkan di situs Bikinin Studio (nama, usaha, layanan, rating, dan ulasan). Bila tidak dicentang, ulasan hanya dibaca oleh kami.</span></label>
           <p id="review-error" class="form-error" role="alert" hidden></p>
           <button type="submit" class="btn btn-primary btn-block">Kirim ulasan</button>
-          <p class="form-legal">Mau ulasanmu dihapus nanti? Bilang aja lewat <a data-wa="ulasan" href="#">WhatsApp</a>.</p>
+          <p class="form-legal">Ingin ulasan dihapus di kemudian hari? Sampaikan melalui <a data-wa="ulasan" href="#">WhatsApp</a>.</p>
         </form>
         <div id="review-done" class="order-form review-done" hidden tabindex="-1">
-          <h2>Makasih banyak! 🙏</h2>
-          <p>Ulasan kamu udah masuk dan bakal tampil di web setelah dicek admin.</p>
+          <h2>Terima kasih</h2>
+          <p>Ulasan Anda telah kami terima dan akan tampil di situs setelah diperiksa.</p>
           <a class="btn btn-ghost" href="../">Ke beranda</a>
         </div>
       </div>
@@ -126,15 +125,18 @@
     <div class="container footer-inner">
       <div>
         <img class="footer-logo" src="../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
-        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+        <p>Studio desain independen (usaha perorangan) di Bekasi. Identitas visual, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.</p>
       </div>
       <div class="footer-links">
-        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
-        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
-        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
-        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+        <span class="footer-head">Kontak</span>
+        <a data-wa="footer" href="#">WhatsApp 0877-6329-2786</a>
+        <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Layanan</span>
         <a href="../jasa-desain-feed-instagram/">Desain feed IG</a>
         <a href="../jasa-ppt/">PPT &amp; presentasi</a>
         <a href="../jasa-logo/">Logo &amp; branding</a>
@@ -143,6 +145,8 @@
         <a href="../hitung-harga/">Hitung harga</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Informasi</span>
+        <a href="../assets/dokumen/company-profile-bikinin-studio.pdf" download>Company profile (PDF)</a>
         <a href="../studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="../studi-kasus/kopi-rindang/">Studi kasus</a>
         <a href="../tips/">Tips</a>
@@ -150,10 +154,10 @@
         <a href="../kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
     </div>
-    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Situs ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
   </footer>
-  <script src="../assets/analytics.js"></script>
-  <script src="../assets/page.js"></script>
-  <script src="../assets/ulasan.js"></script>
+  <script src="../assets/analytics.js" defer></script>
+  <script src="../assets/page.js" defer></script>
+  <script src="../assets/ulasan.js" defer></script>
 </body>
 </html>

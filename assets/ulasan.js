@@ -26,20 +26,26 @@
     const d = Object.fromEntries(new FormData(form).entries());
     if (d.kode_cadangan) return; // honeypot: only bots fill the hidden field
     const teks = (d.ulasan || "").trim();
-    if (!d.kode.trim()) return show("Kode order wajib diisi. Kodenya ada di pesan WhatsApp dari admin.", form.kode);
-    if (!d.rating) return show("Pilih rating bintangnya dulu ya.", form.querySelector("[name=rating]"));
-    if (!d.nama.trim()) return show("Nama wajib diisi, boleh inisial.", form.nama);
-    if (teks.length < 20) return show("Ulasannya minimal 20 karakter ya.", form.ulasan);
+    if (!d.kode.trim()) return show("Kode pesanan wajib diisi. Kodenya tercantum di pesan WhatsApp dari kami.", form.kode);
+    // Same pattern as brief.gs (KODE_POLA): the server silently drops anything else, so say it here
+    if (!/^BKN-[A-Z0-9]+(-[A-Z0-9]+)*$/i.test(d.kode.trim())) return show("Format kode pesanan tidak dikenali (contoh: BKN-2610-01). Salin kode dari pesan WhatsApp kami.", form.kode);
+    if (!d.rating) return show("Mohon pilih rating bintang terlebih dahulu.", form.querySelector("[name=rating]"));
+    if (!d.nama.trim()) return show("Nama wajib diisi; boleh berupa inisial.", form.nama);
+    if (teks.length < 20) return show("Ulasan minimal 20 karakter.", form.ulasan);
     err.hidden = true;
 
-    const sent = window.BIKININ.SHEET_URL && sendBrief({
+    const submit = form.querySelector("[type=submit]");
+    submit.disabled = true; // no double rows while the request is in flight
+    sendBriefAsync({
       jenis: "ulasan", kode: d.kode.trim(), nama: d.nama.trim(), usaha: d.usaha.trim(), layanan: d.layanan,
       rating: d.rating, ulasan: teks.slice(0, 500), izin: d.izin ? "Ya" : "Tidak",
+    }).then((sent) => {
+      submit.disabled = false;
+      if (!sent) return show("Ulasan gagal terkirim. Silakan coba lagi atau kirim melalui WhatsApp.");
+      track("kirim_ulasan", { rating: Number(d.rating) });
+      form.hidden = true;
+      done.hidden = false;
+      done.focus();
     });
-    if (!sent) return show("Ulasan gagal terkirim. Coba lagi, atau kirim lewat WhatsApp aja.");
-    track("kirim_ulasan", { rating: Number(d.rating) });
-    form.hidden = true;
-    done.hidden = false;
-    done.focus();
   });
 })();

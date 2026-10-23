@@ -39,11 +39,17 @@
   let detailId = null;
 
   function load() {
+    const today = dayKey(new Date());
+    let kept = [];
     try {
       const s = JSON.parse(localStorage.getItem(KEY));
-      if (s && s.seeded === dayKey(new Date()) && Array.isArray(s.bookings)) return s;
+      if (s && s.seeded === today && Array.isArray(s.bookings)) return s;
+      // New day: the visitor's own bookings for today and later stay, only the sample data is made again
+      if (s && Array.isArray(s.bookings)) kept = s.bookings.filter((b) => b && !b.sample && b.date >= today && svcById[b.svc] && barberById[b.barber]);
     } catch (e) { /* storage unavailable or corrupt: start fresh */ }
     const s = seed();
+    const clash = (x) => kept.some((k) => k.status !== "Batal" && k.barber === x.barber && k.date === x.date && x.start < k.start + k.dur && k.start < x.start + x.dur);
+    s.bookings = s.bookings.filter((x) => !clash(x)).concat(kept);
     save(s);
     return s;
   }
@@ -95,6 +101,7 @@
 
   // ---------- Availability ----------
   const active = (b) => b.status !== "Batal";
+  const statusOf = (b) => (STATUSES.includes(b.status) ? b.status : "Menunggu"); // stored data is never shown as raw HTML
   function barberFree(barberId, date, start, dur) {
     if (start < OPEN || start + dur > CLOSE) return false;
     if (date === dayKey(new Date()) && start <= nowMin()) return false;
@@ -299,7 +306,19 @@
       `DESCRIPTION:Kode booking ${b.code}. Kapster: ${barberById[b.barber].name}. Bayar di tempat ${rp(s.price)}.`,
       "BEGIN:VALARM", "TRIGGER:-PT1H", "ACTION:DISPLAY", "DESCRIPTION:Booking Gentra 1 jam lagi", "END:VALARM",
       "END:VEVENT", "END:VCALENDAR"
-    ].join("\r\n");
+    ].map(fold).join("\r\n");
+  }
+  // RFC 5545: content lines longer than 75 octets are folded (CRLF + one space)
+  function fold(line) {
+    const enc = new TextEncoder();
+    const out = [];
+    let cur = "";
+    for (const ch of line) {
+      if (enc.encode(cur + ch).length > (out.length ? 74 : 75)) { out.push(cur); cur = ""; }
+      cur += ch;
+    }
+    out.push(cur);
+    return out.join("\r\n ");
   }
 
   let icsUrl = null;
@@ -307,7 +326,7 @@
     const s = svcById[b.svc];
     $("ticket").innerHTML = `
       <div class="lbl">KODE BOOKING</div>
-      <div class="code" id="ticket-code">${b.code}</div>
+      <div class="code" id="ticket-code">${esc(b.code)}</div>
       <div class="row"><span>Nama</span><b>${esc(b.name)}</b></div>
       <div class="row"><span>Layanan</span><b>${s.name}</b></div>
       <div class="row"><span>Waktu</span><b>${shortDate(b.date)} · ${hm(b.start)}</b></div>
@@ -361,7 +380,7 @@
         <span class="tm">${hm(b.start)}<small>${hm(b.start + b.dur)}</small></span>
         <span class="who">${esc(b.name)}${b.sample ? `<span class="tag contoh">contoh</span>` : ""}</span>
         <span class="what">${svcById[b.svc].name} · ${br.name}</span>
-        <span class="st"><span class="tag ${b.status.toLowerCase()}">${b.status}</span></span></button>`;
+        <span class="st"><span class="tag ${statusOf(b).toLowerCase()}">${statusOf(b)}</span></span></button>`;
       li.querySelector("button").dataset.code = b.code;
       li.querySelector("button").onclick = () => showDetail(b.code);
       ul.appendChild(li);
@@ -371,9 +390,9 @@
   function showDetail(code) {
     detailId = code;
     const b = store.bookings.find((x) => x.code === code);
-    $("detail").innerHTML = `<dt>Kode</dt><dd>${b.code}</dd><dt>Nama</dt><dd>${esc(b.name)}</dd><dt>No. WA</dt><dd>${esc(b.phone)}</dd>
+    $("detail").innerHTML = `<dt>Kode</dt><dd>${esc(b.code)}</dd><dt>Nama</dt><dd>${esc(b.name)}</dd><dt>No. WA</dt><dd>${esc(b.phone)}</dd>
       ${b.note ? `<dt>Catatan</dt><dd>${esc(b.note)}</dd>` : ""}${detailRows(b)}
-      <dt>Status</dt><dd><span class="tag ${b.status.toLowerCase()}">${b.status}</span></dd>`;
+      <dt>Status</dt><dd><span class="tag ${statusOf(b).toLowerCase()}">${statusOf(b)}</span></dd>`;
     document.querySelectorAll("[data-status]").forEach((x) => x.setAttribute("aria-pressed", String(x.dataset.status === b.status)));
     if ($("detail-sheet").hidden) open("detail-sheet");
   }
@@ -381,6 +400,11 @@
     const b = store.bookings.find((y) => y.code === detailId);
     if (!b || !STATUSES.includes(x.dataset.status)) return;
     if (x.dataset.status === "Batal" && b.status !== "Batal" && !window.confirm(`Batalkan booking ${b.code} atas nama ${b.name}? Jamnya jadi kosong lagi.`)) return;
+    // Re-activating a cancelled booking must not double-book the barber
+    if (b.status === "Batal" && x.dataset.status !== "Batal") {
+      const taken = store.bookings.some((o) => o !== b && active(o) && o.barber === b.barber && o.date === b.date && b.start < o.start + o.dur && o.start < b.start + b.dur);
+      if (taken) { demoToast(`Jam ${hm(b.start)} untuk ${barberById[b.barber].name} sudah terisi booking lain. Status tetap Batal.`); return; }
+    }
     b.status = x.dataset.status;
     save();
     showDetail(b.code);

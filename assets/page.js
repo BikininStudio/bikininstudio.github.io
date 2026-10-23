@@ -17,6 +17,10 @@
       const open = nav.classList.toggle("open");
       toggle.setAttribute("aria-expanded", String(open));
     });
+    nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => {
+      nav.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }));
   }
 
   const year = document.getElementById("year");

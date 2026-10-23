@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="id">
 <head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-Qp27AjCfIUPgOkC2vL9mzByGvpOJT7J6DI4nk4PwbtM='; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
   <script>
@@ -13,23 +15,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Studi Kasus Aplikasi Kasir · Bikinin Studio</title>
-  <meta name="description" content="Aplikasi kasir untuk UMKM: pilih menu, diskon, bayar tunai atau QRIS, struk, dan laporan omzet harian. Jalan di HP, bisa dicoba langsung. Proyek konsep Bikinin Studio.">
+  <meta name="description" content="Aplikasi kasir untuk usaha: pilih menu, diskon, bayar tunai atau QRIS, struk, dan laporan omzet harian. Berjalan di ponsel dan dapat dicoba langsung. Proyek konsep Bikinin Studio.">
   <link rel="canonical" href="https://bikininstudio.github.io/studi-kasus/aplikasi-kasir/">
-  <meta name="theme-color" content="#14142B">
+  <meta name="theme-color" content="#F5F3EE">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bikinin Studio">
   <meta property="og:locale" content="id_ID">
   <meta property="og:url" content="https://bikininstudio.github.io/studi-kasus/aplikasi-kasir/">
   <meta property="og:title" content="Studi Kasus Aplikasi Kasir · Bikinin Studio">
-  <meta property="og:description" content="Aplikasi kasir untuk UMKM: pilih menu, diskon, bayar tunai atau QRIS, struk, dan laporan omzet harian. Jalan di HP, bisa dicoba langsung. Proyek konsep Bikinin Studio.">
+  <meta property="og:description" content="Aplikasi kasir untuk usaha: pilih menu, diskon, bayar tunai atau QRIS, struk, dan laporan omzet harian. Berjalan di ponsel dan dapat dicoba langsung. Proyek konsep Bikinin Studio.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="../../favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="../../favicon-32.png">
   <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="../../assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
@@ -41,14 +41,13 @@
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Buka menu">
         <span></span><span></span><span></span>
       </button>
-      <nav id="nav" class="nav">
+      <nav id="nav" class="nav" aria-label="Menu utama">
         <a href="../../#layanan">Layanan</a>
-        <a href="../../#harga">Harga</a>
-        <a href="../../hitung-harga/">Hitung harga</a>
-        <a href="../../#portofolio">Portofolio</a>
-        <a href="../../tips/">Tips</a>
+        <a href="../../#portofolio">Karya</a>
+        <a href="../../#proses">Proses</a>
+        <a href="../../#harga">Paket UMKM</a>
         <a href="../../#faq">FAQ</a>
-        <a class="btn btn-primary btn-sm" data-wa="nav" href="#">Chat WA</a>
+        <a class="btn btn-primary btn-sm" href="../../#order">Minta penawaran</a>
       </nav>
     </div>
   </header>
@@ -57,8 +56,8 @@
       <div class="container">
         <p class="breadcrumb"><a href="../../">Beranda</a> / <a href="../../jasa-website-umkm/">Website &amp; aplikasi</a> / Aplikasi kasir</p>
         <p class="eyebrow">Studi kasus · proyek konsep, brand fiktif</p>
-        <h1>Aplikasi kasir Kopi Rindang: <em>dari buku catatan ke HP</em></h1>
-        <p class="lead">Kopi Rindang itu brand fiktif. Aplikasinya beneran jalan, dan bisa kamu coba sekarang dari HP. Ini cerita kenapa fiturnya dibikin begitu.</p>
+        <h1>Aplikasi kasir Kopi Rindang: <em>dari buku catatan ke ponsel</em></h1>
+        <p class="lead">Kopi Rindang adalah brand fiktif. Aplikasinya benar-benar berjalan dan dapat Anda coba sekarang dari ponsel. Berikut alasan di balik setiap fiturnya.</p>
       </div>
     </section>
 
@@ -66,28 +65,28 @@
       <div class="container case">
         <div class="case-row">
           <div class="case-text">
-            <span class="case-step">01 · Masalahnya</span>
-            <h2>Hitung omzet tiap malam pakai kalkulator</h2>
-            <p>Bayangkan kedai kecil yang masih nyatat pesanan di buku. Tiap tutup toko, pemiliknya ngitung ulang omzet, nyocokin uang di laci, dan nebak-nebak menu mana yang paling laku.</p>
-            <p>Mesin kasir mahal dan ribet. Yang dibutuhin cuma aplikasi di HP yang ada di meja: cepat dipakai pas antrean ramai, dan laporannya langsung jadi.</p>
+            <span class="case-step">01 · Permasalahan</span>
+            <h2>Menghitung omzet setiap malam dengan kalkulator</h2>
+            <p>Bayangkan kedai kecil yang masih mencatat pesanan di buku. Setiap tutup toko, pemiliknya menghitung ulang omzet, mencocokkan uang di laci, dan menebak menu mana yang paling laku.</p>
+            <p>Mesin kasir mahal dan rumit. Yang dibutuhkan hanyalah aplikasi di ponsel: cepat digunakan saat antrean ramai, dan laporannya langsung tersedia.</p>
           </div>
-          <img class="case-img wide" src="../../assets/portfolio/demo-kasir-kopi-rindang.webp" alt="Tampilan aplikasi kasir Kopi Rindang di HP beserta daftar fiturnya" loading="lazy" width="1280" height="800">
+          <img class="case-img wide" src="../../assets/portfolio/demo-kasir-kopi-rindang.webp" alt="Tampilan aplikasi kasir Kopi Rindang di ponsel beserta daftar fiturnya" loading="lazy" width="1280" height="800">
         </div>
 
         <div class="case-row reverse">
           <div class="case-text">
-            <span class="case-step">02 · Pilih menu</span>
-            <h2>Tap menu, angkanya ketambah sendiri</h2>
-            <p>Menu dikelompokkan per kategori dan bisa dicari. Tiap tap nambah jumlah, dan total sementara selalu kelihatan di bawah. Tombolnya dibikin besar biar gampang dipencet jempol.</p>
+            <span class="case-step">02 · Memilih menu</span>
+            <h2>Sentuh menu, jumlah bertambah otomatis</h2>
+            <p>Menu dikelompokkan per kategori dan dapat dicari. Setiap sentuhan menambah jumlah, dan total sementara selalu terlihat di bawah. Tombolnya dibuat besar agar mudah ditekan dengan ibu jari.</p>
           </div>
           <div class="case-phone"><img src="../../assets/studi-kasus/kasir/menu.webp" alt="Layar pilih menu dengan jumlah pesanan dan total sementara" loading="lazy" width="780" height="1688"></div>
         </div>
 
         <div class="case-row">
           <div class="case-text">
-            <span class="case-step">03 · Keranjang &amp; bayar</span>
+            <span class="case-step">03 · Keranjang &amp; pembayaran</span>
             <h2>Diskon member, tunai atau QRIS</h2>
-            <p>Di keranjang, jumlah bisa diubah dan diskon member tinggal dipilih. Untuk tunai, ada tombol nominal cepat dan kembalian dihitung otomatis. Untuk QRIS, kode QR langsung tampil.</p>
+            <p>Di keranjang, jumlah dapat diubah dan diskon member tinggal dipilih. Untuk pembayaran tunai tersedia tombol nominal cepat dengan kembalian otomatis. Untuk QRIS, kode QR langsung ditampilkan.</p>
           </div>
           <div class="case-pair">
             <img class="case-img" src="../../assets/studi-kasus/kasir/keranjang.webp" alt="Keranjang dengan pilihan diskon dan total" loading="lazy" width="780" height="1688">
@@ -98,19 +97,19 @@
         <div class="case-row reverse">
           <div class="case-text">
             <span class="case-step">04 · Struk</span>
-            <h2>Struk dicetak atau dikirim lewat WA</h2>
-            <p>Struk berisi nomor transaksi, rincian, dan kembalian. Bisa dicetak ke printer struk Bluetooth, atau dikirim ke WhatsApp pembeli biar hemat kertas.</p>
+            <h2>Struk dicetak atau dikirim melalui WhatsApp</h2>
+            <p>Struk memuat nomor transaksi, rincian, dan kembalian. Struk dapat dicetak ke printer Bluetooth atau dikirim ke WhatsApp pembeli untuk menghemat kertas.</p>
           </div>
-          <div class="case-phone"><img src="../../assets/studi-kasus/kasir/struk.webp" alt="Struk transaksi dengan tombol cetak dan kirim via WA" loading="lazy" width="780" height="1688"></div>
+          <div class="case-phone"><img src="../../assets/studi-kasus/kasir/struk.webp" alt="Struk transaksi dengan tombol cetak dan kirim via WhatsApp" loading="lazy" width="780" height="1688"></div>
         </div>
 
         <div class="case-row">
           <div class="case-text">
             <span class="case-step">05 · Laporan</span>
             <h2>Omzet, menu terlaris, dan jam ramai</h2>
-            <p>Laporan harian jadi sendiri: omzet, jumlah transaksi, rata-rata belanja, perbandingan tunai dan QRIS, menu terlaris, sampai jam paling ramai. Bahan buat nentuin promo dan stok besok.</p>
-            <p>Aplikasinya bisa di-install di HP dan tetap jalan walau sinyal putus.</p>
-            <p class="case-price">Aplikasi sederhana kayak gini: mulai Rp 3jt</p>
+            <p>Laporan harian tersusun otomatis: omzet, jumlah transaksi, rata-rata belanja, perbandingan tunai dan QRIS, menu terlaris, hingga jam paling ramai. Bahan untuk menentukan promo dan stok keesokan harinya.</p>
+            <p>Aplikasi dapat dipasang di ponsel dan tetap berjalan saat sinyal terputus.</p>
+            <p class="case-price">Aplikasi sederhana serupa: mulai Rp 3jt</p>
             <a class="case-link" href="../../demo/kasir-kopi-rindang/">Coba aplikasi kasirnya →</a>
           </div>
           <div class="case-phone"><img src="../../assets/studi-kasus/kasir/laporan.webp" alt="Laporan harian berisi omzet, transaksi, dan menu terlaris" loading="lazy" width="780" height="1688"></div>
@@ -121,15 +120,18 @@
     <section class="section section-alt">
       <div class="container case-cta">
         <div>
-          <h2>Butuh aplikasi buat usahamu?</h2>
-          <p class="section-sub">Kasir, booking, atau katalog. Fiturnya kami sesuaikan dengan cara kerja usahamu, bukan sebaliknya. Ngobrol dulu gratis.</p>
+          <h2>Membutuhkan aplikasi untuk usaha Anda?</h2>
+          <p class="section-sub">Kasir, booking, atau katalog. Fiturnya kami sesuaikan dengan alur kerja usaha Anda. Konsultasi tanpa biaya.</p>
         </div>
         <ul class="case-cost">
           <li><span>Aplikasi sederhana</span><b>mulai Rp 3jt</b></li>
           <li><span>Landing page</span><b>mulai Rp 400rb</b></li>
           <li><span>Toko online</span><b>mulai Rp 2jt</b></li>
         </ul>
-        <a class="btn btn-primary" data-wa="studi_kasus_kasir" data-wa-text="Halo Bikinin Studio, saya habis lihat studi kasus aplikasi kasir dan mau tanya buat usaha saya." href="#">Tanya aplikasi di WA</a>
+        <div class="cta-row">
+          <a class="btn btn-primary" data-wa="studi_kasus_kasir" data-wa-text="Halo Bikinin Studio, saya telah melihat studi kasus aplikasi kasir dan ingin berkonsultasi untuk usaha saya." href="#">Konsultasi via WhatsApp</a>
+          <a class="btn btn-ghost" href="../../#order">Minta penawaran</a>
+        </div>
       </div>
     </section>
   </main>
@@ -137,15 +139,18 @@
     <div class="container footer-inner">
       <div>
         <img class="footer-logo" src="../../assets/logo/logo-monokrom.png" alt="Bikinin Studio" width="1986" height="520">
-        <p>Jasa desain, logo, katalog, dan website untuk UMKM &amp; pelajar.</p>
+        <p>Studio desain independen (usaha perorangan) di Bekasi. Identitas visual, presentasi, katalog, dan website untuk bisnis, instansi, dan UMKM.</p>
       </div>
       <div class="footer-links">
-        <a data-wa="footer" href="#">WhatsApp: 0877-6329-2786 (online 24/7)</a>
-        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram: @bikinin_studio</a>
-        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok: @bikinin_studio</a>
-        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook: Bikinin Studio</a>
+        <span class="footer-head">Kontak</span>
+        <a data-wa="footer" href="#">WhatsApp 0877-6329-2786</a>
+        <a href="mailto:bikininstudio@gmail.com">bikininstudio@gmail.com</a>
+        <a href="https://www.instagram.com/bikinin_studio" target="_blank" rel="noopener">Instagram @bikinin_studio</a>
+        <a href="https://www.tiktok.com/@bikinin_studio" target="_blank" rel="noopener">TikTok @bikinin_studio</a>
+        <a href="https://www.facebook.com/profile.php?id=61592979847517" target="_blank" rel="noopener">Facebook Bikinin Studio</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Layanan</span>
         <a href="../../jasa-desain-feed-instagram/">Desain feed IG</a>
         <a href="../../jasa-ppt/">PPT &amp; presentasi</a>
         <a href="../../jasa-logo/">Logo &amp; branding</a>
@@ -154,6 +159,8 @@
         <a href="../../hitung-harga/">Hitung harga</a>
       </div>
       <div class="footer-links">
+        <span class="footer-head">Informasi</span>
+        <a href="../../assets/dokumen/company-profile-bikinin-studio.pdf" download>Company profile (PDF)</a>
         <a href="../../studi-kasus/ggstore/">Karya asli: GgStore</a>
         <a href="../../studi-kasus/kopi-rindang/">Studi kasus</a>
         <a href="../../tips/">Tips</a>
@@ -161,9 +168,9 @@
         <a href="../../kebijakan-privasi/">Kebijakan Privasi</a>
       </div>
     </div>
-    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Web ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
+    <p class="container copyright">© <span id="year">2026</span> Bikinin Studio · Situs ini memakai Google Analytics untuk statistik kunjungan anonim.</p>
   </footer>
-  <script src="../../assets/analytics.js"></script>
-  <script src="../../assets/page.js"></script>
+  <script src="../../assets/analytics.js" defer></script>
+  <script src="../../assets/page.js" defer></script>
 </body>
 </html>

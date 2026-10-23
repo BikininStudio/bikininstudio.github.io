@@ -22,8 +22,10 @@
   const pad = (n, w = 2) => String(n).padStart(w, "0");
   const dayKey = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
   const hhmm = (d) => `${pad(d.getHours())}.${pad(d.getMinutes())}`;
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   // ---------- State ----------
+  let newDayNote = false; // set by load(); must be declared before load() runs
   let store = load();
   const cart = {};
   let disc = 0;
@@ -34,6 +36,8 @@
     try {
       const s = JSON.parse(localStorage.getItem(KEY));
       if (s && s.day === dayKey(new Date()) && Array.isArray(s.txs)) return s;
+      // A new day starts a new daily report; tell visitors who had their own transactions instead of wiping silently
+      if (s && Array.isArray(s.txs) && s.txs.some((t) => t && !t.sample)) newDayNote = true;
     } catch (e) { /* storage unavailable or corrupt: start fresh */ }
     const s = seed();
     save(s);
@@ -49,7 +53,11 @@
     // Spread samples over opening hours so far (from 08.00; early in the morning from 06.00)
     let start = new Date(now); start.setHours(8, 0, 0, 0);
     if (now - start < 60 * 60 * 1000) start.setHours(6, 0, 0, 0);
-    if (now - start < 30 * 60 * 1000) start = new Date(now.getTime() - 4 * 60 * 60 * 1000);
+    if (now - start < 30 * 60 * 1000) {
+      // Very early: go back up to 4 hours, but never past midnight (samples must be dated today)
+      const midnight = new Date(now); midnight.setHours(0, 0, 0, 0);
+      start = new Date(Math.max(midnight.getTime(), now.getTime() - 4 * 60 * 60 * 1000));
+    }
     let r = 7;
     const rand = () => ((r = (r * 9301 + 49297) % 233280) / 233280);
     const txs = [];
@@ -188,8 +196,17 @@
   document.querySelectorAll("[data-method]").forEach((b) => (b.onclick = () => setMethod(b.dataset.method)));
 
   function updateChange() {
+    const el = $("cash");
+    // Keep the caret after the same digit while the number is re-formatted (it used to jump to the end)
+    const typing = document.activeElement === el;
+    const digitsBefore = typing ? el.value.slice(0, el.selectionStart).replace(/\D/g, "").length : 0;
     const paid = parseCash();
-    $("cash").value = paid ? paid.toLocaleString("id-ID") : "";
+    el.value = paid ? paid.toLocaleString("id-ID") : "";
+    if (typing) {
+      let pos = 0, seen = 0;
+      while (pos < el.value.length && seen < digitsBefore) { if (/\d/.test(el.value[pos])) seen++; pos++; }
+      el.setSelectionRange(pos, pos);
+    }
     $("change").textContent = rp(Math.max(0, paid - total()));
     $("pay-cash-btn").disabled = paid < total();
   }
@@ -258,17 +275,17 @@
   // ---------- Receipt ----------
   function showReceipt(tx) {
     const d = new Date(tx.time);
-    const lines = tx.items.map((it) => `<div>${it.name}</div><div class="r"><span>${it.qty} × ${it.price.toLocaleString("id-ID")}</span><span>${(it.qty * it.price).toLocaleString("id-ID")}</span></div>`).join("");
+    const lines = tx.items.map((it) => `<div>${esc(it.name)}</div><div class="r"><span>${it.qty} × ${it.price.toLocaleString("id-ID")}</span><span>${(it.qty * it.price).toLocaleString("id-ID")}</span></div>`).join("");
     $("receipt").innerHTML = `
       <div class="c t">KOPI RINDANG</div>
       <div class="c">Jl. Rindang No. 7, Bandung</div>
       <hr>
-      <div class="r"><span>${tx.no}</span><span>${pad(d.getDate())}/${pad(d.getMonth() + 1)} ${hhmm(d)}</span></div>
+      <div class="r"><span>${esc(tx.no)}</span><span>${pad(d.getDate())}/${pad(d.getMonth() + 1)} ${hhmm(d)}</span></div>
       <hr>${lines}<hr>
       <div class="r"><span>Subtotal</span><span>${tx.subtotal.toLocaleString("id-ID")}</span></div>
       ${tx.discount ? `<div class="r"><span>Diskon ${tx.discountPct}%</span><span>-${tx.discount.toLocaleString("id-ID")}</span></div>` : ""}
       <div class="r b"><span>TOTAL</span><span>${tx.total.toLocaleString("id-ID")}</span></div>
-      <div class="r"><span>${tx.method}</span><span>${tx.paid.toLocaleString("id-ID")}</span></div>
+      <div class="r"><span>${esc(tx.method)}</span><span>${tx.paid.toLocaleString("id-ID")}</span></div>
       ${tx.method === "Tunai" ? `<div class="r"><span>Kembali</span><span>${tx.change.toLocaleString("id-ID")}</span></div>` : ""}
       <hr><div class="c">Terima kasih, sampai ngopi lagi ☕</div>
       ${tx.sample ? `<div class="c">(transaksi contoh)</div>` : ""}`;
@@ -286,8 +303,8 @@
     txs.forEach((t) => {
       const li = document.createElement("li");
       const n = t.items.reduce((s, i) => s + i.qty, 0);
-      li.innerHTML = `<button type="button"><span class="no">${t.no}</span><span class="amt">${rp(t.total)}</span>
-        <span class="meta">${hhmm(new Date(t.time))} · ${n} item <span class="tag ${t.method === "QRIS" ? "qris" : ""}">${t.method}</span>${t.sample ? `<span class="tag">contoh</span>` : ""}</span></button>`;
+      li.innerHTML = `<button type="button"><span class="no">${esc(t.no)}</span><span class="amt">${rp(t.total)}</span>
+        <span class="meta">${hhmm(new Date(t.time))} · ${n} item <span class="tag ${t.method === "QRIS" ? "qris" : ""}">${esc(t.method)}</span>${t.sample ? `<span class="tag">contoh</span>` : ""}</span></button>`;
       li.querySelector("button").onclick = () => showReceipt(t);
       ul.appendChild(li);
     });
@@ -315,7 +332,7 @@
     txs.forEach((t) => t.items.forEach((i) => (qty[i.name] = (qty[i.name] || 0) + i.qty)));
     const top = Object.entries(qty).sort((a, b) => b[1] - a[1]).slice(0, 5);
     const max = top.length ? top[0][1] : 1;
-    $("top").innerHTML = top.map(([name, n]) => `<li><div class="lbl"><span>${name}</span><b>${n}</b></div><div class="track"><div class="fill" style="width:${(n / max) * 100}%"></div></div></li>`).join("") || `<li class="muted">Belum ada penjualan.</li>`;
+    $("top").innerHTML = top.map(([name, n]) => `<li><div class="lbl"><span>${esc(name)}</span><b>${n}</b></div><div class="track"><div class="fill" style="width:${(n / max) * 100}%"></div></div></li>`).join("") || `<li class="muted">Belum ada penjualan.</li>`;
 
     const byHour = {};
     txs.forEach((t) => { const h = new Date(t.time).getHours(); byHour[h] = (byHour[h] || 0) + t.total; });
@@ -378,4 +395,5 @@
   renderCats();
   renderMenu();
   renderCartBar();
+  if (newDayNote) setTimeout(() => demoToast("Hari baru: laporan harian dimulai ulang. Transaksi kemarin tidak ditampilkan lagi."), 600);
 })();

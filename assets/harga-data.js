@@ -4,7 +4,7 @@ window.PRICES = {
     "items": [
       {
         "name": "Feed / poster satuan",
-        "desc": "Siap posting di IG & WA",
+        "desc": "Siap unggah di Instagram & WhatsApp",
         "price": "Mulai Rp 15rb",
         "unit": "/desain",
         "incl": "2 revisi · PNG/JPG · 1–2 hari",
@@ -12,7 +12,7 @@ window.PRICES = {
       },
       {
         "name": "Paket 10 feed",
-        "desc": "Hemat buat konten sebulan",
+        "desc": "Hemat untuk konten sebulan",
         "price": "Mulai Rp 120rb",
         "featured": "PALING HEMAT",
         "incl": "2 revisi/desain · PNG/JPG + file Canva · 3–5 hari",
@@ -23,6 +23,7 @@ window.PRICES = {
         "desc": "20 post + jadwal posting",
         "price": "Mulai Rp 250rb",
         "incl": "2 revisi/desain · jadwal posting · dikirim bertahap",
+        "noExpress": true,
         "demo": "feed"
       },
       {
@@ -41,20 +42,21 @@ window.PRICES = {
         "demo": "ppt"
       }
     ],
+    "extraRevisi": true,
     "note": "Harga perkenalan untuk 10 klien pertama. Revisi tambahan mulai Rp 10rb. Pengerjaan ekspres 1x24 jam +30%."
   },
   "logo": {
     "items": [
       {
         "name": "Logo Basic",
-        "desc": "Logo simpel buat mulai jualan",
+        "desc": "Logo sederhana untuk usaha yang baru mulai",
         "price": "Mulai Rp 75rb",
         "incl": "2 konsep · 2 revisi · PNG & JPG · tanpa file vektor",
         "demo": "brand"
       },
       {
         "name": "Logo Standard",
-        "desc": "Siap dipakai di kemasan, spanduk, sampai merek",
+        "desc": "Siap dipakai di kemasan, spanduk, hingga merek dagang",
         "price": "Mulai Rp 200rb",
         "featured": "REKOMENDASI KAMI",
         "incl": "3 konsep · 3 revisi · file vektor + mini brand guide",
@@ -68,7 +70,7 @@ window.PRICES = {
         "demo": "brand"
       }
     ],
-    "note": "Semua logo dibuat dari nol, jadi lebih aman kalau nanti mau didaftarkan sebagai merek."
+    "note": "Semua logo dibuat dari nol sehingga lebih aman bila kelak didaftarkan sebagai merek."
   },
   "katalog": {
     "items": [
@@ -81,7 +83,7 @@ window.PRICES = {
       },
       {
         "name": "Katalog digital",
-        "desc": "8–12 halaman, siap share di WA",
+        "desc": "8–12 halaman, siap dibagikan lewat WhatsApp",
         "price": "Mulai Rp 125rb",
         "featured": "REKOMENDASI KAMI",
         "incl": "3 revisi · PDF + gambar per halaman · 3–5 hari",
@@ -95,13 +97,13 @@ window.PRICES = {
         "demo": "katalog"
       }
     ],
-    "note": "Bonus 1 desain promo buat status WA untuk setiap paket katalog."
+    "note": "Bonus 1 desain promosi untuk status WhatsApp di setiap paket katalog."
   },
   "web": {
     "items": [
       {
         "name": "Landing page",
-        "desc": "1 halaman, cocok buat promo",
+        "desc": "1 halaman, cocok untuk promosi",
         "price": "Mulai Rp 400rb",
         "incl": "2x revisi besar · ±1 minggu",
         "demo": "landing"

@@ -1,5 +1,5 @@
 // ===== Config (nomor WA & GA_ID ada di assets/analytics.js) =====
-const WA_DEFAULT = "Halo Bikinin Studio, saya mau tanya-tanya soal jasa desain.";
+const WA_DEFAULT = "Halo Bikinin Studio, saya ingin berkonsultasi mengenai kebutuhan desain.";
 
 // Testimoni asli dari klien (dengan izin). Selama kosong, section testimoni nggak tampil.
 // Contoh: { name: "Sari", business: "Kedai Sari", service: "Paket 10 feed", text: "Desainnya rapi..." }
@@ -27,33 +27,34 @@ const KUOTA_PERKENALAN = 10;
 const PRICES = {
   desain: {
     items: [
-      { name: "Feed / poster satuan", desc: "Siap posting di IG & WA", price: "Mulai Rp 15rb", unit: "/desain", incl: "2 revisi · PNG/JPG · 1–2 hari", demo: "feed" },
-      { name: "Paket 10 feed", desc: "Hemat buat konten sebulan", price: "Mulai Rp 120rb", featured: "PALING HEMAT", incl: "2 revisi/desain · PNG/JPG + file Canva · 3–5 hari", demo: "feed" },
-      { name: "Paket bulanan", desc: "20 post + jadwal posting", price: "Mulai Rp 250rb", incl: "2 revisi/desain · jadwal posting · dikirim bertahap", demo: "feed" },
+      { name: "Feed / poster satuan", desc: "Siap unggah di Instagram & WhatsApp", price: "Mulai Rp 15rb", unit: "/desain", incl: "2 revisi · PNG/JPG · 1–2 hari", demo: "feed" },
+      { name: "Paket 10 feed", desc: "Hemat untuk konten sebulan", price: "Mulai Rp 120rb", featured: "PALING HEMAT", incl: "2 revisi/desain · PNG/JPG + file Canva · 3–5 hari", demo: "feed" },
+      { name: "Paket bulanan", desc: "20 post + jadwal posting", price: "Mulai Rp 250rb", incl: "2 revisi/desain · jadwal posting · dikirim bertahap", noExpress: true, demo: "feed" },
       { name: "PPT tugas", desc: "Sekolah & kuliah, minimal 10 slide", price: "Mulai Rp 3rb", unit: "/slide", incl: "1 revisi · PPTX + PDF · 1–3 hari", demo: "ppt" },
       { name: "PPT sidang / lomba", desc: "Per deck, desain premium", price: "Mulai Rp 100rb", incl: "3 revisi · PPTX + PDF · 2–4 hari", demo: "ppt" }
     ],
+    extraRevisi: true, // revisi tambahan Rp 10rb/x hanya dijanjikan untuk desain (lihat note); kalkulator membacanya
     note: `Harga perkenalan untuk ${KUOTA_PERKENALAN} klien pertama. Revisi tambahan mulai Rp 10rb. Pengerjaan ekspres 1x24 jam +30%.`
   },
   logo: {
     items: [
-      { name: "Logo Basic", desc: "Logo simpel buat mulai jualan", price: "Mulai Rp 75rb", incl: "2 konsep · 2 revisi · PNG & JPG · tanpa file vektor", demo: "brand" },
-      { name: "Logo Standard", desc: "Siap dipakai di kemasan, spanduk, sampai merek", price: "Mulai Rp 200rb", featured: "REKOMENDASI KAMI", incl: "3 konsep · 3 revisi · file vektor + mini brand guide", demo: "brand" },
+      { name: "Logo Basic", desc: "Logo sederhana untuk usaha yang baru mulai", price: "Mulai Rp 75rb", incl: "2 konsep · 2 revisi · PNG & JPG · tanpa file vektor", demo: "brand" },
+      { name: "Logo Standard", desc: "Siap dipakai di kemasan, spanduk, hingga merek dagang", price: "Mulai Rp 200rb", featured: "REKOMENDASI KAMI", incl: "3 konsep · 3 revisi · file vektor + mini brand guide", demo: "brand" },
       { name: "Logo Premium", desc: "Logo + brand kit + template sosmed", price: "Mulai Rp 500rb", incl: "3 konsep · 5 revisi · file vektor + brand kit", demo: "brand" }
     ],
-    note: "Semua logo dibuat dari nol, jadi lebih aman kalau nanti mau didaftarkan sebagai merek."
+    note: "Semua logo dibuat dari nol sehingga lebih aman bila kelak didaftarkan sebagai merek."
   },
   katalog: {
     items: [
       { name: "Menu / pricelist", desc: "1–2 halaman", price: "Mulai Rp 35rb", incl: "2 revisi · PNG/PDF · 2–3 hari", demo: "katalog" },
-      { name: "Katalog digital", desc: "8–12 halaman, siap share di WA", price: "Mulai Rp 125rb", featured: "REKOMENDASI KAMI", incl: "3 revisi · PDF + gambar per halaman · 3–5 hari", demo: "katalog" },
+      { name: "Katalog digital", desc: "8–12 halaman, siap dibagikan lewat WhatsApp", price: "Mulai Rp 125rb", featured: "REKOMENDASI KAMI", incl: "3 revisi · PDF + gambar per halaman · 3–5 hari", demo: "katalog" },
       { name: "Katalog + menu cetak", desc: "File siap cetak, ukuran bebas", price: "Mulai Rp 200rb", incl: "3 revisi · file siap cetak · 3–5 hari", demo: "katalog" }
     ],
-    note: "Bonus 1 desain promo buat status WA untuk setiap paket katalog."
+    note: "Bonus 1 desain promosi untuk status WhatsApp di setiap paket katalog."
   },
   web: {
     items: [
-      { name: "Landing page", desc: "1 halaman, cocok buat promo", price: "Mulai Rp 400rb", incl: "2x revisi besar · ±1 minggu", demo: "landing" },
+      { name: "Landing page", desc: "1 halaman, cocok untuk promosi", price: "Mulai Rp 400rb", incl: "2x revisi besar · ±1 minggu", demo: "landing" },
       { name: "Company profile", desc: "4–6 halaman", price: "Mulai Rp 1jt", featured: "REKOMENDASI KAMI", incl: "3x revisi besar · 2–3 minggu", demo: "compro" },
       { name: "Toko online", desc: "Katalog produk + checkout", price: "Mulai Rp 2jt", incl: "3x revisi besar · 3–4 minggu", demo: "ggstore" },
       { name: "Aplikasi sederhana", desc: "Kasir, booking, atau katalog", price: "Mulai Rp 3jt", incl: "revisi sesuai kesepakatan · 3–6 minggu", demo: ["app", "booking", "keuangan"] }
@@ -145,14 +146,28 @@ function renderPrices(key) {
   more.innerHTML = " Detail paket, contoh, &amp; FAQ: " + TAB_PAGES[key].map(([href, label]) => `<a href="${href}">${label} →</a>`).join(" · ");
   note.appendChild(more);
 }
+const tabs = [...document.querySelectorAll(".tab")];
 function selectTab(key) {
-  document.querySelectorAll(".tab").forEach((t) => t.setAttribute("aria-selected", String(t.dataset.tab === key)));
+  tabs.forEach((t) => {
+    const on = t.dataset.tab === key;
+    t.setAttribute("aria-selected", String(on));
+    t.tabIndex = on ? 0 : -1; // roving tabindex: Tab enters the active tab, arrows move between tabs
+    if (on) panel.setAttribute("aria-labelledby", t.id);
+  });
   renderPrices(key);
   track("select_tab_harga", { kategori: key });
 }
-document.querySelectorAll(".tab").forEach((tab) => tab.addEventListener("click", () => selectTab(tab.dataset.tab)));
-// Service cards jump to their price tab
-document.querySelectorAll("[data-tab-jump]").forEach((a) => a.addEventListener("click", () => selectTab(a.dataset.tabJump)));
+tabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => selectTab(tab.dataset.tab));
+  tab.addEventListener("keydown", (e) => {
+    const step = { ArrowRight: 1, ArrowLeft: -1, Home: -i, End: tabs.length - 1 - i }[e.key];
+    if (step === undefined) return;
+    e.preventDefault();
+    const next = tabs[(i + step + tabs.length) % tabs.length];
+    next.focus();
+    selectTab(next.dataset.tab);
+  });
+});
 renderPrices("desain");
 
 // ===== Portfolio gallery + filter + lightbox =====
@@ -175,7 +190,7 @@ function workEl(w) {
   }
   el.innerHTML = `
     <div class="work-thumb">
-      <img loading="lazy" src="assets/portfolio/${w.src}" alt="">
+      <img loading="lazy" src="assets/portfolio/thumb/${w.src}" alt="">
       ${w.demo ? `<span class="live-badge">Demo live</span>` : w.badge ? `<span class="live-badge real">${w.badge}</span>` : ""}
     </div>
     <div class="work-info"><h3></h3><span class="work-tag">${CAT_NAME[w.cat]}</span><span class="work-tag">${w.label}</span></div>`;
@@ -222,12 +237,25 @@ function closeLightbox() {
   if (lastFocus) lastFocus.focus();
 }
 lightbox.addEventListener("click", (e) => { if (e.target === lightbox || e.target.classList.contains("lightbox-close")) closeLightbox(); });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !lightbox.hidden) closeLightbox(); });
+document.addEventListener("keydown", (e) => {
+  if (lightbox.hidden) return;
+  if (e.key === "Escape") closeLightbox();
+  // Keep focus inside the dialog (close button + caption link)
+  if (e.key === "Tab") {
+    const f = [...lightbox.querySelectorAll("button, a[href]")];
+    const i = f.indexOf(document.activeElement);
+    const next = e.shiftKey ? (i <= 0 ? f.length - 1 : i - 1) : (i === f.length - 1 ? 0 : i + 1);
+    e.preventDefault();
+    f[next].focus();
+  }
+});
 
 document.querySelectorAll("[data-kuota]").forEach((el) => { el.textContent = KUOTA_PERKENALAN; });
 
 // ===== Testimonials: TESTIMONIALS above + reviews approved in the Sheet (tab Ulasan, Tampil = Ya) =====
 const starText = (n) => "★★★★★".slice(0, n) + "☆☆☆☆☆".slice(0, 5 - n);
+// Blank or out-of-range rating = no rating (0): no stars, not counted in the average
+const validRating = (v) => { const r = Math.round(Number(v)); return r >= 1 && r <= 5 ? r : 0; };
 function renderTestimonials(items) {
   if (!items.length) return;
   const fresh = document.getElementById("trust-new"); // "belum ada testimoni" line goes away once real ones exist
@@ -260,7 +288,7 @@ if (window.BIKININ.SHEET_URL && window.fetch) {
         .filter((u) => u && u.teks && u.nama)
         .map((u) => ({
           text: String(u.teks), name: String(u.nama), business: String(u.usaha || ""), service: String(u.layanan || ""),
-          rating: Math.min(5, Math.max(1, Math.round(Number(u.rating)) || 5)), date: String(u.bulan || ""),
+          rating: validRating(u.rating), date: String(u.bulan || ""),
         }));
       if (approved.length) renderTestimonials(TESTIMONIALS.concat(approved));
     })
@@ -276,29 +304,29 @@ if (!SHEET_ON) {
   form.querySelector(".form-check").hidden = true;
   form.setuju.required = false;
   const copy = document.getElementById("order-note");
-  if (copy) copy.textContent = "Isi form ini, terus klik tombolnya. WhatsApp bakal kebuka dengan pesan yang udah tersusun, tinggal kirim.";
+  if (copy) copy.textContent = "Isi form ini lalu tekan tombol kirim. WhatsApp akan terbuka dengan pesan yang sudah tersusun. Penawaran tertulis kami kirim setelah brief dipelajari.";
 }
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   const d = Object.fromEntries(new FormData(form).entries());
   if (d.kode_cadangan) return; // honeypot: only bots fill the hidden field
   if (!d.nama.trim() || !d.layanan) {
-    formError.textContent = "Nama dan layanan wajib diisi ya.";
+    formError.textContent = "Mohon isi nama dan layanan.";
     formError.hidden = false;
     (d.nama.trim() ? form.layanan : form.nama).focus();
     return;
   }
   if (SHEET_ON && !d.setuju) {
-    formError.textContent = "Centang persetujuan dulu ya, biar brief-nya bisa kami catat.";
+    formError.textContent = "Mohon centang persetujuan agar brief dapat kami catat.";
     formError.hidden = false;
     form.setuju.focus();
     return;
   }
   formError.hidden = true;
   const lines = [
-    "Halo Bikinin Studio, saya mau order:\n",
+    "Halo Bikinin Studio, saya ingin meminta penawaran:\n",
     `Nama: ${d.nama.trim()}`,
-    d.usaha.trim() && `Nama usaha: ${d.usaha.trim()}`,
+    d.usaha.trim() && `Perusahaan/usaha: ${d.usaha.trim()}`,
     `Layanan: ${d.layanan}`,
     d.paket.trim() && `Paket: ${d.paket.trim()}`,
     d.budget && `Budget: ${d.budget}`,
@@ -349,17 +377,19 @@ function initAssistant() {
       answer: () => `<p>Ini demo yang bisa langsung kamu buka dan coba:</p><ul>${Object.values(DEMOS).map((d) => `<li><a href="${d.url}">${esc(d.label)}</a></li>`).join("")}</ul>` },
     ...Object.keys(CATS).map((k) => ({ id: `harga-${k}`, keys: CATS[k], answer: () => priceList(k) })),
     { id: "luarkota", keys: ["luar kota", "kota", "jauh"], answer: () => faq("luar kota") },
-    { id: "murah", keys: ["murah", "kualitas"], answer: () => faq("murah") },
+    { id: "murah", keys: ["murah", "kualitas", "terjangkau"], answer: () => faq("terjangkau") },
+    { id: "dokumen", label: "Invoice & dokumen", keys: ["invoice", "kwitansi", "kuitansi", "faktur", "penawaran", "quotation", "kontrak", "perjanjian", "nda", "legal", "legalitas", "nib", "npwp", "perusahaan"],
+      answer: () => faq("invoice") + faq("perjanjian") + faq("bentuk usaha") },
     { id: "harga", label: "Harga", keys: ["harga", "berapa", "biaya", "tarif", "budget", "price"],
       answer: () => `<p>Harga perkenalan, mulai dari:</p><ul>${Object.keys(PRICES).map((k) => `<li>${CAT_LABEL[k]}: ${esc(PRICES[k].items[0].price)}</li>`).join("")}</ul>
-        <p>Ketik nama layanannya (misalnya <i>logo</i> atau <i>website</i>) buat lihat semua paketnya.</p>` },
+        <p>Ketik nama layanannya (misalnya <i>logo</i> atau <i>website</i>) untuk melihat semua paketnya.</p>` },
     { id: "order", label: "Cara order", keys: ["order", "pesan", "cara", "gimana", "mulai"],
-      answer: () => `<ol style="margin:0 0 6px;padding-left:18px"><li>Ceritain kebutuhanmu lewat WhatsApp</li><li>Deal harga, bayar DP 50%</li><li>Lihat hasil, revisi, baru lunas</li></ol>
-        ${waBtn("Halo Bikinin Studio, saya mau order.", "Mulai chat di WA")}` },
+      answer: () => `<ol style="margin:0 0 6px;padding-left:18px"><li>Sampaikan kebutuhan lewat form, WhatsApp, atau email</li><li>Terima penawaran tertulis, lalu DP atau termin pertama</li><li>Tinjau hasil dan revisi, pelunasan, serah terima</li></ol>
+        ${waBtn("Halo Bikinin Studio, saya ingin memesan.", "Mulai di WhatsApp")}` },
     { id: "admin", keys: ["admin", "orang", "manusia", "cs", "telepon", "telpon", "nomor", "wa", "whatsapp"],
-      answer: () => `<p>Admin kami online 24/7 di WhatsApp 0877-6329-2786.</p>${waBtn("Halo Bikinin Studio, saya mau tanya-tanya.", "Chat admin")}` },
+      answer: () => `<p>WhatsApp kami aktif 24 jam di 0877-6329-2786, atau email bikininstudio@gmail.com.</p>${waBtn("Halo Bikinin Studio, saya ingin bertanya.", "Chat admin")}` },
     { id: "salam", keys: ["halo", "hai", "hi", "hallo", "pagi", "siang", "sore", "malam", "assalamualaikum", "permisi"],
-      answer: () => `<p>Halo! Mau tahu soal apa? Pilih topik di bawah atau ketik aja pertanyaanmu.</p>` }
+      answer: () => `<p>Halo! Ada yang bisa kami bantu? Pilih topik di bawah atau ketik pertanyaan Anda.</p>` }
   ];
   const has = (text, key) => new RegExp(`(^|[^a-z])${key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}([^a-z]|$)`).test(text);
   const match = (q) => {
@@ -374,8 +404,8 @@ function initAssistant() {
       <button class="assist-close" type="button" aria-label="Tutup asisten">×</button>
     </div>
     <div class="assist-log" aria-live="polite"></div>
-    <div class="assist-chips">${["harga", "durasi", "revisi", "bayar", "order", "file", "demo"].map((id) => TOPICS.find((t) => t.id === id)).map((t) => `<button type="button" data-topic="${t.id}">${t.label}</button>`).join("")}</div>
-    <form class="assist-form"><input type="text" placeholder="Ketik pertanyaanmu…" aria-label="Pertanyaan" maxlength="200"><button type="submit">Kirim</button></form>`;
+    <div class="assist-chips">${["harga", "durasi", "bayar", "dokumen", "revisi", "order", "file", "demo"].map((id) => TOPICS.find((t) => t.id === id)).map((t) => `<button type="button" data-topic="${t.id}">${t.label}</button>`).join("")}</div>
+    <form class="assist-form"><input type="text" placeholder="Ketik pertanyaan Anda…" aria-label="Pertanyaan" maxlength="200"><button type="submit">Kirim</button></form>`;
   const log = box.querySelector(".assist-log");
   const input = box.querySelector("input");
   const say = (who, html) => {
@@ -383,14 +413,24 @@ function initAssistant() {
     b.className = `bubble ${who}`;
     if (who === "user") b.textContent = html; else b.innerHTML = html;
     log.appendChild(b);
-    log.scrollTop = log.scrollHeight;
+    log.scrollTop = who === "bot" ? Math.max(0, b.offsetTop - 12) : log.scrollHeight;
   };
+  // A short "typing" bubble before each answer (skipped for reduced motion); answers are instant data, the pause is only pacing
+  const TYPING_MS = matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 550;
   const reply = (topic, q) => {
     track("asisten_tanya", { topik: topic ? topic.id : "tidak_dikenal" });
-    say("bot", topic ? topic.answer() :
-      `<p>Pertanyaan ini belum bisa kami jawab otomatis. Tanya langsung ke admin di WhatsApp ya.</p>${waBtn(`Halo Bikinin Studio, saya mau tanya: ${q}`)}`);
+    const html = topic ? topic.answer() :
+      `<p>Pertanyaan ini belum dapat dijawab otomatis. Silakan tanyakan langsung melalui WhatsApp.</p>${waBtn(`Halo Bikinin Studio, saya ingin bertanya: ${q}`)}`;
+    if (!TYPING_MS) return say("bot", html);
+    const dots = document.createElement("div");
+    dots.className = "bubble typing";
+    dots.setAttribute("aria-label", "Asisten sedang mengetik");
+    dots.innerHTML = "<span></span><span></span><span></span>";
+    log.appendChild(dots);
+    log.scrollTop = log.scrollHeight;
+    setTimeout(() => { dots.remove(); say("bot", html); }, TYPING_MS);
   };
-  say("bot", "<p>Halo! Mau tahu apa dulu? Pilih topik di bawah atau ketik pertanyaanmu.</p><p>Kalau mau ngobrol sama orangnya, klik <b>Chat admin</b> di atas.</p>");
+  say("bot", "<p>Halo! Ada yang bisa kami bantu? Pilih topik di bawah atau ketik pertanyaan Anda.</p><p>Untuk berbicara langsung dengan kami, klik <b>Chat admin</b> di atas.</p>");
 
   box.querySelector(".assist-chips").addEventListener("click", (e) => {
     const b = e.target.closest("[data-topic]");
@@ -413,38 +453,14 @@ function initAssistant() {
     btn.setAttribute("aria-expanded", String(open));
     if (open) input.focus(); else btn.focus();
   };
-  // Teaser bubble: shown once per visit, after 8s or when the visitor reaches the prices, whichever comes first
-  const teaser = document.querySelector(".assist-teaser");
-  const SEEN = "bikinin_teaser_seen";
-  const seen = () => { try { return sessionStorage.getItem(SEEN) === "1"; } catch { return false; } };
-  let teaserTimer = 0;
-  const hideTeaser = () => { if (teaser) teaser.hidden = true; clearTimeout(teaserTimer); };
-  const showTeaser = () => {
-    if (!teaser || seen() || !box.hidden) return;
-    try { sessionStorage.setItem(SEEN, "1"); } catch { /* private mode: just show it this once */ }
-    teaser.hidden = false;
-    btn.classList.add("wiggle");
-    setTimeout(() => btn.classList.remove("wiggle"), 900);
-    teaserTimer = setTimeout(hideTeaser, 9000);
-  };
-  if (teaser && !seen()) {
-    const t = setTimeout(showTeaser, 8000);
-    const harga = document.getElementById("harga");
-    if (harga) {
-      const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { clearTimeout(t); io.disconnect(); setTimeout(showTeaser, 1200); } });
-      io.observe(harga);
-    }
-    teaser.querySelector(".assist-teaser-open").addEventListener("click", () => { hideTeaser(); setOpen(true); });
-    teaser.querySelector(".assist-teaser-close").addEventListener("click", hideTeaser);
-  }
-
-  btn.addEventListener("click", () => { hideTeaser(); setOpen(box.hidden); });
+  btn.addEventListener("click", () => setOpen(box.hidden));
   box.querySelector(".assist-close").addEventListener("click", () => setOpen(false));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape" && !box.hidden) setOpen(false); });
 }
-initAssistant();
+// Not needed for the first paint: build the assistant when the browser is idle (the button is already in the HTML)
+(window.requestIdleCallback || ((f) => setTimeout(f, 200)))(initAssistant, { timeout: 1500 });
 
-/* ===== Hero showcase: rotating work deck, phone screens, mouse parallax ===== */
+/* ===== Hero showcase (sama seperti versi live): tumpukan karya berganti, layar HP berganti, parallax halus ===== */
 function initHeroShowcase() {
   const hv = document.querySelector(".hero-visual");
   if (!hv) return;
@@ -480,7 +496,7 @@ function initHeroShowcase() {
 
   // Rotate only while the hero is on screen and the tab is visible
   let visible = true;
-  new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(hv);
+  if ("IntersectionObserver" in window) new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(hv);
   setInterval(() => {
     if (!visible || document.hidden) return;
     showCard((card + 1) % cards.length);
@@ -501,13 +517,10 @@ function initHeroShowcase() {
 }
 initHeroShowcase();
 
-/* ===== Pita karya + muncul pelan saat di-scroll ===== */
+/* ===== Muncul pelan saat di-scroll (tenang: geser 12px, tanpa animasi berulang) ===== */
 function initMotion() {
-  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const track = document.querySelector(".strip-track");
-  if (track && !reduce) track.append(...[...track.children].map((n) => { const c = n.cloneNode(true); c.setAttribute("aria-hidden", "true"); return c; }));
-  if (reduce || !("IntersectionObserver" in window)) return;
-  const groups = [".section-head", ".section h2", ".service-card", ".price-card", ".work", ".trust-block", ".steps li", ".order-form", "#faq details"];
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  const groups = [".section-head", ".section h2", ".service-card", ".price-card", ".work", ".steps li", ".doc-list li", ".legal-id", ".proofbar li", ".order-form", "#faq details"];
   const io = new IntersectionObserver((entries) => entries.forEach((e) => {
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
   }), { rootMargin: "0px 0px -8% 0px" });
