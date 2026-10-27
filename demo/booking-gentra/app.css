@@ -16,6 +16,8 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 
 /* ---------- Layout: full screen on phones, phone frame on laptops ---------- */
 .about { display: none; }
+.mob-h { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (min-width: 900px) { .mob-h { display: none; } }
 .app { min-height: 100dvh; padding-bottom: 160px; }
 .app main { padding: 0 16px; }
 
@@ -51,7 +53,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 .step { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--gold); color: var(--ink); font: 700 14px "Poppins", sans-serif; }
 .services { display: grid; gap: 8px; }
 .svc { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2px 12px; width: 100%; text-align: left; border: 2px solid transparent; background: #fff; border-radius: 14px; padding: 12px 14px; box-shadow: 0 3px 12px rgba(29, 39, 51, .06); min-height: 60px; }
-.svc .ic { grid-row: 1 / span 2; font-size: 24px; }
+.svc .ic { grid-row: 1 / span 2; width: 26px; height: 26px; color: var(--ink); display: grid; place-items: center; }
 .svc .n { font-weight: 600; font-size: 14px; }
 .svc .d { font-size: 12px; color: var(--muted); }
 .svc .p { grid-row: 1 / span 2; grid-column: 3; font-weight: 700; font-size: 14px; }
@@ -97,7 +99,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
   background: #fff; border-top: 1px solid var(--line); padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
 }
 .tabbar button { border: 0; background: none; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 12px; font-weight: 600; color: var(--muted); padding: 6px 0; min-height: 52px; border-radius: 12px; }
-.tabbar button span { font-size: 20px; }
+.tabbar button .ico { width: 22px; height: 22px; }
 .tabbar button[aria-current="page"] { color: var(--ink); background: var(--cream); }
 
 /* ---------- Jadwal ---------- */

@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8FHTFV0DZN');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Showcase Website 3D · Bikinin Studio</title>
+  <meta name="description" content="Tiga contoh website 3D yang bergerak mengikuti gulir: kaleng minuman, produk GgStore, dan company profile logistik. Dibuat oleh Bikinin Studio.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/website-3d/">
+  <meta property="og:title" content="Showcase Website 3D · Bikinin Studio">
+  <meta property="og:description" content="Kaleng kopi, gulungan tape, dan kota logistik dalam 3D. Gulir untuk memutar objeknya.">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/portfolio/demo-website-3d.webp">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{ "imports": { "three": "../3d/three.module.min.js" } }</script>
+</head>
+<body data-demo="website-3d" data-label="Showcase website 3D" data-fiktif="false">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <nav class="chapnav" aria-label="Bab">
+    <button type="button" data-go="0"><span>Produk minuman</span></button>
+    <button type="button" data-go="1"><span>Halaman produk</span></button>
+    <button type="button" data-go="2"><span>Company profile</span></button>
+  </nav>
+
+  <main>
+    <div class="story">
+      <div class="stage" aria-hidden="true">
+        <canvas></canvas>
+                <div class="curtain" data-plain><span class="curtain-t">GgStore</span></div>
+      </div>
+
+      <!-- Bab 1 · Kopi Rindang (brand fiktif) -->
+      <section class="chapter" data-theme="kraft" id="produk-minuman" aria-label="Bab 1: produk minuman">
+        <img class="ch-poster" src="poster-1.webp" alt="Tiga kaleng cold brew Kopi Rindang (brand fiktif)" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <h1>Kaleng kopi, gulungan tape, kota logistik: tiga website 3D</h1>
+            <p>Gulir pelan. Kaleng berputar, gulungan tape terurai, lalu kita sampai di kota logistik. Dua bab pertama adalah produk, bab ketiga company profile.</p>
+            <p class="small">Produk minuman · Kopi Rindang (proyek konsep – brand fiktif)</p>
+            <span class="hint">Gulir pelan, kaleng ikut berputar</span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Direndam 18 jam di air dingin</h2>
+            <p>Arabika Gayo digiling kasar dan direndam dalam air dingin selama 18 jam di lemari pendingin. Disaring dua kali: sekali dengan kain, sekali dengan kertas. Tanpa air panas, jadi rasanya lebih lembut dan pahitnya tidak menusuk.</p>
+            <ul class="facts">
+              <li><b>18 jam</b><span>rendam dingin</span></li>
+              <li><b>2×</b><span>saring (kain, kertas)</span></li>
+              <li><b>250 ml</b><span>isi per kaleng</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2><span class="swatch" style="background:#2F4A3A"></span>Original</h2>
+            <p>Cokelat pahit dan sedikit jeruk di awal, akhirnya bersih. Cocok bagi yang biasa minum americano.</p>
+            <p class="small">Sajikan: langsung dari kulkas, atau dengan es batu.</p>
+            <p class="price">Rp 19.500 <small>(harga contoh)</small></p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2><span class="swatch" style="background:#C8663B"></span>Gula Aren</h2>
+            <p>Karamel dengan sedikit kelapa dari gula aren cair. Manisnya lembut, tidak seperti sirup. Pas untuk jam tiga sore.</p>
+            <p class="small">Sajikan: kocok dulu, tuang ke gelas berisi es.</p>
+            <p class="price">Rp 21.500 <small>(harga contoh)</small></p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2><span class="swatch" style="background:#F4EBDD"></span>Oat Latte</h2>
+            <p>Susu oat memberi tekstur lembut dan sedikit rasa gandum, aren hanya setipis. Rasa kopinya tetap terasa.</p>
+            <p class="small">Sajikan: dingin. Untuk versi hangat, tuang ke cangkir, jangan dipanaskan di dalam kaleng.</p>
+            <p class="price">Rp 23.500 <small>(harga contoh)</small></p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Pembeli memutar kaleng sebelum memesan</h2>
+            <p>Di halaman asli, setiap rasa punya tombol pesan, ukuran, dan harga. Kaleng ini dibuat dari kode, bukan foto, jadi warna dan labelnya bisa diganti sesuai produk Anda.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bab 2 · GgStore (karya sendiri) -->
+      <section class="chapter" data-theme="beton" id="halaman-produk" aria-label="Bab 2: halaman produk">
+        <img class="ch-poster" src="poster-2.webp" alt="Gulungan finger tape GgStore yang terurai" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <p class="small">Halaman produk · GgStore (karya sendiri)</p>
+            <h2>Gulungan tape GgStore, bisa diputar</h2>
+            <p>Contoh halaman produk untuk GgStore, toko perlengkapan olahraga milik pemilik Bikinin Studio. Seret gulungan untuk memutarnya.</p>
+            <span class="hint">Seret gulungan untuk memutarnya</span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Lebar 4,5 cm</h2>
+            <p>Ukuran tampil pada objeknya, jadi pembeli tidak perlu mengukur dengan penggaris.</p>
+            <dl class="spec">
+              <dt>Lebar</dt><dd>4,5 cm</dd>
+              <dt>Panjang</dt><dd>5 m per gulungan</dd>
+              <dt>Kategori</dt><dd>Body tape</dd>
+            </dl>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>5 meter per gulungan</h2>
+            <p>Gulungan terurai mengikuti gulir halaman. Pembeli melihat panjang 5 m itu langsung, tidak hanya membaca angkanya.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>12 pilihan warna</h2>
+            <p class="chip-note">Pilih warna untuk melihatnya pada gulungan. Warna: <b data-warna-nama>Krem</b></p>
+            <div class="chips" role="group" aria-label="Pilih warna">
+              <button class="chip" type="button" title="Putih" aria-label="Putih" aria-pressed="false" data-warna="#F4F4F1" style="background:#F4F4F1"></button>
+              <button class="chip" type="button" title="Merah" aria-label="Merah" aria-pressed="false" data-warna="#E2493B" style="background:#E2493B"></button>
+              <button class="chip" type="button" title="Abu tua" aria-label="Abu tua" aria-pressed="false" data-warna="#454B52" style="background:#454B52"></button>
+              <button class="chip" type="button" title="Kuning" aria-label="Kuning" aria-pressed="false" data-warna="#F2C12E" style="background:#F2C12E"></button>
+              <button class="chip" type="button" title="Pink" aria-label="Pink" aria-pressed="false" data-warna="#F6C6CC" style="background:#F6C6CC"></button>
+              <button class="chip" type="button" title="Tosca" aria-label="Tosca" aria-pressed="false" data-warna="#1DB39A" style="background:#1DB39A"></button>
+              <button class="chip" type="button" title="Krem" aria-label="Krem" aria-pressed="true" data-warna="#C9A27C" style="background:#C9A27C"></button>
+              <button class="chip" type="button" title="Oranye" aria-label="Oranye" aria-pressed="false" data-warna="#F7891E" style="background:#F7891E"></button>
+              <button class="chip" type="button" title="Biru muda" aria-label="Biru muda" aria-pressed="false" data-warna="#4DB8F0" style="background:#4DB8F0"></button>
+              <button class="chip" type="button" title="Navy" aria-label="Navy" aria-pressed="false" data-warna="#22357A" style="background:#22357A"></button>
+              <button class="chip" type="button" title="Ungu" aria-label="Ungu" aria-pressed="false" data-warna="#8E2DA8" style="background:#8E2DA8"></button>
+              <button class="chip" type="button" title="Hijau" aria-label="Hijau" aria-pressed="false" data-warna="#7ED321" style="background:#7ED321"></button>
+            </div>
+            <p class="warna-list">Putih, merah, abu tua, kuning, pink, tosca, krem, oranye, biru muda, navy, ungu, dan hijau.</p>
+            <p class="small">Gulungan ini model 3D dari ukuran produk asli, bukan foto.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bab 3 · Arunika Logistik (perusahaan fiktif) -->
+      <section class="chapter" data-theme="kabut" id="company-profile" aria-label="Bab 3: company profile">
+        <img class="ch-poster" src="poster-3.webp" alt="Kota logistik isometrik Arunika (perusahaan fiktif)" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <p class="small">Company profile · Arunika Logistik (perusahaan fiktif)</p>
+            <h2>Dari rak gudang sampai pintu pembeli</h2>
+            <p>Ikuti garis cokelat: paket disimpan di gudang, naik kapal atau truk, lalu diantar kurir ke alamat pembeli.</p>
+            <ul class="stats">
+              <li><b>11</b><span>tahun beroperasi</span></li>
+              <li><b>112</b><span>kota tujuan</span></li>
+              <li><b style="white-space:nowrap">38.600&nbsp;m²</b><span>luas gudang</span></li>
+            </ul>
+            <p class="small">Angka contoh untuk demo.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Gudang 38.600 m² dengan stok tercatat per rak</h2>
+            <p>Sistem gudang (WMS) mencatat stok per rak. Pesanan yang masuk sebelum pukul 14.00 dikemas pada hari yang sama.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Antarpulau pakai kontainer 20 dan 40 kaki</h2>
+            <p>Kontainer berangkat dari pelabuhan utama dan dibongkar di dermaga tujuan.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Truk ke Jawa, Bali, dan Sumatra</h2>
+            <p>Truk FTL (satu truk penuh) dan LTL (muatan gabungan). Muatan besar disambung dengan kereta barang.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Kurir sampai pintu pembeli</h2>
+            <p>Van mengantar paket ke 112 kota. Pembeli melacak statusnya dari nomor resi.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Calon klien melihat jaringannya, tidak hanya membaca daftarnya</h2>
+            <p>Pada company profile asli, rute dan angka diganti dengan milik perusahaan Anda. Company profile biasa mulai Rp 1jt. Versi 3D dihitung lewat penawaran tertulis.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="outro" id="kontak">
+      <h2>Website 3D untuk produk Anda</h2>
+      <p>Kami membuat objek 3D dari ukuran dan foto produk yang Anda punya, lalu memasangnya di halaman dengan warna brand Anda. Versi 3D dihitung lewat penawaran tertulis. Landing page biasa mulai Rp 400rb. Konsultasi awal tanpa biaya lewat WhatsApp.</p>
+      <div class="outro-actions"><a class="btn3d" id="wa-3d" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Buat yang seperti ini</a>
+      <a class="btn3d ghost" href="../../jasa-website-umkm/">Lihat layanan website</a></div>
+      <div class="related">
+        <span>Demo terkait:</span>
+        <a href="../kopi-rindang/">Landing page Kopi Rindang</a>
+        <a href="/studi-kasus/ggstore/">Studi kasus GgStore</a>
+        <a href="../arunika/">Company profile Arunika</a>
+      </div>
+      <small>Kopi Rindang dan Arunika Logistik adalah brand fiktif; harga dan angka di dua bab itu hanya contoh. GgStore adalah toko milik pemilik Bikinin Studio. Objek 3D dibuat dengan kode memakai Three.js (lisensi MIT). Bila perangkat Anda membatasi animasi, halaman ini menampilkan gambar diam.</small>
+    </section>
+  </main>
+  <footer>Showcase website 3D · dibuat oleh Bikinin Studio</footer>
+
+  <script src="/assets/js/demo-core.js"></script>
+  <script>
+    (function () {
+      var wa = document.getElementById("wa-3d");
+      if (window.waLink) wa.href = waLink("Halo Bikinin Studio, saya melihat showcase website 3D dan ingin berkonsultasi.", "demo: website-3d");
+      wa.addEventListener("click", function () { if (window.track) track("click_whatsapp", { lokasi: "demo:website-3d" }); });
+    })();
+  </script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

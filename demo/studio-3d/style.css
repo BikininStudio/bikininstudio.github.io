@@ -1,0 +1,35 @@
+/* Studio 3D Bikinin (karya sendiri). Palet Panel Taupe, Fraunces 600 + Plus Jakarta Sans. */
+@font-face { font-family: "Plus Jakarta Sans"; font-weight: 400; font-display: swap; src: url("../../assets/fonts/plus-jakarta-sans-400.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; font-display: swap; src: url("../../assets/fonts/plus-jakarta-sans-700.woff2") format("woff2"); }
+@font-face { font-family: "Fraunces"; font-weight: 600; font-display: swap; src: url("../../assets/fonts/fraunces-600.woff2") format("woff2"); }
+:root {
+  --font-b: "Plus Jakarta Sans", system-ui, sans-serif; --font-d: "Fraunces", Georgia, serif; --wd: 600;
+  --bg: #B8A797; --bg2: #A99987; --card: #CBBDAE; --card2: #BBAB9B; --card3: #AE9E8E;
+  --ink: #2B2019; --ink2: #4A3B30; --accent: #33505E; --accent-ink: #F4EFE8; --accent-hover: #243C49; --focus: #2B2019;
+  --curtain: #33505E; --curtain-ink: #F4EFE8; --r: 4px;
+}
+.stage canvas { cursor: default; }
+.stage.pick canvas { cursor: pointer; }
+.chapter.long::after { content: ""; display: block; height: 100vh; height: 100svh; }
+.no3d .chapter.long::after { display: none; }
+.harga { font: 600 24px/1.25 var(--font-d); margin: 16px 0 4px !important; font-variant-numeric: tabular-nums; }
+.harga-sub { margin: 0 0 12px !important; color: var(--ink2); }
+.layar { margin: 0 0 10px !important; color: var(--ink2); font-weight: 600; }
+.panel .copy .btn { color: var(--accent-ink); }
+.panel .copy .btn.alt { color: var(--ink); }
+.svc-list { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 6px; }
+.svc-list a { display: flex; align-items: center; min-height: 48px; padding: 0 14px; font-weight: 700; text-decoration: none; background: var(--card2); border-radius: var(--r); transition: background-color .2s ease, transform .2s ease; }
+.svc-list a:hover { background: var(--card3); transform: translateX(4px); }
+.outro .related span { font-weight: 700; }
+@media (max-width: 760px) {
+  .harga { font-size: 21px; }
+}
+@media (pointer: coarse) { .panel .copy .only3d.note { display: none; } }
+
+/* HP: kanvas hanya menempati bagian di atas kartu; daftar layanan dua kolom agar kartu Pesan lebih pendek */
+@media (max-width: 760px) {
+  .stage canvas { height: 50%; }
+  .svc-list { grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
+  .svc-list a { min-height: 48px; padding: 6px 10px; line-height: 1.25; }
+  .svc-list a:hover { transform: none; }
+}

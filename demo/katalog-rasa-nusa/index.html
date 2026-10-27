@@ -22,20 +22,20 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../demo.css">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
   <style>
     :root { --red: #B23A2E; --mus: #E3A72F; --dark: #2B1D16; --tint: #F7E9E6; --pink: #F3C9C2; --muted: #6B5A52; }
     * { box-sizing: border-box; }
     body { margin: 0; background: #FFFAF7; color: var(--dark); font-family: "Poppins", system-ui, sans-serif; padding-bottom: 96px; }
     .hero { background: var(--red); color: #fff; padding: 28px 16px 64px; }
     .hero-in { max-width: 960px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
-    .mark { width: 64px; height: 64px; flex: none; border-radius: 18px; background: var(--mus); color: var(--dark); display: grid; place-items: center; font-size: 30px; }
+    .mark { width: 64px; height: 64px; flex: none; border-radius: 18px; background: var(--mus); color: var(--dark); display: grid; place-items: center; font: 800 24px/1 "Poppins", sans-serif; }
     .hero h1 { margin: 0; font-size: 28px; font-weight: 800; }
-    .hero p { margin: 2px 0 0; color: var(--pink); font-size: 14px; }
+      .hero p { margin: 2px 0 0; color: #FFF1EE; font-size: 14px; }
     .wrap { max-width: 960px; margin: -40px auto 0; padding: 0 16px; }
     .search { width: 100%; padding: 14px 18px; border-radius: 14px; border: 0; font: 15px "Poppins", sans-serif; box-shadow: 0 8px 24px rgba(43, 29, 22, .12); }
     .search:focus-visible { outline: 3px solid var(--mus); }
@@ -46,7 +46,8 @@
     .info span { background: var(--tint); padding: 4px 10px; border-radius: 999px; }
     .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
     .item { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 6px 18px rgba(43, 29, 22, .07); display: flex; flex-direction: column; }
-    .pic { aspect-ratio: 4 / 3; display: grid; place-items: center; font-size: 52px; position: relative; }
+    .pic { aspect-ratio: 4 / 3; display: grid; place-items: center; position: relative; }
+    .pic .ini { font: 800 44px/1 "Poppins", sans-serif; letter-spacing: .02em; color: var(--red); opacity: .85; }
     .pic small { position: absolute; bottom: 8px; left: 10px; font-size: 11px; color: rgba(43,29,22,.6); }
     .pic .label { position: absolute; top: 10px; left: 10px; background: var(--mus); color: var(--dark); font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
     .body { padding: 14px 16px 16px; display: flex; flex-direction: column; flex: 1; }
@@ -73,17 +74,17 @@
 <body data-demo="katalog-rasa-nusa" data-label="Katalog digital Rasa Nusa">
   <header class="hero">
     <div class="hero-in">
-      <div class="mark" aria-hidden="true">🌶️</div>
-      <div><h1>Rasa Nusa</h1><p>Sambal rumahan, pedasnya jujur · Bandung</p></div>
+      <div class="mark" aria-hidden="true">RN</div>
+      <div><h1>Rasa Nusa</h1><p>Sambal rumahan dalam botol 180 g · Bandung</p></div>
     </div>
   </header>
   <main class="wrap">
     <label class="visually-hidden" for="q" style="position:absolute;left:-9999px">Cari produk</label>
     <input id="q" class="search" type="search" placeholder="Cari sambal atau paket…">
     <div class="chips" id="chips" role="group" aria-label="Kategori"></div>
-    <div class="info"><span>🕗 Order 08.00–20.00</span><span>🚚 Kirim H+1</span><span>✅ Halal & PIRT</span></div>
+    <div class="info"><span>Order 08.00–20.00</span><span>Kirim H+1</span><span>Dibuat per pesanan</span></div>
     <div class="grid" id="grid"></div>
-    <p class="foot">Foto produk di demo ini diganti ilustrasi. Di versi asli, pakai foto produk kamu sendiri.</p>
+    <p class="foot">Foto produk di demo ini diganti ilustrasi. Di versi asli, pakai foto produk Anda sendiri.</p>
   </main>
 
   <div class="cart" id="cart" hidden>
@@ -91,18 +92,17 @@
     <button id="checkout" type="button">Pesan via WhatsApp</button>
   </div>
 
-  <script src="../../assets/analytics.js"></script>
-  <script src="../demo.js"></script>
+  <script src="/assets/js/demo-core.js"></script>
   <script>
     const PRODUCTS = [
-      { id: "bawang", name: "Sambal Bawang", desc: "Gurih, pedas sedang. Cocok buat semua lauk.", price: 25000, cat: "Sambal", emoji: "🧄", bg: "#F7E9E6", label: "Terlaris" },
-      { id: "cumi", name: "Sambal Cumi", desc: "Cumi asin melimpah, pedasnya mantap.", price: 35000, cat: "Sambal", emoji: "🦑", bg: "#F3C9C2" },
-      { id: "matah", name: "Sambal Matah", desc: "Segar khas Bali, serai & daun jeruk.", price: 28000, cat: "Sambal", emoji: "🌿", bg: "#EEF3E6" },
-      { id: "teri", name: "Sambal Teri", desc: "Teri medan renyah, pedas manis.", price: 30000, cat: "Sambal", emoji: "🐟", bg: "#FFF1D6" },
-      { id: "roa", name: "Sambal Roa", desc: "Ikan roa asap khas Manado.", price: 38000, cat: "Sambal", emoji: "🔥", bg: "#F7E9E6", label: "Baru" },
-      { id: "trio", name: "Paket Trio", desc: "Bawang + Cumi + Matah, hemat Rp 8rb.", price: 80000, cat: "Paket hemat", emoji: "🎁", bg: "#FFF1D6" },
-      { id: "reseller", name: "Paket Reseller Pemula", desc: "12 botol campur, diskon 15%.", price: 300000, cat: "Paket hemat", emoji: "📦", bg: "#F3C9C2" },
-      { id: "kerupuk", name: "Kerupuk Kulit", desc: "Teman makan sambal, 100 gr.", price: 15000, cat: "Pelengkap", emoji: "🥨", bg: "#EEF3E6" }
+      { id: "bawang", name: "Sambal Bawang", desc: "Bawang putih goreng dan cabai rawit. Pedas sedang, cocok untuk ayam goreng dan tempe.", price: 25000, cat: "Sambal", ini: "SB", bg: "#F7E9E6", label: "Pedas sedang" },
+      { id: "cumi", name: "Sambal Cumi", desc: "Cumi asin dan cabai merah. Pedas, sedikit asin.", price: 35000, cat: "Sambal", ini: "SC", bg: "#F3C9C2" },
+      { id: "matah", name: "Sambal Matah", desc: "Irisan serai, bawang merah, dan daun jeruk. Segar, tidak digoreng.", price: 28000, cat: "Sambal", ini: "SM", bg: "#EEF3E6" },
+      { id: "teri", name: "Sambal Teri", desc: "Teri Medan goreng renyah dengan sambal manis pedas.", price: 30000, cat: "Sambal", ini: "ST", bg: "#FFF1D6" },
+      { id: "roa", name: "Sambal Roa", desc: "Ikan roa asap dan cabai rawit, rasa khas Manado.", price: 38000, cat: "Sambal", ini: "SR", bg: "#F7E9E6", label: "Baru" },
+      { id: "trio", name: "Paket Trio", desc: "Bawang + Cumi + Matah, hemat Rp 8rb.", price: 80000, cat: "Paket hemat", ini: "PT", bg: "#FFF1D6" },
+      { id: "reseller", name: "Paket Reseller Pemula", desc: "12 botol campur, diskon 15%.", price: 300000, cat: "Paket hemat", ini: "PR", bg: "#F3C9C2" },
+      { id: "kerupuk", name: "Kerupuk Kulit", desc: "Teman makan sambal, 100 gr.", price: 15000, cat: "Pelengkap", ini: "KK", bg: "#EEF3E6" }
     ];
     const CATS = ["Semua", ...new Set(PRODUCTS.map((p) => p.cat))];
     const cart = {};
@@ -124,12 +124,12 @@
       const grid = document.getElementById("grid");
       grid.innerHTML = "";
       const list = PRODUCTS.filter((p) => (cat === "Semua" || p.cat === cat) && (!q || (p.name + p.desc).toLowerCase().includes(q)));
-      if (!list.length) { grid.innerHTML = `<p class="empty">Produk nggak ketemu. Coba kata lain ya.</p>`; return; }
+      if (!list.length) { grid.innerHTML = `<p class="empty">Produk tidak ditemukan. Silakan coba kata lain.</p>`; return; }
       list.forEach((p) => {
         const el = document.createElement("article");
         el.className = "item";
         el.innerHTML = `
-          <div class="pic" style="background:${p.bg}" aria-hidden="true">${p.emoji}${p.label ? `<span class="label">${p.label}</span>` : ""}</div>
+          <div class="pic" style="background:${p.bg}" aria-hidden="true"><span class="ini">${p.ini}</span>${p.label ? `<span class="label">${p.label}</span>` : ""}</div>
           <div class="body"><h2>${p.name}</h2><p>${p.desc}</p>
             <div class="row"><span class="price">${rp(p.price)}</span>
               <div class="qty">${cart[p.id] ? `<button class="minus" aria-label="Kurangi ${p.name}">−</button><span>${cart[p.id]}</span>` : ""}<button class="plus" aria-label="Tambah ${p.name}">+</button></div>

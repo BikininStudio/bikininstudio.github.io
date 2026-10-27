@@ -1,0 +1,17 @@
+/* Gerak demo: berjalan tanpa interaksi (hanya transform/opacity), hanya berhenti oleh prefers-reduced-motion. */
+.dm-on .dm { opacity: 0; transform: translateY(18px); transition: opacity .5s cubic-bezier(.22,.8,.3,1), transform .5s cubic-bezier(.22,.8,.3,1); transition-delay: calc(var(--dmi, 0) * 70ms); }
+.dm-on .dm.dm-in { opacity: 1; transform: none; }
+.dm-on .dm.dm-out { opacity: 0; transform: translateY(-8px); transition-duration: .3s; transition-delay: 0s; }
+.dm-amb { animation: dmFloat 4.5s ease-in-out infinite alternate; animation-delay: calc(var(--dmi, 0) * -700ms); animation-play-state: paused; }
+.dm-amb.dm-vis { animation-play-state: running; }
+.dm-pulse { animation: dmPulse 2.6s ease-in-out infinite; animation-delay: calc(var(--dmi, 0) * 260ms); animation-play-state: paused; }
+.dm-pulse.dm-vis { animation-play-state: running; }
+@keyframes dmFloat { from { transform: translateY(0) rotate(-.6deg); } to { transform: translateY(-10px) rotate(.6deg); } }
+@keyframes dmPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
+.dm-flip { animation: dmFlip .55s cubic-bezier(.22,.8,.3,1); }
+@keyframes dmFlip { from { opacity: .2; transform: translateX(24px) scale(.98); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .dm-on .dm, .dm-on .dm.dm-in, .dm-on .dm.dm-out { opacity: 1; transform: none; transition: none; }
+  .dm-amb, .dm-pulse, .dm-flip { animation: none !important; }
+}
+html, body { overflow-x: clip; }

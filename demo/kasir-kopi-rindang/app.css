@@ -1,5 +1,5 @@
 :root {
-  --green: #2F4A3A; --green-2: #3D5E4A; --cream: #F4EBDD; --terra: #C8663B; --esp: #3B2A20;
+  --green: #2F4A3A; --green-2: #3D5E4A; --cream: #F4EBDD; --terra: #A9502A; --esp: #3B2A20;
   --sage: #A7B79A; --paper: #FBF7F0; --line: #E8DFD0; --muted: #7A6A5E;
   --radius: 16px;
 }
@@ -17,6 +17,8 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--terra); out
 
 /* ---------- Layout: full screen on phones, phone frame on laptops ---------- */
 .about { display: none; }
+.mob-h { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (min-width: 900px) { .mob-h { display: none; } }
 .app { min-height: 100dvh; padding-bottom: 150px; }
 .app main { padding: 0 16px; }
 
@@ -52,7 +54,9 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--terra); out
 .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .item { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; text-align: left; border: 0; background: #fff; border-radius: var(--radius); padding: 14px; box-shadow: 0 4px 14px rgba(59, 42, 32, .06); min-height: 132px; }
 .item:active { transform: scale(.98); }
-.item .emoji { font-size: 30px; line-height: 1; margin-bottom: 6px; }
+.item .ini { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; font: 700 14px/1 "Poppins", sans-serif; letter-spacing: .02em; margin-bottom: 6px; background: var(--cream); color: var(--green); }
+.item .ini[data-cat="Non-kopi"] { background: #E3EAD9; color: #3D5E4A; }
+.item .ini[data-cat="Makanan"] { background: #F3DDCB; color: #8A3F1F; }
 .item .name { font-size: 14px; font-weight: 600; line-height: 1.3; }
 .item .price { font-size: 14px; font-weight: 700; color: var(--terra); margin-top: auto; }
 .item .qty-badge { position: absolute; top: 10px; right: 10px; min-width: 26px; height: 26px; border-radius: 999px; background: var(--green); color: #fff; font-size: 13px; font-weight: 700; display: grid; place-items: center; padding: 0 6px; }
@@ -74,7 +78,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid var(--terra); out
   background: #fff; border-top: 1px solid var(--line); padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
 }
 .tabbar button { border: 0; background: none; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 12px; font-weight: 600; color: var(--muted); padding: 6px 0; min-height: 52px; border-radius: 12px; }
-.tabbar button span { font-size: 20px; }
+.tabbar button .ico { width: 22px; height: 22px; }
 .tabbar button[aria-current="page"] { color: var(--green); background: var(--cream); }
 
 /* ---------- Riwayat ---------- */
@@ -168,3 +172,8 @@ label { font-size: 13px; font-weight: 600; }
   #receipt, #receipt * { visibility: visible !important; }
   #receipt { position: absolute; left: 0; top: 0; width: 58mm; margin: 0; padding: 0; border-radius: 0; font-size: 11px; }
 }
+
+/* Mode sematan */
+.embed .demo-bar, .embed .about, .embed .mob-h { display: none !important; }
+.embed .stage { display: block; padding: 0; min-height: 0; }
+.embed .phone { width: 100%; max-width: none; margin: 0; border: 0; border-radius: 0; box-shadow: none; }

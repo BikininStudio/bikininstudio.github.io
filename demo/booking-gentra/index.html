@@ -13,25 +13,25 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Demo Aplikasi Booking Gentra Barbershop · Bikinin Studio</title>
-  <meta name="description" content="Demo aplikasi booking online untuk UMKM jasa: pilih layanan, kapster, tanggal dan jam, lalu dapat kode booking. Ada jadwal untuk pemilik dan ringkasan harian. Dibuat oleh Bikinin Studio.">
+  <meta name="description" content="Demo aplikasi booking online untuk UMKM jasa: pilih layanan, kapster, tanggal, dan jam, lalu dapat kode booking. Dibuat oleh Bikinin Studio.">
   <link rel="canonical" href="https://bikininstudio.github.io/demo/booking-gentra/">
   <meta name="theme-color" content="#1D2733">
   <meta property="og:title" content="Demo Aplikasi Booking Gentra Barbershop · Bikinin Studio">
-  <meta property="og:description" content="Contoh aplikasi booking UMKM: pilih layanan, kapster, dan jam kosong. Jadwal pemilik + ringkasan harian. Bisa di-install di HP.">
+  <meta property="og:description" content="Contoh aplikasi booking UMKM: pilih layanan, kapster, dan jam kosong. Jadwal pemilik + ringkasan harian. Bisa dipasang di ponsel.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og/booking-gentra.jpg">
   <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/booking-gentra.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Booking Gentra">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../demo.css">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
   <link rel="stylesheet" href="app.css">
 </head>
 <body data-demo="booking-gentra" data-label="Aplikasi booking Gentra Barbershop">
@@ -39,10 +39,10 @@
     <aside class="about">
       <p class="about-eyebrow">DEMO APLIKASI</p>
       <h1>Aplikasi booking untuk usaha jasa</h1>
-      <p>Coba jadi pelanggan: pilih layanan, kapster, dan jam kosong. Lalu buka tab Jadwal untuk lihat tampilan pemilik. Semua data cuma tersimpan di perangkatmu.</p>
+      <p>Cobalah menjadi pelanggan: pilih layanan, kapster, dan jam kosong. Lalu buka tab Jadwal untuk lihat tampilan pemilik. Semua data hanya tersimpan di perangkat Anda.</p>
       <ul>
-        <li>Jam yang sudah terisi otomatis nggak bisa dipilih</li>
-        <li>Pilih kapster tertentu atau "siapa aja"</li>
+        <li>Jam yang sudah terisi otomatis tidak bisa dipilih</li>
+        <li>Pilih kapster tertentu atau "siapa saja"</li>
         <li>Kode booking + simpan ke kalender HP</li>
         <li>Jadwal pemilik: datang, selesai, batal</li>
         <li>Ringkasan harian & okupansi kapster</li>
@@ -62,6 +62,7 @@
         </header>
 
         <main>
+        <h1 class="mob-h">Aplikasi booking Gentra Barbershop</h1>
           <!-- Booking (pelanggan) -->
           <section class="view" id="view-booking" aria-label="Booking">
             <div class="shop">
@@ -100,7 +101,7 @@
               <ol class="bars" id="occ"></ol>
             </div>
             <div class="card">
-              <h3>Layanan terpopuler (7 hari)</h3>
+              <h3>Layanan paling banyak dipesan (7 hari)</h3>
               <ol class="bars" id="top"></ol>
             </div>
             <div class="card">
@@ -112,15 +113,15 @@
           </section>
         </main>
 
-        <div class="book-bar" id="book-bar">
+        <div class="book-bar" id="book-bar" role="region" aria-label="Ringkasan pilihan">
           <span class="book-sum"><b id="sum-title">Pilih layanan dulu</b><small id="sum-sub">Langkah 1 dari 3</small></span>
           <button class="btn" id="to-confirm" type="button" disabled>Booking</button>
         </div>
 
         <nav class="tabbar" aria-label="Navigasi aplikasi">
-          <button type="button" data-view="booking" aria-current="page"><span aria-hidden="true">✂️</span>Booking</button>
-          <button type="button" data-view="jadwal"><span aria-hidden="true">📅</span>Jadwal</button>
-          <button type="button" data-view="ringkasan"><span aria-hidden="true">📊</span>Ringkasan</button>
+          <button type="button" data-view="booking" aria-current="page"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="7" r="2.5"/><circle cx="6" cy="17" r="2.5"/><path d="M8 8.5L20 18M8 15.5L20 6"/></svg>Booking</button>
+          <button type="button" data-view="jadwal"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>Jadwal</button>
+          <button type="button" data-view="ringkasan"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>Ringkasan</button>
         </nav>
 
         <!-- Konfirmasi -->
@@ -129,7 +130,7 @@
             <div class="sheet-head"><h2 id="confirm-title">Konfirmasi booking</h2><button class="x" type="button" data-close aria-label="Tutup">×</button></div>
             <dl class="detail" id="confirm-detail"></dl>
             <label for="f-name">Nama</label>
-            <input id="f-name" type="text" autocomplete="name" placeholder="Nama kamu" maxlength="40" required>
+            <input id="f-name" type="text" autocomplete="name" placeholder="Nama Anda" maxlength="40" required>
             <label for="f-phone">No. WhatsApp</label>
             <input id="f-phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="08xxxxxxxxxx" maxlength="16" required>
             <p class="err" id="f-err" role="alert"></p>
@@ -143,11 +144,11 @@
         <!-- Berhasil -->
         <div class="sheet" id="done-sheet" hidden>
           <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="done-title">
-            <div class="sheet-head"><h2 id="done-title">Booking berhasil 🎉</h2><button class="x" type="button" data-close aria-label="Tutup">×</button></div>
+            <div class="sheet-head"><h2 id="done-title">Booking berhasil</h2><button class="x" type="button" data-close aria-label="Tutup">×</button></div>
             <div class="ticket" id="ticket"></div>
             <div class="row-btns">
-              <a class="btn-ghost" id="ics" download="booking-gentra.ics">📅 Simpan ke kalender</a>
-              <button class="btn-ghost" type="button" data-demo-action="Ini demo. Di versi asli, detail booking terkirim ke WhatsApp kamu dan ada pengingat 1 jam sebelumnya.">Kirim ke WA</button>
+              <a class="btn-ghost" id="ics" download="booking-gentra.ics">Simpan ke kalender</a>
+              <button class="btn-ghost" type="button" data-demo-action="Ini demo. Di versi asli, detail booking terkirim ke WhatsApp Anda dan ada pengingat 1 jam sebelumnya.">Kirim ke WA</button>
             </div>
             <button class="btn btn-block" type="button" data-close>Selesai</button>
           </div>
@@ -159,19 +160,18 @@
             <div class="sheet-head"><h2 id="detail-title">Detail booking</h2><button class="x" type="button" data-close aria-label="Tutup">×</button></div>
             <dl class="detail" id="detail"></dl>
             <div class="status-btns" id="status-btns" role="group" aria-label="Ubah status">
-              <button type="button" data-status="Datang">✅ Datang</button>
-              <button type="button" data-status="Selesai">✂️ Selesai</button>
-              <button type="button" data-status="Batal">✖ Batalkan</button>
+              <button type="button" data-status="Datang">Datang</button>
+              <button type="button" data-status="Selesai">Selesai</button>
+              <button type="button" data-status="Batal">Batalkan</button>
             </div>
-            <button class="btn-ghost btn-block" type="button" data-demo-action="Ini demo. Di versi asli, pelanggan dapat pesan pengingat di WhatsApp.">🔔 Ingatkan via WA</button>
+            <button class="btn-ghost btn-block" type="button" data-demo-action="Ini demo. Di versi asli, pelanggan dapat pesan pengingat di WhatsApp.">Ingatkan via WA</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="../../assets/analytics.js"></script>
-  <script src="../demo.js"></script>
+  <script src="/assets/js/demo-core.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

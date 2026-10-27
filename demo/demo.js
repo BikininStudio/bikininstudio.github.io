@@ -6,13 +6,13 @@
   const fictional = body.dataset.fiktif !== "false";
 
   const bar = document.createElement("div");
-  bar.className = "demo-bar";
+  bar.className = "demo-bar"; bar.setAttribute("role", "region"); bar.setAttribute("aria-label", "Informasi demo");
   bar.innerHTML = `
     <a class="demo-back" href="../../#portofolio">← Bikinin Studio</a>
     <span class="demo-label"><b>DEMO</b>${fictional ? "Brand fiktif, " : ""}dibuat oleh Bikinin Studio</span>
-    <a class="demo-cta" target="_blank" rel="noopener">Mau dibikinin kayak gini?</a>`;
+    <a class="demo-cta" target="_blank" rel="noopener">Buat yang seperti ini</a>`;
   const cta = bar.querySelector(".demo-cta");
-  cta.href = waLink(`Halo Bikinin Studio, saya lihat demo "${label}" dan mau dibikinin yang mirip.`, `demo: ${slug}`);
+  cta.href = waLink(`Halo Bikinin Studio, saya lihat demo "${label}" dan ingin dibuatkan yang mirip.`, `demo: ${slug}`);
   cta.addEventListener("click", () => track("click_whatsapp", { lokasi: `demo:${slug}` }));
   body.prepend(bar);
 

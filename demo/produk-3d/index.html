@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Toko 3D Keripik Pematang · Bikinin Studio</title>
+  <meta name="description" content="Contoh toko UMKM dengan kemasan keripik 3D yang bisa diputar, pilihan 3 rasa, dan tombol pesan WhatsApp. Proyek konsep dari Bikinin Studio.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/produk-3d/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Demo Toko 3D Keripik Pematang">
+  <meta property="og:description" content="Putar kemasan, pilih rasa, pesan lewat WhatsApp. Proyek konsep – brand fiktif.">
+  <meta property="og:url" content="https://bikininstudio.github.io/demo/produk-3d/">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/produk-3d.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Demo Toko 3D Keripik Pematang">
+  <meta name="twitter:description" content="Putar kemasan, pilih rasa, pesan lewat WhatsApp. Proyek konsep – brand fiktif.">
+  <meta name="twitter:image" content="https://bikininstudio.github.io/assets/og/produk-3d.jpg">
+  <meta name="theme-color" content="#BDB08A">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preload" href="../../assets/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="young-serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="poster-1.webp" as="image" media="(min-width: 761px)" fetchpriority="high">
+  <link rel="preload" href="poster-1-hp.webp" as="image" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <link rel="stylesheet" href="../3d/kit3d.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{ "imports": { "three": "../3d/three.module.min.js" } }</script>
+  <script>document.documentElement.classList.add("js");</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');
+  (function(){var d=0;function l(){if(d)return;d=1;['scroll','pointerdown','keydown','touchstart'].forEach(function(e){removeEventListener(e,l);});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN';document.head.appendChild(s);}
+  function i(){['scroll','pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,l,{passive:true,once:true});});setTimeout(l,6000);}
+  if(document.readyState==='complete'){i();}else{addEventListener('load',i);}})();</script>
+</head>
+<body data-demo="produk-3d" data-label="Toko 3D Keripik Pematang">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <nav class="chapnav" aria-label="Bab">
+    <button type="button" data-go="0">Kemasan</button>
+    <button type="button" data-go="1">Proses</button>
+    <button type="button" data-go="2">Pesan</button>
+  </nav>
+
+  <!-- Pemilih rasa: menempel di bawah selama bab Kemasan -->
+  <div class="dock only3d" id="dock">
+    <p class="dock-note" id="dock-note" aria-live="polite">Pilih rasa untuk melihatnya di kemasan. Rasa dipilih: <b>Original asin</b></p>
+    <div class="dock-row" role="group" aria-label="Pilih rasa">
+      <button type="button" class="rasa-btn" data-rasa="0" aria-label="Original asin, Rp 17.500" aria-pressed="true"><i style="background:#D2A03B"></i>Original</button>
+      <button type="button" class="rasa-btn" data-rasa="1" aria-label="Balado, Rp 18.500" aria-pressed="false"><i style="background:#B14A2D"></i>Balado</button>
+      <button type="button" class="rasa-btn" data-rasa="2" aria-label="Daun jeruk, Rp 19.500" aria-pressed="false"><i style="background:#5F7D3A"></i>Daun jeruk</button>
+    </div>
+  </div>
+
+  <main id="isi">
+    <noscript><p class="noscript">Halaman ini memakai JavaScript untuk objek 3D. Isi lengkapnya tetap tertulis di bawah.</p></noscript>
+    <div class="story">
+      <div class="stage" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 760px)" srcset="poster-1-hp.webp">
+          <img class="stage-poster" src="poster-1.webp" alt="" width="1280" height="800" fetchpriority="high">
+        </picture>
+        <canvas></canvas>
+        <div class="curtain"><span class="curtain-n"></span><span class="curtain-t">Keripik Pematang</span></div>
+      </div>
+
+      <!-- Bab 1 · Kemasan -->
+      <section class="chapter" id="kemasan" aria-label="Kemasan">
+        <img class="ch-poster" src="poster-1.webp" alt="Tiga bungkus keripik singkong Keripik Pematang (brand fiktif): original, balado, daun jeruk" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <h1>Keripik Pematang, singkong Garut 150 g</h1>
+            <p class="note">Proyek konsep · brand fiktif</p>
+            <p>Contoh halaman toko dengan kemasan 3D. Putar kemasannya dengan jari atau kursor, lalu pilih rasa.</p>
+            <div class="hint-row only3d">
+              <span class="hint">Seret kemasan untuk memutarnya</span>
+              <span class="spin-btns">
+                <button type="button" class="icon-btn" data-spin="-0.7" aria-label="Putar kemasan ke kiri"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" class="icon-btn" data-spin="0.7" aria-label="Putar kemasan ke kanan"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Original asin</h2>
+            <p class="note">Rasa 1 dari 3</p>
+            <p>Singkong diiris tipis, digoreng, diberi garam laut. Renyah dan gurih, cocok untuk teman makan siang.</p>
+            <p class="harga">Rp 17.500 per bungkus · harga contoh</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Balado</h2>
+            <p class="note">Rasa 2 dari 3</p>
+            <p>Cabai merah, bawang, dan sedikit gula merah. Pedasnya sedang, manisnya muncul di akhir.</p>
+            <p class="harga">Rp 18.500 per bungkus · harga contoh</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Daun jeruk</h2>
+            <p class="note">Rasa 3 dari 3</p>
+            <p>Wangi daun jeruk dan lada. Tidak pedas, cocok untuk yang tidak kuat cabai.</p>
+            <p class="harga">Rp 19.500 per bungkus · harga contoh</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bab 2 · Proses -->
+      <section class="chapter" id="proses" aria-label="Proses">
+        <img class="ch-poster" src="poster-2.webp" alt="Papan iris singkong, wajan penggorengan, dan piring keripik Keripik Pematang (brand fiktif)" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <h2>Singkong diiris 1,5&nbsp;mm</h2>
+            <p>Singkong dikupas, lalu diiris setebal 1,5&nbsp;mm supaya matang rata dan renyah sampai ke tengah.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Direndam garam, digoreng 8&nbsp;menit</h2>
+            <p>Irisan direndam air garam 30&nbsp;menit, ditiriskan, lalu digoreng sekitar 8&nbsp;menit sampai kuning keemasan.</p>
+            <ul class="facts">
+              <li><b>30 menit</b><span>rendam air garam</span></li>
+              <li><b>8 menit</b><span>penggorengan</span></li>
+              <li><b>150 g</b><span>isi per bungkus</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Dibumbui saat masih hangat</h2>
+            <p>Bumbu ditabur selagi keripik hangat agar menempel. Setelah dingin, keripik dimasukkan ke kemasan dan ditutup rapat.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bab 3 · Pesan -->
+      <section class="chapter" id="pesan" aria-label="Pesan">
+        <img class="ch-poster" src="poster-3.webp" alt="Deretan bungkus keripik singkong Keripik Pematang (brand fiktif)" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <h2>Pilih jumlah, kirim lewat WhatsApp</h2>
+            <fieldset class="rasa-set">
+              <legend>Rasa</legend>
+              <div class="rasa-row">
+              <label class="rasa-opt"><input type="radio" name="rasa" value="0" checked><span><i style="background:#D2A03B"></i>Original asin</span></label>
+              <label class="rasa-opt"><input type="radio" name="rasa" value="1"><span><i style="background:#B14A2D"></i>Balado</span></label>
+              <label class="rasa-opt"><input type="radio" name="rasa" value="2"><span><i style="background:#5F7D3A"></i>Daun jeruk</span></label>
+              </div>
+            </fieldset>
+            <div class="qty">
+              <label for="qty">Jumlah bungkus</label>
+              <input id="qty" name="qty" type="number" min="1" max="20" step="1" value="1" inputmode="numeric" autocomplete="off">
+            </div>
+            <p class="ringkas" id="ringkas" aria-live="polite">1 bungkus Original asin = Rp 17.500</p>
+            <a class="btn" id="pesan-wa" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Pesan via WhatsApp</a>
+            <p class="note kecil">Tombol ini mengirim pesan contoh ke Bikinin Studio, bukan ke toko sungguhan. Di toko asli, pesan masuk ke WhatsApp penjual.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="outro" id="penutup" aria-labelledby="outro-h">
+      <div class="outro-in">
+        <h2 id="outro-h">Halaman produk yang bisa diputar</h2>
+        <p>Kami membuat kemasan 3D dari ukuran dan desain produk Anda, lengkap dengan pemilih varian dan tombol pesan ke WhatsApp. Landing page biasa mulai Rp&nbsp;400rb. Versi 3D dihitung lewat penawaran tertulis.</p>
+        <div class="btn-row">
+          <a class="btn" id="wa-outro" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Buat yang seperti ini</a>
+          <a class="btn alt" href="../../jasa-website-umkm/">Lihat layanan website</a>
+        </div>
+        <p class="related"><span>Demo terkait:</span> <a href="../kopi-rindang/">Landing page Kopi Rindang</a> <a href="../katalog-rasa-nusa/">Katalog digital Rasa Nusa</a> <a href="../website-3d/">Showcase website 3D</a></p>
+        <p class="foot-note">Objek 3D dibuat dengan kode memakai Three.js (lisensi MIT). Bila perangkat Anda membatasi animasi atau tidak mendukung WebGL, halaman ini menampilkan gambar diam.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/assets/js/demo-core.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

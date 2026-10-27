@@ -1,18 +1,18 @@
 // Kasir Kopi Rindang: demo POS app. All data lives in this device's localStorage.
 (function () {
   const MENU = [
-    { id: "eskopsu", name: "Es Kopi Susu Gula Aren", cat: "Kopi", price: 18000, emoji: "🥤" },
-    { id: "tubruk", name: "Kopi Tubruk", cat: "Kopi", price: 12000, emoji: "☕" },
-    { id: "americano", name: "Americano", cat: "Kopi", price: 20000, emoji: "🧊" },
-    { id: "latte", name: "Caffe Latte", cat: "Kopi", price: 24000, emoji: "☕" },
-    { id: "v60", name: "V60 Arabika Garut", cat: "Kopi", price: 25000, emoji: "🫖" },
-    { id: "matcha", name: "Matcha Latte", cat: "Non-kopi", price: 24000, emoji: "🍵" },
-    { id: "coklat", name: "Cokelat Panas", cat: "Non-kopi", price: 20000, emoji: "🍫" },
-    { id: "lemontea", name: "Es Lemon Tea", cat: "Non-kopi", price: 15000, emoji: "🍋" },
-    { id: "rotibakar", name: "Roti Bakar", cat: "Makanan", price: 15000, emoji: "🍞" },
-    { id: "pisgor", name: "Pisang Goreng", cat: "Makanan", price: 12000, emoji: "🍌" },
-    { id: "kentang", name: "Kentang Goreng", cat: "Makanan", price: 18000, emoji: "🍟" },
-    { id: "nasgor", name: "Nasi Goreng Kampung", cat: "Makanan", price: 28000, emoji: "🍳" }
+    { id: "eskopsu", name: "Es Kopi Susu Gula Aren", cat: "Kopi", price: 18000, ini: "ES" },
+    { id: "tubruk", name: "Kopi Tubruk", cat: "Kopi", price: 12000, ini: "KT" },
+    { id: "americano", name: "Americano", cat: "Kopi", price: 20000, ini: "AM" },
+    { id: "latte", name: "Caffe Latte", cat: "Kopi", price: 24000, ini: "CL" },
+    { id: "v60", name: "V60 Arabika Garut", cat: "Kopi", price: 25000, ini: "V6" },
+    { id: "matcha", name: "Matcha Latte", cat: "Non-kopi", price: 24000, ini: "ML" },
+    { id: "coklat", name: "Cokelat Panas", cat: "Non-kopi", price: 20000, ini: "CP" },
+    { id: "lemontea", name: "Es Lemon Tea", cat: "Non-kopi", price: 15000, ini: "LT" },
+    { id: "rotibakar", name: "Roti Bakar", cat: "Makanan", price: 15000, ini: "RB" },
+    { id: "pisgor", name: "Pisang Goreng", cat: "Makanan", price: 12000, ini: "PG" },
+    { id: "kentang", name: "Kentang Goreng", cat: "Makanan", price: 18000, ini: "KG" },
+    { id: "nasgor", name: "Nasi Goreng Kampung", cat: "Makanan", price: 28000, ini: "NG" }
   ];
   const CATS = ["Semua", "Kopi", "Non-kopi", "Makanan"];
   const KEY = "kasir-kopi-rindang-v1";
@@ -112,13 +112,13 @@
     const box = $("menu");
     box.innerHTML = "";
     const list = MENU.filter((m) => (cat === "Semua" || m.cat === cat) && (!q || m.name.toLowerCase().includes(q)));
-    if (!list.length) { box.innerHTML = `<p class="empty">Menu nggak ketemu.</p>`; return; }
+    if (!list.length) { box.innerHTML = `<p class="empty">Menu tidak ditemukan.</p>`; return; }
     list.forEach((m) => {
       const b = document.createElement("button");
       b.type = "button";
       b.className = "item";
       b.setAttribute("aria-label", `Tambah ${m.name}, ${rp(m.price)}`);
-      b.innerHTML = `<span class="emoji" aria-hidden="true">${m.emoji}</span><span class="name">${m.name}</span><span class="price">${rp(m.price)}</span>${cart[m.id] ? `<span class="qty-badge">${cart[m.id]}</span>` : ""}`;
+      b.innerHTML = `<span class="ini" data-cat="${m.cat}" aria-hidden="true">${m.ini}</span><span class="name">${m.name}</span><span class="price">${rp(m.price)}</span>${cart[m.id] ? `<span class="qty-badge">${cart[m.id]}</span>` : ""}`;
       b.onclick = () => { cart[m.id] = (cart[m.id] || 0) + 1; renderMenu(); renderCartBar(); };
       box.appendChild(b);
     });
@@ -287,7 +287,7 @@
       <div class="r b"><span>TOTAL</span><span>${tx.total.toLocaleString("id-ID")}</span></div>
       <div class="r"><span>${esc(tx.method)}</span><span>${tx.paid.toLocaleString("id-ID")}</span></div>
       ${tx.method === "Tunai" ? `<div class="r"><span>Kembali</span><span>${tx.change.toLocaleString("id-ID")}</span></div>` : ""}
-      <hr><div class="c">Terima kasih, sampai ngopi lagi ☕</div>
+      <hr><div class="c">Terima kasih, sampai ngopi lagi</div>
       ${tx.sample ? `<div class="c">(transaksi contoh)</div>` : ""}`;
     open("receipt-sheet");
   }
@@ -397,3 +397,6 @@
   renderCartBar();
   if (newDayNote) setTimeout(() => demoToast("Hari baru: laporan harian dimulai ulang. Transaksi kemarin tidak ditampilkan lagi."), 600);
 })();
+
+// Mode sematan (iframe di studi kasus): sembunyikan bilah demo dan panel samping.
+try { if (window.self !== window.top || /[?&]embed=1/.test(location.search)) document.body.classList.add("embed"); } catch (e) { document.body.classList.add("embed"); }

@@ -22,11 +22,11 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../demo.css">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
   <style>
     :root { --ink: #14142B; --violet: #5B3DF5; --lime: #D7F75B; --muted: #55557A; --line: #E3E3EC; --soft: #F4F4F7; }
     * { box-sizing: border-box; }
@@ -44,7 +44,7 @@
     .logo-card figcaption { position: absolute; left: 18px; bottom: 12px; font-size: 12px; font-weight: 600; color: var(--muted); }
     .logo-card.dark { background: var(--ink); border-color: var(--ink); }
     .logo-card.violet { background: var(--violet); border-color: var(--violet); }
-    .logo-card.dark figcaption, .logo-card.violet figcaption { color: #C9C9D6; }
+    .logo-card.dark figcaption { color: #C9C9D6; } .logo-card.violet figcaption { color: #fff; }
     figure { margin: 0; }
     .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
     .swatch { border-radius: 18px; overflow: hidden; border: 1px solid var(--line); }
@@ -79,7 +79,7 @@
   <main class="wrap">
     <p class="eyebrow">Brand kit</p>
     <h1>Bikinin Studio</h1>
-    <p class="lead">Contoh isi brand kit yang kamu dapat di paket logo Standard &amp; Premium: varian logo untuk tiap kebutuhan, palet warna, font, dan contoh penerapan.</p>
+    <p class="lead">Contoh isi brand kit yang Anda dapat di paket logo Standard &amp; Premium: varian logo untuk tiap kebutuhan, palet warna, font, dan contoh penerapan.</p>
 
     <h2>Varian logo</h2>
     <div class="logos">
@@ -102,7 +102,7 @@
     <div class="apps">
       <div class="card-mock" aria-label="Contoh kartu nama">
         <img src="img/logo-putih.png" alt="">
-        <div><b>Nama Kamu</b><p>Desainer · 0877-6329-2786</p><p>@bikinin_studio</p></div>
+        <div><b>Nama Anda</b><p>Desainer · 0877-6329-2786</p><p>@bikinin_studio</p></div>
       </div>
       <div class="app-box"><div><div class="avatar"><img src="img/foto-profil-ig.png" alt="Foto profil Instagram"></div>Foto profil IG / WA</div></div>
       <div class="app-box"><div><div class="app-icon"><img src="img/ikon.png" alt="Ikon aplikasi"></div>Ikon aplikasi & favicon</div></div>
@@ -117,8 +117,7 @@
     </ul>
   </main>
 
-  <script src="../../assets/analytics.js"></script>
-  <script src="../demo.js"></script>
+  <script src="/assets/js/demo-core.js"></script>
   <script>
     const COLORS = [
       { name: "Ink", hex: "#14142B", use: "Warna utama, teks & logo" },
@@ -132,7 +131,7 @@
       el.className = "swatch";
       el.innerHTML = `<div class="chip" style="background:${c.hex}"></div><div class="meta"><strong>${c.name}</strong><span>${c.hex}</span><br><small>${c.use}</small><br><button type="button">Salin kode</button></div>`;
       el.querySelector("button").addEventListener("click", async (e) => {
-        try { await navigator.clipboard.writeText(c.hex); e.target.textContent = "Tersalin ✓"; }
+        try { await navigator.clipboard.writeText(c.hex); e.target.textContent = "Tersalin"; }
         catch { e.target.textContent = c.hex; }
         setTimeout(() => (e.target.textContent = "Salin kode"), 1500);
       });

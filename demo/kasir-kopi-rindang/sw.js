@@ -1,5 +1,5 @@
 // Offline support for the Kasir Kopi Rindang demo: cache the app shell, never cache analytics.
-const CACHE = "kasir-kr-v1";
+const CACHE = "kasir-kr-v3";
 const SHELL = [
   "./",
   "./index.html",
@@ -8,10 +8,8 @@ const SHELL = [
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
-  "../demo.css",
-  "../demo.js",
-  "../../assets/analytics.js",
-  "../../favicon.ico"
+  "/demo/demo.css",
+  "/assets/js/demo-core.js"
 ];
 
 self.addEventListener("install", (e) => {

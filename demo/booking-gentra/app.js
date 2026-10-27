@@ -1,19 +1,19 @@
 // Booking Gentra Barbershop: demo booking app. All data lives in this device's localStorage.
 (function () {
   const SERVICES = [
-    { id: "potong", name: "Potong Rambut", dur: 30, price: 35000, ic: "✂️", desc: "Konsultasi model + styling" },
-    { id: "komplit", name: "Potong + Cuci + Pijat", dur: 60, price: 55000, ic: "💈", desc: "Paling sering dipilih" },
-    { id: "jenggot", name: "Cukur Jenggot & Kumis", dur: 30, price: 25000, ic: "🪒", desc: "Handuk hangat" },
-    { id: "anak", name: "Potong Anak", dur: 30, price: 30000, ic: "🧒", desc: "Usia 10 tahun ke bawah" },
-    { id: "creambath", name: "Creambath", dur: 60, price: 65000, ic: "🧴", desc: "Rambut & kulit kepala" },
-    { id: "warna", name: "Hair Coloring", dur: 90, price: 150000, ic: "🎨", desc: "Sudah termasuk cat" }
+    { id: "potong", name: "Potong Rambut", dur: 30, price: 35000, ic: "<svg viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"6\" cy=\"7\" r=\"2.5\"/><circle cx=\"6\" cy=\"17\" r=\"2.5\"/><path d=\"M8 8.5L20 18M8 15.5L20 6\"/></svg>", desc: "Konsultasi model + styling" },
+    { id: "komplit", name: "Potong + Cuci + Pijat", dur: 60, price: 55000, ic: "<svg viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 3h10v4H7zM9 7v14M15 7v14M7 11h2M15 11h2M7 15h2M15 15h2\"/></svg>", desc: "Potong, keramas, pijat 15 menit" },
+    { id: "jenggot", name: "Cukur Jenggot & Kumis", dur: 30, price: 25000, ic: "<svg viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M4 10h13a3 3 0 010 6H8a4 4 0 01-4-4zM17 13h3\"/></svg>", desc: "Dengan handuk hangat" },
+    { id: "anak", name: "Potong Anak", dur: 30, price: 30000, ic: "<svg viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"8\" r=\"4\"/><path d=\"M5 21a7 7 0 0114 0\"/></svg>", desc: "Usia 10 tahun ke bawah" },
+    { id: "creambath", name: "Creambath", dur: 60, price: 65000, ic: "<svg viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 3h6v4H9zM8 7h8v14H8zM8 12h8\"/></svg>", desc: "Rambut & kulit kepala" },
+    { id: "warna", name: "Hair Coloring", dur: 90, price: 150000, ic: "<svg viewBox=\"0 0 24 24\" width=\"26\" height=\"26\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M12 3a9 9 0 100 18c1.5 0 2-1 1.5-2s0-2 1.5-2h2a3 3 0 003-3c0-6-5-11-8-11z\"/><circle cx=\"8\" cy=\"11\" r=\"1\"/><circle cx=\"12\" cy=\"7.5\" r=\"1\"/><circle cx=\"16\" cy=\"10\" r=\"1\"/></svg>", desc: "Sudah termasuk cat" }
   ];
   const BARBERS = [
     { id: "raka", name: "Raka", note: "Spesialis fade", color: "#B4483A" },
     { id: "dimas", name: "Dimas", note: "Klasik & jenggot", color: "#2C5C9A" },
     { id: "yoga", name: "Yoga", note: "Coloring", color: "#2F7A55" }
   ];
-  const ANY = { id: "any", name: "Siapa aja", note: "Paling cepat kosong", color: "#1D2733" };
+  const ANY = { id: "any", name: "Siapa saja", note: "Jam paling awal yang kosong", color: "#1D2733" };
   const OPEN = 10 * 60, CLOSE = 21 * 60, STEP = 30, DAYS = 7;
   const STATUSES = ["Menunggu", "Datang", "Selesai", "Batal"];
   const KEY = "booking-gentra-v1";
@@ -111,7 +111,7 @@
     const ids = barberId === "any" ? BARBERS.map((b) => b.id) : [barberId];
     return ids.filter((id) => barberFree(id, date, start, dur));
   }
-  // "Siapa aja": give the slot to the free barber with the lightest day
+  // "Siapa saja": give the slot to the free barber with the lightest day
   function assignBarber(date, start, dur) {
     const load = (id) => store.bookings.filter((b) => active(b) && b.barber === id && b.date === date).reduce((s, b) => s + b.dur, 0);
     return freeBarbers(sel.barber, date, start, dur).sort((a, b) => load(a) - load(b))[0];
@@ -137,7 +137,7 @@
     });
   }
 
-  function avatar(b) { return `<span class="avatar" style="background:${b.color}" aria-hidden="true">${b.id === "any" ? "★" : b.name[0]}</span>`; }
+  function avatar(b) { return `<span class="avatar" style="background:${b.color}" aria-hidden="true">${b.id === "any" ? "?" : b.name[0]}</span>`; }
 
   function renderBarbers() {
     const box = $("barbers");
@@ -196,7 +196,7 @@
       b.onclick = () => { sel.time = t; afterSelect(); };
       box.appendChild(b);
     });
-    if (!box.children.length) box.innerHTML = `<p class="empty">Hari ini sudah tutup. Pilih tanggal lain ya.</p>`;
+    if (!box.children.length) box.innerHTML = `<p class="empty">Hari ini sudah tutup. Silakan pilih tanggal lain.</p>`;
     const who = sel.barber === "any" ? "semua kapster" : barberById[sel.barber].name;
     $("slot-info").textContent = `${free} jam kosong untuk ${who} · durasi ${dur} menit`;
   }
@@ -281,7 +281,7 @@
       close("confirm-sheet");
       sel.time = null;
       afterSelect();
-      demoToast("Yah, jam itu barusan terisi. Pilih jam lain ya.");
+      demoToast("Jam itu baru saja terisi. Pilih jam lain.");
       return;
     }
     const b = { code: newCode(), date: sel.date, start: sel.time, dur, svc: sel.svc, barber, name, phone: cleanPhone(phone), note: $("f-note").value.trim(), status: "Menunggu", sample: false };
@@ -332,7 +332,7 @@
       <div class="row"><span>Waktu</span><b>${shortDate(b.date)} · ${hm(b.start)}</b></div>
       <div class="row"><span>Kapster</span><b>${barberById[b.barber].name}</b></div>
       <div class="row"><span>Bayar di tempat</span><b>${rp(s.price)}</b></div>
-      <p class="note">Tunjukkan kode ini ke kasir. Datang 5 menit lebih awal ya.</p>`;
+      <p class="note">Tunjukkan kode ini ke kasir. Datang 5 menit lebih awal.</p>`;
     if (icsUrl) URL.revokeObjectURL(icsUrl);
     icsUrl = URL.createObjectURL(new Blob([icsFor(b)], { type: "text/calendar" }));
     $("ics").href = icsUrl;

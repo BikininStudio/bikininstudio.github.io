@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Aplikasi Denah Kedai 3D · Bikinin Studio</title>
+  <meta name="description" content="Aplikasi web untuk menyusun meja, kursi, rak, dan kasir kedai dalam 3D, lalu menghitung kapasitas kursi dan luas terpakai. Proyek konsep.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/denah-toko-3d/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Demo Denah Kedai 3D">
+  <meta property="og:description" content="Susun meja dan kursi kedai, lihat kapasitas dan luas terpakai. Proyek konsep – brand fiktif.">
+  <meta property="og:url" content="https://bikininstudio.github.io/demo/denah-toko-3d/">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/denah-toko-3d.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Demo Denah Kedai 3D">
+  <meta name="twitter:description" content="Susun meja dan kursi kedai, lihat kapasitas dan luas terpakai. Proyek konsep – brand fiktif.">
+  <meta name="twitter:image" content="https://bikininstudio.github.io/assets/og/denah-toko-3d.jpg">
+  <meta name="theme-color" content="#C9BBA3">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preload" href="../../assets/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{ "imports": { "three": "../3d/three.module.min.js" } }</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');
+  (function(){var d=0;function l(){if(d)return;d=1;['scroll','pointerdown','keydown','touchstart'].forEach(function(e){removeEventListener(e,l);});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN';document.head.appendChild(s);}
+  function i(){['scroll','pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,l,{passive:true,once:true});});setTimeout(l,6000);}
+  if(document.readyState==='complete'){i();}else{addEventListener('load',i);}})();</script>
+</head>
+<body data-demo="denah-toko-3d" data-label="Denah Kedai Kopi Rindang">
+  <main id="isi">
+    <header class="head">
+      <h1>Denah Kedai Kopi Rindang</h1>
+      <p>Susun meja, kursi, rak, dan kasir di ruang 8 × 6,5&nbsp;m, lalu lihat berapa kursi yang muat. Denah tersimpan otomatis di perangkat ini.</p>
+    </header>
+    <noscript><p class="noscript">Halaman ini memakai JavaScript untuk objek 3D. Isi lengkapnya tetap tertulis di bawah.</p></noscript>
+
+    <div class="app">
+      <section class="kanvas" aria-label="Denah">
+        <div class="host" id="host"></div>
+        <p class="kisi">Objek menempel ke kisi 0,25&nbsp;m.</p>
+        <p class="status" id="status" role="status" aria-live="polite">Memuat denah…</p>
+        <p class="kosong" id="kosong" hidden>Denah masih kosong. Tambahkan meja pertama dengan tombol Meja kecil atau Meja besar.</p>
+        <button type="button" class="btn alt" id="undo" hidden>Batalkan</button>
+      </section>
+
+      <aside class="panel" aria-label="Alat denah">
+        <div class="grup" role="group" aria-label="Tambah objek">
+          <h2>Tambah</h2>
+          <div class="baris">
+            <button type="button" class="btn alt" data-add="meja-kecil">Meja kecil (2 kursi)</button>
+            <button type="button" class="btn alt" data-add="meja-besar">Meja besar (4 kursi)</button>
+            <button type="button" class="btn alt" data-add="kursi">Kursi</button>
+            <button type="button" class="btn alt" data-add="rak">Rak</button>
+            <button type="button" class="btn alt" data-add="kasir">Meja kasir</button>
+          </div>
+        </div>
+        <div class="grup" role="group" aria-label="Objek terpilih">
+          <h2>Objek terpilih</h2>
+          <div class="baris">
+            <button type="button" class="btn" id="btn-rot" disabled aria-label="Putar 90°, putar objek terpilih 90 derajat (tombol R)">Putar 90°</button>
+            <button type="button" class="btn" id="btn-del" disabled aria-label="Hapus, hapus objek terpilih (tombol Delete)">Hapus</button>
+            <button type="button" class="btn alt" id="btn-view" aria-pressed="false">Lihat dari atas</button>
+          </div>
+        </div>
+        <div class="grup">
+          <h2>Ringkasan <span class="tag" id="s-contoh">Contoh</span></h2>
+          <table class="ringkas">
+            <tbody>
+              <tr><th scope="row">Kapasitas</th><td id="s-kursi"></td></tr>
+              <tr><th scope="row">Meja</th><td id="s-meja"></td></tr>
+              <tr><th scope="row">Luas terpakai</th><td id="s-luas"></td></tr>
+            </tbody>
+          </table>
+          <p class="sr" id="s-kalimat" aria-live="polite"></p>
+        </div>
+        <div class="grup">
+          <h2>Objek di denah</h2>
+          <ul class="daftar-objek" id="daftar-objek"></ul>
+        </div>
+        <details class="grup cara">
+          <summary>Cara memakai</summary>
+          <p><b>Papan ketik:</b> Tab untuk memilih objek. Tombol panah menggeser 0,25&nbsp;m. R memutar 90°. Delete menghapus. Esc melepas pilihan.</p>
+          <p><b>Sentuh:</b> Ketuk objek untuk memilih. Seret objek untuk memindahkannya. Seret ruang kosong untuk memutar kamera, cubit untuk memperbesar.</p>
+          <p><b>Kursor:</b> Seret objek untuk memindahkannya. Seret ruang kosong untuk memutar kamera, gulir untuk memperbesar.</p>
+        </details>
+        <div class="grup">
+          <button type="button" class="btn alt" id="btn-reset">Kembalikan denah awal</button>
+          <p class="simpan" id="simpan" hidden></p>
+        </div>
+      </aside>
+    </div>
+
+    <dialog id="dlg-reset" aria-labelledby="dlg-h">
+      <h2 id="dlg-h">Kembalikan denah awal?</h2>
+      <p>Semua perubahan Anda dihapus dan denah kembali ke contoh awal.</p>
+      <div class="baris"><button type="button" class="btn" id="reset-ok">Kembalikan</button><button type="button" class="btn alt" id="reset-batal">Batal</button></div>
+    </dialog>
+
+    <section class="outro" aria-labelledby="outro-h">
+      <h2 id="outro-h">Aplikasi denah untuk kedai atau toko Anda</h2>
+      <p>Kami bisa membuat aplikasi seperti ini dengan ukuran ruang dan perabot milik Anda. Aplikasi sederhana mulai Rp&nbsp;3jt, pengerjaan 3–6 minggu. Fitur tambahan dihitung di penawaran tertulis.</p>
+      <div class="baris">
+        <a class="btn" id="wa-denah" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Buat yang seperti ini</a>
+        <a class="btn alt" href="../../jasa-aplikasi-web/">Lihat layanan aplikasi web</a>
+      </div>
+      <p class="related"><span>Demo terkait:</span> <a href="../kasir-kopi-rindang/">Aplikasi kasir Kopi Rindang</a> <a href="../booking-gentra/">Aplikasi booking Gentra</a> <a href="../studio-3d/">Studio 3D Bikinin</a></p>
+      <p class="foot-note">Objek 3D dibuat dengan kode memakai Three.js (lisensi MIT). Bila perangkat Anda membatasi animasi atau tidak mendukung WebGL, halaman ini menampilkan gambar diam.</p>
+    </section>
+  </main>
+  <script src="/assets/js/demo-core.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

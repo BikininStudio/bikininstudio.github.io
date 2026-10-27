@@ -1,0 +1,119 @@
+/* Showcase website 3D: satu panggung WebGL menempel di belakang tiga bab. Bidang warna rata per bab (docs/DESIGN.md 11.4):
+   tanpa gradasi, tanpa kaca, tanpa grain, tanpa preloader. Lima ukuran huruf: display, h2, lead 20, isi 17, kecil 16. */
+@font-face { font-family: "Hanken Grotesk"; font-weight: 400 500; font-display: swap; src: url("../../assets/fonts/hanken-grotesk-latin.woff2") format("woff2"); }
+:root { --font: "Hanken Grotesk", system-ui, sans-serif; --display: "Fraunces", Georgia, serif; --taupe: #5E5148; --paper-ink: #F4EFE8; }
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body { margin: 0; background: var(--taupe); color: var(--paper-ink); font-family: var(--font); font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+.progress-bar { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 1001; background: #743318; transform: scaleX(0); transform-origin: left; }
+
+/* Navigasi bab: daftar teks 16px di kiri bawah panggung, bab aktif bergaris bawah 2px */
+.chapnav { position: fixed; left: 5vw; bottom: 12px; z-index: 900; display: flex; gap: 4px 20px; padding: 0 14px; background: #DCD0BC; transition: opacity .4s ease, visibility .4s ease; }
+.chapnav button { min-height: 44px; padding: 0 2px; border: 0; background: none; color: #1F241E; font: 600 16px var(--font); cursor: pointer; border-bottom: 2px solid transparent; }
+.chapnav button[aria-current] { border-bottom-color: currentColor; }
+.chapnav button:focus-visible { outline: 3px solid #743318; outline-offset: 2px; }
+.at-outro .chapnav { opacity: 0; visibility: hidden; }
+
+/* Panggung */
+.story { position: relative; }
+.stage {
+  position: sticky; top: 0; height: 100vh; height: 100svh; margin-bottom: -100vh; margin-bottom: -100svh; overflow: hidden;
+  background: #CBBBA2 url("poster-1.webp") center / cover no-repeat; transition: background-color .5s ease;
+}
+.has3d .stage { background-image: none; }
+.stage[data-ch="1"] { background-color: #BDBAB3; }
+.stage[data-ch="2"] { background-color: #B7C0C6; }
+.stage canvas { display: block; width: 100%; height: 100%; opacity: 0; transition: opacity .6s ease; touch-action: pan-y; }
+.has3d .stage canvas { opacity: 1; }
+.stage[data-ch="1"] canvas { cursor: grab; }
+.stage.dragging canvas { cursor: grabbing; }
+/* Pergantian bab: bidang warna menyapu naik, memuat nama brand berikutnya */
+.curtain {
+  position: absolute; inset: 0; z-index: 3; display: grid; place-content: center; background: var(--taupe); color: var(--paper-ink);
+  clip-path: inset(100% 0 0 0); transition: clip-path .48s cubic-bezier(.7, 0, .3, 1);
+}
+.curtain.in { clip-path: inset(0 0 0 0); }
+.curtain.out { clip-path: inset(0 0 100% 0); }
+.curtain.reset { transition: none; }
+.curtain-t { font-family: var(--display); font-size: clamp(32px, 4.3vw, 58px); font-weight: 600; letter-spacing: -.02em; }
+
+/* Bab dan panel: teks di atas kertas rata, tidak pernah langsung di atas objek */
+.chapter { position: relative; pointer-events: none; }
+.chapter[data-theme="kraft"] { --ink: #1F241E; --accent: #743318; --paper: #DCD0BC; --chbg: #CBBBA2; }
+.chapter[data-theme="beton"] { --ink: #1C1C1C; --accent: #7A2C10; --paper: #D3D0C9; --chbg: #BDBAB3; }
+.chapter[data-theme="kabut"] { --ink: #13213B; --accent: #5E3C0C; --paper: #D0D6DA; --chbg: #B7C0C6; }
+.panel { position: relative; z-index: 1; min-height: 100vh; min-height: 100svh; display: flex; align-items: flex-end; padding: 96px 5vw 72px; color: var(--ink); }
+.copy { pointer-events: auto; width: min(41.6%, 560px); padding: 32px 36px 34px; background: var(--paper); }
+.panel h1, .panel h2 { margin: 0 0 16px; font-family: var(--display); font-weight: 600; letter-spacing: -.025em; line-height: 1.02; text-wrap: balance; }
+.panel h1 { font-size: clamp(32px, 3.4vw, 50px); }
+.ch-poster + .panel .copy { width: min(58%, 820px); }
+.panel h2 { font-size: clamp(32px, 3.6vw, 48px); }
+.panel p { margin: 0 0 14px; font-size: 17px; line-height: 1.6; color: var(--ink); }
+.panel p.small, .small { font-size: 16px !important; }
+.hint { display: block; margin-top: 8px; font-size: 16px; font-weight: 600; color: var(--accent); }
+
+/* judul naik dari balik topeng; isi muncul bertahap */
+.mask { display: block; overflow: hidden; padding-bottom: .1em; margin-bottom: -.1em; }
+.mask > span { display: block; transform: translateY(105%); transition: transform 1s cubic-bezier(.2, .75, .1, 1); }
+.panel.on .mask > span { transform: none; }
+.copy > :not(h1):not(h2) { opacity: 0; transform: translateY(16px); transition: opacity .7s ease .2s, transform .7s ease .2s; }
+.panel.on .copy > * { opacity: 1; transform: none; }
+
+/* Fakta: baris biasa, angka menyatu dengan kalimat */
+.facts, .stats { display: grid; gap: 6px; margin: 18px 0 0; padding: 0; list-style: none; }
+.facts li, .stats li { display: flex; gap: 10px; align-items: baseline; font-size: 17px; }
+.facts b, .stats b { font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.facts span, .stats span { font-size: 17px; }
+.swatch { display: inline-block; width: .42em; height: .42em; vertical-align: .1em; margin-right: 12px; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); }
+.spec { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; margin: 16px 0 0; font-size: 17px; }
+.spec dd { margin: 0; font-weight: 700; }
+.chips { display: grid; grid-template-columns: repeat(6, 44px); gap: 8px; margin: 16px 0 12px; }
+.chip { width: 44px; height: 44px; border-radius: 50%; border: 0; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25); }
+.chip[aria-pressed="true"] { box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25), 0 0 0 3px var(--paper), 0 0 0 5px var(--ink); }
+.chip:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.price { margin: 12px 0 0; font-size: 20px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.price small { font-size: 16px; font-weight: 400; color: var(--ink); }
+.warna-list { display: none; }
+
+/* Penutup: panel taupe sama dengan pita demo */
+.outro { position: relative; z-index: 2; min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; background: var(--taupe); color: var(--paper-ink); padding: 120px 5vw 90px; }
+.outro h2 { margin: 0 0 18px; max-width: 820px; font-family: var(--display); font-size: clamp(32px, 3.6vw, 48px); font-weight: 600; letter-spacing: -.025em; line-height: 1.05; text-wrap: balance; }
+.outro p { max-width: 620px; font-size: 17px; line-height: 1.6; margin: 0 0 28px; }
+.outro-actions { display: flex; flex-wrap: wrap; }
+.btn3d { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; font-weight: 700; font-size: 17px; text-decoration: none; background: var(--paper-ink); color: #2B2019; border: 0; margin: 0 10px 10px 0; }
+.btn3d:hover { background: #fff; }
+.btn3d.ghost { background: transparent; color: inherit; box-shadow: inset 0 0 0 2px currentColor; }
+.btn3d:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.related { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 0 22px; font-size: 16px; align-items: center; }
+.related a { color: var(--paper-ink); display: inline-flex; align-items: center; min-height: 44px; }
+.outro small { display: block; margin-top: 20px; max-width: 760px; font-size: 16px; line-height: 1.55; }
+footer { padding: 18px; text-align: center; font-size: 16px; color: var(--paper-ink); background: var(--taupe); }
+
+/* Mode gambar diam (reduced-motion / tanpa WebGL): tanpa panggung, satu poster per bab, teks mengalir biasa */
+.ch-poster { display: none; }
+.no3d .stage, .no3d .chapnav { display: none; }
+.no3d .chapter { background: var(--chbg); pointer-events: auto; }
+.no3d .ch-poster { display: block; width: 100%; height: 62vh; object-fit: cover; }
+.no3d .panel { min-height: 0; padding: 32px 5vw; }
+.no3d .copy { width: min(100%, 640px); padding: 0; background: none; }
+.no3d .chips, .no3d .chip-note { display: none; }
+.no3d .warna-list { display: block; }
+
+@media (max-width: 1023px) { .copy, .ch-poster + .panel .copy { width: min(78%, 640px); } }
+@media (max-width: 760px) {
+  .chapnav { display: none; }
+  /* objek mengisi 54% atas; kertas teks ditambatkan di bawah, maksimal 46svh, tanpa blur */
+  .panel { padding: 0; align-items: flex-end; }
+  .copy { width: 100%; max-height: 46svh; overflow: auto; padding: 20px 18px 24px; }
+  .panel h1 { font-size: 24px; }
+  .ch-poster + .panel .copy { width: 100%; }
+  .panel h2 { font-size: 28px; }
+  .chips { gap: 6px; }
+  .outro { padding: 80px 16px 64px; }
+  .no3d .panel { padding: 24px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mask > span, .copy > :not(h1):not(h2) { transform: none !important; opacity: 1 !important; transition: none !important; }
+  .curtain { transition: none; }
+}

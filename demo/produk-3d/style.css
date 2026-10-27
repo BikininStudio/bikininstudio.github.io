@@ -1,0 +1,70 @@
+/* Toko 3D Keripik Pematang (brand fiktif). Palet tanah sawah nada menengah; Young Serif untuk judul, Hanken Grotesk untuk isi. */
+@font-face { font-family: "Hanken Grotesk"; font-weight: 400 700; font-display: swap; src: url("../../assets/fonts/hanken-grotesk-latin.woff2") format("woff2"); }
+@font-face { font-family: "Young Serif"; font-weight: 400; font-display: swap; src: url("young-serif.woff2") format("woff2"); }
+:root {
+  --font-b: "Hanken Grotesk", system-ui, sans-serif; --font-d: "Young Serif", Georgia, serif; --wd: 400;
+  --bg: #BDB08A; --bg2: #AFA37E; --card: #E4DABC; --card2: #D2C7A5; --card3: #C4B993;
+  --ink: #28231A; --ink2: #4B4330; --accent: #3F5B2B; --accent-ink: #F4EDD6; --accent-hover: #2F4721; --focus: #28231A;
+  --curtain: #3F5B2B; --curtain-ink: #F4EDD6; --r: 6px;
+}
+.stage { background-color: #BDB08A; transition: background-color .6s ease; }
+.stage[data-ch="1"] { background-color: #A9B08B; }
+.stage[data-ch="2"] { background-color: #C9A987; }
+.stage canvas { cursor: grab; }
+.panel h1 { font-size: clamp(36px, 4.4vw, 58px); }
+.harga { font: 400 24px/1.2 var(--font-d); font-variant-numeric: tabular-nums; margin-top: 18px !important; }
+.hint-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+.hint-row .hint { margin: 0; }
+.spin-btns { display: flex; gap: 8px; flex: none; }
+.icon-btn { width: 48px; height: 48px; display: grid; place-items: center; border: 0; cursor: pointer; background: var(--card2); color: var(--ink); border-radius: var(--r); touch-action: manipulation; transition: background-color .2s ease, transform .2s ease; }
+.icon-btn:hover { background: var(--card3); transform: translateY(-2px); }
+.icon-btn:active { transform: translateY(1px); }
+
+/* Pemilih rasa (dock) */
+.dock { position: fixed; z-index: 800; right: 7vw; bottom: 24px; width: min(440px, calc(100% - 14vw)); padding: 12px 14px 14px; background: var(--card); color: var(--ink); border-radius: var(--r); opacity: 0; visibility: hidden; transform: translateY(16px); transition: opacity .35s ease, transform .35s ease, visibility .35s; }
+html[data-ch="0"]:not(.at-outro) .dock { opacity: 1; visibility: visible; transform: none; }
+.no3d .dock { display: none; }
+.dock-note { margin: 0 0 8px; font-weight: 600; }
+.dock-note b { font-weight: 700; }
+.dock-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.rasa-btn { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 8px; border: 0; cursor: pointer; font: 700 16px var(--font-b); background: var(--card2); color: var(--ink); border-radius: var(--r); touch-action: manipulation; transition: background-color .2s ease, color .2s ease, transform .2s ease; }
+.rasa-btn i, .rasa-opt i { width: 14px; height: 14px; flex: none; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 2px var(--card); }
+.rasa-btn:hover { background: var(--card3); transform: translateY(-2px); }
+.rasa-btn[aria-pressed="true"] { background: var(--ink); color: var(--card); }
+.rasa-btn[aria-pressed="true"] i { box-shadow: 0 0 0 2px var(--ink); }
+
+/* Formulir pesan */
+.rasa-set { border: 0; margin: 4px 0 12px; padding: 0; min-width: 0; }
+.rasa-set legend { padding: 0; margin-bottom: 8px; font-weight: 700; }
+.rasa-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.rasa-opt { position: relative; display: block; }
+.rasa-opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.rasa-opt span { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 8px; font-weight: 700; background: var(--card2); border-radius: var(--r); transition: background-color .2s ease, color .2s ease; }
+.rasa-opt input:checked + span { background: var(--ink); color: var(--card); }
+.rasa-opt input:checked + span i { box-shadow: 0 0 0 2px var(--ink); }
+.rasa-opt input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 3px; }
+.qty { display: flex; align-items: center; gap: 14px; margin: 0 0 12px; }
+.qty label { font-weight: 700; }
+.qty input { width: 96px; min-height: 48px; padding: 0 12px; font: 700 18px var(--font-b); color: var(--ink); background: var(--card2); border: 0; border-radius: var(--r); font-variant-numeric: tabular-nums; }
+.ringkas { font: 400 24px/1.2 var(--font-d); margin: 0 0 16px !important; font-variant-numeric: tabular-nums; }
+.kecil { margin-top: 14px !important; }
+
+.outro .related span { font-weight: 700; }
+.panel .copy a.btn { color: var(--accent-ink); }
+
+@media (max-width: 760px) {
+  .dock { right: 0; left: 0; bottom: 52px; width: auto; padding: 8px 12px 10px; border-radius: 0; }
+  .dock-note { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; margin: 0; }
+  html[data-ch="0"] .chapter#kemasan .panel { padding-bottom: 128px; }
+  .hint-row { flex-wrap: wrap; }
+  .ringkas { font-size: 21px; }
+  .rasa-opt span { flex-direction: column; justify-content: center; gap: 2px; padding: 6px 4px; text-align: center; }
+}
+
+/* HP: kanvas hanya menempati bagian di atas kartu, jadi objek tidak tertutup kartu Pesan */
+@media (max-width: 760px) {
+  .stage canvas { height: 52%; }
+  .panel h1 { font-size: 24px; }
+  .kecil { font-size: 16px; margin-top: 10px !important; }
+  .ringkas { margin-bottom: 12px !important; }
+}

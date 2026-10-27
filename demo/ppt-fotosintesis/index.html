@@ -22,11 +22,11 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../demo.css">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
   <style>
     :root { --navy: #1F3A5F; --green: #3FA34D; --yellow: #F6C445; --bg: #EEF3F8; }
     * { box-sizing: border-box; }
@@ -66,17 +66,16 @@
       <button id="prev" aria-label="Slide sebelumnya">‹ Sebelumnya</button>
       <span class="counter" id="counter" aria-live="polite">1 / 10</span>
       <button id="next" aria-label="Slide berikutnya">Berikutnya ›</button>
-      <button id="fs" class="fs" aria-label="Layar penuh">⛶</button>
+      <button id="fs" class="fs" aria-label="Layar penuh"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
     </div>
     <div class="progress" aria-hidden="true"><span id="bar"></span></div>
     <div class="thumbs" id="thumbs"></div>
     <p class="hint">Pakai tombol panah di keyboard, atau geser slide di HP.</p>
   </main>
 
-  <script src="../../assets/analytics.js"></script>
-  <script src="../demo.js"></script>
+  <script src="/assets/js/demo-core.js"></script>
   <script>
-    const TITLES = ["Cover", "Tujuan pembelajaran", "Pengertian", "Bahan dan hasil", "Persamaan reaksi", "Reaksi terang vs gelap", "Faktor", "Fakta menarik", "Kuis", "Rangkuman"];
+    const TITLES = ["Cover", "Tujuan pembelajaran", "Pengertian", "Bahan dan hasil", "Persamaan reaksi", "Reaksi terang vs gelap", "Faktor", "Fakta daun", "Kuis", "Rangkuman"];
     const N = TITLES.length;
     const slide = document.getElementById("slide");
     const counter = document.getElementById("counter");

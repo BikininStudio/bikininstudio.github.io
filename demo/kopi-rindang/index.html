@@ -22,13 +22,13 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../demo.css">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
   <style>
-    :root { --green: #2F4A3A; --cream: #F4EBDD; --terra: #C8663B; --esp: #3B2A20; --sage: #A7B79A; --paper: #FBF7F0; }
+    :root { --green: #2F4A3A; --cream: #F4EBDD; --terra: #A9502A; --esp: #3B2A20; --sage: #A7B79A; --paper: #FBF7F0; }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { margin: 0; background: var(--paper); color: var(--esp); font-family: "Poppins", system-ui, sans-serif; line-height: 1.6; }
@@ -53,13 +53,13 @@
     .eyebrow { font-size: 12px; letter-spacing: .2em; font-weight: 600; color: var(--terra); }
     .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 24px; }
     .menu-item { background: #fff; border-radius: 20px; padding: 22px; display: flex; gap: 16px; align-items: center; }
-    .menu-item .ic { width: 64px; height: 64px; flex: none; border-radius: 50%; background: var(--cream); display: grid; place-items: center; font-size: 28px; }
+    .menu-item .ic { width: 64px; height: 64px; flex: none; border-radius: 50%; background: var(--cream); color: var(--green, #2F4A3A); display: grid; place-items: center; }
     .menu-item h3 { font-size: 19px; margin: 0; }
     .menu-item p { margin: 2px 0 0; font-size: 13px; color: #7A6A5E; }
     .menu-item b { margin-left: auto; color: var(--terra); font-size: 17px; }
     .promo { background: var(--terra); color: #fff; border-radius: 28px; padding: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; }
     .promo h2 { font-size: clamp(36px, 5vw, 56px); margin: 6px 0; }
-    .promo h2 em { color: var(--esp); }
+    .promo h2 em { color: var(--cream); }
     .promo .pill { background: var(--cream); color: var(--esp); border-radius: 999px; padding: 12px 22px; font-weight: 600; }
     .testi { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 24px; }
     .testi figure { margin: 0; background: #fff; border-radius: 20px; padding: 26px; }
@@ -90,11 +90,12 @@
       <a class="btn btn-terra" href="#" data-demo-action="Ini demo. Di versi asli, tombol ini membuka GoFood/GrabFood atau WhatsApp kafe.">Pesan antar</a>
     </nav>
 
+    <main>
     <header class="hero">
       <div>
-        <small>KEDAI KOPI LOKAL · BANDUNG</small>
-        <h1>Tempat teduh buat ngopi pelan-pelan</h1>
-        <p>Biji kopi dari petani lokal, disangrai sendiri tiap pagi, dan disajikan tanpa buru-buru.</p>
+        <small>KEDAI KOPI · BANDUNG</small>
+        <h1>Kopi disangrai tiap pagi, diseduh di teras yang teduh</h1>
+        <p>Biji arabika Garut disangrai sendiri tiap pagi. Ada 27 kursi di teras dan ruang dalam, buka setiap hari.</p>
         <div class="cta">
           <a class="btn btn-terra" href="#menu">Lihat menu</a>
           <a class="btn btn-line" href="#lokasi">Cara ke sini</a>
@@ -141,15 +142,15 @@
     </header>
 
     <section id="menu">
-      <span class="eyebrow">MENU ANDALAN</span>
-      <h2>Yang paling sering dipesan</h2>
+      <span class="eyebrow">MENU HARIAN</span>
+      <h2>Enam menu, harga contoh</h2>
       <div class="menu-grid">
-        <div class="menu-item"><span class="ic">🥤</span><div><h3>Es Kopi Susu Gula Aren</h3><p>Signature</p></div><b>18K</b></div>
-        <div class="menu-item"><span class="ic">☕</span><div><h3>Kopi Tubruk</h3><p>Arabika Garut</p></div><b>12K</b></div>
-        <div class="menu-item"><span class="ic">🧊</span><div><h3>Americano</h3><p>Panas / dingin</p></div><b>20K</b></div>
-        <div class="menu-item"><span class="ic">🍵</span><div><h3>Matcha Latte</h3><p>Non-kopi</p></div><b>24K</b></div>
-        <div class="menu-item"><span class="ic">🍞</span><div><h3>Roti Bakar</h3><p>Cokelat keju</p></div><b>15K</b></div>
-        <div class="menu-item"><span class="ic">🍌</span><div><h3>Pisang Goreng</h3><p>Sambal roa</p></div><b>12K</b></div>
+        <div class="menu-item"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10l-1.2 13H8.2zM6 7h12M13 7l2-4"/><path d="M8.5 12h7"/></svg></span><div><h3>Es Kopi Susu Gula Aren</h3><p>Susu segar, gula aren cair</p></div><b>18K</b></div>
+        <div class="menu-item"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 01-5 5h-1a5 5 0 01-5-5zM16 10h2a2 2 0 010 4h-2M8 3v2M11 3v2"/></svg></span><div><h3>Kopi Tubruk</h3><p>Arabika Garut</p></div><b>12K</b></div>
+        <div class="menu-item"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 9l2 2M13 14l2 1"/></svg></span><div><h3>Americano</h3><p>Panas / dingin</p></div><b>20K</b></div>
+        <div class="menu-item"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12v2a6 6 0 01-12 0zM16 11h2a2 2 0 010 4h-2"/><path d="M3 20h14"/></svg></span><div><h3>Matcha Latte</h3><p>Non-kopi</p></div><b>24K</b></div>
+        <div class="menu-item"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a3 3 0 013-3h8a3 3 0 013 3v1h-1v7H6v-7H5z"/></svg></span><div><h3>Roti Bakar</h3><p>Cokelat keju</p></div><b>15K</b></div>
+        <div class="menu-item"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15c0-6 5-10 11-10 1 0 1 1 0 2-4 1-6 4-6 8 0 1-1 2-3 2-1 0-2-1-2-2z"/></svg></span><div><h3>Pisang Goreng</h3><p>Sambal roa</p></div><b>12K</b></div>
       </div>
     </section>
 
@@ -160,32 +161,22 @@
       </div>
     </section>
 
-    <section>
-      <span class="eyebrow">KATA MEREKA</span>
-      <h2>Pelanggan yang betah lama-lama</h2>
-      <div class="testi">
-        <figure><blockquote>"Kopinya enak, tempatnya adem. Jadi tempat nugas favorit tiap minggu."</blockquote><figcaption>Nadia · Mahasiswi</figcaption></figure>
-        <figure><blockquote>"Es kopi gula arennya pas manisnya. Wajib mampir tiap ke Bandung."</blockquote><figcaption>Raka · Pekerja kantoran</figcaption></figure>
-      </div>
-      <p class="sample">*Contoh testimoni untuk demo. Di versi asli diisi ulasan pelanggan kamu.</p>
-    </section>
-
-    <section id="lokasi">
-      <span class="eyebrow">MAMPIR, YUK</span>
-      <h2>Lokasi & jam buka</h2>
+<section id="lokasi">
+      <span class="eyebrow">LOKASI & JAM BUKA</span>
+      <h2>Jl. Rindang No. 7, Bandung (alamat contoh)</h2>
       <div class="visit">
         <div class="map">Peta Google Maps tampil di sini</div>
         <div class="hours">
-          <h3>Jl. Rindang No. 7, Bandung</h3>
+          <h3>Jam buka</h3>
           <dl><dt>Senin–Jumat</dt><dd>08.00–22.00</dd><dt>Sabtu–Minggu</dt><dd>07.00–23.00</dd><dt>Pesan online</dt><dd>GoFood · GrabFood · ShopeeFood</dd></dl>
           <a class="btn btn-terra" href="#" data-demo-action="Ini demo. Di versi asli, tombol ini membuka Google Maps.">Buka di Maps</a>
         </div>
       </div>
     </section>
+    </main>
   </div>
   <footer>© Kopi Rindang · brand fiktif untuk demo</footer>
 
-  <script src="../../assets/analytics.js"></script>
-  <script src="../demo.js"></script>
+  <script src="/assets/js/demo-core.js"></script>
 </body>
 </html>

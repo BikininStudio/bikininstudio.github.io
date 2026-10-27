@@ -13,33 +13,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Demo Aplikasi Kasir Kopi Rindang · Bikinin Studio</title>
-  <meta name="description" content="Demo aplikasi kasir UMKM yang bisa di-install di HP: pilih menu, bayar tunai atau QRIS, struk, riwayat, dan laporan omzet harian. Dibuat oleh Bikinin Studio.">
+  <meta name="description" content="Demo aplikasi kasir UMKM yang bisa dipasang di HP: pilih menu, bayar tunai atau QRIS, struk, riwayat, dan laporan omzet. Dibuat oleh Bikinin Studio.">
   <link rel="canonical" href="https://bikininstudio.github.io/demo/kasir-kopi-rindang/">
   <meta name="theme-color" content="#2F4A3A">
   <meta property="og:title" content="Demo Aplikasi Kasir Kopi Rindang · Bikinin Studio">
-  <meta property="og:description" content="Contoh aplikasi kasir UMKM: transaksi, struk, riwayat, dan laporan omzet. Bisa di-install di HP.">
+  <meta property="og:description" content="Contoh aplikasi kasir UMKM: transaksi, struk, riwayat, dan laporan omzet. Bisa dipasang di ponsel.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og/kasir-kopi-rindang.jpg">
   <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/kasir-kopi-rindang.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="../../favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Kasir KR">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../demo.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <link rel="stylesheet" href="app.css?v=3">
 </head>
 <body data-demo="kasir-kopi-rindang" data-label="Aplikasi kasir Kopi Rindang">
   <div class="stage">
     <aside class="about">
       <p class="about-eyebrow">DEMO APLIKASI</p>
       <h1>Aplikasi kasir untuk UMKM</h1>
-      <p>Coba langsung: pilih menu, bayar, dan lihat laporan omzet. Semua data cuma tersimpan di perangkatmu.</p>
+      <p>Coba langsung: pilih menu, bayar, dan lihat laporan omzet. Semua data hanya tersimpan di perangkat Anda.</p>
       <ul>
         <li>Transaksi cepat dengan keranjang & diskon</li>
         <li>Bayar tunai (kembalian otomatis) atau QRIS</li>
@@ -61,6 +61,7 @@
         </header>
 
         <main>
+        <h1 class="mob-h">Aplikasi kasir Kopi Rindang</h1>
           <!-- Kasir -->
           <section class="view" id="view-kasir" aria-label="Kasir">
             <label class="sr-only" for="search">Cari menu</label>
@@ -85,7 +86,7 @@
               <div class="split" id="split"></div>
             </div>
             <div class="card">
-              <h3>Menu terlaris</h3>
+              <h3>Menu paling banyak terjual</h3>
               <ol class="bars" id="top"></ol>
             </div>
             <div class="card">
@@ -103,9 +104,9 @@
         </button>
 
         <nav class="tabbar" aria-label="Navigasi aplikasi">
-          <button type="button" data-view="kasir" aria-current="page"><span aria-hidden="true">🧾</span>Kasir</button>
-          <button type="button" data-view="riwayat"><span aria-hidden="true">🕘</span>Riwayat</button>
-          <button type="button" data-view="laporan"><span aria-hidden="true">📊</span>Laporan</button>
+          <button type="button" data-view="kasir" aria-current="page"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg>Kasir</button>
+          <button type="button" data-view="riwayat"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Riwayat</button>
+          <button type="button" data-view="laporan"><svg class="ico" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>Laporan</button>
         </nav>
 
         <!-- Keranjang -->
@@ -133,8 +134,8 @@
             <div class="sheet-head"><h2 id="pay-title">Pembayaran</h2><button class="x" data-close aria-label="Tutup">×</button></div>
             <p class="pay-total">Total <b id="pay-total">Rp 0</b></p>
             <div class="seg" role="tablist" aria-label="Metode pembayaran">
-              <button role="tab" type="button" data-method="Tunai" aria-selected="true">💵 Tunai</button>
-              <button role="tab" type="button" data-method="QRIS" aria-selected="false">📱 QRIS</button>
+              <button role="tab" type="button" data-method="Tunai" aria-selected="true">Tunai</button>
+              <button role="tab" type="button" data-method="QRIS" aria-selected="false">QRIS</button>
             </div>
             <div id="pay-cash">
               <label for="cash">Uang diterima</label>
@@ -145,7 +146,7 @@
             </div>
             <div id="pay-qris" hidden>
               <div class="qr" id="qr" aria-label="Kode QR contoh"></div>
-              <p class="muted small center">QR ini cuma contoh. Di versi asli, QRIS toko kamu yang tampil.</p>
+              <p class="muted small center">QR ini hanya contoh. Di versi asli, QRIS toko Anda yang tampil.</p>
               <button class="btn btn-block" id="pay-qris-btn" type="button">Tandai sudah dibayar (simulasi)</button>
             </div>
           </div>
@@ -157,7 +158,7 @@
             <div class="sheet-head"><h2 id="receipt-title">Struk</h2><button class="x" data-close aria-label="Tutup">×</button></div>
             <div class="receipt" id="receipt"></div>
             <div class="row-btns">
-              <button class="btn-ghost" id="print" type="button">🖨 Cetak</button>
+              <button class="btn-ghost" id="print" type="button">Cetak</button>
               <button class="btn-ghost" data-demo-action="Ini demo. Di versi asli, struk terkirim ke WhatsApp pelanggan.">Kirim via WA</button>
             </div>
             <button class="btn btn-block" data-close type="button">Transaksi baru</button>
@@ -167,8 +168,7 @@
     </div>
   </div>
 
-  <script src="../../assets/analytics.js"></script>
-  <script src="../demo.js"></script>
-  <script src="app.js"></script>
+  <script src="/assets/js/demo-core.js"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Studio 3D: Layanan di Meja Kerja · Bikinin Studio</title>
+  <meta name="description" content="Laptop, ponsel, buku, dan stempel mewakili layanan website, aplikasi, PPT, dan logo Bikinin Studio, lengkap dengan harga mulai dari.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/studio-3d/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Studio 3D Bikinin Studio">
+  <meta property="og:description" content="Empat layanan di satu meja kerja 3D, dengan harga mulai dari.">
+  <meta property="og:url" content="https://bikininstudio.github.io/demo/studio-3d/">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/studio-3d.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Studio 3D Bikinin Studio">
+  <meta name="twitter:description" content="Empat layanan di satu meja kerja 3D, dengan harga mulai dari.">
+  <meta name="twitter:image" content="https://bikininstudio.github.io/assets/og/studio-3d.jpg">
+  <meta name="theme-color" content="#B8A797">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preload" href="../../assets/fonts/plus-jakarta-sans-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/fraunces-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="poster-1.webp" as="image" media="(min-width: 761px)" fetchpriority="high">
+  <link rel="preload" href="poster-1-hp.webp" as="image" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <link rel="stylesheet" href="../3d/kit3d.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{ "imports": { "three": "../3d/three.module.min.js" } }</script>
+  <script>document.documentElement.classList.add("js");</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');
+  (function(){var d=0;function l(){if(d)return;d=1;['scroll','pointerdown','keydown','touchstart'].forEach(function(e){removeEventListener(e,l);});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN';document.head.appendChild(s);}
+  function i(){['scroll','pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,l,{passive:true,once:true});});setTimeout(l,6000);}
+  if(document.readyState==='complete'){i();}else{addEventListener('load',i);}})();</script>
+</head>
+<body data-demo="studio-3d" data-label="Studio 3D Bikinin" data-fiktif="false">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <nav class="chapnav" aria-label="Bab">
+    <button type="button" data-go="0">Meja kerja</button>
+    <button type="button" data-go="1">Layanan</button>
+    <button type="button" data-go="2">Pesan</button>
+  </nav>
+
+  <main id="isi">
+    <noscript><p class="noscript">Halaman ini memakai JavaScript untuk objek 3D. Isi lengkapnya tetap tertulis di bawah.</p></noscript>
+    <div class="story">
+      <div class="stage" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 760px)" srcset="poster-1-hp.webp">
+          <img class="stage-poster" src="poster-1.webp" alt="" width="1280" height="800" fetchpriority="high">
+        </picture>
+        <canvas></canvas>
+        <div class="curtain"><span class="curtain-n"></span><span class="curtain-t">Studio 3D Bikinin</span></div>
+      </div>
+
+      <!-- Bab 1 · Meja kerja -->
+      <section class="chapter long" id="meja" aria-label="Meja kerja">
+        <img class="ch-poster" src="poster-1.webp" alt="Meja kerja 3D berisi laptop, ponsel, buku, dan stempel" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <h1>Empat benda di meja ini adalah empat layanan kami</h1>
+            <p class="note">Studio 3D Bikinin</p>
+            <p>Laptop untuk website, ponsel untuk aplikasi, buku untuk presentasi, stempel untuk logo. Gulir untuk mendekat, lalu pilih benda untuk membaca harganya.</p>
+            <span class="hint">Gulir untuk mendekat</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bab 2 · Layanan -->
+      <section class="chapter" id="layanan" aria-label="Layanan">
+        <img class="ch-poster" src="poster-2.webp" alt="Laptop, ponsel, buku, dan stempel di meja kerja 3D" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <h2>Landing page sampai toko online</h2>
+            <p class="note">Laptop · Website</p>
+            <p>Landing page 1 halaman selesai sekitar 1 minggu. Company profile 4–6 halaman 2–3 minggu. Toko online 3–4 minggu.</p>
+            <p class="harga">Mulai Rp 400rb · Rp 1jt · Rp 2jt</p>
+            <p class="harga-sub">landing page · company profile · toko online</p>
+            <p class="layar">Layar: toko GgStore (karya asli).</p>
+            <p class="note">Harga perkenalan untuk 10 klien pertama. Total pasti ada di penawaran tertulis.</p>
+            <p class="only3d note">Tab untuk berpindah benda, Enter untuk membuka layanan.</p>
+            <div class="btn-row"><a class="btn" href="../../jasa-website-umkm/">Lihat layanan website</a></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Kasir, booking, atau katalog di ponsel</h2>
+            <p class="note">Ponsel · Aplikasi web</p>
+            <p>Aplikasi sederhana yang dibuat sesuai alur kerja usaha Anda. Pengerjaan 3–6 minggu. Contoh kasir dan booking bisa Anda buka.</p>
+            <p class="harga">Mulai Rp 3jt</p>
+            <p class="layar">Layar: aplikasi kasir Kopi Rindang (proyek konsep).</p>
+            <p class="note">Harga perkenalan untuk 10 klien pertama. Total pasti ada di penawaran tertulis.</p>
+            <div class="btn-row"><a class="btn" href="../../jasa-aplikasi-web/">Lihat layanan aplikasi web</a></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>PPT untuk tugas, sidang, dan lomba</h2>
+            <p class="note">Buku · Presentasi</p>
+            <p>PPT tugas dikerjakan 1–3 hari, minimal 10 slide, file PPTX dan PDF. PPT sidang atau lomba 2–4 hari dengan 3 revisi.</p>
+            <p class="harga">Mulai Rp 3rb/slide · Rp 100rb per deck</p>
+            <p class="layar">Sampul: slide Fotosintesis (proyek konsep).</p>
+            <p class="note">Harga perkenalan untuk 10 klien pertama. Total pasti ada di penawaran tertulis.</p>
+            <div class="btn-row"><a class="btn" href="../../jasa-ppt/">Lihat layanan PPT</a></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="copy">
+            <h2>Logo orisinal, bukan dari template</h2>
+            <p class="note">Stempel · Logo</p>
+            <p>Logo Basic 2 konsep, Logo Standard 3 konsep dengan file vektor, Logo Premium dengan brand kit dan template sosmed.</p>
+            <p class="harga">Mulai Rp 75rb · Rp 200rb · Rp 500rb</p>
+            <p class="harga-sub">Basic · Standard · Premium</p>
+            <p class="note">Harga perkenalan untuk 10 klien pertama. Total pasti ada di penawaran tertulis.</p>
+            <div class="btn-row"><a class="btn" href="../../jasa-logo/">Lihat layanan logo</a></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bab 3 · Pesan -->
+      <section class="chapter" id="pesan" aria-label="Pesan">
+        <img class="ch-poster" src="poster-3.webp" alt="Meja kerja 3D dari kejauhan dengan stempel yang baru mencap logo" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <h2>Pilih satu benda, ceritakan kebutuhannya</h2>
+            <p>Isi brief atau chat WhatsApp. Penawaran tertulis kami kirim setelah brief dipelajari, maksimal 1 hari kerja.</p>
+            <div class="btn-row">
+              <a class="btn" id="wa-pesan" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Buat yang seperti ini</a>
+              <a class="btn alt" href="../../pesan/">Isi form brief</a>
+            </div>
+            <ul class="svc-list" aria-label="Daftar layanan">
+              <li><a href="../../jasa-website-umkm/">Website: lihat layanan</a></li>
+              <li><a href="../../jasa-aplikasi-web/">Aplikasi web: lihat layanan</a></li>
+              <li><a href="../../jasa-ppt/">PPT: lihat layanan</a></li>
+              <li><a href="../../jasa-logo/">Logo: lihat layanan</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="outro" id="penutup" aria-labelledby="outro-h">
+      <div class="outro-in">
+        <h2 id="outro-h">Dari meja ini ke usaha Anda</h2>
+        <p>Studio 3D ini dibuat Bikinin Studio dari kode, dengan layar benda berisi karya yang sudah ada di portofolio kami.</p>
+        <div class="btn-row">
+          <a class="btn" id="wa-outro" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Buat yang seperti ini</a>
+          <a class="btn alt" href="../../portofolio/">Lihat portofolio</a>
+        </div>
+        <p class="related"><span>Demo terkait:</span> <a href="../website-3d/">Showcase website 3D</a> <a href="../produk-3d/">Toko 3D Keripik Pematang</a> <a href="../pameran-3d/">Pameran 3D Pekan Karya</a></p>
+        <p class="foot-note">Objek 3D dibuat dengan kode memakai Three.js (lisensi MIT). Bila perangkat Anda membatasi animasi atau tidak mendukung WebGL, halaman ini menampilkan gambar diam.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/assets/js/demo-core.js"></script>
+  <script>
+    // Pita demo bawaan menyebut "brand fiktif"; studio ini milik Bikinin sendiri.
+    (function () { var b = document.querySelector(".demo-label b"); if (b) b.textContent = "Karya sendiri"; })();
+  </script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

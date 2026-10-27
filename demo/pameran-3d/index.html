@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Pameran Karya Sekolah 3D · Bikinin Studio</title>
+  <meta name="description" content="Contoh pameran karya sekolah daring: kamera menyusuri galeri 3D berisi enam karya kelas. Sekolah dan karya fiktif, dari Bikinin Studio.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/pameran-3d/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Demo Pameran Karya Sekolah 3D">
+  <meta property="og:description" content="Enam karya kelas di lorong galeri 3D. Proyek konsep – sekolah fiktif.">
+  <meta property="og:url" content="https://bikininstudio.github.io/demo/pameran-3d/">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/pameran-3d.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Demo Pameran Karya Sekolah 3D">
+  <meta name="twitter:description" content="Enam karya kelas di lorong galeri 3D. Proyek konsep – sekolah fiktif.">
+  <meta name="twitter:image" content="https://bikininstudio.github.io/assets/og/pameran-3d.jpg">
+  <meta name="theme-color" content="#C9C0B0">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preload" href="../../assets/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="bricolage-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="poster-1.webp" as="image" media="(min-width: 761px)" fetchpriority="high">
+  <link rel="preload" href="poster-1-hp.webp" as="image" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <link rel="stylesheet" href="../3d/kit3d.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{ "imports": { "three": "../3d/three.module.min.js" } }</script>
+  <script>document.documentElement.classList.add("js");</script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');
+  (function(){var d=0;function l(){if(d)return;d=1;['scroll','pointerdown','keydown','touchstart'].forEach(function(e){removeEventListener(e,l);});var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN';document.head.appendChild(s);}
+  function i(){['scroll','pointerdown','keydown','touchstart'].forEach(function(e){addEventListener(e,l,{passive:true,once:true});});setTimeout(l,6000);}
+  if(document.readyState==='complete'){i();}else{addEventListener('load',i);}})();</script>
+</head>
+<body data-demo="pameran-3d" data-label="Pameran 3D Pekan Karya">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <nav class="chapnav" aria-label="Bab">
+    <button type="button" data-go="0">Pintu masuk</button>
+    <button type="button" data-go="1">Galeri</button>
+    <button type="button" data-go="2">Pesan</button>
+  </nav>
+
+  <!-- Kontrol galeri: tombol teks, pengumuman posisi, daftar karya -->
+  <div class="dock only3d" id="dock" role="group" aria-label="Kontrol galeri">
+    <p class="dock-note" id="dock-note" aria-live="polite">Karya 1 dari 6: Siklus Air dalam Satu Poster</p>
+    <p class="dock-hint">Panah kiri dan kanan untuk berpindah karya. Esc untuk menutup keterangan.</p>
+    <div class="dock-row">
+      <button type="button" id="btn-prev">Karya sebelumnya</button>
+      <button type="button" id="btn-next">Karya berikutnya</button>
+      <button type="button" id="btn-daftar" aria-expanded="false" aria-controls="daftar">Daftar karya</button>
+    </div>
+    <ol class="daftar" id="daftar" hidden>
+      <li><a href="#karya-1">Siklus Air dalam Satu Poster</a></li>
+      <li><a href="#karya-2">Peta Jalur Rempah</a></li>
+      <li><a href="#karya-3">Maket Rumah Panggung</a></li>
+      <li><a href="#karya-4">Logo Koperasi Siswa</a></li>
+      <li><a href="#karya-5">Aplikasi Jadwal Piket</a></li>
+      <li><a href="#karya-6">Foto Pasar Pagi</a></li>
+    </ol>
+  </div>
+
+  <main id="isi">
+    <noscript><p class="noscript">Halaman ini memakai JavaScript untuk objek 3D. Isi lengkapnya tetap tertulis di bawah.</p></noscript>
+    <div class="story">
+      <div class="stage" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 760px)" srcset="poster-1-hp.webp">
+          <img class="stage-poster" src="poster-1.webp" alt="" width="1280" height="800" fetchpriority="high">
+        </picture>
+        <canvas></canvas>
+        <div class="curtain"><span class="curtain-n"></span><span class="curtain-t">Pekan Karya Bukit Rawa</span></div>
+      </div>
+
+      <!-- Bab 1 · Pintu masuk -->
+      <section class="chapter long" id="pintu" aria-label="Pintu masuk">
+        <img class="ch-poster" src="poster-1.webp" alt="Lorong galeri 3D dengan enam bingkai karya sekolah (sekolah fiktif)" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <h1>Enam karya kelas dalam satu lorong pameran</h1>
+            <p class="note">Pekan Karya Bukit Rawa · proyek konsep</p>
+            <p>Contoh pameran karya sekolah secara daring. Kamera berjalan di sepanjang galeri, berhenti di tiap karya. SMA Bukit Rawa adalah sekolah fiktif.</p>
+            <span class="hint">Gulir untuk berjalan masuk</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bab 2 · Galeri -->
+      <section class="chapter" id="galeri" aria-label="Galeri">
+        <img class="ch-poster" src="poster-2.webp" alt="Karya contoh di dinding galeri 3D, dengan label dinding di sampingnya" width="1280" height="800" loading="lazy">
+        <div class="panel" id="karya-1">
+          <div class="copy">
+            <canvas class="art-fb only2d" data-art="0" width="1024" height="768" role="img" aria-label="Gambar contoh: poster siklus air dengan empat panah berwarna"></canvas>
+            <h2>Siklus Air dalam Satu Poster</h2>
+            <p class="note">Karya 1 dari 6</p>
+            <p>Menjelaskan penguapan, awan, hujan, dan resapan dengan empat panah berwarna.</p>
+            <p class="kelas">VII-2 · poster A3 digital</p>
+            <p class="note">Gambar contoh buatan Bikinin Studio</p>
+          </div>
+        </div>
+        <div class="panel" id="karya-2">
+          <div class="copy">
+            <canvas class="art-fb only2d" data-art="1" width="1024" height="768" role="img" aria-label="Gambar contoh: peta jalur rempah dari Maluku ke Eropa"></canvas>
+            <h2>Peta Jalur Rempah</h2>
+            <p class="note">Karya 2 dari 6</p>
+            <p>Infografis jalur dagang cengkih dan pala dari Maluku ke pelabuhan Eropa abad ke-16.</p>
+            <p class="kelas">XI IPS-1 · infografis</p>
+            <p class="note">Gambar contoh buatan Bikinin Studio</p>
+          </div>
+        </div>
+        <div class="panel" id="karya-3">
+          <div class="copy">
+            <canvas class="art-fb only2d" data-art="2" width="1024" height="768" role="img" aria-label="Gambar contoh: maket rumah panggung dengan tangga dan teras"></canvas>
+            <h2>Maket Rumah Panggung</h2>
+            <p class="note">Karya 3 dari 6</p>
+            <p>Skala 1:20 dari karton dan lidi, lengkap dengan tangga dan teras.</p>
+            <p class="kelas">VIII-4 · maket</p>
+            <p class="note">Gambar contoh buatan Bikinin Studio</p>
+          </div>
+        </div>
+        <div class="panel" id="karya-4">
+          <div class="copy">
+            <canvas class="art-fb only2d" data-art="3" width="1024" height="768" role="img" aria-label="Gambar contoh: lima usulan logo koperasi, satu dilingkari sebagai pilihan"></canvas>
+            <h2>Logo Koperasi Siswa</h2>
+            <p class="note">Karya 4 dari 6</p>
+            <p>Lima usulan logo, satu dipilih lewat pemungutan suara kelas.</p>
+            <p class="kelas">XII-1 · desain logo</p>
+            <p class="note">Gambar contoh buatan Bikinin Studio</p>
+          </div>
+        </div>
+        <div class="panel" id="karya-5">
+          <div class="copy">
+            <canvas class="art-fb only2d" data-art="4" width="1024" height="768" role="img" aria-label="Gambar contoh: layar aplikasi jadwal piket Senin sampai Jumat"></canvas>
+            <h2>Aplikasi Jadwal Piket</h2>
+            <p class="note">Karya 5 dari 6</p>
+            <p>Aplikasi web sederhana untuk membagi piket kelas dan mencatat kehadiran.</p>
+            <p class="kelas">X RPL-2 · aplikasi web</p>
+            <p class="note">Gambar contoh buatan Bikinin Studio</p>
+          </div>
+        </div>
+        <div class="panel" id="karya-6">
+          <div class="copy">
+            <canvas class="art-fb only2d" data-art="5" width="1024" height="768" role="img" aria-label="Gambar contoh: foto pasar pagi dengan tiga lapak sayur"></canvas>
+            <h2>Foto Pasar Pagi</h2>
+            <p class="note">Karya 6 dari 6</p>
+            <p>Seri enam foto pedagang sayur sebelum pukul enam pagi.</p>
+            <p class="kelas">Ekskul Fotografi · foto</p>
+            <p class="note">Gambar contoh buatan Bikinin Studio</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bab 3 · Pesan -->
+      <section class="chapter" id="pesan" aria-label="Pesan">
+        <img class="ch-poster" src="poster-3.webp" alt="Ujung lorong galeri 3D dilihat ke arah pintu masuk, semua karya menyala" width="1280" height="800" loading="lazy">
+        <div class="panel">
+          <div class="copy">
+            <h2>Pameran daring untuk karya sekolah Anda</h2>
+            <p>Karya siswa difoto atau dipindai, lalu ditata di galeri 3D dengan keterangan tiap karya. Harga pameran 3D dihitung lewat penawaran tertulis. Untuk bahan pendukung, PPT tugas mulai Rp&nbsp;3rb/slide dan logo mulai Rp&nbsp;75rb.</p>
+            <div class="btn-row">
+              <a class="btn" id="wa-pesan" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Buat yang seperti ini</a>
+              <a class="btn alt" href="../../jasa-ppt/">Lihat layanan PPT</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="outro" id="penutup" aria-labelledby="outro-h">
+      <div class="outro-in">
+        <h2 id="outro-h">Karya kelas Anda, satu lorong</h2>
+        <p>Nama sekolah dan karya pada demo ini fiktif; gambar karya adalah gambar contoh buatan Bikinin Studio. Tidak ada nama siswa.</p>
+        <div class="btn-row">
+          <a class="btn" id="wa-outro" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Buat yang seperti ini</a>
+          <a class="btn alt" href="../../jasa-website-umkm/">Lihat layanan website</a>
+        </div>
+        <p class="related"><span>Demo terkait:</span> <a href="../website-3d/">Showcase website 3D</a> <a href="../studio-3d/">Studio 3D Bikinin</a> <a href="../ppt-fotosintesis/">Slide PPT Fotosintesis</a></p>
+        <p class="foot-note">Objek 3D dibuat dengan kode memakai Three.js (lisensi MIT). Bila perangkat Anda membatasi animasi atau tidak mendukung WebGL, halaman ini menampilkan gambar diam.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="/assets/js/demo-core.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

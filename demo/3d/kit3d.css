@@ -1,0 +1,113 @@
+/* Kit gaya bersama untuk demo 3D bergulir (produk-3d, studio-3d, pameran-3d).
+   Mesin: scroll3d.js. Tiap demo memasang token warna sendiri di :root (lihat style.css demo).
+   Aturan: tanpa gradasi, tanpa kaca, tanpa garis tipis; kartu teks berwarna solid agar kontras terjamin di atas objek 3D.
+   Gerak hanya transform/opacity dan mati oleh prefers-reduced-motion. */
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-b); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.skip { position: absolute; left: 12px; top: -80px; z-index: 3000; padding: 12px 18px; background: var(--ink); color: var(--bg); font-weight: 700; }
+.skip:focus { top: 56px; }
+
+.progress-bar { position: fixed; top: 0; left: 0; right: 0; height: 4px; z-index: 1001; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+
+/* Navigasi bab: kolom tombol teks di kanan (desktop), bilah bawah (HP) */
+.chapnav { position: fixed; right: 20px; top: 68px; z-index: 900; display: flex; gap: 6px; transition: opacity .4s ease, visibility .4s ease; }
+.at-outro .chapnav { opacity: 0; visibility: hidden; }
+.chapnav button { min-height: 44px; padding: 0 18px; border: 0; cursor: pointer; font: 700 16px var(--font-b); background: var(--card); color: var(--ink); text-align: center; touch-action: manipulation; transition: background-color .25s ease, color .25s ease, transform .25s ease; }
+.chapnav button:hover { transform: translateY(-2px); }
+.chapnav button[aria-current] { background: var(--ink); color: var(--card); }
+
+/* Panggung */
+.story { position: relative; margin-top: calc(var(--bar, 0px) * -1); }
+.chapter:first-of-type .panel:first-child { padding-top: calc(var(--bar, 0px) + 40px); }
+.no3d .story { margin-top: 0; }
+.no3d .chapter:first-of-type .panel:first-child { padding-top: 32px; }
+.stage { position: sticky; top: 0; height: 100vh; height: 100svh; margin-bottom: -100vh; margin-bottom: -100svh; overflow: hidden; background: var(--bg); }
+.stage-poster, .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.stage-poster { object-fit: cover; transition: opacity .8s ease; }
+.has3d .stage-poster { opacity: 0; }
+.stage canvas { opacity: 0; transition: opacity .8s ease; touch-action: pan-y; }
+.has3d .stage canvas { opacity: 1; }
+.stage canvas.grab { cursor: grab; }
+.stage.dragging canvas { cursor: grabbing; }
+.curtain { position: absolute; inset: 0; z-index: 3; display: grid; place-content: center; background: var(--curtain, var(--ink)); color: var(--curtain-ink, var(--bg)); clip-path: inset(100% 0 0 0); transition: clip-path .48s cubic-bezier(.7, 0, .3, 1); }
+.curtain.in { clip-path: inset(0 0 0 0); }
+.curtain.out { clip-path: inset(0 0 100% 0); }
+.curtain.reset { transition: none; }
+.curtain-n { display: none; }
+.curtain-t { font: 700 clamp(28px, 5vw, 56px)/1.1 var(--font-d); letter-spacing: -.02em; }
+
+/* Bab dan panel */
+.chapter { position: relative; pointer-events: none; }
+.panel { position: relative; z-index: 1; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 96px 7vw 56px; }
+.copy { pointer-events: auto; width: min(100%, 520px); padding: 28px 30px 30px; background: var(--card); color: var(--ink); border-radius: var(--r, 0); }
+.panel h1, .panel h2 { margin: 0 0 14px; font-family: var(--font-d); font-weight: var(--wd, 700); letter-spacing: -.03em; line-height: 1.02; text-wrap: balance; }
+.panel h1 { font-size: clamp(36px, 4.6vw, 62px); }
+.panel h2 { font-size: clamp(30px, 3.4vw, 46px); }
+.panel p { margin: 0 0 14px; max-width: 62ch; }
+.panel p:last-child { margin-bottom: 0; }
+.note { color: var(--ink2); font-weight: 600; }
+.hint { display: block; margin-top: 16px; color: var(--ink2); font-weight: 700; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 24px; border: 0; cursor: pointer; font: 700 16px var(--font-b); text-decoration: none; background: var(--accent); color: var(--accent-ink); border-radius: var(--r, 0); touch-action: manipulation; transition: transform .2s ease, background-color .2s ease; }
+.btn:hover { transform: translateY(-2px); background: var(--accent-hover, var(--accent)); }
+.btn:active { transform: translateY(1px); }
+.btn.alt { background: var(--card2); color: var(--ink); }
+.btn.alt:hover { background: var(--card3, var(--card2)); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.facts { display: flex; flex-wrap: wrap; gap: 14px 28px; margin: 18px 0 0; padding: 0; list-style: none; }
+.facts b { display: block; font: 700 28px/1.1 var(--font-d); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.facts span { color: var(--ink2); }
+
+/* Judul naik dari balik topeng, isi muncul bertahap; keluar saat panel pergi. Hanya jika JS hidup. */
+.mask { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+.mask > span { display: block; }
+.js .mask > span { transform: translateY(105%); transition: transform .9s cubic-bezier(.2, .75, .1, 1); }
+.js .panel.on .mask > span { transform: none; }
+.js .copy > :not(h1):not(h2) { opacity: 0; transform: translateY(16px); transition: opacity .6s ease .15s, transform .6s ease .15s; }
+.js .panel.on .copy > * { opacity: 1; transform: none; }
+.js .copy { opacity: 0; transform: translateY(24px); transition: opacity .5s ease, transform .6s cubic-bezier(.2, .75, .1, 1); }
+.js .panel.on .copy { opacity: 1; transform: none; }
+
+/* Penutup */
+.outro { position: relative; z-index: 2; background: var(--bg2); color: var(--ink); padding: 96px 7vw 80px; }
+.outro-in { max-width: 980px; }
+.outro h2 { margin: 0 0 16px; font: var(--wd, 700) clamp(32px, 4.6vw, 60px)/1.02 var(--font-d); letter-spacing: -.03em; text-wrap: balance; }
+.outro p { max-width: 64ch; margin: 0 0 16px; }
+.related { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; margin: 28px 0 0; }
+.related a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
+.foot-note { margin-top: 24px; max-width: 70ch; color: var(--ink); }
+.noscript { margin: 0; padding: 12px 7vw; background: var(--card2); color: var(--ink); font-weight: 700; position: relative; z-index: 5; }
+
+/* Mode gambar diam (tanpa WebGL, gerak dikurangi, ?statis) */
+.ch-poster { display: none; }
+.no3d .stage { display: none; }
+.no3d .chapter { background: var(--bg); pointer-events: auto; }
+.no3d .ch-poster { display: block; width: 100%; height: min(56vh, 520px); object-fit: cover; }
+.no3d .panel { min-height: 0; padding: 32px 7vw; }
+.no3d .copy, .no3d .copy > *, .no3d .mask > span { opacity: 1 !important; transform: none !important; transition: none !important; }
+.no3d .only3d { display: none !important; }
+.only2d { display: none; }
+.no3d .only2d { display: block; }
+
+/* Pita demo menyala dari demo-core: cegah gerak reveal bawaannya merusak panggung lengket */
+.dm-on main > *, .dm-on .dm { opacity: 1 !important; transform: none !important; transition: none !important; }
+
+@media (max-width: 760px) {
+  .chapnav { top: auto; right: 0; left: 0; bottom: 0; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 0; }
+  .chapnav button { min-height: 52px; padding: 0 6px; text-align: center; font-size: 16px; }
+  .chapnav button:hover { transform: none; }
+  .panel { align-items: flex-end; padding: 72px 12px 64px; }
+  .copy { width: 100%; padding: 20px 18px 22px; }
+  .panel h1 { font-size: 26px; }
+  .panel h2 { font-size: 28px; }
+  .no3d .panel { padding: 24px 16px 40px; }
+  .outro { padding: 64px 16px 88px; }
+  .progress-bar { height: 3px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mask > span, .copy, .copy > :not(h1):not(h2), .stage canvas, .stage-poster, .btn, .chapnav button { transition: none !important; transform: none !important; }
+  .js .copy, .js .copy > *, .js .mask > span { opacity: 1 !important; }
+  .curtain { transition: none; }
+}

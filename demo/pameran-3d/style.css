@@ -1,0 +1,42 @@
+/* Pameran 3D Pekan Karya, SMA Bukit Rawa (sekolah fiktif). Bricolage Grotesque untuk judul, Hanken Grotesk untuk isi. */
+@font-face { font-family: "Hanken Grotesk"; font-weight: 400 700; font-display: swap; src: url("../../assets/fonts/hanken-grotesk-latin.woff2") format("woff2"); }
+@font-face { font-family: "Bricolage Grotesque"; font-weight: 200 800; font-display: swap; src: url("bricolage-700.woff2") format("woff2"); }
+:root {
+  --font-b: "Hanken Grotesk", system-ui, sans-serif; --font-d: "Bricolage Grotesque", "Hanken Grotesk", sans-serif; --wd: 700;
+  --bg: #C9C0B0; --bg2: #BDB4A3; --card: #E4DDCF; --card2: #D3CABA; --card3: #C5BBA9;
+  --ink: #1F2422; --ink2: #3D433F; --accent: #5A3A2E; --accent-ink: #F2ECE2; --accent-hover: #432A20; --focus: #1F2422;
+  --curtain: #5A3A2E; --curtain-ink: #F2ECE2; --r: 2px;
+}
+.chapter.long::after { content: ""; display: block; height: 100vh; height: 100svh; }
+.no3d .chapter.long::after { display: none; }
+.stage canvas { cursor: default; }
+.panel .copy .btn { color: var(--accent-ink); }
+.panel .copy .btn.alt { color: var(--ink); }
+.kelas { font-weight: 700; }
+.art-fb { display: none; width: 100%; height: auto; margin-bottom: 14px; aspect-ratio: 4 / 3; background: var(--card2); }
+.no3d .art-fb { display: block; }
+
+/* Kontrol galeri */
+.dock { position: fixed; z-index: 800; right: 7vw; bottom: 24px; width: min(470px, calc(100% - 14vw)); padding: 12px 14px 14px; background: var(--card); color: var(--ink); border-radius: var(--r); opacity: 0; visibility: hidden; transform: translateY(16px); transition: opacity .35s ease, transform .35s ease, visibility .35s; }
+html[data-ch="1"]:not(.at-outro) .dock { opacity: 1; visibility: visible; transform: none; }
+.dock-note { margin: 0 0 4px; font-weight: 700; }
+.dock-hint { margin: 0 0 8px; color: var(--ink2); }
+.dock-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.dock-row button { min-height: 48px; padding: 0 8px; border: 0; cursor: pointer; font: 700 16px var(--font-b); background: var(--card2); color: var(--ink); border-radius: var(--r); touch-action: manipulation; transition: background-color .2s ease, transform .2s ease; }
+.dock-row button:hover { background: var(--card3); transform: translateY(-2px); }
+.dock-row button[aria-expanded="true"] { background: var(--ink); color: var(--card); }
+.daftar { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; max-height: 38vh; overflow: auto; }
+.daftar[hidden] { display: none; }
+.daftar a { display: flex; align-items: center; min-height: 44px; padding: 0 10px; font-weight: 600; text-decoration: none; background: var(--card2); border-radius: var(--r); }
+.daftar a:hover { background: var(--card3); }
+.copy-off .copy { opacity: 0 !important; visibility: hidden; transition: opacity .25s ease, visibility .25s; }
+.no3d .dock { display: none; }
+.outro .related span { font-weight: 700; }
+@media (max-width: 760px) {
+  .dock { right: 0; left: 0; bottom: 52px; width: auto; padding: 8px 12px 10px; border-radius: 0; }
+  .dock-hint { display: none; }
+  .dock-note { font-size: 16px; }
+  .dock-row button { font-size: 16px; }
+  html[data-ch="1"] .chapter#galeri .panel { padding-bottom: 168px; }
+}
+@media (pointer: coarse) { .dock-hint { display: none; } }
