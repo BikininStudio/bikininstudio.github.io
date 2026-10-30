@@ -6,7 +6,7 @@
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   window.track = function (name, params) { try { window.gtag("event", name, params || {}); } catch (e) {} };
-  window.waLink = function (text, src) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text + "\n\n(via " + (src || "web") + ")"); };
+  window.waLink = function (text) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); };
 
   // Pelacakan klik WhatsApp / unduhan
   doc.addEventListener("click", function (e) {

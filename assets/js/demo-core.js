@@ -6,7 +6,7 @@
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   window.track = function (n, p) { try { window.gtag("event", n, p || {}); } catch (e) {} };
-  window.waLink = function (text, src) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text + "\n\n(via " + (src || "web") + ")"); };
+  window.waLink = function (text) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); };
 
   var body = document.body, slug = body.dataset.demo, label = body.dataset.label;
   var own = body.dataset.fiktif === "false" && slug === "brand-kit-bikinin";

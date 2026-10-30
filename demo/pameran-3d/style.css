@@ -40,3 +40,17 @@ html[data-ch="1"]:not(.at-outro) .dock { opacity: 1; visibility: visible; transf
   html[data-ch="1"] .chapter#galeri .panel { padding-bottom: 168px; }
 }
 @media (pointer: coarse) { .dock-hint { display: none; } }
+
+/* ---- Penjelasan alur ---- */
+.alur { position: relative; z-index: 2; background: #E6DFD1; color: #1F2422; padding: 96px 5vw; font-family: var(--font-b); }
+.alur h2 { margin: 0 0 16px; max-width: 820px; font-family: var(--font-d); font-weight: 700; font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -.02em; line-height: 1.05; text-wrap: balance; }
+.alur h3 { margin: 40px 0 12px; font-size: 20px; font-weight: 700; }
+.alur .lead { max-width: 760px; margin: 0 0 32px; font-size: 20px; line-height: 1.55; }
+.alur-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; }
+.alur-list li { display: grid; gap: 8px; align-content: start; padding: 20px 22px; background: #F4F0E8; box-shadow: inset 0 0 0 1px rgba(31, 36, 34, .14); }
+.alur-list b { font-size: 18px; color: #6B4A3A; }
+.alur-list span { font-size: 17px; line-height: 1.55; }
+.alur-legend { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; max-width: 760px; }
+.alur-legend li { font-size: 17px; line-height: 1.55; padding-left: 14px; border-left: 3px solid #6B4A3A; }
+.alur .small { margin: 28px 0 0; font-size: 16px; }
+@media (max-width: 760px) { .alur { padding: 72px 16px; } .alur .lead { font-size: 18px; } }

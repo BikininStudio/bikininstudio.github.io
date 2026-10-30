@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arunika Logistik 3D · Bikinin Studio</title>
+  <meta name="description" content="Contoh company profile 3D: satu kota logistik, kamera terbang dari gudang ke pintu pembeli mengikuti gulir. Proyek konsep Bikinin Studio, perusahaan fiktif.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/arunika-3d/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{ "imports": { "three": "../3d/three.module.min.js" } }</script>
+</head>
+<body data-demo="arunika-3d" data-label="Company profile 3D" data-fiktif="true">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#awal">Arunika<span> Logistik</span></a>
+    <nav aria-label="Menu contoh"><a href="#layanan">Layanan</a><a href="#jaringan">Jaringan</a><a href="#alur">Alur</a><a href="#kontak">Kontak</a></nav>
+    <a class="topcta" href="#kontak">Minta penawaran</a>
+  </header>
+
+  <main>
+    <div class="story">
+      <div class="stage" aria-hidden="true">
+        <canvas></canvas>
+        <div class="curtain" data-plain><span class="curtain-t">Arunika Logistik</span></div>
+      </div>
+
+      <section class="chapter" id="awal" aria-label="Perjalanan paket">
+        <img class="ch-poster" src="poster-1.webp" alt="Kota logistik isometrik Arunika (perusahaan fiktif)" width="1280" height="800">
+
+        <div class="panel" id="layanan">
+          <div class="copy">
+            <p class="kicker">Tahap 1 · Gudang</p>
+            <h1>Paket mulai dari rak yang tercatat</h1>
+            <p>Gudang 38.600 m² mencatat stok per rak. Pesanan masuk sebelum pukul 14.00 dikemas hari itu juga.</p>
+            <div class="ui-card" aria-label="Contoh tampilan stok">
+              <b>Rak B-14</b><span>2.480 dus · terisi 86%</span>
+              <i style="--v:86%"></i>
+            </div>
+            <span class="hint">Gulir pelan, kamera ikut terbang</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="copy">
+            <p class="kicker">Tahap 2 · Pelabuhan</p>
+            <h2>Kontainer naik kapal antarpulau</h2>
+            <p>Kontainer 20 dan 40 kaki berangkat dari pelabuhan utama dan dibongkar di dermaga tujuan.</p>
+            <div class="ui-card" aria-label="Contoh jadwal kapal">
+              <b>KM Arunika 3</b><span>Berangkat 06.30 · tiba besok 17.00</span>
+              <i style="--v:100%"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="copy">
+            <p class="kicker">Tahap 3 · Kargo darat</p>
+            <h2>Truk ke Jawa, Bali, dan Sumatra</h2>
+            <p>Truk satu muatan penuh (FTL) atau muatan gabungan (LTL), sesuai ukuran kiriman Anda.</p>
+            <div class="ui-card" aria-label="Contoh pilihan armada">
+              <b>FTL atau LTL</b><span>Estimasi 2–4 hari kerja</span>
+              <i style="--v:60%"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="copy">
+            <p class="kicker">Tahap 4 · Kereta barang</p>
+            <h2>Muatan besar disambung dengan kereta</h2>
+            <p>Untuk jarak jauh, kontainer pindah ke gerbong. Lebih hemat dan jadwalnya tetap.</p>
+            <div class="ui-card" aria-label="Contoh jadwal kereta">
+              <b>Gerbong 5 dari 5</b><span>Terminal kereta → kota tujuan</span>
+              <i style="--v:90%"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="copy">
+            <p class="kicker">Tahap 5 · Last-mile</p>
+            <h2>Kurir sampai pintu pembeli</h2>
+            <p>Van mengantar paket ke 112 kota. Pembeli melacak statusnya dari nomor resi.</p>
+            <div class="ui-card" aria-label="Contoh pelacakan resi">
+              <b>ARK-0042-117</b><span>Kurir 2 km dari alamat · tiba 14.20</span>
+              <i style="--v:95%"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="jaringan">
+          <div class="copy">
+            <p class="kicker">Jaringan lengkap</p>
+            <h2>Klien melihat jaringannya, bukan hanya membaca daftarnya</h2>
+            <ul class="stats">
+              <li><b>11</b><span>tahun beroperasi</span></li>
+              <li><b>112</b><span>kota tujuan</span></li>
+              <li><b style="white-space:nowrap">38.600&nbsp;m²</b><span>luas gudang</span></li>
+            </ul>
+            <p class="small">Proyek konsep: perusahaan dan angka di halaman ini fiktif, hanya contoh.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="steps" aria-label="Tahap pengiriman">
+      <button type="button" data-step="0"><b>1</b><span>Gudang</span></button>
+      <button type="button" data-step="1"><b>2</b><span>Pelabuhan</span></button>
+      <button type="button" data-step="2"><b>3</b><span>Darat</span></button>
+      <button type="button" data-step="3"><b>4</b><span>Kereta</span></button>
+      <button type="button" data-step="4"><b>5</b><span>Kurir</span></button>
+      <button type="button" data-step="5"><b>6</b><span>Jaringan</span></button>
+    </nav>
+
+    <section class="alur" id="alur" aria-labelledby="alur-h">
+      <h2 id="alur-h">Alur jaringan Arunika, langkah demi langkah</h2>
+      <p class="lead">Satu paket melewati enam titik. Peta di atas menunjukkan perjalanannya: garis cokelat adalah rute kiriman yang tergambar saat Anda menggulir, dan titik terang adalah posisi paket saat ini.</p>
+      <ol class="alur-list">
+        <li><b>1 · Gudang</b><span>Barang masuk dicatat per rak lewat sistem gudang (WMS). Pesanan yang masuk sebelum pukul 14.00 dikemas pada hari yang sama.</span></li>
+        <li><b>2 · Bongkar muat di bay</b><span>Truk antar bersandar di bay depan gudang. Palang samping truk terbuka, pintu gulung gudang naik, lalu petugas memindahkan dus keluar atau masuk satu per satu. Truk berikutnya mengantre dan bergantian membongkar atau memuat.</span></li>
+        <li><b>3 · Pelabuhan</b><span>Kontainer 20 dan 40 kaki naik turun kapal lewat derek dermaga. Kapal tunda membantu kapal bersandar, dan kapal kargo berlayar antarpulau.</span></li>
+        <li><b>4 · Kargo darat</b><span>Truk satu muatan penuh (FTL) atau muatan gabungan (LTL) melaju di jalan raya. Di perlintasan, truk berhenti di garis henti saat palang turun, lalu jalan lagi setelah kereta lewat.</span></li>
+        <li><b>5 · Kereta barang</b><span>Untuk jarak jauh, kereta keluar dari terowongan di timur, berhenti di terminal, dan kru memindahkan dus ke atau dari gerbong terbuka. Setelah itu kereta kembali masuk terowongan. Palang menutup beberapa detik sebelum kereta bergerak.</span></li>
+        <li><b>6 · Last-mile</b><span>Van dan kurir mengantar paket lewat jalan kota. Pembeli melacak statusnya dari nomor resi.</span></li>
+      </ol>
+      <h3>Cara membaca peta</h3>
+      <ul class="alur-legend">
+        <li><b>Jalan aspal</b> dipakai truk, van, dan mobil.</li>
+        <li><b>Lantai krem bergaris kuning</b> adalah jalur pekerja, terpisah dari jalan kendaraan.</li>
+        <li><b>Palang merah putih</b> menutup perlintasan saat kereta akan lewat.</li>
+        <li><b>Garis cokelat dan titik terang</b> menandai rute kiriman yang sedang Anda ikuti.</li>
+      </ul>
+      <p class="small">Proyek konsep: Arunika Logistik adalah perusahaan fiktif. Rute, jadwal, dan angka hanya contoh.</p>
+    </section>
+
+    <section class="outro" id="kontak">
+      <h2>Company profile 3D untuk perusahaan Anda</h2>
+      <p>Rute, kota, dan angka diganti dengan milik perusahaan Anda. Company profile biasa mulai Rp 1jt. Versi 3D dihitung lewat penawaran tertulis. Konsultasi awal tanpa biaya lewat WhatsApp.</p>
+      <div class="outro-actions"><a class="btn3d" id="wa-3d" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Buat yang seperti ini</a>
+      <a class="btn3d ghost" href="../arunika/">Lihat versi biasa</a></div>
+      <small>Arunika Logistik adalah perusahaan fiktif (proyek konsep); harga dan angka hanya contoh. Objek 3D dibuat dengan kode memakai Three.js (lisensi MIT). Bila perangkat Anda membatasi animasi, halaman ini menampilkan gambar diam.</small>
+    </section>
+  </main>
+  <footer>Arunika Logistik 3D · proyek konsep Bikinin Studio</footer>
+
+  <script src="/assets/js/demo-core.js"></script>
+  <script>
+    (function () {
+      var wa = document.getElementById("wa-3d");
+      if (window.waLink) wa.href = waLink("Halo Bikinin Studio, saya melihat demo company profile 3D Arunika dan ingin berkonsultasi.", "demo: arunika-3d");
+      wa.addEventListener("click", function () { if (window.track) track("click_whatsapp", { lokasi: "demo:arunika-3d" }); });
+    })();
+  </script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

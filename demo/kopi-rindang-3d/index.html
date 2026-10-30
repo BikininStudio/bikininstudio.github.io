@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kopi Rindang 3D · Bikinin Studio</title>
+  <meta name="description" content="Contoh website 3D untuk kedai kopi: kamera mengikuti perjalanan biji dari kebun, jemur, sangrai, sampai cangkir di bawah pohon rindang saat senja. Proyek konsep Bikinin Studio, kedai fiktif.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/kopi-rindang-3d/">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">{ "imports": { "three": "../3d/three.module.min.js" } }</script>
+</head>
+<body data-demo="kopi-rindang-3d" data-label="Website kedai kopi 3D" data-fiktif="true">
+  <div class="progress-bar" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#awal">Kopi<span> Rindang</span></a>
+    <nav aria-label="Menu contoh"><a href="#kebun">Kebun</a><a href="#kedai">Kedai</a><a href="#alur">Alur</a><a href="#kontak">Kontak</a></nav>
+    <a class="topcta" href="#kontak">Pesan website</a>
+  </header>
+
+  <main>
+    <div class="story">
+      <div class="stage" aria-hidden="true">
+        <canvas></canvas>
+        <div class="curtain" data-plain><span class="curtain-t">Kopi Rindang</span></div>
+      </div>
+
+      <section class="chapter" id="awal" aria-label="Perjalanan biji kopi">
+        <img class="ch-poster" src="poster-1.webp" alt="Kebun, tempat sangrai, dan kedai di bawah pohon rindang (kedai fiktif)" width="1280" height="800">
+
+        <div class="panel" id="kebun">
+          <div class="copy">
+            <p class="kicker">Pagi · Kebun</p>
+            <h1>Biji kopi mulai dari lereng yang berkabut</h1>
+            <p>Buah merah dipetik satu per satu di kebun terasering. Hanya yang matang yang dibawa turun.</p>
+            <div class="ui-card" aria-label="Contoh info kebun">
+              <b>Kebun Lereng Utara</b><span>Ketinggian 1.250 mdpl · panen Mei–Agustus</span>
+              <i style="--v:70%"></i>
+            </div>
+            <span class="hint">Gulir pelan, kamera ikut berjalan</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="copy">
+            <p class="kicker">Siang · Jemur</p>
+            <h2>Dijemur di para-para sampai kering merata</h2>
+            <p>Biji dibalik tiap beberapa jam. Kadar airnya dicek sebelum masuk karung.</p>
+            <div class="ui-card" aria-label="Contoh info jemur">
+              <b>Para-para 2</b><span>Hari ke-9 dari 14 · kadar air 13%</span>
+              <i style="--v:64%"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="copy">
+            <p class="kicker">Sore · Sangrai</p>
+            <h2>Disangrai kecil-kecilan, tiap batch dicatat</h2>
+            <p>Mesin drum menyangrai 5 kg per putaran. Aroma jadi tanda bahwa biji hampir matang.</p>
+            <div class="ui-card" aria-label="Contoh catatan sangrai">
+              <b>Batch #128</b><span>Medium · 11 menit 40 detik</span>
+              <i style="--v:82%"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="copy">
+            <p class="kicker">Antar · Jalan setapak</p>
+            <h2>Karung dibawa ke kedai lewat jalan kampung</h2>
+            <p>Dari tempat sangrai ke kedai hanya beberapa menit. Biji sampai masih segar.</p>
+            <div class="ui-card" aria-label="Contoh info pengantaran">
+              <b>Stok kedai</b><span>12 kg masuk pagi ini</span>
+              <i style="--v:50%"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="kedai">
+          <div class="copy">
+            <p class="kicker">Senja · Kedai</p>
+            <h2>Diseduh di bawah pohon rindang</h2>
+            <p>Meja kayu, lampu gantung yang menyala satu per satu, dan cangkir yang masih mengepul.</p>
+            <div class="ui-card" aria-label="Contoh menu">
+              <b>Kopi susu gula aren</b><span>Rp 22.000 · buka 10.00–22.00</span>
+              <i style="--v:90%"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="copy">
+            <p class="kicker">Gambaran utuh</p>
+            <h2>Pengunjung melihat ceritanya, bukan hanya daftar menu</h2>
+            <ul class="stats">
+              <li><b>5</b><span>tahap dari kebun ke cangkir</span></li>
+              <li><b>1</b><span>pohon rindang jadi ikon kedai</span></li>
+              <li><b>24 jam</b><span>halaman tetap bisa dibuka kapan saja</span></li>
+            </ul>
+            <p class="small">Proyek konsep: kedai dan angka di halaman ini fiktif, hanya contoh.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <nav class="steps" aria-label="Tahap perjalanan biji">
+      <button type="button" data-step="0"><b>1</b><span>Kebun</span></button>
+      <button type="button" data-step="1"><b>2</b><span>Jemur</span></button>
+      <button type="button" data-step="2"><b>3</b><span>Sangrai</span></button>
+      <button type="button" data-step="3"><b>4</b><span>Antar</span></button>
+      <button type="button" data-step="4"><b>5</b><span>Kedai</span></button>
+      <button type="button" data-step="5"><b>6</b><span>Utuh</span></button>
+    </nav>
+
+    <section class="alur" id="alur" aria-labelledby="alur-h">
+      <h2 id="alur-h">Perjalanan biji Kopi Rindang, langkah demi langkah</h2>
+      <p class="lead">Satu biji kopi melewati lima tempat sebelum jadi secangkir. Peta di atas memperlihatkan urutannya, dan langit ikut berubah dari pagi ke senja selama Anda menggulir.</p>
+      <ol class="alur-list">
+        <li><b>1 · Kebun</b><span>Pohon kopi tumbuh di teras lereng. Pemetik memilih buah yang sudah merah, lalu mengumpulkannya di keranjang.</span></li>
+        <li><b>2 · Jemur</b><span>Biji dihampar di para-para berkaki dan dibalik berkala supaya kering merata.</span></li>
+        <li><b>3 · Sangrai</b><span>Biji masuk mesin drum. Asap tipis keluar dari cerobong, dan tiap batch dicatat waktunya.</span></li>
+        <li><b>4 · Antar</b><span>Karung dibawa lewat jalan setapak menuju kedai.</span></li>
+        <li><b>5 · Kedai</b><span>Barista menyeduh di bawah pohon rindang. Lampu gantung menyala saat langit mulai gelap, uap naik dari cangkir.</span></li>
+      </ol>
+      <p class="small">Proyek konsep: Kopi Rindang adalah kedai fiktif. Lokasi, harga, dan angka hanya contoh.</p>
+    </section>
+
+    <section class="outro" id="kontak">
+      <h2>Website 3D untuk kedai atau usaha Anda</h2>
+      <p>Kebun, tempat sangrai, dan kedai diganti dengan cerita usaha Anda. Landing page biasa mulai Rp 400rb. Versi 3D dihitung lewat penawaran tertulis. Konsultasi awal tanpa biaya lewat WhatsApp.</p>
+      <div class="outro-actions"><a class="btn3d" id="wa-3d" href="https://wa.me/6287763292786" target="_blank" rel="noopener">Buat yang seperti ini</a>
+      <a class="btn3d ghost" href="../kopi-rindang/">Lihat versi biasa</a></div>
+      <small>Kopi Rindang adalah kedai fiktif (proyek konsep); harga dan angka hanya contoh. Objek 3D dibuat dengan kode memakai Three.js (lisensi MIT). Bila perangkat Anda membatasi animasi, halaman ini menampilkan gambar diam.</small>
+    </section>
+  </main>
+  <footer>Kopi Rindang 3D · proyek konsep Bikinin Studio</footer>
+
+  <script src="/assets/js/demo-core.js"></script>
+  <script>
+    (function () {
+      var wa = document.getElementById("wa-3d");
+      if (window.waLink) wa.href = waLink("Halo Bikinin Studio, saya melihat demo website 3D Kopi Rindang dan ingin berkonsultasi.", "demo: kopi-rindang-3d");
+      wa.addEventListener("click", function () { if (window.track) track("click_whatsapp", { lokasi: "demo:kopi-rindang-3d" }); });
+    })();
+  </script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
