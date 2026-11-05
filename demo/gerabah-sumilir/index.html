@@ -1,79 +1,87 @@
 <!doctype html>
 <html lang="id">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gerabah Sumilir | Dibakar di Kasongan, dibentuk di tangan</title>
-<meta name="description" content="Gerabah Sumilir menjual kendi, guci, dan mangkuk tanah liat buatan pengrajin Kasongan. Putar produknya dan pilih glasir sebelum pesan. (Demo situs oleh Bikinin Studio)">
+<title>Gerabah Sumilir | Rak bengkel Kasongan</title>
+<meta name="description" content="Gerabah Sumilir menjual kendi, guci, dan mangkuk tanah liat buatan tangan di Kasongan. Pilih dari rak 3D dengan ukuran sebenarnya. Demo situs oleh Bikinin Studio, brand fiktif.">
+<link rel="canonical" href="https://bikininstudio.github.io/demo/gerabah-sumilir/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Toko 3D Gerabah Sumilir · Bikinin Studio">
+<meta property="og:url" content="https://bikininstudio.github.io/demo/gerabah-sumilir/">
+<meta property="og:image" content="https://bikininstudio.github.io/assets/og/gerabah-sumilir.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Familjen+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="demo-tag">Demo situs · nama dan data fiktif</div>
+<body data-demo="gerabah-sumilir" data-label="Toko 3D Gerabah Sumilir">
+
 <header class="top">
-  <a class="brand" href="#">Sumilir<span>gerabah</span></a>
-  <nav><a href="#koleksi">Koleksi</a><a href="#proses">Proses</a><a href="#pesan">Pesan</a></nav>
+  <a class="brand" href="#koleksi" aria-label="Gerabah Sumilir">
+    <svg viewBox="0 0 200 200" aria-hidden="true"><rect x="63" y="4" width="78" height="20" rx="10"/><rect x="79" y="27" width="40" height="20" rx="10"/><rect x="83" y="50" width="38" height="20" rx="10"/><rect x="52" y="73" width="92" height="20" rx="10"/><rect x="27" y="96" width="150" height="20" rx="10"/><rect x="19" y="119" width="156" height="20" rx="10"/><rect x="43" y="142" width="118" height="20" rx="10"/><rect x="67" y="165" width="64" height="20" rx="10"/></svg>
+    <span>Gerabah<br>Sumilir</span>
+  </a>
+  <nav aria-label="Bagian halaman"><a href="#koleksi">Rak</a><a href="#proses">Proses</a><a href="#grosir">Grosir</a></nav>
 </header>
 
 <main>
-<section class="shop" id="koleksi">
-  <div class="viewer" id="stage" role="img" aria-label="Model tiga dimensi gerabah, bisa diputar dengan menyeret">
-    <div class="fallback" aria-hidden="true"></div>
-    <p class="hint">Seret untuk memutar</p>
+<section class="rak" id="koleksi" aria-labelledby="judul">
+  <div class="kata">
+    <h1 id="judul">Gerabah dari Kasongan</h1>
+    <p class="lead">Dibentuk tangan, tiga bentuk di rak bengkel kami dengan ukuran sebenarnya. Ketuk satu, putar, lalu pilih glasirnya.</p>
   </div>
-
-  <div class="panel">
-    <p class="eyebrow">Kasongan, Bantul · dibuat per pesanan</p>
-    <h1 id="nama">Kendi Leher Panjang</h1>
-    <p id="desk" class="desk"></p>
-
-    <fieldset>
-      <legend>Bentuk</legend>
-      <div class="chips" id="bentuk"></div>
-    </fieldset>
-    <fieldset>
-      <legend>Glasir <span id="glasirNama"></span></legend>
-      <div class="chips swatches" id="glasir"></div>
-    </fieldset>
-
-    <dl class="spec">
-      <dt>Ukuran</dt><dd id="ukuran"></dd>
-      <dt>Pengerjaan</dt><dd>9 hari kerja (dibentuk, dijemur, dibakar 2 kali)</dd>
-      <dt>Aman untuk</dt><dd id="aman"></dd>
-    </dl>
-
-    <div class="buy">
-      <b id="harga"></b>
-      <a id="wa" class="btn" href="#" target="_blank" rel="noopener">Pesan lewat WhatsApp</a>
-    </div>
-    <p class="note">Pesan sebelum 1 Desember, tiba sebelum akhir tahun. Dibungkus sekam dan kardus dobel.</p>
+  <div class="stage" id="stage" role="img" aria-label="Rak kayu dengan kendi, guci, dan mangkuk tiga dimensi. Seret untuk memutar, ketuk untuk memilih.">
+    <p class="hint">Seret untuk memutar, ketuk gerabah lain untuk memilih</p>
+  </div>
+  <div class="kasir" id="kasir">
+    <div class="kasir-nama"><h2 id="nama">Kendi Leher Panjang</h2><p id="ukuran"></p></div>
+    <fieldset><legend>Bentuk</legend><div class="pilih" id="bentuk"></div></fieldset>
+    <fieldset><legend>Glasir <span id="glasirNama"></span></legend><div class="pilih warna" id="glasir"></div></fieldset>
+    <div class="kasir-beli"><b id="harga"></b><a id="wa" class="btn" href="#koleksi" data-demo-action="">Pesan lewat WhatsApp</a></div>
   </div>
 </section>
 
-<section class="proses" id="proses">
-  <h2>Satu kendi, empat tahap</h2>
-  <div class="grid">
-    <article><b>01</b><h3>Tanah diinjak</h3><p>Tanah liat dari Kasongan dicampur pasir halus, diinjak sampai tidak ada gelembung udara.</p></article>
-    <article><b>02</b><h3>Dibentuk di putaran</h3><p>Pak Slamet membentuk di putaran tangan, bukan cetakan. Karena itu tidak ada dua yang persis sama.</p></article>
-    <article><b>03</b><h3>Dijemur 4 hari</h3><p>Di bawah atap, bukan di terik, supaya tidak retak. Cuaca hujan berarti lebih lama.</p></article>
-    <article><b>04</b><h3>Bakar dua kali</h3><p>Bakar pertama 800 °C, diglasir, bakar kedua 1.050 °C. Satu tungku muat 60 buah.</p></article>
-  </div>
+<section class="rinci" aria-label="Rincian gerabah terpilih">
+  <p id="desk" class="desk"></p>
+  <dl>
+    <div><dt>Aman untuk</dt><dd id="aman"></dd></div>
+    <div><dt>Pengerjaan</dt><dd>9 hari kerja. Dibentuk, dijemur, dibakar dua kali.</dd></div>
+    <div><dt>Pesan hari ini</dt><dd id="selesai">Selesai dibakar 9 hari kerja dari sekarang.</dd></div>
+    <div><dt>Pengiriman</dt><dd>Dibungkus sekam dan kardus dobel.</dd></div>
+  </dl>
 </section>
 
-<section class="pesan" id="pesan">
+<section class="proses" id="proses" aria-labelledby="h-proses">
+  <h2 id="h-proses">Empat tahap, sembilan hari</h2>
+  <ol class="gulungan">
+    <li style="--l:64%;--g:6%"><h3>Tanah diinjak</h3><p>Tanah liat Kasongan dicampur pasir halus, diinjak sampai tidak ada gelembung udara.</p></li>
+    <li style="--l:100%;--g:0%"><h3>Dibentuk di putaran</h3><p>Pak Slamet membentuk di putaran tangan, bukan cetakan. Karena itu tidak ada dua yang persis sama.</p></li>
+    <li style="--l:90%;--g:7%"><h3>Dijemur 4 hari</h3><p>Di bawah atap, bukan di terik, supaya tidak retak. Kalau hujan, lebih lama.</p></li>
+    <li style="--l:62%;--g:15%"><h3>Dibakar dua kali</h3><p>Pertama 800 °C, lalu diglasir, kedua 1.050 °C. Satu tungku muat 60 buah.</p></li>
+  </ol>
+</section>
+
+<section class="grosir" id="grosir" aria-labelledby="h-grosir">
   <div>
-    <h2>Mau grosir atau suvenir hajatan?</h2>
-    <p>Minimal 24 buah, harga turun mulai 24, 48, dan 100 buah. Boleh tambah tulisan atau nama di dasar.</p>
+    <h2 id="h-grosir">Suvenir hajatan atau grosir?</h2>
+    <p>Mulai 24 buah, harga turun lagi di 48 dan 100 buah. Boleh tambah tulisan atau nama di dasar gerabah.</p>
   </div>
-  <a class="btn light" href="https://wa.me/6281200000000?text=Halo%20Sumilir%2C%20saya%20mau%20tanya%20pesanan%20grosir" target="_blank" rel="noopener">Tanya harga grosir</a>
+  <a class="btn" href="#grosir" data-demo-action="Ini demo. Di versi asli, tombol ini membuka WhatsApp bengkel untuk tanya harga grosir.">Tanya harga grosir</a>
 </section>
 </main>
 
-<footer>
-  <p>Bengkel: Dusun Kajen, Kasongan, Bantul, DIY · Buka Senin–Sabtu 08.00–16.00. Kunjungan dan belajar membentuk bisa dipesan untuk rombongan.</p>
-  <p>Ini situs contoh buatan Bikinin Studio; nama usaha, harga, dan alamat hanya untuk demo.</p>
+<footer class="kaki">
+  <p>Bengkel: Dusun Kajen, Kasongan, Bantul. Buka Senin sampai Sabtu, 08.00 sampai 16.00. Rombongan bisa pesan kunjungan dan belajar membentuk.</p>
+  <p>Brand fiktif. Nama usaha, harga, dan alamat contoh dari Bikinin Studio.</p>
 </footer>
+<script src="/assets/js/demo-core.js"></script>
 <script type="module" src="main.js"></script>
 </body>
 </html>

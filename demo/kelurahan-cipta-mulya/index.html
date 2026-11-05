@@ -1,16 +1,27 @@
 <!doctype html>
 <html lang="id">
 <head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kelurahan Cipta Mulya | Layanan warga</title>
 <meta name="description" content="Syarat surat, jam layanan, dan peta fasilitas Kelurahan Cipta Mulya. (Demo situs oleh Bikinin Studio)">
+<link rel="canonical" href="https://bikininstudio.github.io/demo/kelurahan-cipta-mulya/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Layanan warga Kelurahan Cipta Mulya · Bikinin Studio">
+<meta property="og:url" content="https://bikininstudio.github.io/demo/kelurahan-cipta-mulya/">
+<meta property="og:image" content="https://bikininstudio.github.io/assets/og/kelurahan-cipta-mulya.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600;75..100,800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="demo-tag">Demo situs · nama dan data fiktif</div>
+<body data-demo="kelurahan-cipta-mulya" data-label="Layanan warga Kelurahan Cipta Mulya">
 <div class="status" id="status"></div>
 <header class="top">
   <a class="brand" href="#"><b>Kelurahan Cipta Mulya</b><span>Kecamatan Sukamaju · Kota Contoh</span></a>
@@ -21,20 +32,20 @@
   <h1>Mau urus surat apa hari ini?</h1>
   <label class="search">
     <span class="sr">Cari layanan</span>
-    <input id="cari" type="search" placeholder="Ketik: domisili, SKTM, pindah, nikah…" autocomplete="off">
+    <input id="cari" type="search" placeholder="Ketik: KTP, domisili, SKTM, pindah, nikah…" autocomplete="off">
   </label>
   <p class="hint">Semua layanan di bawah gratis. Kalau ada yang minta bayaran, laporkan ke nomor pengaduan di bawah.</p>
 </section>
 
 <section id="layanan" class="layanan">
   <div class="list" id="list"></div>
-  <p class="empty" id="empty" hidden>Layanan itu belum ada di daftar. Tanyakan langsung lewat WhatsApp pelayanan.</p>
+  <p class="empty" id="empty" hidden>Layanan itu belum ada di daftar. <a href="#kontak">Tanyakan langsung lewat WhatsApp pelayanan.</a></p>
 </section>
 
 <section id="peta" class="peta">
   <div class="peta-head">
     <h2>Peta fasilitas</h2>
-    <p>Wilayah 6 RW, 4.912 KK. Pilih tempat untuk melihat lokasinya di peta.</p>
+    <p>Wilayah 6 RW, 4.912 KK. Nomor di daftar sama dengan nomor pin di peta.</p>
   </div>
   <div class="peta-body">
     <div class="map" id="stage" role="img" aria-label="Peta tiga dimensi wilayah kelurahan dengan penanda fasilitas">
@@ -54,8 +65,8 @@
     </table>
   </div>
   <div class="cards">
-    <a href="https://wa.me/6281200000000?text=Halo%20pelayanan%20Kelurahan%20Cipta%20Mulya" target="_blank" rel="noopener"><span>WhatsApp pelayanan</span><b>0812-0000-0000</b><small>Dibalas di jam kerja</small></a>
-    <a href="tel:0210000000"><span>Pengaduan</span><b>(021) 000-0000</b><small>Pungli, pelayanan lambat, fasilitas rusak</small></a>
+    <a href="#kontak" data-demo-action="Ini demo. Di versi asli, kartu ini membuka WhatsApp pelayanan kelurahan."><span>WhatsApp pelayanan</span><b>0812-0000-0000</b><small>Dibalas di jam kerja</small></a>
+    <a href="#kontak" data-demo-action="Ini demo. Di versi asli, kartu ini langsung menelepon nomor pengaduan."><span>Pengaduan</span><b>(021) 000-0000</b><small>Pungli, pelayanan lambat, fasilitas rusak</small></a>
     <div><span>Alamat kantor</span><b>Jl. Melati Raya No. 1</b><small>Sebelah lapangan voli RW 03</small></div>
   </div>
 </section>
@@ -63,6 +74,7 @@
 <footer>
   <p>Ini situs contoh buatan Bikinin Studio. Nama kelurahan, nomor, dan alamat fiktif; bukan situs pemerintah.</p>
 </footer>
+<script src="/assets/js/demo-core.js"></script>
 <script type="module" src="main.js"></script>
 </body>
 </html>

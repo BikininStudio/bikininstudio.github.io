@@ -1,0 +1,153 @@
+/* Soto Gang Sawo: kertas nasi, dua tinta (hitam, kunyit). Satu bentuk: mangkuk dilihat dari samping. */
+:root {
+  --kraft: #BE9D6F; --kraft-2: #AC8A5C; --ink: #17120C; --kunyit: #E7B122; --kertas: #EAD9B8;
+  --m: clamp(16px, 3vw, 40px);
+  --s-body: clamp(1.0625rem, 1rem + .25vw, 1.1875rem);
+  --s-lead: clamp(1.25rem, 1.1rem + .7vw, 1.625rem);
+  --s-head: clamp(2.5rem, 1.3rem + 5vw, 5.5rem);
+  --serat: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='360'%3E%3Cfilter id='n' x='0' y='0' width='1' height='1'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7 .42' numOctaves='3' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .13 0 0 0 0 .05 .5 0 0 0 -.17'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 120px; }
+body { margin: 0; background: var(--kraft) var(--serat); color: var(--ink); font: 400 var(--s-body)/1.45 "Schibsted Grotesk", system-ui, sans-serif; letter-spacing: -.01em; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+h1, h2, h3, p, ul, dl, dd, fieldset { margin: 0; padding: 0; border: 0; }
+ul { list-style: none; }
+h1, h2, h3 { font-weight: 800; letter-spacing: -.05em; line-height: .9; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border: 0; border-radius: 999px 999px 999px 999px / 0 0 999px 999px; background: var(--ink); color: var(--kunyit); font-family: inherit; font-size: var(--s-body); font-weight: 600; line-height: 1; text-decoration: none; cursor: pointer; transition: transform .12s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(1px) scaleX(.98); }
+
+.top { position: relative; z-index: 3; display: flex; align-items: center; gap: 12px 28px; flex-wrap: wrap; padding: 12px var(--m); }
+.top .name { min-height: 44px; display: inline-flex; align-items: center; font-weight: 800; font-size: var(--s-lead); letter-spacing: -.04em; text-decoration: none; margin-right: auto; }
+.top nav { display: flex; gap: 20px; }
+.top nav a { font-weight: 600; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.top nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Layar pertama: mangkuk raksasa dilihat dari samping, terpotong layar */
+.hero { position: relative; min-height: min(calc(100svh - 124px), 78vw); padding: clamp(20px, 5vh, 60px) var(--m) 40px; overflow: hidden; }
+.hero-text { position: relative; z-index: 2; max-width: 54vw; }
+.hero h1 { font-size: clamp(3.4rem, min(10.6vw, 24svh), 11.5rem); }
+.hero .lead { font-size: var(--s-lead); line-height: 1.25; margin-top: 28px; max-width: 30ch; font-weight: 600; }
+.hero .from { margin: 16px 0 24px; }
+.hero-bowl { position: absolute; left: 56vw; top: 50%; width: min(calc(100svh - 150px), 66vw); aspect-ratio: 1; transform: translateY(-50%); }
+.hero-bowl svg { display: block; width: 100%; height: 100%; animation: aduk 80s linear infinite; }
+@keyframes aduk { to { transform: rotate(360deg); } }
+
+/* Kertas menu: selembar A4 yang dibaca di layar dan dicetak apa adanya */
+.sheet { padding: clamp(56px, 10vh, 120px) var(--m); background: var(--kertas) var(--serat); }
+.sheet-b { background-color: var(--kunyit); }
+.sheet-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px 40px; align-items: end; margin-bottom: clamp(32px, 6vh, 64px); }
+.sheet-head h2 { font-size: var(--s-head); }
+.sheet-head p { max-width: 42ch; }
+.dishes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; }
+.dish { display: grid; grid-template-columns: 132px minmax(0, 1fr) auto; grid-template-rows: auto 1fr; gap: 6px 18px; align-items: start; }
+.dish svg { grid-row: span 2; width: 132px; height: 132px; display: block; }
+.dish h3 { font-size: var(--s-lead); letter-spacing: -.04em; line-height: 1.05; padding-top: 8px; }
+.dish .harga { font-weight: 800; font-size: var(--s-lead); letter-spacing: -.04em; padding-top: 8px; font-variant-numeric: tabular-nums; }
+.dish p { grid-column: 2 / -1; max-width: 38ch; }
+.sheet-foot { margin-top: clamp(32px, 6vh, 56px); font-weight: 600; }
+.columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 40px; }
+.columns h3 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem); margin-bottom: 18px; }
+.lines li { display: flex; align-items: baseline; gap: 12px; padding: 7px 0; font-weight: 600; }
+.lines li::before { content: ""; flex: none; width: 16px; height: 8px; background: var(--ink); border-radius: 0 0 16px 16px; transform: translateY(-3px); }
+.lines li span { margin-left: auto; font-weight: 800; font-variant-numeric: tabular-nums; }
+
+/* Nasi kotak: medan hitam, panci sebagai pengukur */
+.kotak { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px clamp(32px, 6vw, 96px); padding: clamp(64px, 12vh, 140px) var(--m); background: var(--ink); color: var(--kertas); }
+.kotak h2 { font-size: var(--s-head); color: var(--kunyit); margin-bottom: 20px; }
+.kotak-a > p { max-width: 44ch; }
+.plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 28px 0; }
+.plans legend { font-weight: 600; margin-bottom: 10px; }
+.plan { position: relative; cursor: pointer; }
+.plan input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.plan span { display: block; height: 100%; padding: 16px; background: #2B241A; transition: background-color .15s ease, color .15s ease; font-size: 1rem; line-height: 1.35; }
+.plan b { display: block; font-size: var(--s-lead); letter-spacing: -.04em; line-height: 1.05; }
+.plan input:checked + span { background: var(--kunyit); color: var(--ink); }
+.plan input:focus-visible + span { outline: 3px solid var(--kertas); outline-offset: 2px; }
+.count { display: flex; align-items: baseline; justify-content: space-between; font-weight: 600; }
+.count output { font-size: var(--s-head); font-weight: 800; letter-spacing: -.05em; color: var(--kunyit); line-height: 1; font-variant-numeric: tabular-nums; }
+#jumlah { width: 100%; height: 44px; margin: 4px 0 0; accent-color: var(--kunyit); cursor: pointer; }
+/* Panci dilihat dari samping: dinding lurus, bibir tebal, dua kuping. Kuah naik sesuai pesanan. */
+.panci-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(26px, 3.4vw, 44px); align-items: end; padding: 0 12px; }
+.panci { position: relative; aspect-ratio: 4 / 3; border: 5px solid var(--kertas); border-top-width: 9px; border-radius: 0 0 12px 12px; background: #2B241A; }
+.panci::before, .panci::after { content: ""; position: absolute; top: 14%; width: 15%; height: 26%; border: 5px solid var(--kertas); }
+.panci::before { right: 100%; border-right: 0; border-radius: 8px 0 0 8px; margin-right: 5px; }
+.panci::after { left: 100%; border-left: 0; border-radius: 0 8px 8px 0; margin-left: 5px; }
+.panci i { position: absolute; inset: 0; background: var(--kunyit); border-radius: 0 0 6px 6px; transform-origin: bottom; transform: scaleY(var(--isi, 0)); transition: transform .35s cubic-bezier(.2, .7, .2, 1); }
+.pakai { font-size: var(--s-lead); font-weight: 600; line-height: 1.2; margin-top: 24px; }
+.total { font-size: clamp(2.5rem, 1.5rem + 3.6vw, 4.5rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; color: var(--kunyit); margin-top: 16px; white-space: nowrap; }
+.syarat { margin-top: 12px; max-width: 44ch; }
+
+/* Kupon gunting: takik setengah lingkaran dari bentuk mangkuk */
+.kupon-wrap { padding: clamp(56px, 10vh, 120px) var(--m); }
+.kupon { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 48px; padding: clamp(24px, 4vw, 48px); background: var(--kertas); }
+.kupon::before, .kupon::after { content: ""; position: absolute; top: 50%; width: 44px; height: 44px; margin-top: -22px; border-radius: 50%; background: var(--kraft); }
+.kupon::before { left: -22px; } .kupon::after { right: -22px; }
+.kupon h2 { font-size: clamp(2rem, 1.3rem + 3.2vw, 4rem); margin-bottom: 14px; }
+.kupon-b { display: grid; gap: 14px; align-content: start; }
+.kupon label { display: grid; gap: 4px; font-weight: 600; }
+.kupon input { min-height: 48px; padding: 0 14px; border: 2px solid var(--ink); border-radius: 0; background: #F4EAD3; color: var(--ink); font: inherit; width: 100%; }
+.kupon input:focus-visible { outline: 3px solid var(--ink); outline-offset: 1px; }
+
+.alamat { padding: 0 var(--m) clamp(64px, 12vh, 140px); }
+.alamat h2 { font-size: var(--s-head); margin-bottom: 28px; }
+.alamat-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 40px; }
+.alamat p { max-width: 44ch; }
+.alamat dl div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 16px; padding: 8px 0; }
+.alamat dt { font-weight: 600; } .alamat dd { font-weight: 800; }
+
+.kaki { position: relative; background: var(--ink); color: var(--kunyit); padding: 40px var(--m) 24px; overflow: hidden; }
+.kaki-bowl { display: block; width: 64px; height: 32px; background: var(--kunyit); border-radius: 0 0 64px 64px; margin-bottom: 8px; }
+.kaki-name { font-size: 11.4vw; font-weight: 800; letter-spacing: -.055em; line-height: .95; white-space: nowrap; }
+.kaki-note { color: var(--kertas); margin-top: 12px; }
+
+.rise { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1); transition-delay: var(--d, 0ms); }
+.rise.in { opacity: 1; transform: none; }
+
+@media (max-width: 760px) {
+  .top nav { order: 3; width: 100%; }
+  .hero-text { max-width: none; }
+  .hero { min-height: 0; padding-bottom: 0; }
+  .hero-bowl { position: relative; left: auto; top: auto; transform: none; width: 116vw; margin: 28px -30vw -34vw auto; }
+  .sheet-head, .dishes, .columns, .kotak, .kupon, .alamat-grid { grid-template-columns: minmax(0, 1fr); }
+  .dish { grid-template-columns: 76px minmax(0, 1fr) auto; gap: 2px 12px; }
+  .dish svg { width: 76px; height: 76px; }
+  .kupon::before, .kupon::after { top: auto; bottom: 88px; }
+  .kupon::before { left: -22px; }
+}
+@media (max-width: 430px) { .plans { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-bowl svg { animation: none; }
+  .rise { opacity: 1; transform: none; transition: none; }
+  .btn, .panci i { transition: none; }
+}
+
+/* Cetak: dua halaman A4, tiap sisi penuh satu lembar */
+@page { size: A4; margin: 0; }
+@media print {
+  .hero-bowl svg { animation: none; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { background: #fff; font-size: 13pt; line-height: 1.35; }
+  .no-print, .demo-bar, .demo-toast { display: none !important; }
+  main { position: absolute; top: 0; left: 0; width: 100%; }
+  /* Efek muncul saat digulir tidak berlaku di kertas: bagian yang belum digulir tetap harus tercetak */
+  .rise, .dm, .dm.dm-in, .dm.dm-out { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .sheet { display: flex; flex-direction: column; width: 210mm; height: 290mm; padding: 14mm 13mm 9mm; break-after: page; break-inside: avoid; overflow: hidden; }
+  .sheet-b { break-after: auto; }
+  .sheet-head { margin-bottom: 9mm; }
+  .sheet-head h2 { font-size: 76pt; }
+  .sheet-foot { margin-top: auto; }
+  .dishes { gap: 7mm 8mm; }
+  .dish { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: none; gap: 1mm 3mm; }
+  .dish svg { grid-column: 1 / -1; grid-row: auto; width: 42mm; height: 42mm; }
+  .dish h3 { font-size: 19pt; padding-top: 1mm; }
+  .dish .harga { font-size: 22pt; padding-top: 1mm; }
+  .dish p { grid-column: 1 / -1; }
+  .columns h3 { font-size: 40pt; margin-bottom: 7mm; }
+  .lines li { font-size: 17pt; padding: 3.6mm 0; }
+  .lines li::before { width: 7mm; height: 3.5mm; border-radius: 0 0 7mm 7mm; }
+}

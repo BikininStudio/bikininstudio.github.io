@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soto Gang Sawo | Menu warung dua sisi</title>
+<meta name="description" content="Menu warung Soto Gang Sawo: dua sisi siap cetak A4, daftar harga, dan hitungan nasi kotak. Demo menu oleh Bikinin Studio, brand fiktif.">
+<link rel="canonical" href="https://bikininstudio.github.io/demo/menu-soto-gang-sawo/">
+<meta property="og:title" content="Menu warung Soto Gang Sawo · Bikinin Studio">
+<meta property="og:image" content="https://bikininstudio.github.io/assets/og/menu-soto-gang-sawo.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-demo="menu-soto-gang-sawo" data-label="Menu warung Soto Gang Sawo">
+
+<header class="top no-print">
+  <a class="name" href="#awal">Soto Gang Sawo</a>
+  <nav aria-label="Bagian halaman"><a href="#menu">Menu</a><a href="#kotak">Nasi kotak</a><a href="#alamat">Alamat</a></nav>
+  <button class="btn" type="button" data-print>Cetak menu</button>
+</header>
+
+<main id="awal">
+  <section class="hero no-print">
+    <div class="hero-text">
+      <h1>Soto Gang Sawo</h1>
+      <p class="lead">Soto ayam kampung Bu Narti, Bekasi Timur. Tiga panci sehari, buka 06.30 sampai kuah habis.</p>
+      <p class="from">Semangkuk mulai Rp 18rb</p>
+      <a class="btn" href="#menu">Baca menu</a>
+    </div>
+    <div class="hero-bowl" id="bowl-besar" aria-hidden="true"></div>
+  </section>
+
+  <article class="sheet" id="menu" aria-labelledby="sisi-a">
+    <div class="sheet-head">
+      <h2 id="sisi-a">Soto</h2>
+      <p>Kuah kuning direbus dari tulang ayam kampung sejak 03.30. Harga dalam ribu rupiah, sudah termasuk koya dan sambal.</p>
+    </div>
+    <ul class="dishes" id="dishes"></ul>
+    <p class="sheet-foot">Nasi dipisah atau dicampur, sebut saat pesan. Sisi depan dari dua sisi, ukuran A4.</p>
+  </article>
+
+  <article class="sheet sheet-b" aria-labelledby="sisi-b">
+    <div class="sheet-head">
+      <h2 id="sisi-b">Teman soto</h2>
+      <p>Ambil sendiri di meja, bayar sesuai tusuk dan piring yang tersisa.</p>
+    </div>
+    <div class="columns">
+      <section aria-labelledby="h-lauk"><h3 id="h-lauk">Lauk</h3><ul class="lines" id="lauk"></ul></section>
+      <section aria-labelledby="h-minum"><h3 id="h-minum">Minum</h3><ul class="lines" id="minum"></ul></section>
+    </div>
+    <p class="sheet-foot">Soto Gang Sawo, Gang Sawo 3, Bekasi Timur. Tutup hari Senin. Sisi belakang.</p>
+  </article>
+
+  <section class="kotak no-print" id="kotak" aria-labelledby="h-kotak">
+    <div class="kotak-a">
+      <h2 id="h-kotak">Pesan nasi kotak</h2>
+      <p>Satu panci kami cukup untuk 45 porsi. Kuah dibungkus terpisah supaya nasi tetap kering sampai ke meja rapat.</p>
+      <fieldset class="plans">
+        <legend>Pilih isi kotak</legend>
+        <label class="plan"><input type="radio" name="isi" value="32000" data-nama="Kotak harian" checked>
+          <span><b>Kotak harian</b>Rp 32rb per kotak: nasi, soto ayam, perkedel, kerupuk, air gelas</span></label>
+        <label class="plan"><input type="radio" name="isi" value="45000" data-nama="Kotak rapat">
+          <span><b>Kotak rapat</b>Rp 45rb per kotak: isi kotak harian, sate telur puyuh, tempe mendoan, pisang</span></label>
+      </fieldset>
+      <label class="count" for="jumlah"><span>Jumlah kotak</span><output id="out-jumlah" for="jumlah">60</output></label>
+      <input id="jumlah" type="range" min="20" max="160" step="5" value="60">
+    </div>
+    <div class="kotak-b" aria-live="polite">
+      <div class="panci-row" id="panci" aria-hidden="true"></div>
+      <p class="pakai" id="pakai"></p>
+      <p class="total" id="total"></p>
+      <p class="syarat" id="syarat"></p>
+    </div>
+  </section>
+
+  <section class="kupon-wrap no-print" aria-labelledby="h-kupon">
+    <form class="kupon" id="kupon">
+      <div class="kupon-a">
+        <h2 id="h-kupon">Kupon pesanan</h2>
+        <p id="ringkas"></p>
+      </div>
+      <div class="kupon-b">
+        <label>Nama pemesan<input name="nama" autocomplete="name" required placeholder="Nama Anda"></label>
+        <label>Tanggal acara<input name="tanggal" type="date" required></label>
+        <button class="btn" type="submit">Kirim ke Bu Narti</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="alamat no-print" id="alamat" aria-labelledby="h-alamat">
+    <h2 id="h-alamat">Gang Sawo 3, Bekasi Timur</h2>
+    <div class="alamat-grid">
+      <p>Masuk dari warung fotokopi, jalan 80 meter, pintu biru di sebelah kiri. Motor parkir di depan pagar, mobil di lapangan RW.</p>
+      <dl>
+        <div><dt>Selasa sampai Minggu</dt><dd>06.30 sampai kuah habis</dd></div>
+        <div><dt>Biasanya habis</dt><dd>sekitar 13.00, Minggu lebih cepat</dd></div>
+        <div><dt>Senin</dt><dd>tutup, belanja ke pasar</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="kaki no-print">
+  <span class="kaki-bowl" aria-hidden="true"></span>
+  <p class="kaki-name">Soto Gang Sawo</p>
+  <p class="kaki-note">Brand fiktif. Menu dan harga contoh dari Bikinin Studio.</p>
+</footer>
+
+<script src="/assets/js/demo-core.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

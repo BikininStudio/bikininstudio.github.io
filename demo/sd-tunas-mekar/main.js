@@ -1,4 +1,5 @@
 import { THREE, stage, drag, webglOK, reduced } from '../3d/lib.js';
+import '../3d/bar.js';
 
 const ROOMS = [
   { id: 'kelas', nama: 'Ruang kelas 1–6', warna: '#E9C46A', pos: [-2.2, 0, -1.2], size: [4.2, 1, 1.6],
@@ -39,9 +40,9 @@ else {
   const sun = new THREE.DirectionalLight(0xfff4dc, 2.2); sun.position.set(-4, 8, 5); scene.add(sun);
 
   const world = new THREE.Group(); scene.add(world);
-  const ground = new THREE.Mesh(new THREE.BoxGeometry(9, .2, 6.2), new THREE.MeshStandardMaterial({ color: 0xdfe8d3, roughness: 1 }));
+  const ground = new THREE.Mesh(new THREE.BoxGeometry(9.6, .2, 6.6), new THREE.MeshStandardMaterial({ color: 0xdfe8d3, roughness: 1 }));
   ground.position.y = -.1; world.add(ground);
-  const path = new THREE.Mesh(new THREE.BoxGeometry(.7, .02, 6.2), new THREE.MeshStandardMaterial({ color: 0xf1ead6 }));
+  const path = new THREE.Mesh(new THREE.BoxGeometry(.7, .02, 6.6), new THREE.MeshStandardMaterial({ color: 0xf1ead6 }));
   path.position.set(.9, .01, 0); world.add(path);
 
   const lambert = c => new THREE.MeshStandardMaterial({ color: c, roughness: .85, flatShading: true });
@@ -89,27 +90,34 @@ else {
   });
 
   // penanda ruang terpilih
-  const ring = new THREE.Mesh(new THREE.RingGeometry(.9, 1.02, 48), new THREE.MeshBasicMaterial({ color: 0x1f5a3d, side: THREE.DoubleSide }));
-  ring.rotation.x = -Math.PI / 2; ring.position.y = .03; world.add(ring);
+  // Bingkai mengikuti denah ruang, jadi tidak pernah melingkari ruang lain atau keluar dari alas
+  const bingkai = new THREE.Mesh(new THREE.BufferGeometry(), new THREE.MeshBasicMaterial({ color: 0x1f5a3d, side: THREE.DoubleSide }));
+  bingkai.rotation.x = -Math.PI / 2; bingkai.position.y = .03; world.add(bingkai);
+  const denah = (w, d) => {
+    const a = w / 2 + .14, b = d / 2 + .14, t = .09, s = new THREE.Shape(), h = new THREE.Path();
+    s.moveTo(-a - t, -b - t); s.lineTo(a + t, -b - t); s.lineTo(a + t, b + t); s.lineTo(-a - t, b + t); s.closePath();
+    h.moveTo(-a, -b); h.lineTo(-a, b); h.lineTo(a, b); h.lineTo(a, -b); h.closePath();
+    s.holes.push(h);
+    return new THREE.ShapeGeometry(s);
+  };
 
-  let ang = .5, tAng = .5, focus = new THREE.Vector3(), tFocus = new THREE.Vector3(), ringScale = 1;
+  let ang = .5, tAng = .5, focus = new THREE.Vector3(), tFocus = new THREE.Vector3();
   onPilih = r => {
     tFocus.set(r.pos[0], 0, r.pos[2]);
-    ring.position.x = r.pos[0]; ring.position.z = r.pos[2];
-    ringScale = Math.max(r.size[0], r.size[2]) * .7;
+    bingkai.geometry.dispose(); bingkai.geometry = denah(r.size[0], r.size[2]);
+    bingkai.position.x = r.pos[0]; bingkai.position.z = r.pos[2];
     Object.values(blocks).forEach(b => b.userData.lift = b.userData.r.id === r.id ? .25 : 0);
   };
   pilih(aktif);
   drag(host, dx => { tAng -= dx * .008; });
 
-  onFrame((dt, t) => {
+  onFrame(dt => {
     if (!reduced) tAng += dt * .05;
     ang += (tAng - ang) * Math.min(1, dt * 4);
     focus.lerp(tFocus.clone().multiplyScalar(.6), Math.min(1, dt * 3));
-    const R = host.clientWidth < 600 ? 17 : 13.5;
+    const R = host.clientWidth < 600 ? 19 : 16;
     camera.position.set(focus.x + Math.sin(ang) * R, R * .72, focus.z + Math.cos(ang) * R);
     camera.lookAt(focus.x, .3, focus.z);
-    ring.scale.setScalar(ringScale * (1 + (reduced ? 0 : Math.sin(t * 3) * .04)));
     Object.values(blocks).forEach(b => { b.position.y += ((b.userData.lift || 0) - b.position.y) * Math.min(1, dt * 6); });
   });
 }

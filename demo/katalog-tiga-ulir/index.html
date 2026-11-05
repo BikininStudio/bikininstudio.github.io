@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tiga Ulir | Buku katalog baut dan perkakas</title>
+<meta name="description" content="Katalog toko besi Tiga Ulir: baut, mur, engsel, dan mata bor disusun seperti buku telepon. Demo katalog digital oleh Bikinin Studio, brand fiktif.">
+<link rel="canonical" href="https://bikininstudio.github.io/demo/katalog-tiga-ulir/">
+<meta property="og:title" content="Katalog toko besi Tiga Ulir · Bikinin Studio">
+<meta property="og:image" content="https://bikininstudio.github.io/assets/og/katalog-tiga-ulir.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-demo="katalog-tiga-ulir" data-label="Katalog toko besi Tiga Ulir">
+
+<nav class="tabs" id="tabs" aria-label="Abjad katalog"></nav>
+
+<main>
+  <header class="cover">
+    <p class="edisi">Edisi Cibitung</p>
+    <h1>Tiga Ulir</h1>
+    <div class="cover-bawah">
+      <div class="cover-teks">
+        <p class="lead">Katalog baut, mur, dan perkakas: 11 barang, 56 ukuran, harga per dus, urut abjad seperti buku telepon.</p>
+        <div class="cover-low">
+          <form class="cari" role="search" id="cari-form">
+            <label for="cari">Cari barang atau ukuran</label>
+            <input id="cari" type="search" placeholder="Misalnya M10 atau engsel" autocomplete="off">
+          </form>
+          <a class="btn" href="#cocok">Cocokkan ukuran baut</a>
+        </div>
+      </div>
+      <div class="cover-art" id="cover-art" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <section class="cocok" id="cocok" aria-labelledby="h-cocok">
+    <h2 id="h-cocok">Tempelkan baut Anda ke layar</h2>
+    <div class="cocok-grid">
+      <div class="cocok-kiri">
+        <p>Baut lama hilang ukurannya? Letakkan batangnya di atas gambar dan geser sampai lebarnya sama. Katalog membuka baris ukuran itu.</p>
+        <label class="geser" for="diameter"><span>Diameter batang</span><output id="out-d" for="diameter">M10</output></label>
+        <input id="diameter" type="range" min="0" max="7" step="1" value="4">
+        <details class="kalibrasi">
+          <summary>Samakan skala layar dengan KTP</summary>
+          <p>Tempelkan KTP di layar, lalu geser sampai kotak ini sama panjang dengan KTP.</p>
+          <div class="ktp" id="ktp" aria-hidden="true"></div>
+          <input id="skala" aria-label="Skala layar" type="range" min="2.2" max="6.5" step="0.02" value="3.78">
+        </details>
+        <a class="btn" id="ke-baris" href="#B">Buka baris M10</a>
+      </div>
+      <div class="cocok-kanan" id="ukur" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <div class="buku" id="buku"></div>
+
+  <section class="minta" id="minta" aria-labelledby="h-minta">
+    <h2 id="h-minta">Daftar minta harga</h2>
+    <div class="minta-grid">
+      <div>
+        <p id="minta-kosong">Tekan Catat pada baris mana pun. Harga di buku ini harga per dus, harga proyek kami tulis di penawaran.</p>
+        <ul id="minta-list"></ul>
+      </div>
+      <div class="minta-kanan">
+        <p class="jumlah" id="minta-total">Rp 0</p>
+        <p>Pesanan di atas 50 dus diantar truk toko ke Cibitung, Cikarang, dan Tambun.</p>
+        <button class="btn" id="kirim" type="button" disabled>Minta penawaran</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="toko" aria-labelledby="h-toko">
+    <h2 id="h-toko">Raya Industri 41, Cibitung</h2>
+    <p>Buka Senin sampai Sabtu, 07.30 sampai 16.30. Masuk truk lewat gang samping, gudang di belakang toko. Faktur dan surat jalan tersedia untuk kontraktor.</p>
+  </section>
+</main>
+
+<footer class="kaki">
+  <p class="kaki-name">Tiga Ulir</p>
+  <p class="kaki-note">Brand fiktif. Barang, ukuran, dan harga adalah contoh dari Bikinin Studio.</p>
+</footer>
+
+<script src="/assets/js/demo-core.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

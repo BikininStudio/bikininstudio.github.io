@@ -1,57 +1,107 @@
-:root{--bg:#F4F4F1;--ink:#171717;--ink2:#555;--clay:#B5502B;--line:#d8d8d3;--max:72rem}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 "Space Grotesk",system-ui,sans-serif}
-h1,h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:1;letter-spacing:-.01em;margin:0}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--clay);outline-offset:3px}
-.demo-tag{background:var(--ink);color:#fff;font-size:.8125rem;text-align:center;padding:.35rem 1rem}
-.top{display:flex;justify-content:space-between;align-items:baseline;padding:1.2rem max(1rem,calc((100% - var(--max))/2))}
-.brand{font:400 1.9rem "Instrument Serif",serif;text-decoration:none}
-.brand span{font:500 .75rem "Space Grotesk";letter-spacing:.14em;text-transform:uppercase;margin-left:.6rem;color:var(--ink2)}
-.top nav{display:flex;gap:1.6rem}.top nav a{text-decoration:none}.top nav a:hover{text-decoration:underline;text-underline-offset:4px}
-.shop{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;padding:1rem max(1rem,calc((100% - var(--max))/2)) 4rem;align-items:start}
-.viewer{position:sticky;top:1rem;aspect-ratio:1/1.1;background:#EAEAE6;border-radius:1rem;cursor:grab;overflow:hidden}
-.viewer.grabbing{cursor:grabbing}
-.viewer canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hint{position:absolute;left:0;right:0;bottom:1rem;margin:0;text-align:center;font-size:.85rem;color:var(--ink2);pointer-events:none}
-.fallback{position:absolute;inset:0;display:none;place-items:center}
-.nogl .fallback{display:grid}
-.nogl .fallback::before{content:"";width:38%;aspect-ratio:.8;background:var(--clay);border-radius:45% 45% 38% 38%/30% 30% 70% 70%}
-.eyebrow{font-size:.85rem;color:var(--ink2);margin:0 0 .6rem}
-h1{font-size:clamp(2.6rem,5vw,4rem)}
-.desk{color:var(--ink2);margin:1rem 0 1.6rem;max-width:30rem}
-fieldset{border:0;padding:0;margin:0 0 1.4rem}
-legend{font-weight:700;font-size:.9rem;margin-bottom:.6rem;padding:0}
-legend span{font-weight:400;color:var(--ink2);margin-left:.4rem}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem}
-.chips button{font:500 .95rem "Space Grotesk";padding:.55rem .9rem;background:#fff;border:1.5px solid var(--ink);border-radius:2rem;cursor:pointer;color:var(--ink);min-height:44px}
-.chips button[aria-pressed=true]{background:var(--ink);color:#fff}
-.swatches button{width:2.75rem;height:2.75rem;padding:0;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1.5px var(--ink2)}
-.swatches button[aria-pressed=true]{box-shadow:0 0 0 3px var(--ink)}
-.spec{display:grid;grid-template-columns:6rem 1fr;gap:.35rem 1rem;margin:0 0 1.6rem;padding:1.2rem 0;border-block:1px solid var(--line);font-size:.95rem}
-.spec dt{color:var(--ink2)}.spec dd{margin:0}
-.buy{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
-.buy b{font:400 2.2rem "Instrument Serif",serif}
-.btn{display:inline-block;background:var(--clay);color:#fff;padding:.9rem 1.4rem;border-radius:.4rem;text-decoration:none;font-weight:700}
-.btn:hover{filter:brightness(.92)}
-.btn.light{background:#fff;color:var(--ink)}
-.note{font-size:.85rem;color:var(--ink2);margin:.9rem 0 0}
-.proses{background:#fff;padding:4rem max(1rem,calc((100% - var(--max))/2))}
-h2{font-size:clamp(2rem,4vw,3rem)}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
-.grid article{border-top:2px solid var(--ink);padding-top:1rem}
-.grid b{font-size:.8rem;color:var(--clay)}
-.grid h3{font:700 1.1rem "Space Grotesk";margin:.3rem 0 .4rem}
-.grid p{margin:0;color:var(--ink2);font-size:.95rem}
-.pesan{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;background:var(--clay);color:#fff;padding:3.5rem max(1rem,calc((100% - var(--max))/2))}
-.pesan p{max-width:36rem;margin:.8rem 0 0}
-footer{padding:1.6rem max(1rem,calc((100% - var(--max))/2));font-size:.88rem;color:var(--ink2)}
-footer p{margin:.2rem 0}
-@media(max-width:860px){
- .shop{grid-template-columns:1fr;gap:1.5rem}
- .viewer{position:relative;top:0;aspect-ratio:1/1}
- .grid{grid-template-columns:1fr 1fr}
+/* Sumilir: rak bengkel dengan ukuran sebenarnya. Dinding lumut gelap, kayu, kapur. Warna tanah hanya ada di gerabahnya. Gulungan tanah dari logo jadi bentuk bagian proses. */
+:root {
+  --dinding: #2B3329; --kertas: #E4E7D2; --glasir: #8C9C6C; --kayu: #1E2119; --lumut: #AEBB8E;
+  --m: clamp(16px, 3vw, 44px);
+  --s-body: clamp(1.0625rem, 1rem + .2vw, 1.1875rem);
+  --s-lead: clamp(1.25rem, 1.1rem + .7vw, 1.625rem);
+  --s-head: clamp(2.5rem, 1.5rem + 4.2vw, 5.5rem);
 }
-@media(max-width:520px){.grid{grid-template-columns:1fr}.top nav{display:none}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--bar, 56px) + 8px); }
+body { margin: 0; background: var(--dinding); color: var(--kertas); font: 400 var(--s-body)/1.45 "Familjen Grotesk", system-ui, sans-serif; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+h1, h2, h3, p, ol, dl, dd, fieldset { margin: 0; padding: 0; border: 0; }
+ol { list-style: none; }
+h1, h2, h3 { font-family: Caprasimo, Georgia, serif; font-weight: 400; line-height: 1; letter-spacing: -.01em; }
+h2 { font-size: var(--s-head); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 26px; background: var(--kayu); color: var(--kertas); font-weight: 700; font-size: var(--s-body); text-decoration: none; white-space: nowrap; transition: transform .12s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(1px); }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px var(--m); }
+.brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font-family: Caprasimo, serif; font-size: 1.1875rem; line-height: 1; text-decoration: none; }
+.brand svg { width: 44px; height: 44px; fill: currentColor; flex: none; }
+.top nav { display: flex; gap: 22px; }
+.top nav a { min-height: 44px; min-width: 44px; justify-content: center; display: inline-flex; align-items: center; font-weight: 500; text-decoration: none; }
+.top nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Layar pertama: rak penuh, bilah kasir selalu terlihat */
+.rak { position: relative; height: calc(100svh - var(--bar, 56px) - 64px); min-height: 480px; display: flex; flex-direction: column; }
+.stage { position: absolute; inset: 0 0 96px; cursor: grab; }
+.stage.grabbing { cursor: grabbing; }
+.stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hint { position: absolute; right: var(--m); bottom: 8px; color: var(--lumut); pointer-events: none; }
+.kata { position: relative; z-index: 2; padding: 0 var(--m); max-width: 39vw; }
+h1 { font-size: clamp(2.5rem, min(1.2rem + 3.1vw, 11svh), 5.25rem); }
+.lead { font-size: var(--s-lead); line-height: 1.25; margin-top: 16px; }
+.kasir { position: relative; z-index: 3; margin-top: auto; min-height: 96px; padding: 10px var(--m); background: var(--kertas); color: var(--kayu); display: grid; grid-template-columns: minmax(0, 1.25fr) auto auto auto; gap: 8px clamp(16px, 2.6vw, 40px); align-items: center; }
+.kasir-nama h2 { font-size: clamp(1.375rem, 1rem + 1.1vw, 2rem); }
+.kasir-nama p { font-size: 1rem; line-height: 1.3; margin-top: 2px; }
+legend { font-weight: 700; font-size: 1rem; padding: 0; margin-bottom: 2px; }
+legend span { font-weight: 400; margin-left: 4px; }
+.pilih { display: flex; gap: 4px; }
+.pilih button { min-height: 44px; padding: 0 12px; border: 0; border-radius: 22px; background: #CBD1B3; color: var(--kayu); font: 500 1rem "Familjen Grotesk", sans-serif; cursor: pointer; transition: background-color .12s ease; }
+.pilih button:hover { background: #BBC3A0; }
+.pilih button[aria-pressed="true"] { background: var(--kayu); color: var(--kertas); }
+.warna button { width: 44px; padding: 0; border-radius: 50%; border: 2px solid rgba(36, 23, 15, .4); outline: 3px solid transparent; outline-offset: 2px; }
+.warna button:hover { filter: brightness(.94); }
+.warna button[aria-pressed="true"] { outline-color: var(--kayu); }
+.kasir-beli { display: flex; align-items: center; gap: 16px; }
+.kasir-beli b { font-family: Caprasimo, serif; font-weight: 400; font-size: clamp(1.625rem, 1.2rem + 1.2vw, 2.375rem); line-height: 1; white-space: nowrap; }
+
+.rinci { padding: clamp(40px, 8vh, 80px) var(--m); display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 28px clamp(32px, 5vw, 80px); background: var(--dinding); }
+.desk { font-size: var(--s-lead); line-height: 1.28; }
+.rinci dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 32px; }
+.rinci dt { font-weight: 700; color: var(--lumut); }
+
+/* Empat gulungan bertumpuk, seperti logo */
+.proses { background: var(--glasir); color: var(--kayu); padding: clamp(64px, 12vh, 120px) var(--m); }
+.proses h2 { margin-bottom: clamp(28px, 5vh, 48px); }
+.gulungan { display: grid; gap: 6px; }
+.gulungan li { width: var(--l); margin-left: var(--g); padding: 18px clamp(24px, 3.4vw, 48px); border-radius: 60px; background: var(--kertas); display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 4px 24px; align-items: center; }
+.gulungan h3 { font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.375rem); }
+
+.grosir { background: var(--kertas); color: var(--kayu); padding: clamp(64px, 12vh, 112px) var(--m); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px 48px; }
+.grosir p { font-size: var(--s-lead); line-height: 1.28; max-width: 34em; margin-top: 16px; }
+.grosir .btn { background: var(--kayu); color: var(--kertas); }
+
+.kaki { padding: 28px var(--m); display: grid; gap: 6px; }
+.kaki p { max-width: 62ch; }
+
+@media (max-width: 1180px) {
+  .kasir { grid-template-columns: minmax(0, 1fr) auto; }
+  .rak { height: auto; }
+  .stage { position: relative; inset: auto; height: 46svh; min-height: 280px; }
+  .kata { max-width: none; }
+  .hint { left: var(--m); right: var(--m); text-align: center; }
+  .kasir { position: sticky; bottom: 0; }
+}
+@media (max-width: 760px) {
+  .kasir { padding: 10px 16px 12px; gap: 8px 12px; }
+  .kasir-beli { grid-column: 1 / -1; justify-content: space-between; }
+  .kasir-nama { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .kasir-nama p { text-align: right; font-size: .9375rem; }
+  .kasir legend { font-size: .9375rem; }
+  .pilih button { padding: 0 8px; font-size: .9375rem; }
+  .warna { gap: 4px; }
+  .warna button { width: 38px; height: 38px; min-height: 38px; padding: 0; }
+  .kasir-beli .btn { padding: 0 16px; font-size: 1rem; min-height: 48px; }
+  .kasir-beli b { font-size: 1.5rem; }
+  .rinci, .rinci dl { grid-template-columns: minmax(0, 1fr); }
+  .gulungan li { width: 100%; margin-left: 0; grid-template-columns: minmax(0, 1fr); border-radius: 32px; padding: 16px 22px; }
+}
+@media (max-width: 430px) {
+  .kasir { grid-template-columns: minmax(0, 1fr); }
+  .kasir legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  #bentuk button { flex: 1; }
+}
+@media (max-width: 380px) {
+  .warna { gap: 3px; }
+  .warna button { width: 36px; height: 36px; min-height: 36px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .pilih button { transition: none; }
+}
