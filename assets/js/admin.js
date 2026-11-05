@@ -7,7 +7,7 @@
   var live = document.getElementById("live");
   var PER = 25, IDLE_MS = 8 * 3600 * 1000, LAST_KEY = "bkn_admin_last";
   var REVIEW_URL = "https://bikininstudio.github.io/ulasan/?kode=";
-  var STATUS = [["baru", "Baru"], ["dihubungi", "Sudah dihubungi"], ["penawaran_dikirim", "Penawaran dikirim"], ["deal", "Deal"], ["dikerjakan", "Sedang dikerjakan"], ["selesai", "Selesai"], ["batal", "Batal"], ["spam", "Spam"]];
+  var STATUS = [["baru", "Baru"], ["dihubungi", "Sudah dihubungi"], ["penawaran_dikirim", "Penawaran dikirim"], ["deal", "Deal"], ["dikerjakan", "Sedang dikerjakan"], ["menunggu_revisi", "Menunggu tanggapan klien"], ["menunggu_pelunasan", "Menunggu pelunasan"], ["selesai", "Selesai"], ["batal", "Batal"], ["spam", "Spam"]];
   var SLABEL = {}; STATUS.forEach(function (s) { SLABEL[s[0]] = s[1]; });
   var BUDGET = { lt_100rb: "Di bawah Rp 100rb", "100_300rb": "Rp 100–300rb", "300rb_1jt": "Rp 300rb–1jt", "1_3jt": "Rp 1–3jt", "3_10jt": "Rp 3–10jt", gt_10jt: "Di atas Rp 10jt", belum: "Belum ditentukan" };
   var DOC = { penawaran: "Penawaran harga", perjanjian: "Perjanjian kerja", nda: "NDA", invoice: "Invoice" };
@@ -210,6 +210,7 @@
     // status + catatan
     var sel = h("select", { id: "st", "aria-label": "Status" }); STATUS.forEach(function (s) { sel.appendChild(h("option", { value: s[0], text: s[1] })); }); sel.value = o.status;
     var note = h("textarea", { id: "cn", maxlength: "4000", rows: "5" }); note.value = o.catatan_admin || "";
+    var cnote = h("textarea", { id: "ck", maxlength: "300", rows: "2" }); cnote.value = o.catatan_klien || "";
     var msg = h("p", { role: "status" });
     var confirmBox = h("div");
     var save = h("button", { class: "btn btn-primary", type: "button", text: "Simpan perubahan" });
@@ -218,6 +219,7 @@
       var patch = {};
       if (sel.value !== o.status) patch.status = sel.value;
       if (note.value !== (o.catatan_admin || "")) patch.catatan_admin = note.value || null;
+      if (cnote.value !== (o.catatan_klien || "")) patch.catatan_klien = cnote.value || null;
       if (!Object.keys(patch).length) { save.disabled = false; msg.className = "msg-ok"; msg.textContent = "Tidak ada perubahan."; return; }
       sb.from("orders").update(patch).eq("id", o.id).select("*").single().then(function (r) {
         save.disabled = false;
@@ -234,6 +236,7 @@
     });
     var statusCard = h("section", { class: "adm-card" }, h("h2", { text: "Status" }), h("div", { class: "field" }, h("label", { for: "st", text: "Status pesanan" }), sel),
       h("h2", { text: "Catatan internal" }), h("div", { class: "field" }, h("label", { for: "cn", class: "sr-only", text: "Catatan internal" }), note),
+      h("h2", { text: "Catatan untuk klien (tampil di akun klien, maks 300)" }), h("div", { class: "field" }, h("label", { for: "ck", class: "sr-only", text: "Catatan untuk klien" }), cnote),
       h("div", { class: "adm-actions" }, save), confirmBox, msg);
 
     // ulasan (selesai)

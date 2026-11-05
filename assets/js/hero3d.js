@@ -12,7 +12,7 @@ export async function loadThree(small) {
 }
 
 // Satu Shape untuk batang + mangkuk (tanpa dua ekstrusi bertumpuk), titik terpisah.
-function shapes(THREE) {
+export function shapes(THREE) {
   const P = (x, y) => new THREE.Vector2((x - CX) * S, -(y - CY) * S);
   const c1 = P(154, 102), cb = P(219, 263), cd = P(314, 99);
   const a0 = Math.atan2(Math.sqrt(95 * 95 - 35 * 35), -35); // titik potong batang-mangkuk di x=184
@@ -37,10 +37,10 @@ export function createRig(THREE, { small, renderer }) {
   const gBody = new THREE.ExtrudeGeometry(b, opt), gDot = new THREE.ExtrudeGeometry(dot, opt);
   gBody.translate(0, 0, -opt.depth / 2); gDot.translate(0, 0, -opt.depth / 2);
 
-  const mBody = small ? new THREE.MeshStandardMaterial({ color: "#D9CDBF", roughness: 0.45 })
-    : new THREE.MeshPhysicalMaterial({ color: "#D9CDBF", roughness: 0.42, clearcoat: 0.5, clearcoatRoughness: 0.25 });
-  const mDot = small ? new THREE.MeshStandardMaterial({ color: "#33505E", roughness: 0.35 })
-    : new THREE.MeshPhysicalMaterial({ color: "#33505E", roughness: 0.3, clearcoat: 0.8, clearcoatRoughness: 0.2 });
+  const mBody = small ? new THREE.MeshStandardMaterial({ color: "#E6E6E3", roughness: 0.45 })
+    : new THREE.MeshPhysicalMaterial({ color: "#E6E6E3", roughness: 0.42, clearcoat: 0.5, clearcoatRoughness: 0.25 });
+  const mDot = small ? new THREE.MeshStandardMaterial({ color: "#111111", roughness: 0.35 })
+    : new THREE.MeshPhysicalMaterial({ color: "#111111", roughness: 0.3, clearcoat: 0.8, clearcoatRoughness: 0.2 });
   const logo = new THREE.Group();
   logo.add(new THREE.Mesh(gBody, mBody), new THREE.Mesh(gDot, mDot));
 
@@ -59,15 +59,15 @@ export function createRig(THREE, { small, renderer }) {
   scene.add(shadow, logo);
   let pmrem = null, envTex = null;
   if (small) {
-    scene.add(new THREE.HemisphereLight("#F4EFE8", "#8F7F70", 1.1));
+    scene.add(new THREE.HemisphereLight("#FFFFFF", "#B5B5B2", 1.1));
   } else {
     pmrem = new THREE.PMREMGenerator(renderer);
     envTex = pmrem.fromScene(new ENV(), 0.04).texture;
     scene.environment = envTex; scene.environmentIntensity = 0.55;
   }
-  const key = new THREE.DirectionalLight("#FFE3C8", small ? 1.8 : 2.2); key.position.set(-3, 4, 5);
+  const key = new THREE.DirectionalLight("#FFFFFF", small ? 1.8 : 2.2); key.position.set(-3, 4, 5);
   scene.add(key);
-  if (!small) { const rim = new THREE.DirectionalLight("#CFE0E8", 1.0); rim.position.set(3, 2, -4); scene.add(rim); }
+  if (!small) { const rim = new THREE.DirectionalLight("#E8E8E8", 1.0); rim.position.set(3, 2, -4); scene.add(rim); }
 
   const camera = new THREE.PerspectiveCamera(26, 1, 0.1, 50);
   camera.position.set(0, 0.4, 6.5); camera.lookAt(0, -0.02, 0);

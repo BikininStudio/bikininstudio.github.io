@@ -74,6 +74,6 @@
   var grid = document.getElementById("grid");
   if (grid && grid.children.length && !document.getElementById("viewer").hidden === false) {
     var k = 0;
-    setInterval(function () { if (document.hidden) return; [].forEach.call(grid.children, function (c) { c.style.outline = ""; }); var c = grid.children[k++ % grid.children.length]; c.style.outline = "3px solid #5E5148"; c.style.outlineOffset = "-3px"; }, 900);
+    setInterval(function () { if (document.hidden) return; [].forEach.call(grid.children, function (c) { c.style.outline = ""; }); var c = grid.children[k++ % grid.children.length]; c.style.outline = "3px solid #111111"; c.style.outlineOffset = "-3px"; }, 900);
   }
 })();

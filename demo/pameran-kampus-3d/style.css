@@ -18,7 +18,7 @@ body { margin: 0; background: var(--taupe); color: var(--paper-ink); font-family
 /* Panggung */
 .story { position: relative; }
 .stage {
-  position: sticky; top: 0; height: 100vh; height: 100svh; margin-bottom: -100vh; margin-bottom: -100svh; overflow: hidden;
+  position: sticky; top: 0; height: 100vh; height: 100svh; height: var(--h, 100svh); margin-bottom: -100vh; margin-bottom: -100svh; margin-bottom: calc(var(--h, 100svh) * -1); overflow: hidden;
   background: #CBBBA2 url("poster-1.webp") center / cover no-repeat; transition: background-color .5s ease;
 }
 .has3d .stage { background-image: none; }

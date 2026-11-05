@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelurahan Cipta Mulya | Layanan warga</title>
+<meta name="description" content="Syarat surat, jam layanan, dan peta fasilitas Kelurahan Cipta Mulya. (Demo situs oleh Bikinin Studio)">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,600;75..100,800&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="demo-tag">Demo situs · nama dan data fiktif</div>
+<div class="status" id="status"></div>
+<header class="top">
+  <a class="brand" href="#"><b>Kelurahan Cipta Mulya</b><span>Kecamatan Sukamaju · Kota Contoh</span></a>
+  <nav><a href="#layanan">Layanan surat</a><a href="#peta">Peta fasilitas</a><a href="#kontak">Kontak</a></nav>
+</header>
+
+<section class="hero">
+  <h1>Mau urus surat apa hari ini?</h1>
+  <label class="search">
+    <span class="sr">Cari layanan</span>
+    <input id="cari" type="search" placeholder="Ketik: domisili, SKTM, pindah, nikah…" autocomplete="off">
+  </label>
+  <p class="hint">Semua layanan di bawah gratis. Kalau ada yang minta bayaran, laporkan ke nomor pengaduan di bawah.</p>
+</section>
+
+<section id="layanan" class="layanan">
+  <div class="list" id="list"></div>
+  <p class="empty" id="empty" hidden>Layanan itu belum ada di daftar. Tanyakan langsung lewat WhatsApp pelayanan.</p>
+</section>
+
+<section id="peta" class="peta">
+  <div class="peta-head">
+    <h2>Peta fasilitas</h2>
+    <p>Wilayah 6 RW, 4.912 KK. Pilih tempat untuk melihat lokasinya di peta.</p>
+  </div>
+  <div class="peta-body">
+    <div class="map" id="stage" role="img" aria-label="Peta tiga dimensi wilayah kelurahan dengan penanda fasilitas">
+      <div class="fallback">Peta 3D tidak bisa ditampilkan. Lihat daftar alamat di samping.</div>
+    </div>
+    <ul class="places" id="places"></ul>
+  </div>
+</section>
+
+<section id="kontak" class="kontak">
+  <div>
+    <h2>Jam layanan</h2>
+    <table>
+      <tr><th>Senin–Kamis</th><td>08.00–15.00 (istirahat 12.00–13.00)</td></tr>
+      <tr><th>Jumat</th><td>08.00–11.00 dan 13.30–15.00</td></tr>
+      <tr><th>Sabtu, Minggu, libur</th><td>Tutup. Surat kematian tetap dilayani lewat ketua RT.</td></tr>
+    </table>
+  </div>
+  <div class="cards">
+    <a href="https://wa.me/6281200000000?text=Halo%20pelayanan%20Kelurahan%20Cipta%20Mulya" target="_blank" rel="noopener"><span>WhatsApp pelayanan</span><b>0812-0000-0000</b><small>Dibalas di jam kerja</small></a>
+    <a href="tel:0210000000"><span>Pengaduan</span><b>(021) 000-0000</b><small>Pungli, pelayanan lambat, fasilitas rusak</small></a>
+    <div><span>Alamat kantor</span><b>Jl. Melati Raya No. 1</b><small>Sebelah lapangan voli RW 03</small></div>
+  </div>
+</section>
+
+<footer>
+  <p>Ini situs contoh buatan Bikinin Studio. Nama kelurahan, nomor, dan alamat fiktif; bukan situs pemerintah.</p>
+</footer>
+<script type="module" src="main.js"></script>
+</body>
+</html>

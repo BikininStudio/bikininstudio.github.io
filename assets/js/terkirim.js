@@ -13,5 +13,10 @@
     });
   } else document.getElementById("h1t").textContent = "Brief Anda belum tercatat di sistem kami";
   var text = saved && saved.wa ? saved.wa : (ok ? "Halo Bikinin Studio, saya ingin memesan.\nKode pesanan: " + kode : "Halo Bikinin Studio, saya ingin memesan.");
+  if (saved && saved.tak) {
+    var nb = document.createElement("p"); nb.className = "notice"; nb.setAttribute("role", "status");
+    nb.textContent = "Pesanan ini belum tertaut ke akun Anda (sesi sudah berakhir). Masuk lagi di halaman Masuk, lalu hubungi kami lewat WhatsApp bila ingin pesanan ini ditautkan.";
+    var host = document.getElementById("ok"); if (host) host.appendChild(nb);
+  }
   document.getElementById("wa-open").href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(text);
 })();

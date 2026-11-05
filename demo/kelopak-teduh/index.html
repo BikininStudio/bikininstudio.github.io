@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8FHTFV0DZN');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Toko Bunga Kelopak Teduh · Bikinin Studio</title>
+  <meta name="description" content="Demo landing page dan katalog toko bunga Kelopak Teduh: filter buket, keranjang, dan penyusun buket custom. Proyek konsep dari Bikinin Studio.">
+  <link rel="canonical" href="https://bikininstudio.github.io/demo/kelopak-teduh/">
+  <meta property="og:title" content="Demo Toko Bunga Kelopak Teduh · Bikinin Studio">
+  <meta property="og:description" content="Contoh landing page, katalog, dan penyusun buket custom untuk toko bunga. Brand fiktif, proyek konsep.">
+  <meta property="og:image" content="https://bikininstudio.github.io/assets/og/kelopak-teduh.jpg">
+  <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/kelopak-teduh.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <style>
+    :root { --sage: #7D9A84; --rose: #C99A9A; --terra: #B07A64; --terra-d: #8A5444; --cream: #F3EDE2; --cream-2: #E9E0D1; --ink: #34473C; --muted: #5C6B61; --paper: #FBF8F2; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: "Plus Jakarta Sans", system-ui, sans-serif; font-size: 16px; line-height: 1.55; padding-bottom: 96px; }
+    a { color: inherit; }
+    h1, h2, h3 { line-height: 1.15; margin: 0; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+    .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--terra-d); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 2px solid var(--ink); background: var(--ink); color: var(--cream); font: 700 16px "Plus Jakarta Sans", sans-serif; text-decoration: none; cursor: pointer; }
+    .btn.ghost { background: transparent; color: var(--ink); }
+    .btn:focus-visible, .chip:focus-visible, .qty button:focus-visible, .swatch:focus-visible, .opt:focus-within, summary:focus-visible, input:focus-visible { outline: 3px solid var(--terra-d); outline-offset: 2px; }
+
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 0; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; text-decoration: none; }
+    .brand svg { width: 34px; height: 34px; }
+    .nav ul { display: flex; gap: 6px; list-style: none; margin: 0; padding: 0; }
+    .nav li a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; font-weight: 600; text-decoration: none; border-radius: 999px; }
+    .nav li a:hover { background: var(--cream-2); }
+    @media (max-width: 640px) { .nav ul { display: none; } }
+
+    .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; padding: 24px 16px 56px; }
+    .hero h1 { font-size: clamp(34px, 6vw, 56px); font-weight: 800; letter-spacing: -.02em; margin: 12px 0 14px; }
+    .hero h1 em { font-style: normal; color: var(--terra-d); }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 46ch; margin: 0 0 22px; }
+    .hero .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-art { background: var(--sage); border-radius: 36px 36px 120px 36px; padding: 24px; aspect-ratio: 1 / 1; display: grid; place-items: center; position: relative; }
+    .hero-art svg { width: 78%; height: auto; }
+    .tag { position: absolute; left: 16px; bottom: 16px; background: var(--paper); color: var(--ink); font-size: 13px; font-weight: 700; padding: 6px 12px; border-radius: 999px; }
+    @media (max-width: 760px) { .hero { grid-template-columns: 1fr; } .hero-art { order: -1; max-width: 360px; margin: 0 auto; width: 100%; } }
+
+    section { padding: 48px 0; }
+    .sec-head { margin-bottom: 22px; }
+    .sec-head h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 800; margin-top: 6px; }
+    .sec-head p { margin: 8px 0 0; color: var(--muted); max-width: 56ch; }
+
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+    .chip { min-height: 44px; padding: 0 18px; border-radius: 999px; border: 2px solid var(--ink); background: transparent; color: var(--ink); font: 600 15px "Plus Jakarta Sans", sans-serif; cursor: pointer; }
+    .chip[aria-pressed="true"] { background: var(--ink); color: var(--cream); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+    .card { background: var(--paper); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; border: 1px solid var(--cream-2); }
+    .pic { aspect-ratio: 5 / 4; display: grid; place-items: center; position: relative; }
+    .pic svg { height: 88%; width: auto; }
+    .pic .size { position: absolute; top: 12px; left: 12px; background: var(--paper); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+    .card .body { padding: 16px 18px 18px; display: flex; flex-direction: column; flex: 1; gap: 6px; }
+    .card h3 { font-size: 18px; font-weight: 800; }
+    .card p { margin: 0; font-size: 15px; color: var(--muted); flex: 1; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; }
+    .price { font-weight: 800; color: var(--terra-d); }
+    .qty { display: flex; align-items: center; gap: 6px; }
+    .qty button { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--ink); background: var(--ink); color: var(--cream); font: 700 20px/1 "Plus Jakarta Sans", sans-serif; cursor: pointer; }
+    .qty button.minus { background: transparent; color: var(--ink); }
+    .qty span { min-width: 20px; text-align: center; font-weight: 800; }
+
+    .cfg { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; background: var(--paper); border: 1px solid var(--cream-2); border-radius: 28px; padding: 28px; align-items: start; }
+    .cfg-view { background: var(--sage); border-radius: 22px; aspect-ratio: 1 / 1; display: grid; place-items: center; position: sticky; top: 64px; }
+    .cfg-view svg { height: 86%; width: auto; }
+    fieldset { border: 0; padding: 0; margin: 0 0 20px; }
+    legend { font-weight: 800; margin-bottom: 8px; padding: 0; }
+    .swatches, .opts { display: flex; gap: 8px; flex-wrap: wrap; }
+    .swatch { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px 0 8px; border-radius: 999px; border: 2px solid var(--cream-2); background: transparent; color: var(--ink); font: 600 15px "Plus Jakarta Sans", sans-serif; cursor: pointer; }
+    .swatch i { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--paper); box-shadow: 0 0 0 1px var(--muted); }
+    .swatch[aria-pressed="true"], .opt:has(input:checked) { border-color: var(--ink); background: var(--cream); }
+    .opt { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 999px; border: 2px solid var(--cream-2); font-weight: 600; font-size: 15px; cursor: pointer; }
+    .opt input { width: 18px; height: 18px; accent-color: var(--ink); }
+    .opt small { color: var(--muted); font-weight: 500; }
+    .field { width: 100%; min-height: 48px; padding: 0 14px; border-radius: 14px; border: 2px solid var(--cream-2); background: #fff; color: var(--ink); font: 500 16px "Plus Jakarta Sans", sans-serif; }
+    .est { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 14px 0; border-top: 2px dashed var(--cream-2); margin-bottom: 14px; }
+    .est strong { font-size: 26px; font-weight: 800; color: var(--terra-d); }
+    .note { font-size: 14px; color: var(--muted); margin: 8px 0 0; }
+    @media (max-width: 800px) { .cfg { grid-template-columns: 1fr; padding: 20px; } .cfg-view { position: static; max-width: 320px; margin: 0 auto; width: 100%; } }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; list-style: none; padding: 0; margin: 0; counter-reset: s; }
+    .steps li { counter-increment: s; background: var(--cream-2); border-radius: 22px; padding: 22px; }
+    .steps li::before { content: counter(s); display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--cream); font-weight: 800; margin-bottom: 12px; }
+    .steps b { display: block; font-size: 17px; margin-bottom: 4px; }
+    .steps span { color: var(--muted); font-size: 15px; }
+
+    details { background: var(--paper); border: 1px solid var(--cream-2); border-radius: 16px; margin-bottom: 10px; }
+    summary { min-height: 52px; padding: 12px 18px; font-weight: 700; cursor: pointer; display: flex; align-items: center; }
+    details p { margin: 0; padding: 0 18px 16px; color: var(--muted); }
+
+    footer { background: var(--ink); color: var(--cream); padding: 36px 0 28px; margin-top: 24px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+    footer p { margin: 0; font-size: 14px; color: #D8D2C4; max-width: 56ch; }
+    .badge { display: inline-block; background: var(--cream); color: var(--ink); font-weight: 800; font-size: 13px; padding: 4px 12px; border-radius: 999px; }
+
+    .cart { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); width: min(560px, calc(100% - 32px)); z-index: 900; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 12px 12px 20px; background: var(--ink); color: var(--cream); border-radius: 20px; box-shadow: 0 14px 30px rgba(52, 71, 60, .35); }
+    .cart[hidden] { display: none; }
+    .cart small { display: block; font-size: 13px; color: #D8D2C4; }
+    .cart strong { font-size: 18px; }
+    .cart .btn { background: var(--cream); color: var(--ink); border-color: var(--cream); min-height: 48px; }
+
+    dialog { border: 0; border-radius: 22px; padding: 24px; max-width: min(520px, calc(100% - 32px)); background: var(--paper); color: var(--ink); }
+    dialog::backdrop { background: rgba(52, 71, 60, .55); }
+    dialog h2 { font-size: 22px; margin-bottom: 8px; }
+    .wa-items { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 8px; }
+    .wa-items li { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--cream); border-radius: 14px; padding: 8px 8px 8px 14px; }
+    .wa-items .nm { font-size: 14px; font-weight: 600; }
+    .wa-items .nm small { display: block; color: var(--muted); font-weight: 500; }
+    dialog pre { white-space: pre-wrap; background: var(--cream); border-radius: 14px; padding: 14px; font: 500 14px/1.5 "Plus Jakarta Sans", sans-serif; margin: 12px 0; }
+    .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 28px; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+      .reveal.in { opacity: 1; transform: none; }
+      .hero-art svg { animation: sway 7s ease-in-out infinite; transform-origin: 50% 90%; }
+      @keyframes sway { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
+    }
+  </style>
+</head>
+<body data-demo="kelopak-teduh" data-label="Toko bunga Kelopak Teduh">
+  <header class="wrap nav">
+    <a class="brand" href="#atas" id="atas"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#7D9A84"/><g fill="#F3EDE2"><ellipse cx="20" cy="11" rx="4.5" ry="7"/><ellipse cx="20" cy="11" rx="4.5" ry="7" transform="rotate(72 20 20)"/><ellipse cx="20" cy="11" rx="4.5" ry="7" transform="rotate(144 20 20)"/><ellipse cx="20" cy="11" rx="4.5" ry="7" transform="rotate(216 20 20)"/><ellipse cx="20" cy="11" rx="4.5" ry="7" transform="rotate(288 20 20)"/></g><circle cx="20" cy="20" r="4" fill="#B07A64"/></svg>Kelopak Teduh</a>
+    <nav aria-label="Menu utama"><ul>
+      <li><a href="#katalog">Katalog</a></li><li><a href="#susun">Susun buket</a></li><li><a href="#cara">Cara pesan</a></li><li><a href="#faq">Tanya jawab</a></li>
+    </ul></nav>
+  </header>
+
+  <main>
+    <div class="wrap hero">
+      <div>
+        <span class="eyebrow">Toko bunga &amp; hadiah · Proyek konsep</span>
+        <h1>Rangkaian bunga yang pas untuk <em>setiap kabar.</em></h1>
+        <p>Buket siap pesan dan rangkaian custom, disusun segar setiap hari untuk ulang tahun, wisuda, dan ucapan terima kasih Anda.</p>
+        <div class="cta"><a class="btn" href="#katalog">Lihat katalog</a><a class="btn ghost" href="#susun">Susun buket sendiri</a></div>
+      </div>
+      <div class="hero-art"><div id="hero-svg" style="display:contents"></div><span class="tag">Ilustrasi contoh</span></div>
+    </div>
+
+    <section id="katalog"><div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">Katalog</span><h2>Buket siap pesan</h2><p>Enam pilihan dengan harga perkenalan. Harga akhir bergantung pada jenis bunga, ukuran, dan permintaan khusus.</p></div>
+      <div class="chips" id="chips" role="group" aria-label="Kategori buket"></div>
+      <div class="grid" id="grid"></div>
+    </div></section>
+
+    <section id="susun"><div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">Buket custom</span><h2>Susun buket sendiri</h2><p>Pilih warna, ukuran, dan tambahan. Pratinjau dan perkiraan harga berubah langsung.</p></div>
+      <div class="cfg reveal">
+        <div class="cfg-view" id="cfg-view" aria-live="polite"></div>
+        <form id="cfg-form" onsubmit="return false">
+          <fieldset><legend>Warna utama</legend><div class="swatches" id="cfg-colors"></div></fieldset>
+          <fieldset><legend>Ukuran</legend><div class="opts" id="cfg-sizes"></div></fieldset>
+          <fieldset><legend>Tambahan</legend><div class="opts" id="cfg-extras"></div></fieldset>
+          <fieldset><legend><label for="cfg-card">Pesan di kartu ucapan (opsional)</label></legend><input class="field" id="cfg-card" maxlength="80" placeholder="Contoh: Selamat ulang tahun, semoga sehat selalu"></fieldset>
+          <div class="est"><span>Perkiraan harga</span><strong id="cfg-price">Mulai Rp 0</strong></div>
+          <button class="btn" type="button" id="cfg-add">Tambah ke pesanan</button>
+          <p class="note">Pesan kartu hanya ikut ke buket custom yang Anda tambahkan; opsi "Kartu ucapan" otomatis tercentang saat kolom diisi. Harga akhir dikonfirmasi lewat WhatsApp sebelum buket dikerjakan.</p>
+        </form>
+      </div>
+    </div></section>
+
+    <section id="cara"><div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">Cara pesan</span><h2>Tiga langkah, tanpa ribet</h2></div>
+      <ol class="steps reveal">
+        <li><b>Pilih buket</b><span>Pilih dari katalog, atau ceritakan kebutuhan untuk buket custom.</span></li>
+        <li><b>Kirim detail</b><span>Kirim lewat WhatsApp: tanggal, alamat, warna, dan pesan kartu.</span></li>
+        <li><b>Konfirmasi &amp; terima</b><span>Harga dan jadwal dikonfirmasi, lalu pesanan Anda disusun dan dikirim.</span></li>
+      </ol>
+    </div></section>
+
+    <section id="faq"><div class="wrap">
+      <div class="sec-head reveal"><span class="eyebrow">Tanya jawab</span><h2>Pertanyaan yang sering muncul</h2></div>
+      <div class="reveal">
+        <details><summary>Apakah saya bisa memesan buket custom?</summary><p>Bisa. Sampaikan warna, anggaran, dan acara Anda, lalu kami usulkan rangkaian yang sesuai.</p></details>
+        <details><summary>Berapa lama pesanan disiapkan?</summary><p>Buket siap pesan umumnya disiapkan dalam satu hari. Buket custom sebaiknya dipesan lebih awal.</p></details>
+        <details><summary>Apakah bunga bisa diganti?</summary><p>Bisa. Jika jenis bunga tertentu tidak tersedia, kami ganti dengan bunga serupa setelah Anda setuju.</p></details>
+        <details><summary>Bisakah menambahkan kartu ucapan?</summary><p>Bisa. Tulis pesan Anda pada kolom kartu dan kami cetak pada kartu kecil.</p></details>
+      </div>
+    </div></section>
+  </main>
+
+  <footer><div class="wrap">
+    <div><span class="badge">Proyek konsep</span><p style="margin-top:10px">Kelopak Teduh adalah brand fiktif untuk demo. Ilustrasi buket dibuat sendiri; ketentuan layanan hanya contoh dan bukan komitmen layanan nyata. Di versi asli, gunakan foto produk Anda sendiri.</p></div>
+    <a class="btn ghost" style="border-color:var(--cream);color:var(--cream)" href="#atas">Kembali ke atas</a>
+  </div></footer>
+
+  <p class="sr-only" id="cart-status" role="status" aria-live="polite"></p>
+  <div class="cart" id="cart" hidden>
+    <div><small id="cart-count">0 item</small><strong id="cart-total">Rp 0</strong></div>
+    <button class="btn" id="checkout" type="button">Pesan via WhatsApp</button>
+  </div>
+
+  <dialog id="wa-dlg" aria-labelledby="wa-ttl">
+    <h2 id="wa-ttl">Pratinjau pesan WhatsApp</h2>
+    <p class="note" style="margin:0 0 8px">Ini demo. Di versi asli, pesan di bawah langsung terbuka di WhatsApp toko.</p>
+    <label for="wa-date" style="font-weight:700">Tanggal kirim</label>
+    <input class="field" type="date" id="wa-date" aria-describedby="wa-date-err">
+    <p class="note" id="wa-date-err" role="alert" hidden style="color:#8A3A2C">Tanggal sudah lewat. Pilih hari ini atau sesudahnya.</p>
+    <ul class="wa-items" id="wa-items" aria-label="Isi pesanan"></ul>
+    <pre id="wa-text"></pre>
+    <button class="btn" type="button" id="wa-close">Tutup</button>
+  </dialog>
+
+  <script src="/assets/js/demo-core.js"></script>
+  <script>
+    const COL = { sage: "#7D9A84", rose: "#C99A9A", terra: "#B07A64", cream: "#F3EDE2", ink: "#34473C", paper: "#FBF8F2" };
+    const rp = (n) => "Rp " + n.toLocaleString("id-ID");
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    // Ilustrasi buket orisinal (SVG dibuat dari kode, tanpa foto atau clipart).
+    function flower(cx, cy, r, color, kind) {
+      const n = kind === "sun" ? 14 : kind === "daisy" ? 10 : 7;
+      const rx = kind === "sun" ? r * .2 : kind === "daisy" ? r * .26 : r * .46;
+      const ry = kind === "sun" ? r * .52 : kind === "daisy" ? r * .6 : r * .62;
+      const oy = kind === "rose" ? r * .38 : r * .5;
+      let s = "";
+      for (let k = 0; k < n; k++) s += `<ellipse cx="${cx}" cy="${cy - oy}" rx="${rx.toFixed(1)}" ry="${ry.toFixed(1)}" fill="${color}" stroke="${COL.paper}" stroke-width="1" transform="rotate(${(k * 360 / n).toFixed(1)} ${cx} ${cy})"/>`;
+      if (kind === "rose") s += `<circle cx="${cx}" cy="${cy}" r="${(r * .42).toFixed(1)}" fill="${color}" stroke="${COL.ink}" stroke-opacity=".25" stroke-width="1.5"/><circle cx="${(cx + r * .05).toFixed(1)}" cy="${(cy - r * .04).toFixed(1)}" r="${(r * .2).toFixed(1)}" fill="none" stroke="${COL.ink}" stroke-opacity=".22" stroke-width="1.5"/>`;
+      else s += `<circle cx="${cx}" cy="${cy}" r="${(r * (kind === "sun" ? .36 : .22)).toFixed(1)}" fill="${kind === "sun" ? "#6B4A32" : "#C79A4A"}"/>`;
+      return s;
+    }
+    function bouquet(o) {
+      const L = o.leaf || COL.sage, wrap = o.wrap || COL.cream, rib = o.ribbon || COL.terra;
+      const spots = [[100, 70, 27], [66, 96, 24], [134, 96, 24], [100, 112, 25], [76, 62, 18], [126, 62, 18]].slice(0, o.count || 5);
+      let leaves = "";
+      [-55, -32, -10, 12, 34, 56].forEach((a, i) => { leaves += `<ellipse cx="100" cy="${o.tall ? 64 : 82}" rx="${i % 2 ? 11 : 13}" ry="${o.tall ? 50 : 44}" fill="${L}" opacity="${i % 2 ? .85 : 1}" transform="rotate(${a} 100 150)"/>`; });
+      let fill = "";
+      if (o.filler) [[52, 76], [148, 76], [88, 40], [112, 42], [60, 118], [140, 118], [100, 28]].forEach(([x, y]) => { fill += `<circle cx="${x}" cy="${y}" r="5" fill="${COL.paper}" stroke="${L}" stroke-width="1.5"/>`; });
+      let fl = "";
+      spots.forEach(([x, y, r], i) => { fl += flower(x, y, r, o.colors[i % o.colors.length], o.kind || "rose"); });
+      return `<svg viewBox="0 0 200 250" role="img" aria-label="${esc(o.alt || "Ilustrasi buket bunga")}">
+        <g>${leaves}${fill}</g><g>${fl}</g>
+        <path d="M28 118 L172 118 L116 238 Q100 244 84 238 Z" fill="${wrap}" stroke="${COL.ink}" stroke-opacity=".25" stroke-width="2"/>
+        <path d="M28 118 L100 150 L172 118" fill="none" stroke="${COL.ink}" stroke-opacity=".2" stroke-width="2"/>
+        <rect x="76" y="172" width="48" height="12" rx="3" fill="${rib}"/>
+        <path d="M100 178 L84 200 L92 202 L100 186 L108 202 L116 200 Z" fill="${rib}" opacity=".85"/><ellipse cx="84" cy="177" rx="17" ry="9" fill="${rib}" transform="rotate(-18 84 177)"/><ellipse cx="116" cy="177" rx="17" ry="9" fill="${rib}" transform="rotate(18 116 177)"/><circle cx="100" cy="178" r="6" fill="${rib}" stroke="${COL.paper}" stroke-width="2"/>
+      </svg>`;
+    }
+
+    const PRODUCTS = [
+      { id: "pagi", name: "Buket Pagi Cerah", cat: "Harian", size: "Kecil · ±15 cm", price: 85000, bg: "#EBD9CE", desc: "Rangkaian mawar peach dan bunga pengisi putih yang lembut untuk ucapan sehari-hari.", art: { colors: ["#E2A98F", "#EDBBA3", "#D99880"], filler: true, count: 4, kind: "rose" } },
+      { id: "hijau", name: "Buket Rumpun Hijau", cat: "Harian", size: "Kecil–Sedang · ±20 cm", price: 120000, bg: "#D5E0D6", desc: "Perpaduan daun eukaliptus dan bunga putih dengan kesan segar dan bersih.", art: { colors: ["#F6F1E6", "#EDE7D8"], filler: true, count: 5, kind: "daisy", tall: true } },
+      { id: "mawar", name: "Buket Senja Mawar", cat: "Ulang tahun", size: "Sedang · ±25 cm", price: 165000, bg: "#EAD3D3", desc: "Mawar merah muda dan krem dengan pita satin, pilihan aman untuk hadiah ulang tahun.", art: { colors: ["#C99A9A", "#E6C9BC", "#B98585"], count: 5, kind: "rose", ribbon: "#8A5444" } },
+      { id: "wisuda", name: "Buket Wisuda Teduh", cat: "Wisuda", size: "Sedang · ±30 cm", price: 210000, bg: "#EEE3C9", desc: "Bunga matahari dan aksen hijau dalam bungkus kertas netral, mudah dibawa saat acara.", art: { colors: ["#D9A441", "#E2B45A"], count: 4, kind: "sun", wrap: "#E9E0D1", tall: true } },
+      { id: "taman", name: "Buket Taman Pita", cat: "Ulang tahun", size: "Besar · ±40 cm", price: 285000, bg: "#DDD8E3", desc: "Campuran bunga musiman berwarna lembut yang diikat pita, dengan ruang untuk kartu ucapan.", art: { colors: ["#C99A9A", "#9CAFC2", "#E6C9BC", "#B7A5C7"], filler: true, count: 6, kind: "mix" } },
+      { id: "custom", name: "Buket Custom Rumpun", cat: "Custom", size: "Premium · ±30–50 cm", price: 450000, bg: "#D9E1D6", desc: "Rangkaian yang disusun sesuai warna, anggaran, dan pesan Anda, dikonfirmasi lewat WhatsApp sebelum dikerjakan.", art: { colors: ["#7D9A84", "#C99A9A", "#F3EDE2", "#B07A64"], filler: true, count: 6, kind: "rose" } },
+    ];
+    PRODUCTS.forEach((p) => { p.art.alt = "Ilustrasi " + p.name; });
+    const CATS = ["Semua", ...new Set(PRODUCTS.map((p) => p.cat))];
+    const cart = {};
+    let cat = "Semua";
+
+    document.getElementById("hero-svg").innerHTML = bouquet({ colors: ["#C99A9A", "#E6C9BC", "#F3EDE2", "#B07A64"], filler: true, count: 6, kind: "rose", leaf: "#34473C", alt: "Ilustrasi buket bunga Kelopak Teduh" });
+
+    const chips = document.getElementById("chips");
+    CATS.forEach((c) => {
+      const b = document.createElement("button");
+      b.className = "chip"; b.type = "button"; b.textContent = c; b.setAttribute("aria-pressed", String(c === cat));
+      b.onclick = () => { cat = c; [...chips.children].forEach((x) => x.setAttribute("aria-pressed", String(x === b))); renderGrid(); };
+      chips.appendChild(b);
+    });
+
+    function renderGrid() {
+      const grid = document.getElementById("grid");
+      const ae = document.activeElement;
+      const keep = ae && grid.contains(ae) && ae.closest("[data-pid]") ? { pid: ae.closest("[data-pid]").dataset.pid, cls: ae.classList.contains("minus") ? "minus" : "plus" } : null;
+      const list = PRODUCTS.filter((p) => cat === "Semua" || p.cat === cat);
+      grid.innerHTML = list.length ? "" : `<p class="empty">Belum ada buket di kategori ini.</p>`;
+      list.forEach((p) => {
+        const el = document.createElement("article");
+        el.className = "card";
+        el.dataset.pid = p.id;
+        const q = cart[p.id] ? cart[p.id].qty : 0;
+        el.innerHTML = `<div class="pic" style="background:${p.bg}">${bouquet(p.art)}<span class="size">${esc(p.size)}</span></div>
+          <div class="body"><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>
+            <div class="row"><span class="price">Mulai ${rp(p.price)}</span>
+              <div class="qty">${q ? `<button class="minus" type="button" aria-label="Kurangi ${esc(p.name)}">−</button><span>${q}</span>` : ""}<button class="plus" type="button" aria-label="Tambah ${esc(p.name)}">+</button></div></div></div>`;
+        el.querySelector(".plus").onclick = () => { add(p.id, p.name, p.price); };
+        const m = el.querySelector(".minus");
+        if (m) m.onclick = () => { cart[p.id].qty--; if (!cart[p.id].qty) delete cart[p.id]; renderGrid(); announce(p.name, p.id); };
+        grid.appendChild(el);
+      });
+      if (keep) {
+        const c = grid.querySelector(`[data-pid="${keep.pid}"]`);
+        const b = c && (c.querySelector("." + keep.cls) || c.querySelector(".plus"));
+        if (b) b.focus();
+      }
+      updateCart();
+    }
+    function announce(name, id) {
+      const items = Object.values(cart);
+      const total = items.reduce((s, i) => s + i.qty * i.price, 0);
+      const q = cart[id] ? cart[id].qty : 0;
+      $("cart-status").textContent = q ? `${name}: ${q} di pesanan. Total pesanan mulai ${rp(total)}.` : `${name} dihapus dari pesanan.${items.length ? ` Total pesanan mulai ${rp(total)}.` : " Pesanan kosong."}`;
+    }
+    function add(id, name, price, card) {
+      cart[id] = cart[id] || { name, price, qty: 0, card: card || "" };
+      cart[id].qty++;
+      renderGrid();
+      announce(name, id);
+    }
+    function updateCart() {
+      const items = Object.values(cart);
+      const count = items.reduce((s, i) => s + i.qty, 0);
+      const total = items.reduce((s, i) => s + i.qty * i.price, 0);
+      document.getElementById("cart").hidden = !count;
+      document.getElementById("cart-count").textContent = `${count} item`;
+      document.getElementById("cart-total").textContent = "Mulai " + rp(total);
+    }
+
+    // Penyusun buket custom
+    const CC = [
+      { id: "mawar", label: "Mawar debu", colors: ["#C99A9A", "#E6C9BC", "#B98585"], kind: "rose" },
+      { id: "peach", label: "Peach hangat", colors: ["#E2A98F", "#EDBBA3", "#D99880"], kind: "rose" },
+      { id: "putih", label: "Putih & hijau", colors: ["#F6F1E6", "#EDE7D8"], kind: "daisy" },
+      { id: "matahari", label: "Matahari", colors: ["#D9A441", "#E2B45A"], kind: "sun" },
+      { id: "campur", label: "Campuran lembut", colors: ["#C99A9A", "#9CAFC2", "#E6C9BC", "#B7A5C7"], kind: "rose" },
+    ];
+    const SZ = [
+      { id: "kecil", label: "Kecil", cm: "±15 cm", price: 85000, count: 3 },
+      { id: "sedang", label: "Sedang", cm: "±25 cm", price: 165000, count: 4 },
+      { id: "besar", label: "Besar", cm: "±40 cm", price: 285000, count: 5 },
+      { id: "premium", label: "Premium", cm: "±50 cm", price: 450000, count: 6 },
+    ];
+    const EX = [
+      { id: "kartu", label: "Kartu ucapan", price: 5000 },
+      { id: "cokelat", label: "Cokelat batang", price: 45000 },
+      { id: "vas", label: "Vas kaca kecil", price: 35000 },
+    ];
+    const cfg = { color: "mawar", size: "sedang", extras: new Set() };
+    const $ = (id) => document.getElementById(id);
+    CC.forEach((c) => {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "swatch"; b.dataset.id = c.id;
+      b.innerHTML = `<i style="background:${c.colors[0]}"></i>${c.label}`;
+      b.onclick = () => { cfg.color = c.id; renderCfg(); };
+      $("cfg-colors").appendChild(b);
+    });
+    SZ.forEach((s) => {
+      const l = document.createElement("label");
+      l.className = "opt";
+      l.innerHTML = `<input type="radio" name="size" value="${s.id}"> ${s.label} <small>${s.cm}</small>`;
+      l.querySelector("input").onchange = () => { cfg.size = s.id; renderCfg(); };
+      $("cfg-sizes").appendChild(l);
+    });
+    EX.forEach((x) => {
+      const l = document.createElement("label");
+      l.className = "opt";
+      l.innerHTML = `<input type="checkbox" value="${x.id}"> ${x.label} <small>+${rp(x.price)}</small>`;
+      l.querySelector("input").onchange = (e) => { e.target.checked ? cfg.extras.add(x.id) : cfg.extras.delete(x.id); renderCfg(); };
+      $("cfg-extras").appendChild(l);
+    });
+    function cfgPrice() { return SZ.find((s) => s.id === cfg.size).price + [...cfg.extras].reduce((s, id) => s + EX.find((x) => x.id === id).price, 0); }
+    function cfgName() {
+      const c = CC.find((x) => x.id === cfg.color), s = SZ.find((x) => x.id === cfg.size);
+      const ex = [...cfg.extras].map((id) => EX.find((x) => x.id === id).label.toLowerCase());
+      return `Buket custom ${c.label.toLowerCase()}, ukuran ${s.label.toLowerCase()}${ex.length ? " + " + ex.join(", ") : ""}`;
+    }
+    function renderCfg() {
+      const c = CC.find((x) => x.id === cfg.color), s = SZ.find((x) => x.id === cfg.size);
+      [...$("cfg-colors").children].forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.id === cfg.color)));
+      [...$("cfg-sizes").querySelectorAll("input")].forEach((i) => { i.checked = i.value === cfg.size; });
+      [...$("cfg-extras").querySelectorAll("input")].forEach((i) => { i.checked = cfg.extras.has(i.value); });
+      $("cfg-view").innerHTML = bouquet({ colors: c.colors, kind: c.kind, count: s.count, filler: cfg.size !== "kecil", tall: cfg.size === "besar" || cfg.size === "premium", wrap: cfg.extras.has("vas") ? "#DCE6EA" : COL.cream, alt: "Pratinjau " + cfgName() });
+      $("cfg-price").textContent = "Mulai " + rp(cfgPrice());
+    }
+    $("cfg-card").addEventListener("input", (e) => { if (e.target.value.trim() && !cfg.extras.has("kartu")) { cfg.extras.add("kartu"); renderCfg(); } });
+    $("cfg-add").onclick = () => {
+      const card = cfg.extras.has("kartu") ? $("cfg-card").value.trim() : "";
+      const key = "custom-" + cfg.color + "-" + cfg.size + "-" + [...cfg.extras].sort().join(",") + "-" + card;
+      add(key, cfgName(), cfgPrice(), card);
+      $("cfg-card").value = "";
+      window.demoToast && demoToast("Buket custom ditambahkan ke pesanan.");
+    };
+
+    // Pesan via WhatsApp (pratinjau; ini demo)
+    const dlg = $("wa-dlg");
+    const today = (() => { const t = new Date(); t.setMinutes(t.getMinutes() - t.getTimezoneOffset()); return t.toISOString().slice(0, 10); })();
+    $("wa-date").min = today;
+    const dateOk = () => { const d = $("wa-date").value; return !d || d >= today; };
+    function waText() {
+      const items = Object.values(cart);
+      const total = items.reduce((s, i) => s + i.qty * i.price, 0);
+      const d = dateOk() ? $("wa-date").value : "";
+      $("wa-date-err").hidden = dateOk();
+      return ["Halo Kelopak Teduh, saya ingin memesan:", ...items.map((i) => `- ${i.qty}x ${i.name}${i.card ? ` (pesan kartu: "${i.card}")` : ""}`), d ? `Tanggal kirim: ${d}` : "Tanggal kirim: (belum dipilih)", `Perkiraan total: mulai ${rp(total)}`].filter(Boolean).join("\n");
+    }
+    function renderDlg(focusId) {
+      const ul = $("wa-items");
+      ul.innerHTML = "";
+      Object.entries(cart).forEach(([id, it]) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<span class="nm">${esc(it.name)}<small>${rp(it.price)} · ${it.qty} buah${it.card ? ` · kartu: ${esc(it.card)}` : ""}</small></span>
+          <span class="qty"><button class="minus" type="button" aria-label="Kurangi ${esc(it.name)}">−</button><span>${it.qty}</span><button class="plus" type="button" aria-label="Tambah ${esc(it.name)}">+</button></span>`;
+        const change = (d) => {
+          cart[id].qty += d;
+          if (!cart[id].qty) delete cart[id];
+          renderGrid();
+          announce(it.name, id);
+          if (!Object.keys(cart).length) { dlg.close(); return; }
+          renderDlg(id + (d < 0 && !cart[id] ? "" : "|" + (d < 0 ? "minus" : "plus")));
+        };
+        li.querySelector(".minus").onclick = () => change(-1);
+        li.querySelector(".plus").onclick = () => change(1);
+        ul.appendChild(li);
+      });
+      $("wa-text").textContent = waText();
+      if (focusId) {
+        const [id, cls] = focusId.split("|");
+        const idx = Object.keys(cart).indexOf(id);
+        const row = ul.children[idx >= 0 ? idx : 0];
+        const b = row && (row.querySelector("." + (cls || "plus")) || row.querySelector(".plus"));
+        if (b) b.focus();
+      }
+    }
+    $("checkout").onclick = () => { renderDlg(); dlg.showModal(); };
+    $("wa-date").addEventListener("input", () => { $("wa-text").textContent = waText(); });
+    $("wa-close").onclick = () => dlg.close();
+
+    renderGrid(); renderCfg();
+
+    const io = "IntersectionObserver" in window ? new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 }) : null;
+    document.querySelectorAll(".reveal").forEach((el) => (io ? io.observe(el) : el.classList.add("in")));
+  </script>
+</body>
+</html>

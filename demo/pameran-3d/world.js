@@ -218,9 +218,18 @@ async function build(THREE, ctx) {
   const pm = (c) => sm(c, 0.85);
   let ps = 7; const prnd = () => ((ps = (ps * 16807) % 2147483647) / 2147483647);
   // tokoh: model bersama (../3d/humans.js); pengunjung berkaos pendek, rambut panjang atau pendek, sebagian berjilbab
+  let flashTex = null;
   function person(shirt, x, z, ry, opts = {}) {
     const g = H.person(shirt, { short: true, ...opts, hairStyle: opts.hijab ? "hijab" : opts.long ? "long" : "short" }, prnd);
     g.scale.multiplyScalar(H.glb ? 1.0 : 1.13); g.position.set(x, 0, z); g.rotation.y = ry; scene.add(g);
+    const pu = g.userData;
+    if (H.glb && pu.phone) { // ponsel tegak menghadap pemegang; kilat kamera berupa cahaya lembut (aditif) yang membesar sambil memudar
+      pu.phone.rotation.x = 1.2; pu.phone.scale.setScalar(1.15);
+      const par = pu.flash.parent; par.remove(pu.flash);
+      if (!flashTex) { const c = document.createElement("canvas"); c.width = c.height = 64; const x2 = c.getContext("2d"), gr = x2.createRadialGradient(32, 32, 0, 32, 32, 32); gr.addColorStop(0, "rgba(255,255,255,1)"); gr.addColorStop(0.35, "rgba(255,250,235,.55)"); gr.addColorStop(1, "rgba(255,250,235,0)"); x2.fillStyle = gr; x2.fillRect(0, 0, 64, 64); flashTex = new THREE.CanvasTexture(c); }
+      const fl = new THREE.Sprite(new THREE.SpriteMaterial({ map: flashTex, transparent: true, blending: THREE.AdditiveBlending, depthWrite: false }));
+      fl.position.set(0, 0.12, 0.05); fl.visible = false; par.add(fl); pu.flash = fl; pu.flashBase = 0.24;
+    }
     return g;
   }
   // bangku kayu berpapan, bersandaran dan bersandar tangan; di sisi dinding kiri yang kosong
@@ -236,13 +245,16 @@ async function build(THREE, ctx) {
   };
   bench(-2.75, -10); bench(-2.75, -27.5);
   const spots = ZK.map((zk) => [2.4, zk + 0.85]);
-  const route = [{ p: [1.8, 18] }, { p: [1.0, 9.4] }, { p: [1.0, 5.2] }, { p: [1.95, 3.6] }];
-  spots.forEach((sp, i) => { route.push({ p: [1.95, sp[1] + 0.4] }); route.push({ p: sp, v: i }); });
-  route.push({ p: [1.5, -31.6] }); route.push({ p: [1.5, 3.4] }); route.push({ p: [0.3, 5.2] }); route.push({ p: [0.3, 9.4] }); route.push({ p: [1.8, 18] });
+  // rute pengunjung: halaman -> pintu (tengah) -> berhenti di tengah aula untuk melihat sekeliling -> lajur tengah lorong,
+  // lalu menepi ke tiap karya (v = nomor karya) -> ujung lorong -> kembali lewat tengah ke pintu. Lima titik terakhir = jalur pulang.
+  const LANE = 0.9;
+  const route = [{ p: [0.9, 19] }, { p: [0.3, 11] }, { p: [0, 7.6] }, { p: [0, 4.8] }, { p: [0.5, 3.1], look: true }];
+  spots.forEach((sp, i) => { route.push({ p: [LANE, sp[1] + 1.5] }); route.push({ p: sp, v: i }); });
+  route.push({ p: [0.3, -31.2] }); route.push({ p: [0.3, 3.4] }); route.push({ p: [0, 5.2] }); route.push({ p: [0, 9.4] }); route.push({ p: [0.9, 18] });
   const occ2 = [0, 0, 0, 0, 0, 0];
   const shirts2 = ["#B9483A", "#3E7F7C", "#7C4F7A", "#D6A93A", "#5E8A5A", "#2B3A55"];
   const agents = shirts2.slice(0, small ? 3 : 6).map((c, n) => {
-    const g = person(c, 1.9, 3.2, Math.PI, { legs: ["#4A4F5A", "#3B4558", "#6B5B4E"][n % 3], long: n % 2 === 1 && n !== 3, hijab: n === 3, phone: n % 3 === 0, pack: n % 4 === 1 ? "#3B4558" : null });
+    const g = person(c, 1.9, 3.2, Math.PI, { legs: ["#4A4F5A", "#3B4558", "#6B5B4E"][n % 3], long: n % 2 === 1 && n !== 3, hijab: n === 3, phone: [0, 2, 3, 4].includes(n), pack: n % 4 === 1 ? "#3B4558" : null });
     const a = { g, i: (n * 3) % route.length, ox: (n % 2) * 0.3, dwell: 0, wait: false, x: 0, z: 0, speed: 0.95 + (n % 3) * 0.12, hide: 0, vx: 0, vz: 0, heading: Math.PI, amp: 0, phase: n * 1.7 };
     a.x = route[a.i].p[0] + a.ox; a.z = route[a.i].p[1];
     return a;
@@ -278,36 +290,57 @@ async function build(THREE, ctx) {
     agents.forEach((ag) => {
       const g = ag.g, u = g.userData;
       // pengunjung yang terlalu dekat dengan kamera disembunyikan supaya tidak menutupi layar
-      const nearCam = camP && Math.hypot(ag.x - camP[0], ag.z - camP[2]) < 2.4;
+      const nearCam = camP && Math.hypot(ag.x - camP[0], ag.z - camP[2]) < 1.6;
       if (ag.hide > 0) { ag.hide -= dt; g.visible = false; if (ag.hide <= 0) { ag.i = 0; ag.x = route[0].p[0] + ag.ox * 0.3; ag.z = route[0].p[1]; ag.vx = ag.vz = 0; g.visible = true; } return; }
-      const w = route[ag.i], isSpot = w.v !== undefined, back = ag.i >= route.length - 5;
-      const tx = w.p[0] + (isSpot || back ? 0 : ag.ox * 0.5), tz = w.p[1];
+      const w = route[ag.i], isSpot = w.v !== undefined, isLook = !!w.look, stopPt = isSpot || isLook, back = ag.i >= route.length - 5;
+      const tx = w.p[0] + (stopPt || back ? 0 : ag.ox * 0.5) - (isSpot && u.phone ? 0.65 : 0), tz = w.p[1]; // pemotret berdiri lebih jauh dari dinding agar seluruh karya masuk bingkai
       let standing = false;
-      if (ag.dwell > 0) { ag.dwell -= dt; standing = true; if (ag.dwell <= 0) { occ2[w.v]--; ag.i++; ag.wait = false; } }
+      if (ag.dwell > 0) { ag.dwell -= dt; standing = true; if (ag.dwell <= 0) { if (isSpot) occ2[w.v]--; ag.i++; ag.wait = false; } }
       else if (ag.wait) { ag.wait = false; ag.i++; }
       else {
         // kemudi: kecepatan dihaluskan, melambat saat mendekati titik berhenti, belok mulus
         let dist = Math.hypot(tx - ag.x, tz - ag.z);
-        const want = isSpot ? Math.min(ag.speed, dist * 1.4 + 0.04) : ag.speed;
-        const nx = dist > 1e-3 ? (tx - ag.x) / dist : 0, nz = dist > 1e-3 ? (tz - ag.z) / dist : 0, kk = Math.min(1, dt * 3.5);
+        const want = stopPt ? Math.min(ag.speed, dist * 1.4 + 0.05) : ag.speed;
+        const nx = dist > 1e-3 ? (tx - ag.x) / dist : 0, nz = dist > 1e-3 ? (tz - ag.z) / dist : 0, kk = Math.min(1, dt * 3);
         ag.vx += (nx * want - ag.vx) * kk; ag.vz += (nz * want - ag.vz) * kk;
         ag.x += ag.vx * dt; ag.z += ag.vz * dt;
         dist = Math.hypot(tx - ag.x, tz - ag.z);
-        if (isSpot) { if (dist < 0.1) { ag.vx = ag.vz = 0; if (occ2[w.v] < 1) { occ2[w.v]++; ag.dwell = 7 + (u.ph % 3) * 2; } else ag.i++; } }
+        if (stopPt) { if (dist < 0.12) { ag.vx = ag.vz = 0; if (isLook) ag.dwell = ag.D = 3.6 + (u.ph % 2); else if (occ2[w.v] < 1) { occ2[w.v]++; ag.dwell = ag.D = u.phone ? 10 : 7 + (u.ph % 3) * 2; } else ag.i++; } }
         else if (dist < 0.8) { ag.i++; if (ag.i >= route.length) ag.hide = 5 + (u.ph % 4); }
       }
       if (standing) { const damp = Math.max(0, 1 - dt * 8); ag.vx *= damp; ag.vz *= damp; }
       avoid(ag);
       const spd = Math.hypot(ag.vx, ag.vz);
       let face = ag.heading;
-      if (spd > 0.18) face = Math.atan2(ag.vx, ag.vz); else if (standing) face = Math.PI / 2 + Math.sin(time * 0.6 + u.ph) * 0.18;
-      let dr = face - ag.heading; dr = Math.atan2(Math.sin(dr), Math.cos(dr)); ag.heading += dr * Math.min(1, dt * 5);
+      if (spd > 0.18) face = Math.atan2(ag.vx, ag.vz);
+      else if (standing && isLook) { // di tengah aula: menatap ke dalam lorong, lalu menengok ke dinding karya
+        const pr = 1 - ag.dwell / ag.D, k = Math.min(1, Math.max(0, (pr - 0.4) / 0.4)); face = Math.PI - (Math.PI / 2) * (k * k * (3 - 2 * k)) + Math.sin(time * 0.7 + u.ph) * 0.08;
+      } else if (standing) face = Math.PI / 2 + Math.sin(time * 0.6 + u.ph) * (u.phone && ag.dwell < ag.D - 1.6 && ag.dwell > ag.D - 7.6 ? 0.04 : 0.18);
+      let dr = face - ag.heading; dr = Math.atan2(Math.sin(dr), Math.cos(dr)); ag.heading += dr * Math.min(1, dt * 6);
       g.position.x = ag.x; g.position.z = ag.z; g.rotation.y = ag.heading; g.visible = !nearCam;
       // langkah mengikuti jarak tempuh; ayunan menyesuaikan kecepatan
       ag.amp += (Math.min(0.55, spd * 0.5) - ag.amp) * Math.min(1, dt * 6);
       ag.phase += spd * dt * 3.6;
-      if (ag.amp > 0.04) H.walkPhase(g, ag.phase, ag.amp);
-      else {
+      if (ag.amp > 0.04) { H.walkPhase(g, ag.phase, ag.amp); if (u.glb) u.ts = Math.max(0.3, Math.min(1.3, spd / 1.45)); } // satu siklus langkah ±1,45 m: kaki tidak meluncur
+      else if (u.glb) {
+        // berdiri: menatap karya (kepala menengok pelan). Yang membawa ponsel: tatap -> angkat ponsel -> bidik -> kilat -> periksa hasil -> tatap lagi
+        restLegs(g);
+        const e = ag.D - ag.dwell;
+        let act = "look", ph = false;
+        if (isLook) act = "look";
+        else if (u.phone && ag.dwell > 0) {
+          if (e > 1.8 && e < 5.2) { act = "photo"; ph = true; }
+          else if (e >= 5.2 && e < 7.8) { act = "phone"; ph = true; }
+        }
+        u.want = act;
+        if (u.phone) {
+          u.phone.visible = ph;
+          const fm = u.flash.material; fm.transparent = true; fm.depthWrite = false;
+          const f = (e - 3.7) / 0.35; // kilat: membesar sambil memudar
+          u.flash.visible = ph && act === "photo" && f > 0 && f < 1;
+          if (u.flash.visible) { u.flash.scale.setScalar((u.flashBase || 1) * (1 + f * 2.4)); fm.opacity = 1 - f; }
+        }
+      } else {
         restLegs(g);
         const shoot = u.phone && ag.dwell > 0 && ag.dwell < 4 && ag.dwell > 2;
         if (shoot) { setArms(g, -1.7, -1.7); u.phone.visible = true; u.flash.visible = ag.dwell < 3.2 && ag.dwell > 3.0; }

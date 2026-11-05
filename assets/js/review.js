@@ -28,6 +28,12 @@
     window.BikininAPI.submitReview({ kode: kode, nama: $("nama").value.trim(), usaha: $("usaha").value.trim(), rating: +rating.value, ulasan: ta.value.trim(), izin: $("izin").checked, kode_cadangan: $("kode_cadangan").value }).then(function (r) {
       sending = false; btn.textContent = "Kirim ulasan"; btn.disabled = false;
       if (r.ok) { form.querySelectorAll("input,textarea,button").forEach(function (x) { x.disabled = true; }); note("Terima kasih. Ulasan tampil setelah kami periksa.<br><a class=\"btn btn-primary\" href=\"/\">Ke beranda</a>", true); track("review_submitted"); return; }
+      if (r.status === 400 && r.fields) {
+        var map = { nama: "nama", ulasan: "ulasan-t", rating: "rating" }, shown = [];
+        Object.keys(r.fields).forEach(function (k) { if (map[k] && $(map[k] + "-e")) { setErr(map[k], r.fields[k]); shown.push(map[k]); } });
+        if (shown.length) { var sm = $("summary"); sm.hidden = false; sm.textContent = "Ada " + shown.length + " isian yang perlu diperbaiki."; var fe = $(shown[0]) || form.querySelector('input[name="rating"]'); if (fe) fe.focus(); return; }
+        if (!r.fields.kode) { note("Ulasan belum terkirim: " + (r.fields.usaha || r.fields.layanan || r.error || "periksa kembali isian Anda.")); return; }
+      }
       if (r.status === 400) { note("Kode tidak dapat diverifikasi. Silakan hubungi kami lewat WhatsApp.<br><a class=\"btn btn-ghost\" target=\"_blank\" rel=\"noopener\" href=\"" + wa("Halo Bikinin Studio, saya ingin bertanya mengenai ulasan saya.") + "\">Buka WhatsApp</a>"); return; }
       note("Ulasan belum terkirim. Coba lagi, atau kirim lewat WhatsApp.<br><a class=\"btn btn-ghost\" target=\"_blank\" rel=\"noopener\" href=\"" + wa("Halo Bikinin Studio, saya ingin bertanya mengenai ulasan saya.") + "\">Buka WhatsApp</a>");
     });

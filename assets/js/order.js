@@ -114,7 +114,7 @@
       sending = false; btn.disabled = false; btn.removeAttribute("aria-disabled"); btn.textContent = "Kirim brief";
       if (r.ok && r.kode) {
         var text = summary(r.kode);
-        try { sessionStorage.setItem("bikinin_brief", JSON.stringify({ kode: r.kode, wa: text })); } catch (e) {}
+        try { sessionStorage.setItem("bikinin_brief", JSON.stringify({ kode: r.kode, wa: text, tak: !!r.sesiTakTertaut })); } catch (e) {}
         track("brief_submitted", { layanan: payload.layanan });
         try { window.open(waUrl(text), "_blank", "noopener"); } catch (e) {}
         location.href = "/pesan/terkirim/?kode=" + encodeURIComponent(r.kode);

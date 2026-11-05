@@ -34,6 +34,32 @@
     doc.addEventListener("click", function (e) { if (panel.classList.contains("open") && !panel.contains(e.target)) set(false); });
   }
 
+  // Tautan Masuk -> Akun saya bila ada sesi supabase di penyimpanan peramban (hanya penanda tampilan; keamanan tetap di server)
+  try {
+    var al = doc.querySelector("[data-akun]"), has = false;
+    for (var ki = 0; ki < localStorage.length; ki++) { var kk = localStorage.key(ki); if (/^sb-.*-auth-token$/.test(kk)) { has = true; break; } }
+    if (al && has) { al.textContent = "Akun saya"; al.setAttribute("href", "/akun/"); }
+  } catch (e) {}
+
+  // Menu Layanan (mega-menu): tombol panah, Esc, klik luar, hover di desktop, tutup saat fokus keluar
+  var mega = doc.querySelector(".has-mega"), mbtn = mega && mega.querySelector(".mega-btn");
+  if (mega && mbtn) {
+    var setMega = function (open, focusBtn) {
+      mega.classList.toggle("open", open);
+      mbtn.setAttribute("aria-expanded", String(open));
+      if (!open && focusBtn) mbtn.focus();
+    };
+    mbtn.addEventListener("click", function (e) { e.stopPropagation(); setMega(!mega.classList.contains("open")); });
+    doc.addEventListener("click", function (e) { if (mega.classList.contains("open") && !mega.contains(e.target)) setMega(false); });
+    doc.addEventListener("keydown", function (e) { if (e.key === "Escape" && mega.classList.contains("open")) setMega(false, true); });
+    mega.addEventListener("focusout", function (e) { if (mega.classList.contains("open") && e.relatedTarget && !mega.contains(e.relatedTarget)) setMega(false); });
+    if (window.matchMedia && matchMedia("(hover: hover) and (min-width: 1024px)").matches) {
+      var mt;
+      mega.addEventListener("mouseenter", function () { clearTimeout(mt); setMega(true); });
+      mega.addEventListener("mouseleave", function () { mt = setTimeout(function () { setMega(false); }, 200); });
+    }
+  }
+
   // Hero: jeda efek di luar layar / tab tersembunyi (.fx-off), baris ketik. Mati hanya oleh prefers-reduced-motion.
   var hero = doc.querySelector(".hero"), still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   // Pekerjaan non-kritis (parallax, tilt, chat) jalan setelah halaman selesai dimuat dan browser idle.
@@ -237,8 +263,8 @@ later(function () {
     list.classList.add("pp-in");
   }
   // Pengamat dibuat saat browser menganggur supaya tidak menambah kerja saat muat; daftar tersembunyi tidak pernah berpotongan
-  var idle = window.requestIdleCallback || function (f) { return setTimeout(f, 1500); };
-  if ("IntersectionObserver" in window) idle(function () {
+  var idleCb = window.requestIdleCallback ? window.requestIdleCallback.bind(window) : function (f) { return setTimeout(f, 1500); };
+  if ("IntersectionObserver" in window) idleCb(function () {
     pio = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) { pio.unobserve(e.target); bubbles(e.target); } }); }, { threshold: 0, rootMargin: "0px 0px -12% 0px" });
     [].forEach.call(doc.querySelectorAll(".plist"), function (l) { pio.observe(l); });
   }, { timeout: 3000 });
@@ -262,4 +288,21 @@ later(function () {
       });
     });
   });
+})();
+// Jam Bekasi di footer 
+(function () {
+  var c = document.querySelector("[data-clock]");
+  if (!c) return;
+  var tick = function () {
+    try { c.textContent = new Intl.DateTimeFormat("id-ID", { timeZone: "Asia/Jakarta", hour: "2-digit", minute: "2-digit" }).format(new Date()) + " WIB"; } catch (e) { c.textContent = "WIB"; }
+  };
+  tick(); setInterval(tick, 30000);
+})();
+
+// Latar kaca 3D di semua halaman publik (src/js/bg3d.js). Dimuat setelah halaman tampil supaya tidak menunda konten.
+(function () {
+  if (/^\/admin\//.test(location.pathname) || /[?&]statis/.test(location.search)) return;
+  try { var c = document.createElement("canvas"); if (!(c.getContext("webgl2") || c.getContext("webgl"))) return; } catch (e) { return; }
+  var go = function () { import("/assets/js/bg3d.js").then(function (m) { var h = document.querySelector(".mono-hero, .bento-hero"); return m.start({ grab: h, hero: h, layout: h && h.classList.contains("bento-hero") ? "centre" : "" }); }).catch(function () {}); };
+  if (document.readyState === "complete") setTimeout(go, 120); else addEventListener("load", function () { setTimeout(go, 120); });
 })();
