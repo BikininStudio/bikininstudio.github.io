@@ -12,131 +12,491 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Demo Brand Kit Bikinin Studio · Logo, Warna & Font</title>
-  <meta name="description" content="Contoh brand kit: varian logo, palet warna, font, dan penerapan logo Bikinin Studio.">
+  <title>Pedoman Logo Bikinin Studio · Brand Kit</title>
+  <meta name="description" content="Brand kit Bikinin Studio: ukuran logo, versi, warna, huruf, dan penerapan pada penawaran, invoice, serta kwitansi.">
   <link rel="canonical" href="https://bikininstudio.github.io/demo/brand-kit-bikinin/">
-  <meta property="og:title" content="Demo Brand Kit Bikinin Studio">
-  <meta property="og:description" content="Varian logo, palet warna, font, dan contoh penerapan. Seperti ini hasil paket logo Standard & Premium.">
+  <meta property="og:title" content="Pedoman Logo Bikinin Studio">
+  <meta property="og:description" content="Ukuran logo, versi, warna, huruf, dan penerapan pada dokumen. Contoh isi paket Logo Premium.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og/brand-kit-bikinin.jpg">
   <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/brand-kit-bikinin.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/chivo-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+  <script>document.documentElement.classList.add('js')</script>
   <style>
-    :root { --ink: #14142B; --violet: #5B3DF5; --lime: #D7F75B; --muted: #55557A; --line: #E3E3EC; --soft: #F4F4F7; }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: #fff; color: var(--ink); font-family: "Poppins", system-ui, sans-serif; line-height: 1.6; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 20px 72px; }
-    h1, h2 { font-family: "Montserrat", sans-serif; font-weight: 800; letter-spacing: -.01em; line-height: 1.15; }
-    h1 { font-size: clamp(28px, 5vw, 44px); margin: 0 0 8px; }
-    h2 { font-size: 24px; margin: 56px 0 18px; }
-    .lead { color: var(--muted); max-width: 640px; margin: 0; }
-    .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--violet); margin: 0 0 8px; }
-    .logos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .logo-card { border-radius: 18px; padding: 40px 28px; display: grid; place-items: center; min-height: 220px; position: relative; border: 1px solid var(--line); }
-    .logo-card img { max-height: 110px; width: auto; max-width: 100%; }
-    .logo-card.tall img { max-height: 170px; }
-    .logo-card figcaption { position: absolute; left: 18px; bottom: 12px; font-size: 12px; font-weight: 600; color: var(--muted); }
-    .logo-card.dark { background: var(--ink); border-color: var(--ink); }
-    .logo-card.violet { background: var(--violet); border-color: var(--violet); }
-    .logo-card.dark figcaption { color: #C9C9D6; } .logo-card.violet figcaption { color: #fff; }
-    figure { margin: 0; }
-    .swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .swatch { border-radius: 18px; overflow: hidden; border: 1px solid var(--line); }
-    .swatch .chip { height: 130px; }
-    .swatch div.meta { padding: 14px 16px; }
-    .swatch strong { display: block; }
-    .swatch button { margin-top: 8px; border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 4px 12px; font: 500 13px "Poppins", sans-serif; cursor: pointer; }
-    .type { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .type-card { background: var(--soft); border-radius: 18px; padding: 28px; }
-    .type-card .big { font-size: 44px; line-height: 1.1; margin: 8px 0; }
-    .type-card .m { font-family: "Montserrat", sans-serif; font-weight: 800; }
-    .type-card small { color: var(--muted); }
-    .apps { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 18px; align-items: stretch; }
-    .card-mock { background: var(--ink); color: #fff; border-radius: 16px; padding: 26px; aspect-ratio: 1.75; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 18px 40px rgba(20,20,43,.25); }
-    .card-mock img { height: 34px; width: auto; align-self: flex-start; }
-    .card-mock p { margin: 0; font-size: 13px; color: #C9C9D6; }
-    .card-mock b { color: #fff; font-size: 16px; }
-    .app-box { background: var(--soft); border-radius: 16px; display: grid; place-items: center; padding: 24px; text-align: center; font-size: 13px; color: var(--muted); }
-    .avatar { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 10px; box-shadow: 0 0 0 3px #fff, 0 0 0 6px #E1306C; }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .app-icon { width: 96px; height: 96px; border-radius: 22px; overflow: hidden; margin: 0 auto 10px; box-shadow: 0 10px 24px rgba(20,20,43,.2); }
-    .app-icon img { width: 100%; height: 100%; }
-    .rules { background: var(--soft); border-radius: 18px; padding: 24px 28px; color: var(--muted); }
-    .rules li { margin: 6px 0; }
-    @media (max-width: 760px) {
-      .logos, .type, .apps { grid-template-columns: 1fr; }
-      .swatches { grid-template-columns: repeat(2, 1fr); }
+    /* Tata letak: laporan cetak dengan satu sumbu tegak di 42% lebar. Warna mengikuti logo di web. */
+    @font-face { font-family: "Chivo"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/assets/fonts/chivo-var.woff2") format("woff2"); }
+    :root {
+      --ink: #0A1620; --paper: #F4F1EC; --page: #EBEBE7; --step: #DDDCD6; --or: #E0612A; --grey: #3A4650;
+      --m: clamp(16px, 3vw, 44px); --axis: 42%; --gap: clamp(96px, 13vw, 200px);
+      --font: "Chivo", Arial, sans-serif;
+      --t-xl: clamp(46px, 7.6vw, 124px); --t-l: clamp(32px, 4.4vw, 68px); --t-m: clamp(21px, 2vw, 28px); --t-b: 18px; --t-s: 16px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--page); color: var(--ink); font: 400 var(--t-b)/1.5 var(--font); }
+    img, svg { display: block; max-width: 100%; }
+    h1, h2, h3, p, figure, ul, ol, dl, dd { margin: 0; padding: 0; }
+    h1, h2 { font-weight: 800; letter-spacing: -.035em; line-height: 1; text-wrap: balance; }
+    h1 { font-size: var(--t-xl); }
+    h2 { font-size: var(--t-l); }
+    h3 { font-size: var(--t-m); font-weight: 700; letter-spacing: -.015em; line-height: 1.15; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--or); outline-offset: 3px; }
+    .frame { padding-left: max(var(--m), env(safe-area-inset-left, 0px)); padding-right: max(var(--m), env(safe-area-inset-right, 0px)); }
+    .axis { display: grid; grid-template-columns: minmax(0, 42fr) minmax(0, 58fr); column-gap: clamp(20px, 3vw, 48px); }
+    .axis > .r { grid-column: 2; min-width: 0; }
+    .axis > .l { min-width: 0; }
+    section { padding-top: var(--gap); }
+    .lede { font-size: var(--t-m); line-height: 1.32; max-width: 34ch; margin-top: 24px; }
+    .btn { display: inline-flex; align-items: center; min-height: 52px; padding: 0 26px; background: var(--ink); color: var(--paper); font: 700 18px var(--font); text-decoration: none; border: 0; cursor: pointer; transition: transform 160ms ease, background-color 160ms ease; }
+    .btn:hover { background: var(--or); color: var(--ink); transform: translateY(-2px); }
+    .btn:active { transform: translateY(1px); }
+
+    /* Sampul: tiga bidang seperti cetak dua warna */
+    .mast { display: grid; grid-template-columns: 42fr 34fr 24fr; height: clamp(300px, 46svh, 520px); }
+    .mast > * { min-width: 0; overflow: hidden; position: relative; }
+    .m-ink { background: var(--ink); color: var(--paper); }
+    .m-ink svg { position: absolute; left: 50%; top: 50%; height: 118%; width: auto; max-width: none; transform: translate(-50%, -46%); }
+    .m-3d { background: #E6E2DA; }
+    .m-3d img { width: 100%; height: 100%; object-fit: cover; }
+    .m-or { background: var(--or); color: var(--ink); padding: clamp(16px, 2vw, 28px); display: flex; flex-direction: column; justify-content: flex-end; }
+    .m-or b { font-size: var(--t-l); font-weight: 800; letter-spacing: -.035em; line-height: 1; }
+    .mast-text { padding-top: clamp(28px, 4vw, 56px); }
+    .mast-text .l { display: flex; flex-direction: column; gap: 4px; }
+    .mast-text .l p { font-weight: 700; }
+    .mast-text .l span { color: var(--grey); }
+    .mast-act { margin-top: 28px; }
+    .g-line { fill: none; stroke: var(--paper); stroke-width: 1.2; opacity: .55; stroke-dasharray: 1; stroke-dashoffset: 0; }
+    .js .g-line { animation: draw 1.5s cubic-bezier(.6,0,.2,1) both; }
+    .js .g-line:nth-child(2) { animation-delay: .12s; } .js .g-line:nth-child(3) { animation-delay: .24s; } .js .g-line:nth-child(4) { animation-delay: .36s; } .js .g-line:nth-child(5) { animation-delay: .48s; }
+    .js .g-body { animation: fade .8s ease .9s both; }
+    .js .g-dot { animation: settle 2.6s ease-in-out infinite alternate; transform-box: fill-box; transform-origin: center; }
+    @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes settle { from { transform: translateY(-34px); } to { transform: translateY(14px); } }
+
+    /* Ukuran */
+    .size-fig { background: var(--step); padding: clamp(14px, 2.4vw, 34px); }
+    .size-fig svg { width: 100%; height: auto; }
+    table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+    th, td { text-align: left; padding: 11px 12px 11px 0; vertical-align: top; font-size: var(--t-b); }
+    th { font-weight: 700; }
+    td.n { text-align: right; padding-right: 0; white-space: nowrap; }
+    .measure { margin-top: 32px; }
+    .measure tr:nth-child(odd) { background: var(--step); }
+    .measure th { padding-left: 12px; font-weight: 400; } .measure td.n { padding-right: 12px; font-weight: 700; }
+
+    /* Versi */
+    .versions { margin-top: 56px; display: grid; grid-template-columns: 5fr 4fr 3fr; grid-template-rows: auto auto; }
+    .v { display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: clamp(18px, 2.4vw, 32px); min-width: 0; min-height: 300px; }
+    .v .use { font-size: var(--t-s); max-width: 34ch; }
+    .v h3 { margin-bottom: 4px; }
+    .v-a { grid-row: span 2; background: var(--paper); }
+    .v-b { background: var(--ink); color: var(--paper); }
+    .v-c { background: var(--or); }
+    .v-d { background: var(--step); grid-column: span 2; }
+    .lock { display: inline-flex; align-items: center; gap: .32em; font-weight: 800; letter-spacing: -.035em; font-size: clamp(26px, 3vw, 44px); line-height: 1; white-space: nowrap; }
+    .lock svg { width: 1.5em; height: 1.5em; flex: none; }
+    .v-a .lock { font-size: clamp(28px, 3.3vw, 50px); }
+    .v-big { width: min(62%, 300px); height: auto; }
+    .stack { display: inline-flex; flex-direction: column; gap: 12px; font-size: var(--t-b); font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+    .stack svg { width: 92px; height: 92px; }
+    .v-row { display: flex; gap: clamp(20px, 4vw, 56px); align-items: flex-end; flex-wrap: wrap; }
+    .stamp { width: 104px; height: 104px; }
+
+    /* Uji warna */
+    .try { margin-top: 56px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); background: var(--step); }
+    .try-stage { min-height: 380px; display: grid; place-items: center; background: #C9A77C; transition: background-color 220ms ease; padding: 24px; }
+    .try-stage svg { width: clamp(150px, 20vw, 260px); height: auto; transition: transform 220ms ease; }
+    .try-side { padding: clamp(20px, 2.8vw, 36px); display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+    .presets { display: flex; flex-wrap: wrap; gap: 8px; }
+    .presets button { min-height: 44px; padding: 0 14px; border: 0; background: var(--page); color: var(--ink); font: 400 var(--t-s) var(--font); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: background-color 140ms ease; }
+    .presets button i { width: 18px; height: 18px; display: block; }
+    .presets button:hover, .presets button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+    .pick { display: flex; align-items: center; gap: 12px; font-weight: 700; }
+    .pick input { width: 56px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; }
+    .verdict { font-size: var(--t-m); line-height: 1.25; font-weight: 700; letter-spacing: -.015em; }
+    .ratio { color: var(--grey); font-variant-numeric: tabular-nums; }
+
+    /* Warna */
+    .bar { margin-top: 56px; display: grid; grid-template-columns: 60fr 28fr 9fr 3fr; height: clamp(180px, 26vw, 320px); }
+    .bar div { padding: 14px; font-weight: 700; font-size: var(--t-s); min-width: 0; }
+    .colors { margin-top: 28px; }
+    .colors thead th { font-weight: 400; color: var(--grey); font-size: var(--t-s); }
+    .colors tbody tr:nth-child(odd) { background: var(--step); }
+    .colors th:first-child, .colors td:first-child { padding-left: 12px; }
+    .colors tbody th { font-weight: 700; }
+    .copy { min-height: 44px; padding: 0 14px; background: var(--ink); color: var(--paper); border: 0; font: 700 var(--t-s) var(--font); cursor: pointer; transition: background-color 140ms ease; }
+    .copy:hover { background: var(--or); color: var(--ink); }
+    .scroll { overflow-x: auto; }
+
+    /* Huruf */
+    .type-big { font-size: clamp(120px, 27vw, 430px); font-weight: 900; letter-spacing: -.065em; line-height: .84; margin-left: -.04em; }
+    .type-rows { margin-top: 48px; }
+    .type-rows p + p { margin-top: 22px; }
+    .w4 { font-weight: 400; } .w7 { font-weight: 700; } .w9 { font-weight: 900; letter-spacing: -.02em; }
+    .type-rows .s { font-size: var(--t-m); line-height: 1.25; max-width: 30ch; }
+    .type-rows small { display: block; font-size: var(--t-s); color: var(--grey); font-weight: 400; letter-spacing: 0; margin-top: 2px; }
+
+    /* Dokumen */
+    .docs { margin-top: var(--gap); padding-block: clamp(56px, 7vw, 104px); background: var(--ink); color: var(--paper); }
+    .docs section { padding-top: 0; }
+    .docs .lede { color: var(--paper); }
+    .papers { margin-top: 56px; display: grid; grid-template-columns: 6fr 5fr; gap: clamp(20px, 3vw, 44px); align-items: start; }
+    .sheet { background: #FAFAF8; color: var(--ink); padding: clamp(18px, 2.6vw, 36px); font-size: var(--t-s); line-height: 1.4; min-width: 0; }
+    .sheet.tilt { transform: rotate(-1.2deg); }
+    .sheet header { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 26px; }
+    .sheet .lock { font-size: 20px; }
+    .sheet h3 { font-size: var(--t-m); margin-bottom: 4px; }
+    .sheet table td, .sheet table th { font-size: var(--t-s); border-bottom: 1px solid #D8D3C8; padding: 9px 8px 9px 0; }
+    .sheet table tfoot td, .sheet table tfoot th { font-weight: 800; border-bottom: 0; }
+    .sheet .note { margin-top: 16px; color: var(--grey); }
+    .right { text-align: right; }
+    .kw { position: relative; margin-top: clamp(20px, 3vw, 44px); }
+    .kw .cap { position: absolute; right: 8%; bottom: 10%; width: 110px; height: 110px; color: var(--or); transform: rotate(-11deg); opacity: .9; mix-blend-mode: multiply; }
+    .card-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: clamp(20px, 3vw, 44px); }
+    .bcard { aspect-ratio: 90 / 55; padding: 14px; display: flex; flex-direction: column; justify-content: space-between; min-width: 0; font-size: var(--t-s); line-height: 1.3; }
+    .bcard.front { background: var(--or); color: var(--ink); justify-content: center; align-items: center; }
+    .bcard.front svg { width: 44%; height: auto; }
+    .bcard.back { background: var(--paper); color: var(--ink); }
+    .bcard b { font-weight: 800; }
+
+    /* Pemakaian nyata */
+    .used { margin-top: 56px; display: grid; grid-template-columns: 7fr 5fr 3fr; gap: 8px; }
+    .used figure { min-width: 0; }
+    .used img { width: 100%; height: clamp(190px, 25vw, 380px); object-fit: cover; object-position: top left; }
+    .used figcaption { margin-top: 10px; font-size: var(--t-s); }
+
+    /* Larangan */
+    .bans { margin-top: 56px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    .ban { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+    .ban .box { aspect-ratio: 1; background: var(--step); display: grid; place-items: center; overflow: hidden; }
+    .ban:nth-child(even) .box { aspect-ratio: 4 / 5; }
+    .ban .box svg { width: 54%; height: auto; }
+    .ban-old { filter: none; }
+    .ban-stretch { transform: scaleX(1.5) scaleY(.82); }
+    .ban-turn { transform: rotate(-22deg); }
+    .ban-shadow { filter: drop-shadow(8px 12px 6px rgba(10,22,32,.55)); } /* taste-skill-ignore: ini contoh yang dilarang */
+    .ban p { font-size: var(--t-b); max-width: 26ch; }
+
+    /* Paket */
+    .plans { margin-top: 56px; }
+    .plans thead th { font-size: var(--t-m); letter-spacing: -.015em; }
+    .plans th, .plans td { padding: 16px 12px; font-size: var(--t-b); }
+    .plans tbody tr:nth-child(odd) { background: var(--step); }
+    .plans tbody th { font-weight: 700; width: 30%; }
+    .plans .hi { background: var(--ink); color: var(--paper); }
+    .plans tbody tr:nth-child(odd) .hi { background: #15242F; }
+
+    /* Penutup */
+    .close { margin-top: var(--gap); }
+    .close-band { background: var(--or); color: var(--ink); padding-block: clamp(44px, 6vw, 88px); }
+    .close-band .axis { align-items: end; }
+    .close-band p { font-size: var(--t-m); line-height: 1.3; max-width: 32ch; font-weight: 700; margin-bottom: 22px; }
+    .close-band .btn:hover { background: var(--paper); }
+    .foot { background: var(--ink); color: var(--paper); overflow: hidden; padding-bottom: 28px; }
+    .foot-name { font-size: 15.9vw; font-weight: 900; letter-spacing: -.06em; line-height: .86; margin: -.09em 0 0 .3vw; white-space: nowrap; }
+    .foot-row { margin-top: 44px; font-size: var(--t-s); display: flex; flex-wrap: wrap; gap: 8px 32px; }
+    .foot-row a { display: inline-flex; align-items: center; min-height: 44px; }
+
+    .js .in { opacity: 0; transform: translateY(24px); transition: opacity 620ms ease, transform 620ms cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--i, 0) * 80ms); }
+    .js .in.on { opacity: 1; transform: none; }
+    .ban .box, .used img { transition: transform 260ms ease; }
+    .ban:hover .box { transform: translateY(-4px); }
+    .used figure:hover img { transform: scale(1.012); }
+
+    @media (max-width: 860px) {
+      .axis { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
+      .axis > .r { grid-column: 1; }
+      .mast { grid-template-columns: 1fr 1fr; grid-template-rows: 60% 40%; height: 300px; }
+      .mast-text .l { display: none; }
+      .mast-text { padding-top: 22px; } .lede { margin-top: 14px; } .mast-act { margin-top: 18px; }
+      .colors thead, .colors td:nth-child(3) { display: none; }
+      .colors, .colors tbody, .colors tr, .colors th, .colors td { display: block; width: 100%; }
+      .colors tr { padding: 12px; } .colors th, .colors td, .colors th:first-child, .colors td:first-child { padding: 2px 0; }
+      .colors .copy { margin-top: 8px; }
+      .m-ink { grid-column: span 2; }
+      .versions, .try, .papers, .used { grid-template-columns: minmax(0, 1fr); }
+      .v-a, .v-d { grid-row: auto; grid-column: auto; }
+      .v { min-height: 240px; }
+      .bans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .try-stage { min-height: 280px; }
+      .bar { height: 150px; }
+      .used img { height: 56vw; }
+      .kw .cap { width: 84px; height: 84px; }
+      .plans-wrap table, .plans-wrap thead, .plans-wrap tbody, .plans-wrap tr, .plans-wrap th, .plans-wrap td { display: block; width: 100%; }
+      .plans-wrap thead { display: none; }
+      .plans-wrap tbody tr { padding: 14px 12px; }
+      .plans-wrap tbody th { padding: 0 0 6px; font-size: var(--t-m); width: 100%; }
+      .plans-wrap td { padding: 3px 0; }
+      .plans-wrap td::before { content: attr(data-p) ": "; font-weight: 700; }
+      .plans .hi, .plans tbody tr:nth-child(odd) .hi { background: none; color: inherit; }
+      .type-big { font-size: 34vw; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .g-line, .js .g-body, .js .g-dot { animation: none; }
+      .js .in { opacity: 1; transform: none; transition: none; }
+      .btn, .try-stage { transition: none; }
     }
   </style>
 </head>
 <body data-demo="brand-kit-bikinin" data-label="Brand kit Bikinin Studio" data-fiktif="false">
-  <main class="wrap">
-    <p class="eyebrow">Brand kit</p>
-    <h1>Bikinin Studio</h1>
-    <p class="lead">Contoh isi brand kit yang Anda dapat di paket logo Standard &amp; Premium: varian logo untuk tiap kebutuhan, palet warna, font, dan contoh penerapan.</p>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="glyph" viewBox="0 0 440 440"><path fill="currentColor" d="M124 102a30 30 0 0 1 60 0v72.7A95 95 0 1 1 184 351.3V358h-60zM219 225a38 38 0 1 0 0 76 38 38 0 0 0 0-76z" fill-rule="evenodd"/><circle fill="var(--dot, currentColor)" cx="314" cy="99" r="41"/></symbol>
+      <symbol id="tile-ink" viewBox="0 0 440 440"><rect width="440" height="440" rx="110" fill="#0A1620"/><use href="#glyph" width="440" height="440" style="color:#F4F1EC;--dot:#E0612A"/></symbol>
+      <symbol id="tile-paper" viewBox="0 0 440 440"><rect width="440" height="440" rx="110" fill="#F4F1EC"/><use href="#glyph" width="440" height="440" style="color:#0A1620;--dot:#E0612A"/></symbol>
+      <symbol id="tile-mono" viewBox="0 0 440 440"><rect width="440" height="440" rx="110" fill="#0A1620"/><use href="#glyph" width="440" height="440" style="color:#F4F1EC;--dot:#F4F1EC"/></symbol>
+    </defs>
+  </svg>
 
-    <h2>Varian logo</h2>
-    <div class="logos">
-      <figure class="logo-card"><img src="img/logo-monokrom.png" alt="Logo monokrom Bikinin Studio"><figcaption>Logo utama · monokrom</figcaption></figure>
-      <figure class="logo-card"><img src="img/logo-utama.png" alt="Logo berwarna Bikinin Studio"><figcaption>Versi berwarna</figcaption></figure>
-      <figure class="logo-card violet"><img src="img/logo-putih.png" alt="Logo versi terang Bikinin Studio"><figcaption>Di atas latar gelap / ungu</figcaption></figure>
-      <figure class="logo-card tall"><img src="img/logo-tumpuk.png" alt="Logo bertumpuk Bikinin Studio"><figcaption>Bertumpuk · stiker & kemasan</figcaption></figure>
-    </div>
-
-    <h2>Palet warna</h2>
-    <div class="swatches" id="swatches"></div>
-
-    <h2>Font</h2>
-    <div class="type">
-      <div class="type-card"><small>Judul & logo</small><p class="big m">Montserrat</p><small>ExtraBold · Bold</small></div>
-      <div class="type-card"><small>Teks isi & caption</small><p class="big">Poppins</p><small>Regular · Medium · SemiBold</small></div>
-    </div>
-
-    <h2>Contoh penerapan</h2>
-    <div class="apps">
-      <div class="card-mock" aria-label="Contoh kartu nama">
-        <img src="img/logo-putih.png" alt="">
-        <div><b>Nama Anda</b><p>Desainer · 0877-6329-2786</p><p>@bikinin_studio</p></div>
+  <main>
+    <div class="mast">
+      <div class="m-ink" aria-hidden="true">
+        <svg viewBox="0 0 440 440" width="440" height="440">
+          <g><circle class="g-line" pathLength="1" cx="219" cy="263" r="95"/><circle class="g-line" pathLength="1" cx="219" cy="263" r="38"/><circle class="g-line" pathLength="1" cx="314" cy="99" r="41"/><line class="g-line" pathLength="1" x1="124" y1="-40" x2="124" y2="480"/><line class="g-line" pathLength="1" x1="184" y1="-40" x2="184" y2="480"/></g>
+          <path class="g-body" fill="#F4F1EC" fill-rule="evenodd" d="M124 102a30 30 0 0 1 60 0v72.7A95 95 0 1 1 184 351.3V358h-60zM219 225a38 38 0 1 0 0 76 38 38 0 0 0 0-76z"/>
+          <circle class="g-dot" cx="314" cy="99" r="41" fill="#E0612A"/>
+        </svg>
       </div>
-      <div class="app-box"><div><div class="avatar"><img src="img/foto-profil-ig.png" alt="Foto profil Instagram"></div>Foto profil IG / WA</div></div>
-      <div class="app-box"><div><div class="app-icon"><img src="img/ikon.png" alt="Ikon aplikasi"></div>Ikon aplikasi & favicon</div></div>
+      <figure class="m-3d"><img src="img/logo-3d.webp" alt="Logo b dan titik versi 3D di beranda Bikinin Studio" width="640" height="600"></figure>
+      <div class="m-or"><b>1 titik</b><span>satuan ukur semua logo ini</span></div>
     </div>
 
-    <h2>Aturan pakai</h2>
-    <ul class="rules">
-      <li>Jangan ubah proporsi logo atau memutar logonya.</li>
-      <li>Beri ruang kosong di sekeliling logo, minimal setinggi titik pada huruf "b".</li>
-      <li>Pakai versi monokrom di dokumen dan latar terang, versi terang di latar gelap.</li>
-      <li>Gunakan warna di luar palet hanya untuk foto, bukan untuk elemen brand.</li>
-    </ul>
+    <div class="frame axis mast-text">
+      <div class="l"><p>Brand kit, edisi 2026</p><span>Bikinin Studio, Bekasi</span></div>
+      <div class="r">
+        <h1>Pedoman logo Bikinin Studio</h1>
+        <p class="lede">Ukuran, warna, huruf, dan cara memakai logo kami pada dokumen. Seperti inilah isi brand kit di paket Logo Premium.</p>
+        <p class="mast-act"><a class="btn" href="/jasa-logo/">Lihat paket logo</a></p>
+      </div>
+    </div>
+
+    <section class="frame axis" id="ukuran">
+      <div class="l in">
+        <figure class="size-fig">
+          <svg viewBox="0 0 640 640" role="img" aria-label="Logo dengan ruang kosong selebar satu titik di keempat sisinya">
+            <rect x="0" y="0" width="640" height="640" fill="#E0612A" opacity=".2"/>
+            <rect x="100" y="100" width="440" height="440" fill="#EEECE6"/>
+            <svg x="100" y="100" width="440" height="440" viewBox="0 0 440 440"><use href="#tile-ink"/></svg>
+            <g fill="#E0612A"><circle cx="50" cy="50" r="41"/><circle cx="590" cy="50" r="41"/><circle cx="50" cy="590" r="41"/><circle cx="590" cy="590" r="41"/></g>
+          </svg>
+        </figure>
+      </div>
+      <div class="r">
+        <h2 class="in">Titik mengatur semuanya</h2>
+        <p class="lede in" style="--i:1">Ruang kosong di sekeliling logo selebar satu titik. Siapa pun bisa mengukurnya tanpa penggaris.</p>
+        <table class="measure in" style="--i:2">
+          <caption style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">Ukuran bagian logo</caption>
+          <tbody>
+            <tr><th scope="row">Lebar ubin logo</th><td class="n">440 satuan</td></tr>
+            <tr><th scope="row">Lebar batang huruf b</th><td class="n">60 satuan</td></tr>
+            <tr><th scope="row">Diameter mangkuk</th><td class="n">190 satuan</td></tr>
+            <tr><th scope="row">Diameter titik</th><td class="n">82 satuan</td></tr>
+            <tr><th scope="row">Ruang kosong minimal</th><td class="n">1 titik</td></tr>
+            <tr><th scope="row">Ukuran terkecil di layar</th><td class="n">16 piksel</td></tr>
+            <tr><th scope="row">Ukuran terkecil di cetakan</th><td class="n">8 mm</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="frame" id="versi">
+      <div class="axis"><div class="r"><h2 class="in">Empat versi, satu bentuk</h2></div></div>
+      <div class="versions">
+        <div class="v v-a in"><svg class="v-big" viewBox="0 0 440 440" aria-hidden="true"><use href="#tile-ink"/></svg><span class="lock"><svg aria-hidden="true"><use href="#tile-ink"/></svg>Bikinin Studio</span><div><h3>Versi utama</h3><p class="use">Dipakai di latar terang: web, penawaran, invoice, dan kop surat.</p></div></div>
+        <div class="v v-b in" style="--i:1"><span class="lock"><svg aria-hidden="true"><use href="#tile-paper"/></svg>Bikinin</span><div><h3>Versi terang</h3><p class="use">Dipakai di latar gelap dan foto yang pekat.</p></div></div>
+        <div class="v v-c in" style="--i:2"><svg style="width:92px;height:92px" aria-hidden="true"><use href="#tile-mono"/></svg><div><h3>Di atas oranye</h3><p class="use">Titik ikut berwarna kertas agar tidak hilang.</p></div></div>
+        <div class="v v-d in" style="--i:3"><div class="v-row"><span class="stack"><svg aria-hidden="true"><use href="#tile-ink"/></svg>Bikinin Studio</span><svg class="stamp" aria-hidden="true"><use href="#glyph"/></svg></div><div><h3>Tumpuk dan cap satu warna</h3><p class="use" style="max-width:52ch">Versi tumpuk untuk stiker dan kemasan. Versi tanpa ubin untuk cap karet, bordir, dan sablon satu warna.</p></div></div>
+      </div>
+    </section>
+
+    <section class="frame" id="uji">
+      <div class="axis"><div class="r">
+        <h2 class="in">Coba di warna Anda</h2>
+        <p class="lede in" style="--i:1">Pilih warna spanduk, kemasan, atau foto. Halaman ini memilih versi logo yang paling terbaca dan menghitung kontrasnya.</p>
+      </div></div>
+      <div class="try in">
+        <div class="try-stage" id="tryStage"><svg viewBox="0 0 440 440" role="img" aria-label="Logo di atas warna pilihan"><use id="tryLogo" href="#tile-ink"/></svg></div>
+        <div class="try-side">
+          <div class="presets" id="presets" role="group" aria-label="Contoh warna">
+            <button type="button" data-c="#C9A77C" aria-pressed="true"><i style="background:#C9A77C"></i>Kardus</button>
+            <button type="button" data-c="#B3261E" aria-pressed="false"><i style="background:#B3261E"></i>Spanduk merah</button>
+            <button type="button" data-c="#2F5D46" aria-pressed="false"><i style="background:#2F5D46"></i>Daun</button>
+            <button type="button" data-c="#F2C230" aria-pressed="false"><i style="background:#F2C230"></i>Kuning</button>
+          </div>
+          <label class="pick" for="tryColor">Warna lain <input id="tryColor" type="color" value="#C9A77C"></label>
+          <p class="verdict" id="tryVerdict" aria-live="polite">Pakai versi utama.</p>
+          <p class="ratio" id="tryRatio">Kontras ubin terhadap latar 8,6:1. Minimal 3:1 untuk logo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="frame" id="warna">
+      <div class="axis"><div class="r">
+        <h2 class="in">Kertas dulu, tinta kemudian</h2>
+        <p class="lede in" style="--i:1">Oranye dipakai sedikit, untuk tombol dan titik. Lebar bidang di bawah ini mengikuti porsi pemakaiannya.</p>
+      </div></div>
+      <div class="bar in" aria-hidden="true">
+        <div style="background:#F4F1EC">60%</div><div style="background:#0A1620;color:#F4F1EC">28%</div><div style="background:#3A4650;color:#F4F1EC">9%</div><div style="background:#E0612A"></div>
+      </div>
+      <div class="scroll in" style="--i:1">
+        <table class="colors">
+          <caption style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">Palet warna Bikinin Studio</caption>
+          <thead><tr><th scope="col">Warna</th><th scope="col">Kode</th><th scope="col">RGB</th><th scope="col">Dipakai untuk</th><th scope="col"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">Salin</span></th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Kertas</th><td>#F4F1EC</td><td>244, 241, 236</td><td>Latar dan huruf b pada ubin</td><td><button class="copy" type="button" data-hex="#F4F1EC">Salin kode</button></td></tr>
+            <tr><th scope="row">Tinta</th><td>#0A1620</td><td>10, 22, 32</td><td>Ubin logo, judul, dan teks</td><td><button class="copy" type="button" data-hex="#0A1620">Salin kode</button></td></tr>
+            <tr><th scope="row">Abu tinta</th><td>#3A4650</td><td>58, 70, 80</td><td>Teks kedua</td><td><button class="copy" type="button" data-hex="#3A4650">Salin kode</button></td></tr>
+            <tr><th scope="row">Oranye</th><td>#E0612A</td><td>224, 97, 42</td><td>Titik logo dan tombol utama</td><td><button class="copy" type="button" data-hex="#E0612A">Salin kode</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="frame" id="huruf">
+      <h2 class="type-big in">Chivo</h2>
+      <div class="axis type-rows">
+        <p class="l in">Satu keluarga huruf untuk logo, judul, dan teks. Lisensinya SIL Open Font, jadi aman untuk dipakai komersial.</p>
+        <div class="r">
+          <p class="s w9 in">Harga mulai Rp 15rb.<small>Black 900, untuk nama dan judul besar</small></p>
+          <p class="s w7 in" style="--i:1">Penawaran tertulis maksimal 1 hari kerja setelah brief dipelajari.<small>Bold 700, untuk subjudul dan tombol</small></p>
+          <p class="s w4 in" style="--i:2">Silakan ceritakan kebutuhan Anda.<small>Regular 400, untuk teks isi minimal 16 piksel</small></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="docs frame">
+      <section id="dokumen">
+        <div class="axis"><div class="r">
+          <h2 class="in">Logo di kertas yang kami kirim</h2>
+          <p class="lede in" style="--i:1">Beginilah logo tampil pada penawaran, kwitansi, dan kartu nama. Isinya contoh, memakai harga paket yang berlaku.</p>
+        </div></div>
+        <div class="papers">
+          <article class="sheet in" data-ui>
+            <header><span class="lock"><svg aria-hidden="true"><use href="#tile-ink"/></svg>Bikinin Studio</span><span class="right">Bekasi<br>Contoh dokumen</span></header>
+            <h3>Penawaran harga</h3>
+            <p>Contoh susunan untuk satu usaha.</p>
+            <table style="margin-top:16px">
+              <thead><tr><th scope="col">Pekerjaan</th><th scope="col" class="right">Harga mulai</th></tr></thead>
+              <tbody>
+                <tr><td>Logo Premium, 3 konsep, 5 revisi</td><td class="right">Rp 500rb</td></tr>
+                <tr><td>Paket 10 feed</td><td class="right">Rp 120rb</td></tr>
+                <tr><td>Landing page, 1 halaman</td><td class="right">Rp 400rb</td></tr>
+              </tbody>
+              <tfoot><tr><th scope="row">Estimasi</th><td class="right">Rp 1,02jt</td></tr></tfoot>
+            </table>
+            <p class="note">DP 50% di awal, pelunasan sebelum file final dikirim. Total pasti tertulis setelah brief dipelajari.</p>
+          </article>
+          <div>
+            <article class="sheet tilt in kw" style="--i:1;margin-top:0" data-ui>
+              <header><span class="lock"><svg aria-hidden="true"><use href="#tile-ink"/></svg>Kwitansi</span><span class="right">Contoh</span></header>
+              <p>Telah diterima DP 50% untuk Logo Standard.</p>
+              <p style="font-size:var(--t-m);font-weight:800;margin-top:10px">Rp 100rb</p>
+              <p class="note">Diterbitkan atas nama Bikinin Studio.</p>
+              <svg class="cap" aria-hidden="true"><use href="#glyph"/></svg>
+            </article>
+            <div class="card-pair in" style="--i:2" data-ui>
+              <div class="bcard front"><svg viewBox="0 0 440 440" aria-hidden="true"><use href="#tile-mono"/></svg></div>
+              <div class="bcard back"><b>Bikinin Studio</b><span>0877-6329-2786<br>@bikinin_studio</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="frame" id="terpakai">
+      <div class="axis"><div class="r"><h2 class="in">Sudah terpasang di sini</h2></div></div>
+      <div class="used">
+        <figure class="in"><img src="img/pakai-beranda.webp" alt="Beranda Bikinin Studio dengan logo di kiri atas" width="1280" height="800" loading="lazy"><figcaption>Beranda web, versi utama</figcaption></figure>
+        <figure class="in" style="--i:1"><img src="img/pakai-jasa-logo.webp" alt="Halaman jasa logo Bikinin Studio" width="1280" height="800" loading="lazy"><figcaption>Halaman jasa logo</figcaption></figure>
+        <figure class="in" style="--i:2"><img src="img/compro-sampul.webp" alt="Sampul company profile Bikinin Studio" width="909" height="1286" loading="lazy"><figcaption>Sampul company profile</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="frame" id="jangan">
+      <div class="axis"><div class="r"><h2 class="in">Empat hal yang merusak logo</h2></div></div>
+      <div class="bans">
+        <div class="ban in"><div class="box"><svg class="ban-stretch" viewBox="0 0 440 440" aria-hidden="true"><use href="#tile-ink"/></svg></div><p>Jangan menarik logo sampai gepeng.</p></div>
+        <div class="ban in" style="--i:1"><div class="box"><svg class="ban-turn" viewBox="0 0 440 440" aria-hidden="true"><use href="#tile-ink"/></svg></div><p>Jangan memutar logo.</p></div>
+        <div class="ban in" style="--i:2"><div class="box"><svg class="ban-shadow" viewBox="0 0 440 440" aria-hidden="true"><use href="#tile-ink"/></svg></div><p>Jangan menambah bayangan atau efek.</p></div>
+        <div class="ban in" style="--i:3"><div class="box"><svg viewBox="0 0 440 440" aria-hidden="true"><rect width="440" height="440" rx="110" fill="#5B3DF5"/><use href="#glyph" width="440" height="440" style="color:#fff;--dot:#D7F75B"/></svg></div><p>Jangan memakai warna lama ungu dan lime.</p></div>
+      </div>
+    </section>
+
+    <section class="frame" id="paket">
+      <div class="axis"><div class="r">
+        <h2 class="in">Yang Anda terima</h2>
+        <p class="lede in" style="--i:1">Brand kit lengkap ada di paket Premium. Paket Standard mendapat panduan yang lebih ringkas.</p>
+      </div></div>
+      <div class="plans-wrap in">
+        <table class="plans">
+          <caption style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">Perbandingan paket logo</caption>
+          <thead><tr><th scope="col"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">Isi paket</span></th><th scope="col">Basic</th><th scope="col">Standard</th><th scope="col" class="hi">Premium</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Harga mulai</th><td data-p="Basic">Rp 75rb</td><td data-p="Standard">Rp 200rb</td><td class="hi" data-p="Premium">Rp 500rb</td></tr>
+            <tr><th scope="row">Konsep logo</th><td data-p="Basic">2 konsep</td><td data-p="Standard">3 konsep</td><td class="hi" data-p="Premium">3 konsep</td></tr>
+            <tr><th scope="row">Revisi</th><td data-p="Basic">2 revisi</td><td data-p="Standard">3 revisi</td><td class="hi" data-p="Premium">5 revisi</td></tr>
+            <tr><th scope="row">File vektor</th><td data-p="Basic">Tidak termasuk</td><td data-p="Standard">Termasuk</td><td class="hi" data-p="Premium">Termasuk</td></tr>
+            <tr><th scope="row">Panduan</th><td data-p="Basic">Tidak termasuk</td><td data-p="Standard">Mini brand guide</td><td class="hi" data-p="Premium">Brand kit + template sosmed</td></tr>
+            <tr><th scope="row">Waktu kerja</th><td data-p="Basic">2–3 hari kerja</td><td data-p="Standard">4–6 hari kerja</td><td class="hi" data-p="Premium">7–10 hari kerja</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
   </main>
+
+  <footer class="close">
+    <div class="close-band frame"><div class="axis">
+      <div class="l"></div>
+      <div class="r"><p>Ingin usaha Anda punya pedoman seperti ini? Ceritakan kebutuhannya, dan kami kirim penawaran tertulis.</p><a class="btn" href="https://wa.me/6287763292786?text=Halo%20Bikinin%20Studio%2C%20saya%20ingin%20bertanya%20tentang%20paket%20logo%20dan%20brand%20kit.">Tanya lewat WhatsApp</a></div>
+    </div></div>
+    <div class="foot">
+      <p class="foot-name" aria-hidden="true">Bikinin Studio</p>
+      <div class="frame foot-row"><a href="/jasa-logo/">Jasa logo</a><a href="/hitung-harga/">Hitung harga</a><a href="https://www.instagram.com/bikinin_studio">Instagram</a><span style="display:inline-flex;align-items:center;min-height:44px">Huruf Chivo, SIL Open Font License</span></div>
+    </div>
+  </footer>
 
   <script src="/assets/js/demo-core.js"></script>
   <script>
-    const COLORS = [
-      { name: "Ink", hex: "#14142B", use: "Warna utama, teks & logo" },
-      { name: "Putih", hex: "#FFFFFF", use: "Latar" },
-      { name: "Ungu Bikinin", hex: "#5B3DF5", use: "Aksen & link" },
-      { name: "Lime Spark", hex: "#D7F75B", use: "Highlight & promo" }
-    ];
-    const wrap = document.getElementById("swatches");
-    COLORS.forEach((c) => {
-      const el = document.createElement("div");
-      el.className = "swatch";
-      el.innerHTML = `<div class="chip" style="background:${c.hex}"></div><div class="meta"><strong>${c.name}</strong><span>${c.hex}</span><br><small>${c.use}</small><br><button type="button">Salin kode</button></div>`;
-      el.querySelector("button").addEventListener("click", async (e) => {
-        try { await navigator.clipboard.writeText(c.hex); e.target.textContent = "Tersalin"; }
-        catch { e.target.textContent = c.hex; }
-        setTimeout(() => (e.target.textContent = "Salin kode"), 1500);
-      });
-      wrap.appendChild(el);
-    });
+    // Masuk bertahap, tidak pernah menyembunyikan isi bila skrip gagal.
+    const items = document.querySelectorAll('.in');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+      items.forEach((el) => io.observe(el));
+    } else items.forEach((el) => el.classList.add('on'));
+
+    // Uji warna: pilih versi logo dari kontras WCAG.
+    const rgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+    const lum = (h) => { const [r, g, b] = rgb(h).map((v) => { const s = v / 255; return s <= .03928 ? s / 12.92 : ((s + .055) / 1.055) ** 2.4; }); return .2126 * r + .7152 * g + .0722 * b; };
+    const contrast = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + .05) / (y + .05); };
+    const stage = document.getElementById('tryStage'), logo = document.getElementById('tryLogo'), verdict = document.getElementById('tryVerdict'), ratio = document.getElementById('tryRatio'), input = document.getElementById('tryColor');
+    const num = (n) => n.toFixed(1).replace('.', ',');
+    function apply(hex) {
+      const ink = contrast(hex, '#0A1620'), paper = contrast(hex, '#F4F1EC'), useInk = ink >= paper, best = Math.max(ink, paper);
+      stage.style.backgroundColor = hex;
+      logo.setAttribute('href', useInk ? '#tile-ink' : '#tile-paper');
+      verdict.textContent = useInk ? 'Pakai versi utama.' : 'Pakai versi terang.';
+      ratio.textContent = best >= 3 ? `Kontras ubin terhadap latar ${num(best)}:1. Minimal 3:1 untuk logo.` : `Kontras ${num(best)}:1, belum cukup. Letakkan logo di atas bidang kertas.`;
+    }
+    const presetBtns = document.querySelectorAll('#presets button');
+    presetBtns.forEach((b) => b.addEventListener('click', () => {
+      presetBtns.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      input.value = b.dataset.c.toLowerCase(); apply(b.dataset.c);
+    }));
+    input.addEventListener('input', () => { presetBtns.forEach((x) => x.setAttribute('aria-pressed', 'false')); apply(input.value); });
+    apply('#C9A77C');
+
+    document.querySelectorAll('.copy').forEach((btn) => btn.addEventListener('click', async () => {
+      const hex = btn.dataset.hex;
+      try { await navigator.clipboard.writeText(hex); btn.textContent = 'Tersalin'; } catch { btn.textContent = hex; }
+      setTimeout(() => { btn.textContent = 'Salin kode'; }, 1500);
+    }));
   </script>
 </body>
 </html>
