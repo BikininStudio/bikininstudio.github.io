@@ -1,13 +1,12 @@
 // Latar 3D untuk semua halaman (v8 "meja studio", 2026-11-05).
 // Benda-benda dari pekerjaan Bikinin Studio, dibuat dari kaca dan melayang pelan:
-// layar kaca berisi tangkapan asli demo bikinin, kursor kaca, kurva pen tool dengan titik jangkar,
+// kursor kaca, kurva pen tool dengan titik jangkar,
 // contoh warna (swatch), dan di beranda logo "b" kaca yang bisa diseret. Latar pasir polos, kalem.
 // Hemat: berhenti saat tab tersembunyi, resolusi dibatasi, satu frame diam bila reduced-motion.
 import { shapes } from "/assets/js/hero3d.js";
 
 const VENDOR = "/assets/vendor/three/";
 const GROUND = 0xe7e2da, ORANGE = 0xe0612a, INK = 0x0a1620, SAND = 0xf4f1ec;
-const SHOTS = ["demo-kopi-sela", "demo-sd-tunas-mekar", "demo-gerabah-sumilir", "demo-kelurahan-cipta-mulya", "demo-kasir-kopi-rindang", "demo-website-pro"];
 
 export async function start(opts = {}) {
   const T = await import(VENDOR + "three.module.min.js");
@@ -53,22 +52,6 @@ export async function start(opts = {}) {
   const rrect = (w, h, r) => { const s = new T.Shape(), x = -w / 2, y = -h / 2; s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r); s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h); s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r); s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y); return s; };
   const bev = (d) => ({ depth: d, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: small ? 2 : 4, curveSegments: small ? 6 : 12 });
 
-  // ---- Layar kaca berisi tangkapan demo ----
-  const loader = new T.TextureLoader();
-  const paneGeo = new T.ExtrudeGeometry(rrect(1.6, 1.12, 0.08), bev(0.1)); paneGeo.translate(0, 0, -0.05);
-  const barGeo = new T.PlaneGeometry(1.52, 0.09);
-  const dotGeo = new T.CircleGeometry(0.018, 16);
-  const screen = (src) => {
-    const g = new T.Group();
-    const tex = loader.load(`/assets/portfolio/frames/${src}-1.webp`); tex.colorSpace = T.SRGBColorSpace; tex.anisotropy = 4;
-    const pic = new T.Mesh(new T.PlaneGeometry(1.52, 0.95), new T.MeshBasicMaterial({ map: tex, toneMapped: false }));
-    pic.position.set(0, -0.06, -0.07); g.add(pic);
-    const bar = new T.Mesh(barGeo, new T.MeshBasicMaterial({ color: SAND, toneMapped: false })); bar.position.set(0, 0.47, -0.07); g.add(bar);
-    [0xe0612a, 0xd9b44a, 0x6b8f5e].forEach((c, i) => { const d = new T.Mesh(dotGeo, new T.MeshBasicMaterial({ color: c, toneMapped: false })); d.position.set(-0.7 + i * 0.06, 0.47, -0.065); g.add(d); });
-    g.add(new T.Mesh(paneGeo, gPane));
-    return g;
-  };
-
   // ---- Kursor kaca ----
   const cursor = () => {
     const s = new T.Shape(); s.moveTo(0, 0); s.lineTo(0, -1); s.lineTo(0.27, -0.76); s.lineTo(0.46, -1.15); s.lineTo(0.6, -1.08); s.lineTo(0.41, -0.7); s.lineTo(0.74, -0.68); s.closePath();
@@ -102,16 +85,10 @@ export async function start(opts = {}) {
   };
 
   if (centre) {
-    put(screen(SHOTS[0]), -0.34, 0.2, -2, 0.21, [0.05, 0.38, -0.04], 0.9);
-    put(screen(SHOTS[1]), 0.35, -0.12, -1.5, 0.2, [-0.04, -0.4, 0.03], 1.0);
-    put(screen(SHOTS[2]), -0.31, -0.36, -1, 0.16, [0.1, 0.3, 0.05], 1.2);
-    put(screen(SHOTS[3]), 0.33, 0.33, -3, 0.16, [0.06, -0.3, -0.03], 0.8);
     put(cursor(), 0.2, -0.32, 2, 0.06, [0, 0, 0.35], 1.3, 0.3);
     put(pen(), -0.42, -0.02, 1, 0.1, [0.2, 0.1, 0.1], 1.1);
     put(swatches(), 0.43, 0.08, 1, 0.07, [0.15, -0.35, 0.05], 1.2);
   } else {
-    put(screen(SHOTS[4]), 0.45, 0.24, -2, 0.17, [0.05, -0.45, 0.03], 0.8);
-    put(screen(SHOTS[5]), -0.46, -0.3, -2, 0.16, [0.05, 0.45, -0.03], 0.9);
     put(cursor(), 0.43, -0.36, 1, 0.05, [0, 0, 0.35], 1.1, 0.3);
     put(pen(), -0.45, 0.3, 0, 0.08, [0.2, 0.1, 0.1], 1.0);
   }

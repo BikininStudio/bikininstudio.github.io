@@ -152,7 +152,7 @@ else {
       lebarLalu = lebar;
       if (luas) camera.setViewOffset(lebar, tinggi, -lebar * .18, 0, lebar, tinggi); else camera.clearViewOffset();
     }
-    const u = Math.min(1, dt * 3.4);
+    const u = reduced ? 1 : Math.min(1, dt * 3.4);
     // Layar lebar: seluruh rak terlihat di kanan judul, kamera tetap. Layar sempit: kamera mendekati gerabah terpilih.
     const tujuanX = luas ? .15 : d.x, tujuanY = luas ? .78 : d.tinggi * CM * .5;
     const tujuanJarak = luas ? Math.max(7.9, 21.5 / (lebar / tinggi)) : hp ? d.jarak * 1.35 : d.jarak;
