@@ -25,9 +25,9 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
   body { background: #E4DFD6; }
   .stage { display: flex; align-items: center; justify-content: center; gap: 56px; min-height: calc(100vh - 46px); padding: 32px; }
   .about { display: block; max-width: 340px; }
-  .about-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .18em; color: var(--red); margin: 0; }
+  .about-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: .18em; color: #93392D; margin: 0; }
   .about h1 { font: 700 40px/1.08 "Oswald", sans-serif; margin: 10px 0 14px; }
-  .about p { color: var(--muted); line-height: 1.6; }
+  .about p { color: #56514A; line-height: 1.6; }
   .about ul { padding-left: 20px; line-height: 1.9; }
   .about-note { font-size: 13px; background: #fff; border-radius: 14px; padding: 14px 16px; }
   .phone {
@@ -61,7 +61,7 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 
 .barbers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .barber { display: flex; flex-direction: column; align-items: center; gap: 6px; border: 2px solid transparent; background: #fff; border-radius: 14px; padding: 10px 4px; font-size: 13px; font-weight: 600; min-height: 96px; box-shadow: 0 3px 12px rgba(29, 39, 51, .06); }
-.barber small { font-size: 10px; font-weight: 500; color: var(--muted); line-height: 1.2; text-align: center; }
+.barber small { font-size: 11px; font-weight: 500; color: var(--muted); line-height: 1.2; text-align: center; }
 .avatar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: #fff; font: 700 16px "Oswald", sans-serif; }
 .barber[aria-checked="true"] { border-color: var(--ink); background: var(--cream); }
 
@@ -69,15 +69,15 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 3px solid 
 .date { flex: none; width: 60px; display: flex; flex-direction: column; align-items: center; gap: 1px; border: 2px solid var(--line); background: #fff; border-radius: 14px; padding: 8px 0; min-height: 64px; }
 .date .dw { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; }
 .date .dd { font: 700 20px/1.1 "Oswald", sans-serif; }
-.date .dm { font-size: 10px; color: var(--muted); }
+.date .dm { font-size: 11px; color: var(--muted); }
 .date[aria-checked="true"], .date[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
 .date[aria-checked="true"] .dw, .date[aria-checked="true"] .dm, .date[aria-pressed="true"] .dw, .date[aria-pressed="true"] .dm { color: var(--gold-2); }
-.date .cnt { font-size: 10px; font-weight: 700; color: var(--red); }
+.date .cnt { font-size: 11px; font-weight: 700; color: var(--red); }
 .date[aria-pressed="true"] .cnt { color: var(--gold); }
 
 .slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 .slot { border: 1.5px solid var(--line); background: #fff; border-radius: 10px; padding: 10px 0; font-size: 14px; font-weight: 600; min-height: 44px; }
-.slot:disabled { background: transparent; color: #B8B1A6; text-decoration: line-through; cursor: not-allowed; border-style: dashed; }
+.slot:disabled { background: transparent; color: #7D756A; text-decoration: line-through; cursor: not-allowed; border-style: dashed; }
 .slot[aria-checked="true"] { background: var(--gold); border-color: var(--gold); color: var(--ink); }
 .empty { grid-column: 1 / -1; text-align: center; color: var(--muted); padding: 18px 0; font-size: 14px; }
 

@@ -90,7 +90,8 @@ export async function start(opts = {}) {
     put(swatches(), 0.43, 0.08, 1, 0.07, [0.15, -0.35, 0.05], 1.2);
   } else {
     put(cursor(), 0.43, -0.36, 1, 0.05, [0, 0, 0.35], 1.1, 0.3);
-    put(pen(), -0.45, 0.3, 0, 0.08, [0.2, 0.1, 0.1], 1.0);
+    // kanan atas: kiri atas tempat judul halaman, kurva tadinya memotong label dan judul
+    put(pen(), 0.44, 0.3, 0, 0.08, [0.2, 0.1, 0.1], 1.0);
   }
 
   // ---- Logo "b" kaca (beranda) ----

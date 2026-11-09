@@ -16,7 +16,7 @@
   <meta name="description" content="Demo desain feed Instagram 9 post untuk kedai kopi fiktif Kopi Rindang, dibuat oleh Bikinin Studio.">
   <link rel="canonical" href="https://bikininstudio.github.io/demo/feed-kopi-rindang/">
   <meta property="og:title" content="Demo Feed Instagram Kopi Rindang · Bikinin Studio">
-  <meta property="og:description" content="Contoh feed Instagram 9 post untuk kedai kopi: menu, promo, edukasi, dan lokasi dengan tiga warna yang sama.">
+  <meta property="og:description" content="Contoh feed Instagram 9 post untuk kedai kopi: menu, promo, denah kursi teduh, dan lokasi, satu set dengan landing page-nya.">
   <meta property="og:image" content="https://bikininstudio.github.io/assets/og/feed-kopi-rindang.jpg">
   <meta property="og:image:secure_url" content="https://bikininstudio.github.io/assets/og/feed-kopi-rindang.jpg">
   <meta property="og:image:type" content="image/jpeg">
@@ -25,65 +25,74 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
   <style>
-    :root { --green: #2F4A3A; --cream: #F4EBDD; --terra: #C8663B; --esp: #3B2A20; --sage: #A7B79A; --line: #E6DCCB; }
+    /* Profil Instagram tiruan. Warna dan huruf sama dengan landing Kopi Rindang: hijau, krem, matahari; Young Serif + Red Hat Text. */
+    :root { --krem: #EFE6D2; --kapur: #F7F1E3; --hijau: #2F4A3A; --tua: #1E3226; --matahari: #E5B84B; --garis: #DCD1BA; }
     * { box-sizing: border-box; }
-    body { margin: 0; background: #FBF7F0; color: var(--esp); font-family: "Poppins", system-ui, sans-serif; }
+    body { margin: 0; background: var(--kapur); color: var(--tua); font: 400 17px/1.5 "Red Hat Text", system-ui, sans-serif; }
     .wrap { max-width: 935px; margin: 0 auto; padding: 32px 16px 64px; }
-    .profile { display: grid; grid-template-columns: 150px 1fr; gap: 32px; align-items: center; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
-    .avatar { width: 150px; height: 150px; border-radius: 50%; background: var(--green); color: var(--cream); display: grid; place-items: center; font: italic 700 44px "Playfair Display", serif; box-shadow: 0 0 0 4px #FBF7F0, 0 0 0 7px var(--terra); }
+    .profile { display: grid; grid-template-columns: 150px 1fr; gap: 32px; align-items: center; padding-bottom: 28px; }
+    .avatar { width: 150px; height: 150px; border-radius: 50%; background: var(--hijau); color: var(--krem); display: grid; place-items: center; box-shadow: 0 0 0 4px var(--kapur), 0 0 0 7px var(--matahari); }
+    .avatar svg { width: 62%; height: 62%; fill: currentColor; }
     .handle { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-    .handle h1 { font-size: 22px; font-weight: 500; margin: 0; }
-    .follow { background: var(--green); color: #fff; border: 0; border-radius: 8px; padding: 8px 18px; font: 600 14px "Poppins", sans-serif; cursor: pointer; }
-    .stats { display: flex; gap: 28px; list-style: none; padding: 0; margin: 16px 0; font-size: 15px; }
-    .stats b { font-weight: 600; }
-    .bio { font-size: 14px; line-height: 1.6; margin: 0; }
-    .bio strong { display: block; }
-    .highlights { display: flex; gap: 22px; padding: 24px 0; overflow-x: auto; }
-    .hl { text-align: center; font-size: 12px; flex: none; }
-    .hl span { color: #3B2A20; display: grid; place-items: center; width: 68px; height: 68px; border-radius: 50%; border: 1px solid var(--line); margin-bottom: 6px; font-size: 24px; background: var(--cream); }
-    .tabs { display: flex; justify-content: center; gap: 48px; border-top: 1px solid var(--line); font-size: 12px; letter-spacing: .12em; font-weight: 600; }
-    .tabs span { padding: 14px 0; border-top: 1px solid var(--esp); margin-top: -1px; }
+    .handle h1 { font: 400 26px "Young Serif", Georgia, serif; margin: 0; }
+    .follow { min-height: 44px; background: var(--hijau); color: var(--kapur); border: 0; padding: 0 22px; font: 700 16px "Red Hat Text", sans-serif; cursor: pointer; }
+    .follow:hover { background: var(--tua); }
+    .stats { display: flex; gap: 28px; list-style: none; padding: 0; margin: 14px 0; font-size: 17px; }
+    .stats b { font-weight: 700; }
+    .bio { margin: 0; font-size: 17px; }
+    .bio strong { display: block; font-weight: 700; }
+    .highlights { display: flex; gap: 22px; padding: 4px 0 26px; overflow-x: auto; list-style: none; margin: 0; }
+    .hl { text-align: center; font-size: 15px; font-weight: 500; flex: none; }
+    .hl i { display: block; width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 6px; background-size: 300% auto; box-shadow: 0 0 0 2px var(--kapur), 0 0 0 3.5px var(--garis); }
+    .tabs { display: flex; justify-content: center; border-top: 1px solid var(--garis); font-size: 15px; font-weight: 700; }
+    .tabs span { display: inline-flex; gap: 8px; align-items: center; padding: 14px 0; border-top: 2px solid var(--tua); margin-top: -1px; }
     .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
-    .grid button { border: 0; padding: 0; cursor: zoom-in; background: var(--cream); aspect-ratio: 1; }
+    .grid button { border: 0; padding: 0; cursor: zoom-in; background: var(--krem); aspect-ratio: 1; }
     .grid img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .grid button:focus-visible { outline: 3px solid var(--terra); outline-offset: 2px; }
-    .note { text-align: center; font-size: 13px; color: #7A6A5E; margin-top: 24px; }
-    .viewer { position: fixed; inset: 0; z-index: 1050; background: rgba(20, 14, 10, .9); display: grid; place-items: center; padding: 16px; }
+    .grid button:focus-visible { outline: 3px solid var(--hijau); outline-offset: 2px; }
+    .note { max-width: 36em; margin: 28px auto 0; text-align: center; font-size: 17px; }
+    .note a { color: var(--hijau); font-weight: 700; }
+    .viewer { position: fixed; inset: 0; z-index: 1050; background: rgba(20, 30, 24, .92); display: grid; place-items: center; padding: 16px; }
     .viewer[hidden] { display: none; }
-    .viewer img { max-width: min(92vw, 640px); max-height: 80vh; border-radius: 6px; }
-    .viewer button { position: absolute; background: rgba(255,255,255,.15); color: #fff; border: 0; width: 48px; height: 48px; border-radius: 50%; font-size: 24px; cursor: pointer; }
+    .viewer img { max-width: min(92vw, 720px); max-height: 80vh; }
+    .viewer button { position: absolute; background: var(--kapur); color: var(--tua); border: 0; width: 48px; height: 48px; border-radius: 50%; font-size: 26px; line-height: 1; cursor: pointer; }
     .viewer .prev { left: 16px; top: 50%; } .viewer .next { right: 16px; top: 50%; } .viewer .close { right: 16px; top: 16px; }
-    .viewer p { position: absolute; bottom: 16px; color: #fff; font-size: 14px; margin: 0; }
+    .viewer p { position: absolute; bottom: 16px; color: var(--kapur); font-size: 17px; margin: 0; }
     @media (max-width: 600px) {
       .profile { grid-template-columns: 84px 1fr; gap: 18px; }
-      .avatar { width: 84px; height: 84px; font-size: 26px; }
-      .stats { gap: 16px; font-size: 13px; }
-      .tabs { gap: 24px; }
+      .avatar { width: 84px; height: 84px; }
+      .stats { gap: 16px; font-size: 16px; }
+      .hl i { width: 62px; height: 62px; }
+      .viewer .prev, .viewer .next { top: auto; bottom: 56px; }
     }
   </style>
 </head>
 <body data-demo="feed-kopi-rindang" data-label="Feed Instagram Kopi Rindang">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <mask id="belah"><rect width="200" height="200" fill="#fff"/><path d="M100 2C72 46 128 96 100 170" fill="none" stroke="#000" stroke-width="9"/></mask>
+    <symbol id="biji-pohon" viewBox="0 0 200 200"><ellipse cx="100" cy="86" rx="62" ry="78" mask="url(#belah)"/><path d="M100 160C97 174 96 184 90 196" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></symbol>
+  </defs></svg>
   <main class="wrap">
     <section class="profile">
-      <div class="avatar" aria-hidden="true">kr</div>
+      <div class="avatar" aria-hidden="true"><svg viewBox="0 0 200 200"><use href="#biji-pohon"/></svg></div>
       <div>
         <div class="handle"><h1>kopirindang</h1><button class="follow" data-demo-action="Ini demo profil Instagram. Desain feed-nya bisa Anda pesan di Bikinin Studio.">Ikuti</button></div>
         <ul class="stats"><li><b>9</b> postingan</li><li><b>Demo</b> pengikut</li><li><b>Demo</b> mengikuti</li></ul>
-        <p class="bio"><strong>Kopi Rindang</strong>Kopi disangrai tiap pagi, diseduh di teras teduh.<br>Arabika Garut · Bandung<br>Buka setiap hari 08.00–22.00</p>
+        <p class="bio"><strong>Kopi Rindang</strong>Kedai kopi di bawah empat pohon. Arabika Garut disangrai tiap pagi.<br>Jl. Rindang 7, Bandung · Senin–Jumat 08.00–22.00, Sabtu–Minggu 07.00–23.00</p>
       </div>
     </section>
-    <div class="highlights" aria-hidden="true">
-      <div class="hl"><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h11v5a5 5 0 01-5 5h-1a5 5 0 01-5-5zM16 10h2a2 2 0 010 4h-2M8 3v2M11 3v2"/></svg></span>Menu</div>
-      <div class="hl"><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12l9-9h8v8l-9 9z"/><circle cx="15.5" cy="8.5" r="1.2"/></svg></span>Promo</div>
-      <div class="hl"><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Lokasi</div>
-      <div class="hl"><span><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span>Ulasan</div>
-    </div>
-    <div class="tabs" aria-hidden="true"><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9.3h16M4 14.7h16M9.3 4v16M14.7 4v16"/></svg> POSTINGAN</span></div>
+    <ul class="highlights" aria-hidden="true">
+      <li class="hl"><i style="background:url(../kopi-rindang/bayang-daun.webp) 20% 30% / 420% auto, #EFE6D2"></i>Menu</li>
+      <li class="hl"><i style="background-image:url(img/post-3.webp);background-position:30% 10%"></i>Teras</li>
+      <li class="hl"><i style="background-image:url(img/post-8.webp);background-position:30% 10%"></i>Malam</li>
+      <li class="hl"><i style="background:url(../kopi-rindang/bayang-daun.webp) 70% 20% / 420% auto, #E5B84B"></i>Lokasi</li>
+    </ul>
+    <div class="tabs" aria-hidden="true"><span><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 9.3h16M4 14.7h16M9.3 4v16M14.7 4v16"/></svg>POSTINGAN</span></div>
     <div class="grid" id="grid"></div>
-    <p class="note">Klik tiap post untuk lihat ukuran penuh. Sembilan desain ini satu set: tiga warna dan dua huruf, warna latar berselang-seling.</p>
+    <p class="note">Klik tiap post untuk ukuran penuh. Sembilan post ini satu set dengan <a href="../kopi-rindang/">landing page Kopi Rindang</a>: warna, huruf, bayangan daun, dan denah teras yang sama.</p>
   </main>
 
   <div class="viewer" id="viewer" hidden>
@@ -96,34 +105,35 @@
 
   <script src="/assets/js/demo-core.js"></script>
   <script>
-    const TITLES = ["Perkenalan brand", "Menu harian", "Promo Jumat", "Contoh post testimoni (teks contoh)", "Edukasi Arabika vs Robusta", "Di balik layar", "Quote", "Giveaway", "Lokasi & jam buka"];
+    const TITLES = ["Adem, boleh duduk lama", "Menu kopi", "Kursi teduh jam 4 sore", "Promo Jumat", "Arabika atau Robusta", "Sebelum pintu dibuka", "Pesan satu, duduk sampai tutup", "Teras jam 8 malam", "Lokasi dan jam buka"];
     const grid = document.getElementById("grid");
     const viewer = document.getElementById("viewer");
     const img = document.getElementById("viewer-img");
     const count = document.getElementById("viewer-count");
-    let idx = 0;
+    let idx = 0, asal = null;
     TITLES.forEach((t, i) => {
       const b = document.createElement("button");
-      b.innerHTML = `<img src="img/post-${i + 1}.png" alt="Post ${i + 1}: ${t}" loading="lazy">`;
-      b.addEventListener("click", () => open(i));
+      b.innerHTML = `<img src="img/post-${i + 1}.webp" alt="Post ${i + 1}: ${t}" width="1080" height="1080" loading="lazy">`;
+      b.addEventListener("click", () => open(i, b));
       grid.appendChild(b);
     });
     function show(i) {
       idx = (i + TITLES.length) % TITLES.length;
-      img.src = `img/post-${idx + 1}.png`;
+      img.src = `img/post-${idx + 1}.webp`;
       img.alt = `Post ${idx + 1}: ${TITLES[idx]}`;
       count.textContent = `${idx + 1}/${TITLES.length} · ${TITLES[idx]}`;
     }
-    function open(i) { show(i); viewer.hidden = false; viewer.querySelector(".close").focus(); }
+    function open(i, b) { asal = b; show(i); viewer.hidden = false; viewer.querySelector(".close").focus(); }
+    function close() { viewer.hidden = true; if (asal) asal.focus(); }
     viewer.querySelector(".prev").onclick = () => show(idx - 1);
     viewer.querySelector(".next").onclick = () => show(idx + 1);
-    viewer.querySelector(".close").onclick = () => (viewer.hidden = true);
-    viewer.addEventListener("click", (e) => { if (e.target === viewer) viewer.hidden = true; });
+    viewer.querySelector(".close").onclick = close;
+    viewer.addEventListener("click", (e) => { if (e.target === viewer) close(); });
     document.addEventListener("keydown", (e) => {
       if (viewer.hidden) return;
       if (e.key === "ArrowLeft") show(idx - 1);
       if (e.key === "ArrowRight") show(idx + 1);
-      if (e.key === "Escape") viewer.hidden = true;
+      if (e.key === "Escape") close();
     });
   </script>
 </body>

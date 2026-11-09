@@ -43,7 +43,7 @@ h2{font-size:clamp(1.9rem,3.6vw,2.8rem)}
 .timeline li{border-top:4px solid var(--green);padding-top:.8rem}
 .timeline li:nth-child(4){border-color:var(--sun)}
 .timeline time{font:800 1.3rem "Bricolage Grotesque";color:var(--green)}
-.timeline p{margin:.3rem 0 0;font-size:.95rem;color:var(--ink2)}
+.timeline p{margin:.3rem 0 0;font-size:1rem;color:var(--ink2)}
 .spmb{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;background:#F3EEDD}
 table{width:100%;border-collapse:collapse;margin:1.6rem 0 2rem}
 th,td{text-align:left;padding:.9rem 0;border-bottom:1px solid var(--line);vertical-align:top}
@@ -53,9 +53,9 @@ th{width:11rem;font-weight:600}td{color:var(--ink2)}
 .biaya{background:#fff;padding:2rem;align-self:start}
 .row{display:flex;justify-content:space-between;gap:1rem;margin:.9rem 0}
 .row b{font-variant-numeric:tabular-nums}
-.small{font-size:.9rem;color:var(--ink2)}
+.small{font-size:1rem;color:var(--ink2)}
 .biaya .btn{display:block;margin-top:1.2rem}
-footer{padding:2rem max(1rem,calc((100% - var(--max))/2));font-size:.9rem;color:var(--ink2)}
+footer{padding:2rem max(1rem,calc((100% - var(--max))/2));font-size:1rem;color:var(--ink2)}
 footer p{margin:.2rem 0}
 @media(max-width:900px){
  html{scroll-padding-top:calc(var(--bar,56px) + 16px)}

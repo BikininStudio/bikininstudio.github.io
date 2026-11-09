@@ -1,0 +1,110 @@
+/* Kopi Rindang: adem, boleh duduk lama. Dua warna logo, satu warna matahari. Bayangan pohon jadi bahan utama halaman. */
+:root {
+  --krem: #EFE6D2; --hijau: #2F4A3A; --tua: #1E3226; --daun: #3E5C49; --matahari: #E5B84B; --kapur: #F7F1E3;
+  --m: clamp(16px, 3.4vw, 52px);
+  --s-body: clamp(1.0625rem, 1rem + .2vw, 1.1875rem);
+  --s-lead: clamp(1.3125rem, 1.15rem + .75vw, 1.8125rem);
+  --s-head: clamp(2.5rem, 1.4rem + 4.4vw, 5.5rem);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { margin: 0; background: var(--krem); color: var(--tua); font: 400 var(--s-body)/1.5 "Red Hat Text", system-ui, sans-serif; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+h1, h2, h3, p, ul, dl, dd { margin: 0; padding: 0; }
+ul { list-style: none; }
+h1, h2, h3 { font-family: "Young Serif", Georgia, serif; font-weight: 400; line-height: 1.02; letter-spacing: -.01em; }
+h2 { font-size: var(--s-head); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+.simpan { position: absolute; width: 0; height: 0; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 26px; background: var(--hijau); color: var(--krem); font-weight: 700; text-decoration: none; transition: transform .12s ease, background-color .12s ease; }
+.btn:hover { background: var(--tua); transform: translateY(-2px); }
+.btn:active { transform: translateY(1px); }
+
+.top { position: relative; z-index: 4; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px var(--m); }
+.brand { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; font: 400 1.375rem "Young Serif", serif; text-decoration: none; white-space: nowrap; }
+.brand svg { width: 40px; height: 40px; fill: var(--hijau); color: var(--hijau); }
+.top nav { display: flex; gap: 20px; }
+.top nav a { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; font-weight: 500; text-decoration: none; }
+.top nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Layar pertama: dinding krem kena bayangan pohon */
+.hero { position: relative; overflow: hidden; margin-top: -64px; min-height: calc(100svh - 56px); padding: 92px var(--m) clamp(28px, 6vh, 56px); display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); align-items: end; gap: 24px; }
+.hero-kata { position: relative; z-index: 1; }
+h1 { font-size: clamp(3.25rem, min(9.6vw, 20svh), 10.5rem); line-height: .98; }
+.lead { font-size: var(--s-lead); line-height: 1.26; max-width: 25em; margin: 20px 0 22px; font-weight: 500; }
+.hero-biji { position: relative; z-index: 1; justify-self: end; align-self: end; height: min(52svh, 28vw); width: auto; aspect-ratio: 1; fill: var(--hijau); color: var(--hijau); }
+.bayang { position: absolute; inset: -7%; z-index: 2; pointer-events: none; background: url("bayang-daun.webp") center top / cover no-repeat; transform-origin: 50% 0; }
+.b1 { animation: angin 9s ease-in-out infinite alternate; }
+.b2 { opacity: .22; transform: scale(1.08); animation: angin2 6.5s ease-in-out infinite alternate; }
+@keyframes angin { from { transform: rotate(-.7deg) translate(-1%, 0); } to { transform: rotate(.8deg) translate(1.2%, .6%); } }
+@keyframes angin2 { from { transform: scale(1.08) rotate(.9deg) translate(1.4%, 0); } to { transform: scale(1.08) rotate(-.8deg) translate(-1.4%, .8%); } }
+
+/* Denah kursi */
+.teras { background: var(--tua); color: var(--krem); padding: clamp(40px, 7vh, 80px) var(--m); display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 9fr); gap: 20px clamp(28px, 4vw, 56px); align-items: start; }
+.teras-judul { grid-column: 1 / -1; }
+.sub { font-size: var(--s-lead); line-height: 1.28; margin-top: 10px; max-width: 38em; }
+.pengatur { display: grid; gap: 8px; }
+.jam { display: flex; align-items: baseline; justify-content: space-between; font-weight: 500; }
+.jam output { font: 400 clamp(2.5rem, 1.6rem + 3vw, 4.25rem)/1 "Young Serif", serif; color: var(--matahari); font-variant-numeric: tabular-nums; }
+#jam { width: 100%; height: 44px; margin: 0; accent-color: var(--matahari); cursor: pointer; }
+.cepat { display: flex; flex-wrap: wrap; gap: 4px; }
+.cepat button { min-height: 44px; padding: 0 10px; border: 0; background: var(--hijau); color: var(--krem); font: 500 1rem "Red Hat Text", sans-serif; cursor: pointer; transition: background-color .12s ease; }
+.cepat button:hover { background: var(--daun); }
+.colok { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; cursor: pointer; font-weight: 500; }
+.colok input { width: 22px; height: 22px; accent-color: var(--matahari); margin: 0; }
+.status { font: 400 var(--s-lead)/1.2 "Young Serif", serif; margin-top: 14px; min-height: 2.4em; }
+.saran { min-height: 1.5em; margin-top: 4px; color: #D9D4BE; }
+.tanda { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 1rem; }
+.tanda li { display: inline-flex; align-items: center; gap: 8px; }
+.tanda i { width: 18px; height: 18px; border-radius: 50%; }
+.t-teduh { background: var(--daun); outline: 2px solid var(--krem); outline-offset: -2px; }
+.t-panas { background: var(--matahari); }
+.t-colok { background: var(--tua); outline: 4px solid var(--krem); outline-offset: -4px; }
+.denah canvas { display: block; width: 100%; height: auto; max-height: calc(100svh - 200px); object-fit: contain; object-position: left top; }
+
+/* Menu sebagai papan */
+.menu { padding: clamp(56px, 10vh, 112px) var(--m); }
+.menu h2 { font-size: clamp(3.5rem, 1.4rem + 9vw, 10.5rem); line-height: .9; margin-bottom: clamp(24px, 5vh, 48px); }
+.menu-kolom { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px clamp(28px, 4vw, 64px); }
+.menu h3 { font-size: clamp(1.625rem, 1.3rem + 1.1vw, 2.25rem); margin-bottom: 12px; color: var(--daun); }
+.menu dl div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 8px 0; font-size: var(--s-lead); line-height: 1.15; }
+.menu dd { font-family: "Young Serif", serif; font-variant-numeric: tabular-nums; }
+.catatan { margin-top: clamp(24px, 4vh, 40px); max-width: 44em; font-size: var(--s-lead); line-height: 1.28; font-weight: 500; }
+
+.aturan { background: var(--hijau); color: var(--krem); padding: clamp(56px, 10vh, 112px) var(--m); }
+.aturan h2 { max-width: 13em; }
+.aturan-isi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px clamp(24px, 4vw, 64px); margin-top: clamp(24px, 5vh, 44px); font-size: var(--s-lead); line-height: 1.28; }
+
+.lokasi { padding: clamp(56px, 10vh, 112px) var(--m); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px clamp(32px, 5vw, 80px); align-items: end; }
+.lokasi dl div { display: grid; gap: 0; padding: 8px 0; }
+.lokasi dt { font-weight: 700; }
+.lokasi-aksi { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; margin-top: 16px; }
+.teks { min-height: 44px; display: inline-flex; align-items: center; font-weight: 700; text-underline-offset: 4px; }
+
+.kaki { background: var(--tua); color: var(--krem); padding: 28px var(--m); display: flex; align-items: center; gap: 14px; }
+.kaki svg { width: 44px; height: 44px; fill: var(--krem); color: var(--krem); flex: none; }
+
+@media (max-width: 980px) {
+  .teras { grid-template-columns: minmax(0, 1fr); }
+  .denah { order: 1; } /* denah di atas slider: jam digeser sambil melihat bayangannya */
+  .teras-judul { order: 0; }
+  .teras-kata { order: 2; }
+  .denah canvas { max-height: none; }
+  .menu-kolom, .aturan-isi { grid-template-columns: minmax(0, 1fr); }
+  .lokasi { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); min-height: 0; padding-top: 16px; }
+  .hero { padding-top: 76px; }
+  .hero-biji { height: 30svh; justify-self: end; margin-top: -8px; }
+  .brand { font-size: 1.25rem; }
+  .aturan h2 { font-size: clamp(2rem, 9.4vw, 2.5rem); }
+  .top nav { gap: 6px; }
+  .status { min-height: 3.6em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .b1, .b2 { animation: none; }
+  .btn, .cepat button { transition: none; }
+}
