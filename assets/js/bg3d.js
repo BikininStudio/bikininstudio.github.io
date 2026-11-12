@@ -3,8 +3,6 @@
 // kursor kaca, kurva pen tool dengan titik jangkar,
 // contoh warna (swatch), dan di beranda logo "b" kaca yang bisa diseret. Latar pasir polos, kalem.
 // Hemat: berhenti saat tab tersembunyi, resolusi dibatasi, satu frame diam bila reduced-motion.
-import { shapes } from "/assets/js/hero3d.js";
-
 const VENDOR = "/assets/vendor/three/";
 const GROUND = 0xe7e2da, ORANGE = 0xe0612a, INK = 0x0a1620, SAND = 0xf4f1ec;
 
@@ -97,6 +95,7 @@ export async function start(opts = {}) {
   // ---- Logo "b" kaca (beranda) ----
   let logo = null;
   if (centre) {
+    const { shapes } = await import("/assets/js/hero3d.js");
     const { body, dot } = shapes(T);
     const ex = { depth: 0.5, bevelEnabled: true, bevelThickness: 0.1, bevelSize: 0.07, bevelSegments: small ? 3 : 6, curveSegments: small ? 20 : 48 };
     const gB = new T.ExtrudeGeometry(body, ex);

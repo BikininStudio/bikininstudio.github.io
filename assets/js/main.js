@@ -300,9 +300,22 @@ later(function () {
 })();
 
 // Latar kaca 3D di semua halaman publik (src/js/bg3d.js). Dimuat setelah halaman tampil supaya tidak menunda konten.
+// Hanya desktop (>=1024px, kursor hover, >=6 core). HP dan perangkat lemah memakai latar polos (hasil audit 2026-11-12:
+// tanpa 3D, Lighthouse mobile naik dari 39-63 ke 97-99). Dimuat saat idle (<= 2,5 dtk) atau gerak/gulir/tekan pertama.
 (function () {
   if (/^\/admin\//.test(location.pathname) || /[?&]statis/.test(location.search)) return;
+  if (!matchMedia("(min-width:1024px) and (hover:hover) and (pointer:fine)").matches) return;
+  if ((navigator.hardwareConcurrency || 8) < 6) return;
   try { var c = document.createElement("canvas"); if (!(c.getContext("webgl2") || c.getContext("webgl"))) return; } catch (e) { return; }
-  var go = function () { import("/assets/js/bg3d.js").then(function (m) { var h = document.querySelector(".mono-hero, .bento-hero"); return m.start({ grab: h, hero: h, layout: h && h.classList.contains("bento-hero") ? "centre" : "" }); }).catch(function () {}); };
-  if (document.readyState === "complete") setTimeout(go, 120); else addEventListener("load", function () { setTimeout(go, 120); });
+  var started = false;
+  var go = function () {
+    if (started) return; started = true;
+    ["pointermove", "scroll", "keydown", "pointerdown"].forEach(function (ev) { removeEventListener(ev, go); });
+    import("/assets/js/bg3d.js").then(function (m) { var h = document.querySelector(".mono-hero, .bento-hero"); return m.start({ grab: h, hero: h, layout: h && h.classList.contains("bento-hero") ? "centre" : "" }); }).catch(function () { started = false; });
+  };
+  var arm = function () {
+    ["pointermove", "scroll", "keydown", "pointerdown"].forEach(function (ev) { addEventListener(ev, go, { once: true, passive: true }); });
+    if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 2500);
+  };
+  if (document.readyState === "complete") arm(); else addEventListener("load", arm);
 })();
