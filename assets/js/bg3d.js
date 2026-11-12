@@ -4,7 +4,7 @@
 // contoh warna (swatch), dan di beranda logo "b" kaca yang bisa diseret. Latar pasir polos, kalem.
 // Hemat: berhenti saat tab tersembunyi, resolusi dibatasi, satu frame diam bila reduced-motion.
 const VENDOR = "/assets/vendor/three/";
-const GROUND = 0xe7e2da, ORANGE = 0xe0612a, INK = 0x0a1620, SAND = 0xf4f1ec;
+const GROUND = 0x0a1218, ORANGE = 0x3db4ff, INK = 0x0a1620, SAND = 0xf4f1ec;
 
 export async function start(opts = {}) {
   const T = await import(VENDOR + "three.module.min.js");
@@ -29,6 +29,9 @@ export async function start(opts = {}) {
   scene.environment = pm.fromScene(new RoomEnvironment(), 0.03).texture;
   scene.environmentIntensity = 0.8;
   const key = new T.DirectionalLight(0xfff4ea, 1.8); key.position.set(-5, 7, 8); scene.add(key);
+  // tema gelap 2026-11-12: cahaya tepi biru es dari kanan belakang supaya kaca menyala di latar gelap
+  const rim = new T.DirectionalLight(0x3db4ff, 3.2); rim.position.set(6, 3, -6); scene.add(rim);
+  const fill = new T.DirectionalLight(0xeef7ff, centre ? 2.2 : 0.8); fill.position.set(-4, 2, 7); scene.add(fill);
 
   const FOV = 22;
   const camera = new T.PerspectiveCamera(FOV, 1, 0.1, 100);
@@ -83,9 +86,7 @@ export async function start(opts = {}) {
   };
 
   if (centre) {
-    put(cursor(), 0.2, -0.32, 2, 0.06, [0, 0, 0.35], 1.3, 0.3);
-    put(pen(), -0.42, -0.02, 1, 0.1, [0.2, 0.1, 0.1], 1.1);
-    put(swatches(), 0.43, 0.08, 1, 0.07, [0.15, -0.35, 0.05], 1.2);
+    // beranda: hanya logo "b" (hiasan kursor/pena/swatch dibuang 2026-11-12 agar fokus)
   } else {
     put(cursor(), 0.43, -0.36, 1, 0.05, [0, 0, 0.35], 1.1, 0.3);
     // kanan atas: kiri atas tempat judul halaman, kurva tadinya memotong label dan judul
@@ -104,7 +105,7 @@ export async function start(opts = {}) {
     gB.translate(-cx, -cy, -ex.depth / 2);
     const gD = new T.ExtrudeGeometry(dot, ex); gD.translate(-cx, -cy, -ex.depth / 2);
     logo = new T.Group();
-    logo.add(new T.Mesh(gB, glass({ thickness: 2.2, attenuationColor: new T.Color(0x56697a), attenuationDistance: 2.2 })), new T.Mesh(gD, gSolid(ORANGE, 0.3)));
+    logo.add(new T.Mesh(gB, glass({ thickness: 2.2, transmission: 0.55, roughness: 0.18, color: 0xeef7ff, attenuationColor: new T.Color(0xcfeaff), attenuationDistance: 4, envMapIntensity: 2.6, specularIntensity: 1, iridescence: 0.15, emissive: 0x1b3a52, emissiveIntensity: 0.6 })), new T.Mesh(gD, gSolid(ORANGE, 0.3)));
     world.add(logo);
   }
 
@@ -112,6 +113,11 @@ export async function start(opts = {}) {
   const vh0 = () => 2 * camera.position.z * Math.tan((FOV * Math.PI) / 360);
   const resize = () => { W = innerWidth; H = innerHeight; portrait = W / H < 0.8; renderer.setSize(W, H, false); camera.aspect = W / H; camera.updateProjectionMatrix(); };
   addEventListener("resize", resize); resize();
+  // ruang logo di hero beranda (dokumen), diukur ulang saat tata letak berubah
+  const space = centre && opts.hero ? opts.hero.querySelector(".bh-space") : null;
+  let sp = null;
+  const measureSpace = () => { if (!space) return; const r = space.getBoundingClientRect(); sp = r.height > 40 ? { cx: r.left + r.width / 2, cy: r.top + scrollY + r.height / 2, w: r.width, h: r.height } : null; };
+  if (space) { measureSpace(); addEventListener("resize", measureSpace); if (window.ResizeObserver) new ResizeObserver(measureSpace).observe(opts.hero); if (document.fonts) document.fonts.ready.then(measureSpace); }
 
   let mx = 0, my = 0, tmx = 0, tmy = 0, dragY = 0, dragV = 0;
   addEventListener("pointermove", (e) => { if (e.pointerType === "mouse") { tmx = e.clientX / W * 2 - 1; tmy = e.clientY / H * 2 - 1; } }, { passive: true });
@@ -125,6 +131,7 @@ export async function start(opts = {}) {
 
   const clock = new T.Clock();
   let raf = 0;
+  const enterT = (t) => { const k = Math.min(1, Math.max(0, (t - 0.15) / 1.4)); return 1 - Math.pow(1 - k, 4); };
   const frame = () => {
     const dt = Math.min(clock.getDelta(), 0.05), t = still ? 0 : clock.elapsedTime;
     mx += (tmx - mx) * Math.min(1, dt * 3); my += (tmy - my) * Math.min(1, dt * 3);
@@ -140,9 +147,20 @@ export async function start(opts = {}) {
       m.rotation.set(u.rot[0] + Math.sin(t * u.spin + u.ph) * 0.08 + my * 0.08, u.rot[1] + Math.cos(t * u.spin * 0.8 + u.ph) * 0.12 + mx * 0.12, u.rot[2]);
     }
     if (logo) {
-      const s = portrait ? Math.min(vw * 0.36, vh * 0.17) : Math.min(vh * 0.26, vw * 0.18);
+      // 2026-11-12: logo mengikuti ruang .bh-space di hero (bukan pecahan tinggi layar),
+      // jadi selalu utuh di bawah header pada layar lebar-pendek maupun tinggi.
+      const kz = (camera.position.z - 2) / camera.position.z, vz = vh * kz;
+      let s, lx = 0, ly;
+      if (sp) {
+        s = Math.max(0.5, Math.min(sp.h * 0.7, sp.w * 0.5, H * 0.26) / H * vz);
+        lx = (sp.cx / W - 0.5) * vz * camera.aspect;
+        ly = (0.5 - (sp.cy - scrollY) / H) * vz;
+      } else {
+        s = portrait ? Math.min(vw * 0.36, vh * 0.17) : Math.min(vh * 0.23, vw * 0.16);
+        ly = (portrait ? 0.25 : 0.19) * vh + Math.min(sP, 0.7) * vh * 0.9;
+      }
       logo.scale.setScalar(s / 1.9);
-      logo.position.set(mx * 0.3, (portrait ? 0.27 : 0.23) * vh + Math.sin(t * 0.6) * 0.12 + Math.min(sP, 0.7) * vh * 0.9, 2);
+      logo.position.set(lx + mx * 0.3 + (still ? 0 : (1 - enterT(clock.elapsedTime)) * vw * 0.55), ly + Math.sin(t * 0.6) * s * 0.04, 2);
       logo.rotation.set(0.08 + my * 0.15, (still ? -0.4 : Math.sin(t * 0.35) * 0.5 - 0.25) + dragY + mx * 0.35, 0);
     }
     renderer.render(scene, camera);
