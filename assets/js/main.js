@@ -142,7 +142,7 @@ later(function () {
       if (started || still || !h3d.getClientRects().length) return;
       if (hero.classList.contains("fx-off")) { pendingGo(); return; }
       started = true;
-      import("/assets/js/hero3d.js").then(function (m) { return m.start(h3d, hero, { small: !desk }); }).then(function (c) { ctl = c; }).catch(function () { started = false; });
+      import("/assets/js/hero3d.js?v=mwdgs7y3").then(function (m) { return m.start(h3d, hero, { small: !desk }); }).then(function (c) { ctl = c; }).catch(function () { started = false; });
     };
     var pendingGo = function () { hero.__pend = go; };
     var idle = function () { window.requestIdleCallback ? requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 2500); };
@@ -311,7 +311,7 @@ later(function () {
   var go = function () {
     if (started) return; started = true;
     ["pointermove", "scroll", "keydown", "pointerdown"].forEach(function (ev) { removeEventListener(ev, go); });
-    import("/assets/js/bg3d.js").then(function (m) { var h = document.querySelector(".mono-hero, .bento-hero"); return m.start({ grab: h, hero: h, layout: h && h.classList.contains("bento-hero") ? "centre" : "" }); }).catch(function () { started = false; });
+    import("/assets/js/bg3d.js?v=mwdgs7y3").then(function (m) { var h = document.querySelector(".mono-hero, .bento-hero"); return m.start({ grab: h, hero: h, layout: h && h.classList.contains("bento-hero") ? "centre" : "" }); }).catch(function () { started = false; });
   };
   var arm = function () {
     ["pointermove", "scroll", "keydown", "pointerdown"].forEach(function (ev) { addEventListener(ev, go, { once: true, passive: true }); });
