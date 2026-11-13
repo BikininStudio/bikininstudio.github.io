@@ -9,12 +9,19 @@
   window.waLink = function (text) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); };
 
   var body = document.body, slug = body.dataset.demo, label = body.dataset.label;
-  var own = body.dataset.fiktif === "false" && slug === "brand-kit-bikinin";
-  var tag = own ? "Karya sendiri" : "Proyek konsep – brand fiktif";
+  var own = body.dataset.fiktif === "false"; // karya milik Bikinin sendiri (brand kit, studio 3D)
+  var tag = own ? "<b class=\"demo-sendiri\">Karya sendiri</b>" : "<b>Proyek konsep<span class=\"demo-pj\"> – brand fiktif</span></b>";
+  var ket = own ? "Karya milik Bikinin Studio sendiri" : "Nama usaha dan harga di sini contoh";
 
   var bar = document.createElement("div");
   bar.className = "demo-bar"; bar.setAttribute("role", "region"); bar.setAttribute("aria-label", "Informasi demo");
-  bar.innerHTML = '<a class="demo-back" href="/"><span class="demo-bk">Kembali ke </span>Bikinin Studio</a><span class="demo-label"><b>' + tag + "</b><span class=\"demo-by\">dibuat oleh Bikinin Studio</span></span>" + '<a class="demo-cta" target="_blank" rel="noopener">Buat yang seperti ini</a>';
+  bar.innerHTML = '<a class="demo-back" href="/" aria-label="Kembali ke beranda Bikinin Studio">'
+    + '<svg class="demo-panah" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"/></svg>'
+    + '<img src="/assets/logo/ikon-gelap.svg" alt="" width="28" height="28"><span class="demo-nama">Bikinin Studio</span></a>'
+    + '<span class="demo-label">' + tag + '<span class="demo-by">' + ket + "</span></span>"
+    + '<a class="demo-cta" target="_blank" rel="noopener">'
+    + '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>'
+    + '<span class="demo-cta-p">Buat yang seperti ini</span><span class="demo-cta-k">Buat mirip</span></a>';
   var cta = bar.querySelector(".demo-cta");
   cta.href = waLink(body.dataset.wa || ('Halo Bikinin Studio, saya lihat demo "' + label + '" dan ingin dibuatkan yang mirip.'), "demo: " + slug);
   cta.addEventListener("click", function () { track("click_whatsapp", { lokasi: "demo:" + slug }); });

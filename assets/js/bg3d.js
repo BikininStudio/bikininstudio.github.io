@@ -96,7 +96,7 @@ export async function start(opts = {}) {
   // ---- Logo "b" kaca (beranda) ----
   let logo = null;
   if (centre) {
-    const { shapes } = await import("/assets/js/hero3d.js?v=mwdgs7y3");
+    const { shapes } = await import("/assets/js/hero3d.js?v=mwejmgfb");
     const { body, dot } = shapes(T);
     const ex = { depth: 0.5, bevelEnabled: true, bevelThickness: 0.1, bevelSize: 0.07, bevelSegments: small ? 3 : 6, curveSegments: small ? 20 : 48 };
     const gB = new T.ExtrudeGeometry(body, ex);

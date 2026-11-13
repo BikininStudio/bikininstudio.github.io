@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="id">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rangka Serat | Furnitur kayu solid sesuai ukuran ruangan</title>
+<meta name="description" content="Rangka Serat membuat meja, rak, dan lemari kayu solid sesuai ukuran ruangan. Hitung harga meja langsung di halaman. Demo situs oleh Bikinin Studio, brand fiktif.">
+<link rel="canonical" href="https://bikininstudio.github.io/demo/rangka-serat/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Landing page furnitur Rangka Serat · Bikinin Studio">
+<meta property="og:description" content="Contoh landing page usaha furnitur: hitung harga meja sesuai ukuran, progres pesanan, dan harga. Proyek konsep.">
+<meta property="og:url" content="https://bikininstudio.github.io/demo/rangka-serat/">
+<meta property="og:image" content="https://bikininstudio.github.io/assets/og/rangka-serat.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#0A0C08">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js")</script>
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body data-demo="rangka-serat" data-label="Landing page furnitur Rangka Serat">
+
+<canvas class="serat" id="serat" aria-hidden="true"></canvas>
+
+<header class="atas">
+  <a class="merek" href="#awal" aria-label="Rangka Serat, ke awal halaman">
+    <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="var(--acc)"/><path d="M7 4.5h4.2v15H7z M11.2 7h7.3v4.4h-7.3z M4.6 7.6H7v3.2H4.6z" fill="var(--acc-ink)"/><path d="M12.6 9.2h4.6" stroke="var(--acc)" stroke-width=".9" stroke-linecap="round"/></svg>
+    <span>Rangka Serat</span>
+  </a>
+  <nav aria-label="Bagian halaman">
+    <a href="#cara">Cara pesan</a><a href="#kayu">Kayu</a><a href="#bengkel">Bengkel</a><a href="#harga">Harga</a>
+  </nav>
+  <a class="tombol kecil" href="#hitung">Hitung meja</a>
+</header>
+
+<main id="awal">
+<section class="hero" aria-labelledby="h-hero">
+  <div class="hero-teks" id="hero-teks">
+    <h1 id="h-hero">Meja yang dibuat<br><em>pas ruangan Anda.</em></h1>
+    <p class="lead">Rangka Serat membuat meja, rak, dan lemari kayu solid sesuai ukuran ruangan Anda. Dikerjakan di Jepara, dikirim ke Jabodetabek dalam 3 sampai 4 minggu.</p>
+    <div class="aksi">
+      <a class="tombol" href="#hitung">Hitung harga meja</a>
+      <a class="tombol gelap" href="#bengkel"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 2l7 4-7 4z" fill="currentColor"/></svg>Lihat satu hari di bengkel</a>
+    </div>
+    <p class="catatan">Sketsa gratis sebelum DP / ukur ke rumah untuk Bekasi dan Jakarta Timur / bayar 50% di awal</p>
+  </div>
+
+  <div class="panel konfig" id="hitung" data-ui aria-labelledby="h-konfig">
+    <div class="p-kepala">
+      <h2 id="h-konfig">Meja makan <span id="k-kursi">6 kursi</span></h2>
+      <span class="status"><i></i>siap dibuat</span>
+    </div>
+    <canvas class="meja" id="meja" role="img" aria-label="Gambar meja dilihat dari atas sesuai ukuran yang dipilih"></canvas>
+    <form class="kontrol" id="konfig" onsubmit="return false">
+      <label class="baris"><span>Panjang</span><input type="range" id="k-panjang" min="120" max="240" step="10" value="200" aria-describedby="k-panjang-v"><output id="k-panjang-v">200 cm</output></label>
+      <fieldset class="baris"><legend>Lebar</legend>
+        <div class="pilih"><label><input type="radio" name="lebar" value="80"><span>80</span></label><label><input type="radio" name="lebar" value="90" checked><span>90</span></label><label><input type="radio" name="lebar" value="100"><span>100 cm</span></label></div>
+      </fieldset>
+      <fieldset class="baris"><legend>Kayu</legend>
+        <div class="pilih"><label><input type="radio" name="kayu" value="jati" checked><span>Jati</span></label><label><input type="radio" name="kayu" value="mahoni"><span>Mahoni</span></label><label><input type="radio" name="kayu" value="trembesi"><span>Trembesi</span></label><label><input type="radio" name="kayu" value="pinus"><span>Pinus</span></label></div>
+      </fieldset>
+      <fieldset class="baris"><legend>Finishing</legend>
+        <div class="pilih"><label><input type="radio" name="fin" value="minyak" checked><span>Minyak</span></label><label><input type="radio" name="fin" value="doff"><span>Doff</span></label><label><input type="radio" name="fin" value="duco"><span>Duco hitam</span></label></div>
+      </fieldset>
+    </form>
+    <div class="hasil" aria-live="polite">
+      <p><b id="k-harga">Rp 8.620.000</b><span id="k-info">19 hari kerja / sekitar 55 kg</span></p>
+      <a class="tombol" href="#hitung" id="k-wa" data-demo-action="Ini demo. Di versi asli, tombol ini membuka WhatsApp dengan ukuran meja yang Anda pilih.">Kirim ukuran ini</a>
+    </div>
+  </div>
+</section>
+
+<section class="pernyataan" aria-labelledby="h-pernyataan">
+  <h2 id="h-pernyataan" class="naik">Meja pabrik gagal di <em>ukuran.</em></h2>
+  <div class="dua naik">
+    <p>Meja pabrikan dibuat untuk ruangan rata-rata. Di rumah sungguhan selalu ada tiang, stopkontak, atau jendela rendah yang menghalangi.</p>
+    <p>Kami mulai dari meteran di rumah Anda, bukan dari katalog. Setiap sentimeter yang Anda geser di atas langsung mengubah harga dan waktu pengerjaan.</p>
+  </div>
+</section>
+
+<section class="fitur" id="cara" aria-labelledby="h-cara">
+  <h2 id="h-cara" class="sr">Cara pesan</h2>
+
+  <article class="baris-fitur naik">
+    <div class="f-teks">
+      <h3>Satu pesanan, enam tahap</h3>
+      <p>Setiap meja punya nomor pesanan. Anda bisa lihat tahapnya sedang di mana, dan berapa hari lagi sampai dikirim.</p>
+      <figure class="klip">
+        <video id="klip" muted loop playsinline preload="none" poster="foto/amplas-poster.jpg" aria-label="Video tangan mengamplas ukiran kayu"><source src="foto/amplas.mp4" type="video/mp4"></video>
+        <figcaption>Mengamplas kayu dengan tangan, tahap yang tidak bisa dipercepat mesin.</figcaption>
+      </figure>
+    </div>
+    <div class="panel log" data-ui>
+      <div class="p-kepala"><p>Pesanan RS-2417 / jati 200 &times; 90</p><span class="redup">target 19 hari</span></div>
+      <ol id="log">
+        <li data-a="0" data-b="3"><i class="ok"></i><span>Potong dan serut</span><b></b><em>hari 1-3</em></li>
+        <li data-a="3" data-b="7"><i class="ok"></i><span>Sambungan pen dan lubang</span><b></b><em>hari 4-7</em></li>
+        <li data-a="7" data-b="9"><i class="ok"></i><span>Rakit tanpa paku</span><b></b><em>hari 8-9</em></li>
+        <li data-a="9" data-b="12"><i class="ok"></i><span>Amplas 80 sampai 240</span><b></b><em>hari 10-12</em></li>
+        <li data-a="12" data-b="17" class="jalan"><i></i><span>Minyak, 3 lapis</span><b></b><em>hari 13-17</em></li>
+        <li data-a="17" data-b="19" class="nanti"><i></i><span>Cek dan kemas</span><b></b><em>hari 18-19</em></li>
+      </ol>
+      <div class="sumbu" aria-hidden="true"><span></span><span></span><p><span>0</span><span>5</span><span>10</span><span>15</span><span>20</span></p><span>hari</span></div>
+    </div>
+  </article>
+
+  <article class="baris-fitur balik naik">
+    <div class="f-teks">
+      <h3>Setuju lewat WhatsApp</h3>
+      <p>Sketsa, foto kayu, dan foto tiap tahap kami kirim ke WhatsApp. Kayu baru dipotong setelah Anda membalas setuju.</p>
+    </div>
+    <div class="panel chat" data-ui>
+      <div class="c-kepala"><svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="var(--acc)"/><path d="M7 4.5h4.2v15H7z M11.2 7h7.3v4.4h-7.3z M4.6 7.6H7v3.2H4.6z" fill="var(--acc-ink)"/></svg><p>Rangka Serat</p><span class="redup">10.42</span></div>
+      <p class="gelembung">Sketsa meja RS-2417 sudah jadi. Kaki kanan kami geser 8 cm ke dalam karena ada stopkontak di dinding. Boleh mulai dipotong?</p>
+      <dl>
+        <div><dt>Ukuran</dt><dd>200 &times; 90 &times; 76 cm</dd></div>
+        <div><dt>Kayu</dt><dd>Jati Blora, kadar air 10,3%</dd></div>
+        <div><dt>DP 50%</dt><dd>Rp 4.310.000</dd></div>
+      </dl>
+      <div class="c-aksi"><button type="button" class="tombol kecil" data-demo-action="Ini demo. Di versi asli, balasan Anda masuk ke WhatsApp bengkel.">Setuju, potong</button><button type="button" class="tombol kecil gelap" data-demo-action="Ini demo. Di versi asli, Anda bisa menulis perubahan ukuran di WhatsApp.">Ubah dulu</button><span class="redup">menunggu 27 menit</span></div>
+    </div>
+  </article>
+
+  <article class="baris-fitur naik">
+    <div class="f-teks">
+      <h3>Kadar air dicatat sebelum dipotong</h3>
+      <p>Kayu baru masuk mesin setelah kadar airnya di bawah 12%. Dengan begitu meja tidak melengkung saat ditaruh di ruangan ber-AC.</p>
+      <figure class="foto-kecil">
+        <img src="foto/gudang-kayu.webp" width="1200" height="901" alt="Balok dan papan kayu ditumpuk di halaman gudang kayu" loading="lazy" decoding="async">
+        <figcaption>Balok dan papan menunggu kering di gudang kayu, Singapadu, Bali.</figcaption>
+      </figure>
+    </div>
+    <div class="panel iso" data-ui>
+      <div class="p-kepala"><p>Kadar air papan jati, batch 11</p><span class="redup">batas potong 12%</span></div>
+      <svg id="iso" viewBox="0 0 520 250" role="img" aria-label="Kadar air turun dari 18,2 persen di minggu pertama menjadi 10,3 persen di minggu kelima"></svg>
+    </div>
+  </article>
+</section>
+
+<section class="kayu" id="kayu" aria-labelledby="h-kayu">
+  <div class="judul-baris naik">
+    <h2 id="h-kayu">Empat kayu, satu bengkel</h2>
+    <p>Semua kayu kami beli dari pemasok bersertifikat legalitas kayu. Persentase menunjukkan pesanan 90 hari terakhir.</p>
+  </div>
+  <ul class="kayu-daftar">
+    <li class="naik"><img src="foto/jati.webp" width="640" height="800" alt="Papan kayu jati berwarna cokelat keemasan dengan serat lurus" loading="lazy" decoding="async"><h3>Jati</h3><p>Dari Blora. Paling tahan lembap, warnanya makin tua dengan umur.</p><b>Rp 3,9jt per m² daun meja</b><div class="porsi" style="--p:46"><span>46% pesanan</span></div></li>
+    <li class="naik"><img src="foto/mahoni.webp" width="640" height="800" alt="Permukaan kayu mahoni berwarna jingga kemerahan dengan serat halus" loading="lazy" decoding="async"><h3>Mahoni</h3><p>Dari Jepara. Serat halus dan rata, cocok untuk finishing gelap.</p><b>Rp 2,6jt per m² daun meja</b><div class="porsi" style="--p:29"><span>29% pesanan</span></div></li>
+    <li class="naik"><img src="foto/trembesi.webp" width="640" height="800" alt="Contoh kayu trembesi berwarna cokelat dengan pori-pori gelap" loading="lazy" decoding="async"><h3>Trembesi</h3><p>Dari Kudus. Papannya lebar, bisa satu lembar utuh tanpa sambungan.</p><b>Rp 3,1jt per m² daun meja</b><div class="porsi" style="--p:16"><span>16% pesanan</span></div></li>
+    <li class="naik"><img src="foto/pinus.webp" width="640" height="800" alt="Papan kayu pinus berwarna krem terang dengan mata kayu" loading="lazy" decoding="async"><h3>Pinus</h3><p>Dari Temanggung. Ringan dan terang, pilihan hemat untuk rak dan meja kerja.</p><b>Rp 1,7jt per m² daun meja</b><div class="porsi" style="--p:9"><span>9% pesanan</span></div></li>
+  </ul>
+</section>
+
+<section class="bengkel" id="bengkel" aria-labelledby="h-bengkel">
+  <h2 id="h-bengkel" class="naik">Satu <em>Selasa</em> di bengkel Tahunan</h2>
+  <div class="bengkel-isi naik">
+    <div class="panel jadwal" data-ui>
+      <div class="p-kepala"><p>Jadwal hari ini</p><span class="redup" id="jam-kini">WIB</span></div>
+      <table>
+        <thead><tr><th scope="col">Jam</th><th scope="col">Pekerjaan</th><th scope="col">Pesanan</th></tr></thead>
+        <tbody id="jadwal">
+          <tr data-j="7.5"><td>07.30</td><td>Jati batch 11 masuk oven pengering</td><td>stok</td></tr>
+          <tr data-j="9"><td>09.00</td><td>Potong papan lemari tanam 2,4 m</td><td>RS-2421</td></tr>
+          <tr data-j="11"><td>11.00</td><td>Rakit meja makan jati</td><td>RS-2417</td></tr>
+          <tr data-j="13"><td>13.00</td><td>Amplas rak dinding mahoni</td><td>RS-2412</td></tr>
+          <tr data-j="15"><td>15.00</td><td>Minyak lapis kedua, meja kerja pinus</td><td>RS-2409</td></tr>
+          <tr data-j="16.5"><td>16.30</td><td>Kemas dan kirim ke Jatiasih, Bekasi</td><td>RS-2403</td></tr>
+        </tbody>
+      </table>
+      <div class="cincin">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50" class="c-dasar"/><circle cx="60" cy="60" r="50" class="c-isi"/></svg>
+        <p><b>7 dari 9</b> pesanan minggu ini sesuai jadwal. Dua sisanya menunggu kayu trembesi lebar.</p>
+      </div>
+    </div>
+    <figure class="foto-bengkel">
+      <img src="foto/tukang-kayu.webp" width="1400" height="819" alt="Tukang kayu memilah papan di antara tumpukan kayu di bengkelnya, foto hitam putih" loading="lazy" decoding="async">
+      <figcaption>Tukang kayu memilah papan di bengkelnya, Singapadu, Bali.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="angka" aria-labelledby="h-angka">
+  <div class="judul-baris naik">
+    <h2 id="h-angka">Angka yang kami <em>catat</em> tiap bulan</h2>
+    <p>Dihitung dari semua pesanan sejak bengkel buka tahun 2019, termasuk yang dikembalikan. Angka contoh untuk demo.</p>
+  </div>
+  <ul class="angka-isi naik">
+    <li><b>1.284</b><span>meja dan lemari sudah kami kirim</span></li>
+    <li><b>3</b><span>dikembalikan karena salah ukur</span></li>
+    <li><b>19</b><span>hari kerja rata-rata per pesanan</span></li>
+  </ul>
+</section>
+
+<section class="harga" id="harga" aria-labelledby="h-harga">
+  <h2 id="h-harga" class="naik">Harga per meter, bukan <em>per katalog.</em></h2>
+  <div class="panel taksir naik" data-ui>
+    <div class="t-kiri">
+      <label for="t-meter">Berapa meter lemari tanam yang Anda perlukan?</label>
+      <input type="range" id="t-meter" min="1" max="4" step="0.2" value="2.4">
+      <div class="skala" aria-hidden="true"><span>1 m</span><b id="t-meter-v">2,4 m</b><span>4 m</span></div>
+      <div class="pilih" role="radiogroup" aria-label="Kayu lemari"><label><input type="radio" name="tkayu" value="pinus"><span>Pinus</span></label><label><input type="radio" name="tkayu" value="mahoni" checked><span>Mahoni</span></label><label><input type="radio" name="tkayu" value="jati"><span>Jati</span></label></div>
+    </div>
+    <div class="t-kanan" aria-live="polite">
+      <p class="redup">Perkiraan Anda</p>
+      <p class="t-harga" id="t-harga">Rp 8.640.000</p>
+      <p class="redup" id="t-dp">DP 50%: Rp 4.320.000 / pasang 1 hari</p>
+      <a class="tombol" href="#pesan">Minta sketsa gratis</a>
+    </div>
+  </div>
+  <ul class="paket naik">
+    <li><h3>Rak dinding</h3><p class="p-harga">mulai Rp 1,4jt <small>per meter</small></p><ul><li>Pinus atau mahoni</li><li>Kedalaman 25 sampai 35 cm</li><li>Dipasang di tempat</li></ul></li>
+    <li class="utama"><h3>Meja makan <span>paling sering dipesan</span></h3><p class="p-harga">mulai Rp 2,3jt</p><ul><li>4 sampai 10 kursi</li><li>Empat pilihan kayu</li><li>Sambungan pen dan lubang, tanpa paku</li><li>Kirim gratis Jabodetabek</li></ul></li>
+    <li><h3>Lemari tanam</h3><p class="p-harga">mulai Rp 2,9jt <small>per meter</small></p><ul><li>Sampai plafon</li><li>Rel laci tutup pelan</li><li>Ukur ke rumah gratis</li></ul></li>
+  </ul>
+</section>
+
+<section class="pepatah" aria-labelledby="h-pepatah">
+  <h2 id="h-pepatah">Ukur dua kali, potong sekali.</h2>
+  <p>Pepatah tukang kayu yang kami pegang sejak hari pertama.</p>
+</section>
+
+<section class="pesan" id="pesan" aria-labelledby="h-pesan">
+  <div class="kartu-merek">
+    <svg class="logo besar" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="var(--acc)"/><path d="M7 4.5h4.2v15H7z M11.2 7h7.3v4.4h-7.3z M4.6 7.6H7v3.2H4.6z" fill="var(--acc-ink)"/></svg>
+    <p>Furnitur kayu solid sesuai ukuran ruangan Anda.</p>
+    <p class="redup">Ruang pamer Jatiasih, Bekasi. Buka setiap hari 10.00 sampai 20.00.</p>
+  </div>
+  <div class="kartu-cta">
+    <h2 id="h-pesan">Kirim sudut yang <em>paling susah.</em></h2>
+    <p>Tiang di tengah ruangan, dinding miring, atau jendela rendah. Kirim foto dan ukurannya, kami balas dengan sketsa dalam 2 hari kerja.</p>
+    <form class="kirim" data-demo-action="Ini demo. Di versi asli, nomor Anda diteruskan ke admin Rangka Serat.">
+      <label class="sr" for="wa">Nomor WhatsApp</label>
+      <input id="wa" type="tel" inputmode="tel" autocomplete="tel" placeholder="Nomor WhatsApp Anda">
+      <button class="tombol gelap" type="submit">Minta sketsa</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="kaki">
+  <div class="kaki-atas">
+    <div><p class="merek-kaki">Rangka Serat</p><p class="redup">Bengkel kayu keluarga di Tahunan, Jepara.<br>Ruang pamer di Jatiasih, Bekasi.</p></div>
+    <nav aria-label="Produk"><h3>Produk</h3><a href="#hitung">Meja makan</a><a href="#harga">Lemari tanam</a><a href="#harga">Rak dinding</a></nav>
+    <nav aria-label="Cara pesan"><h3>Cara pesan</h3><a href="#cara">Tahap pesanan</a><a href="#kayu">Pilihan kayu</a><a href="#harga">Harga</a></nav>
+    <nav aria-label="Kunjungi"><h3>Kunjungi</h3><a href="#bengkel">Bengkel</a><a href="#pesan">Minta sketsa</a></nav>
+  </div>
+  <ul class="status-hari" aria-label="Status hari ini">
+    <li id="st-bengkel">Bengkel Jepara: memeriksa jam</li>
+    <li>9 pesanan sedang dikerjakan</li>
+    <li id="st-pamer">Ruang pamer Bekasi: memeriksa jam</li>
+  </ul>
+  <p class="fiktif">Brand fiktif. Nama usaha, alamat, harga, dan angka di halaman ini adalah contoh dari Bikinin Studio. Foto dan video menunjukkan kayu dan bengkel lain, bukan milik Rangka Serat.</p>
+  <p class="kredit">Foto dan video dari Wikimedia Commons, dipotong dan diperkecil:
+    <a href="https://commons.wikimedia.org/wiki/File:Teak_Holz.JPG">Teak Holz</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>);
+    <a href="https://commons.wikimedia.org/wiki/File:Khaya-Mahagoni.JPG">Khaya-Mahagoni</a> oleh Philipp Zinger (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>);
+    <a href="https://commons.wikimedia.org/wiki/File:Collection_de_bois_de_la_Xyloth%C3%A8que_du_Cirad._Bois_de_Polyn%C3%A9sie._Samanea_saman_(Syn._Mimosa_saman,_Albizia_saman,_Enterolobium_saman,_Pithecellobium_saman)_-_Famille_des_Mimosac%C3%A9es_(Polyn%C3%A9sie_fran%C3%A7aise)_-_btv1b101102502_(2_of_2).jpg">Samanea saman, Xylothèque du Cirad</a> (domain publik);
+    <a href="https://commons.wikimedia.org/wiki/File:PinusSylvestris%26PiceaAbies-comparingWood.JPG">PinusSylvestris &amp; PiceaAbies</a> oleh Torbjörn Axelson (domain publik);
+    <a href="https://commons.wikimedia.org/wiki/File:Singapadu_Bali_Carpenter-in-his-workshop-01.jpg">Singapadu Bali Carpenter-in-his-workshop</a> dan <a href="https://commons.wikimedia.org/wiki/File:Singapadu_Bali_Carpenters-workshop-01.jpg">Carpenters-workshop</a> oleh CEphoto, Uwe Aranas (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>);
+    <a href="https://commons.wikimedia.org/wiki/File:Wood_sculpture_polishing.ogv">Wood sculpture polishing</a> oleh Thamizhpparithi Maari (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>).</p>
+</footer>
+
+<script src="/assets/js/demo-core.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
