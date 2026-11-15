@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8FHTFV0DZN"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8FHTFV0DZN');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>
+document.documentElement.classList.add('js');
+// Bila adegan 3D gagal dimuat, tampilkan foto pengganti
+setTimeout(function () { if (!window.GG3D) document.documentElement.classList.add('no3d'); }, 5000);
+</script>
+<title>GG Sport17 | Toko tape olahraga dengan roll 3D</title>
+<meta name="description" content="Toko GG Sport17: model 3D roll asli yang bisa diputar, rak warna melingkar, pita Kindmax yang terurai mengikuti gulir, dan pesanan lewat WhatsApp. Salinan portofolio Bikinin Studio, toko aslinya di ggsport17.netlify.app.">
+<meta name="theme-color" content="#101315">
+<link rel="canonical" href="https://bikininstudio.github.io/demo/gg-sport17/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bikininstudio.github.io/demo/gg-sport17/">
+<meta property="og:site_name" content="GG Sport17">
+<meta property="og:title" content="Toko 3D GG Sport17 · Bikinin Studio">
+<meta property="og:description" content="Kinesiology tape, sport tape, finger tape, foamwrap & perlengkapan recovery original. Pesan langsung via WhatsApp.">
+<meta property="og:image" content="https://bikininstudio.github.io/assets/og/gg-sport17.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 44'%3E%3Cpolygon points='20,1 38.5,11.5 38.5,32.5 20,43 1.5,32.5 1.5,11.5' fill='%23D7261E'/%3E%3Ctext x='20' y='28' text-anchor='middle' fill='%23fff' font-size='17' font-weight='900' font-family='Arial'%3EGG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/demo/demo.css"><link rel="stylesheet" href="/demo/demo-motion.css">
+<link rel="stylesheet" href="style.css?v=10">
+<script type="importmap">{"imports":{"three":"../3d/three.module.min.js"}}</script>
+<link rel="modulepreload" href="../3d/three.module.min.js">
+<link rel="modulepreload" href="roll3d.js?v=9">
+<link rel="preload" href="models/kindmax.glb" as="fetch" crossorigin>
+<style>
+/* Salinan portofolio: beri tempat untuk pita demo Bikinin dan matikan gerak bawaan pita */
+html { scroll-padding-top: 48px; }
+.hero { min-height: calc(100svh - 120px); }
+.dm-on .dm, .dm-on .dm.dm-in, .dm-on .dm.dm-out { opacity: 1 !important; transform: none !important; transition: none !important; }
+.dm-amb, .dm-pulse { animation: none !important; }
+@media (max-width: 760px) { html { scroll-padding-top: 52px; } .hero { min-height: 0; } .hero-stage { height: clamp(150px, 22svh, 220px); } }
+</style>
+</head>
+<body data-demo="gg-sport17" data-label="Toko 3D GG Sport17" data-fiktif="asli">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 11.2a1 1 0 0 0 1 .8h9.2a1 1 0 0 0 1-.8L20 8H6.2M9 20.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm9 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14Zm9 2-4-4"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="i-arah" viewBox="0 0 12 12"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M2 6h8M6.5 2.5 10 6l-3.5 3.5"/></symbol>
+  <symbol id="hex" viewBox="0 0 40 44"><polygon points="20,1 38.5,11.5 38.5,32.5 20,43 1.5,32.5 1.5,11.5"/></symbol>
+  <symbol id="logo" viewBox="0 0 40 44"><polygon points="20,1 38.5,11.5 38.5,32.5 20,43 1.5,32.5 1.5,11.5" fill="#D7261E"/><polygon points="20,5 35,13.6 35,30.4 20,39 5,30.4 5,13.6" fill="none" stroke="#fff" stroke-width="1.6"/><text x="20" y="25" text-anchor="middle" fill="#fff" font-size="14" font-weight="900" font-family="Barlow Condensed,Arial Narrow,Arial">GG</text><text x="20" y="32.5" text-anchor="middle" fill="#fff" font-size="5.6" font-weight="800" letter-spacing=".6" font-family="Barlow Condensed,Arial Narrow,Arial">SPORT</text></symbol>
+</svg>
+
+<!-- Latar: pita tape dari cahaya (pita.js). Depan: model 3D roll asli (scene3d.js + roll3d.js). -->
+<div class="kemajuan" aria-hidden="true"><i></i></div>
+<canvas class="pita" id="pita" aria-hidden="true"></canvas>
+<canvas id="gl" aria-hidden="true"></canvas>
+<div class="lvh" id="lvh" aria-hidden="true"></div>
+
+<header class="atas">
+  <a class="merek" href="#top" aria-label="GG Sport17 beranda">
+    <svg class="logo"><use href="#logo"/></svg>
+    <span>GG Sport17</span>
+  </a>
+  <nav aria-label="Bagian halaman">
+    <a href="#jenis">Jenis tape</a>
+    <a href="#rak">Rak warna</a>
+    <a href="#produk">Produk</a>
+    <a href="#cara">Cara pesan</a>
+  </nav>
+  <button class="tombol kecil gelap" type="button" data-wa="Halo GG Sport17!"><svg><use href="#i-wa"/></svg>Chat admin</button>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h-hero">
+    <div class="hero-teks" id="hero-teks">
+      <h1 id="h-hero" class="pecah"><span class="kata"><span style="--i:0">Tape</span></span> <span class="kata"><span style="--i:1">olahraga</span></span><br><em><span class="kata"><span style="--i:2">yang</span></span> <span class="kata"><span style="--i:3">ikut</span></span> <span class="kata"><span style="--i:4">bergerak</span></span></em></h1>
+      <p class="lead">Kinesiology tape, sport tape rigid, finger tape, dan foamwrap original. Mulai Rp10.000 per roll, dikirim ke seluruh Indonesia.</p>
+      <div class="aksi">
+        <a class="tombol" href="#produk">Lihat semua produk <svg><use href="#i-arah"/></svg></a>
+        <button class="tombol gelap" type="button" data-wa="Halo GG Sport17! Saya mau konsultasi pilih tape yang cocok."><svg><use href="#i-wa"/></svg>Tanya admin</button>
+      </div>
+      <p class="catatan">Pesanan dikirim lewat WhatsApp. Admin membalas dengan total dan ongkir sesuai alamat.</p>
+    </div>
+
+    <div class="panel konfig" role="group" aria-labelledby="h-konfig">
+      <div class="p-kepala">
+        <h2 id="h-konfig">Pilih roll <span id="hero-line"></span></h2>
+        <span class="status"><i></i><span id="hero-harga"></span></span>
+      </div>
+      <div class="tabs" id="hero-tabs" role="tablist" aria-label="Pilih jenis roll"></div>
+      <div class="hero-stage" id="hero-stage" aria-hidden="true">
+        <img class="fb" id="hero-fb" alt="" width="640" height="640" fetchpriority="high">
+        <span class="chip-3d"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12a8 3.5 0 0 0 16 0M20 12a8 3.5 0 0 0-14.6-2M7 7.5 5.4 10l2.8.6"/></svg>Geser untuk memutar</span>
+      </div>
+      <div class="k-warna">
+        <p id="hero-pick-txt" aria-live="polite"></p>
+        <div class="sw" id="hero-sw" role="group" aria-label="Warna roll"></div>
+      </div>
+      <div class="k-aksi">
+        <button class="tombol" type="button" id="hero-add"><svg><use href="#i-cart"/></svg>Tambah ke keranjang</button>
+        <button class="tombol gelap" type="button" id="hero-foto">Lihat foto</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="pernyataan" aria-labelledby="h-pernyataan">
+    <div class="pernyataan-teks">
+      <h2 id="h-pernyataan" data-rv>Pilih tape dari gunanya, lalu dari <em>warnanya</em></h2>
+      <p class="redup" data-rv>Kinesiology tape elastis untuk otot. Sport tape rigid untuk mengunci sendi. Finger tape untuk jari dan pergelangan. Semua roll di bawah ini ada di rak toko kami.</p>
+    </div>
+    <div class="deret" id="deret" aria-hidden="true"></div>
+  </section>
+
+  <section class="jenis" id="jenis" aria-labelledby="h-jenis">
+    <div class="judul-baris">
+      <h2 id="h-jenis" data-rv>Tujuh rak, <em>satu toko</em></h2>
+      <p class="redup" data-rv>Ketuk satu jenis untuk melihat produknya.</p>
+    </div>
+    <ul class="kartu-jenis" id="pts"></ul>
+  </section>
+
+  <section class="rak" id="rak" aria-labelledby="h-rak">
+    <div class="judul-baris">
+      <h2 id="h-rak" data-rv>Putar raknya, ketuk <em>warnanya</em></h2>
+      <div class="tabs" id="rak-tabs" role="tablist" aria-label="Pilih produk"></div>
+    </div>
+    <div class="panel rak-panel">
+      <div class="rak-stage" id="rak-stage">
+        <img class="fb" id="rak-fb" alt="" width="640" height="640" loading="lazy">
+        <p class="rak-hint" id="rak-hint">Geser untuk memutar rak. Ketuk roll untuk memilih warnanya.</p>
+      </div>
+      <div class="rak-bot">
+        <div class="rak-info">
+          <p class="rak-nama" id="rak-nama"></p>
+          <p class="rak-warna" id="rak-warna" aria-live="polite"></p>
+          <div class="sw" id="rak-sw" role="group" aria-label="Pilih warna"></div>
+        </div>
+        <div class="rak-act">
+          <button class="tombol" type="button" id="rak-add"><svg><use href="#i-cart"/></svg>Tambah ke keranjang</button>
+          <button class="tombol gelap" type="button" id="rak-foto">Lihat foto produk</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pepatah" aria-labelledby="h-pepatah">
+    <div class="pepatah-stage" id="pepatah-stage" aria-hidden="true">
+      <img class="fb" id="pepatah-fb" src="images/hasil/km-merah-terbuka.webp" alt="" width="525" height="470" loading="lazy">
+    </div>
+    <div class="pepatah-teks">
+      <h2 id="h-pepatah">Sobek, tempel, <em>main</em></h2>
+      <p class="redup" data-rv>Satu roll kinesiology tape panjangnya 5 meter dan lebarnya 5 cm. Potong sesuai bagian yang mau di-taping, bulatkan ujungnya supaya tidak mudah terkelupas.</p>
+    </div>
+  </section>
+
+  <section class="produk" id="produk" aria-labelledby="h-produk">
+    <div class="judul-baris">
+      <h2 id="h-produk" data-rv>Semua <em>produk</em></h2>
+      <p class="count" id="prod-count" aria-live="polite"></p>
+    </div>
+    <div class="panel produk-panel">
+      <div class="produk-tools">
+        <label class="search">
+          <svg><use href="#i-search"/></svg>
+          <span class="sr">Cari produk</span>
+          <input id="search" type="search" placeholder="Cari tape, foamwrap, kaos kaki…" autocomplete="off">
+        </label>
+        <div class="pills" id="pills" role="tablist" aria-label="Kategori"></div>
+      </div>
+      <div class="rows" id="daftar"></div>
+      <div class="empty" id="empty" hidden>
+        <p><b>Produk tidak ditemukan.</b> Coba kata lain, atau tanya langsung ke kami.</p>
+        <button class="tombol gelap" type="button" data-wa="Halo GG Sport17! Saya cari produk yang tidak ada di web, bisa dibantu?">Tanya lewat WhatsApp</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cara" id="cara" aria-labelledby="h-cara">
+    <div class="judul-baris">
+      <h2 id="h-cara" data-rv>Tiga langkah, <em>satu chat</em></h2>
+    </div>
+    <ol class="langkah">
+      <li class="panel" data-rv>
+        <figure><img src="images/toko/rak.jpg" alt="Rak toko GG Sport17 penuh tape dan kaos kaki berbagai warna" width="1200" height="1600" loading="lazy"></figure>
+        <div class="langkah-isi"><span class="no">01</span><h3>Pilih</h3><p>Masukkan tape ke keranjang. Warna dan jumlahnya bisa diatur dari sana.</p></div>
+      </li>
+      <li class="panel" data-rv style="--d:80ms">
+        <figure><img src="images/toko/genggam-biru.jpg" alt="Finger tape biru berlogo GG Sport dipegang di depan meja kemas toko" width="1200" height="1600" loading="lazy"></figure>
+        <div class="langkah-isi"><span class="no">02</span><h3>Chat</h3><p>Isi nama dan alamat. Isi keranjang terkirim ke WhatsApp kami, admin membalas dengan total dan ongkir.</p></div>
+      </li>
+      <li class="panel" data-rv style="--d:160ms">
+        <figure><img src="images/toko/stok.jpg" alt="Dus berisi puluhan botol Salonpas Jet Spray siap kirim" width="1200" height="1600" loading="lazy"></figure>
+        <div class="langkah-isi"><span class="no">03</span><h3>Kemas</h3><p>Setelah pembayaran, pesanan dikemas dan dikirim ke alamatmu di seluruh Indonesia.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="angka" id="angka" aria-labelledby="h-angka">
+    <div class="panel angka-panel">
+      <figure class="angka-foto"><img src="images/toko/stok-tangan.jpg" alt="Salonpas Jet Spray dipegang di atas dus stok toko" width="1200" height="1600" loading="lazy"></figure>
+      <div class="angka-isi">
+        <h2 id="h-angka" data-rv>Angka toko di <em>Shopee</em></h2>
+        <p class="fig" id="fig"></p>
+        <p class="fig-s redup" id="fig-s"></p>
+        <dl class="angka-2" id="angka-2"></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="pesan" id="tanya" aria-labelledby="h-pesan">
+    <div class="panel pesan-panel">
+      <div class="cta-stage" id="cta-stage" aria-hidden="true">
+        <img class="fb" src="models/thumb/tumpukan-l.webp" alt="" width="640" height="640" loading="lazy">
+      </div>
+      <div class="cta-txt">
+        <h2 id="h-pesan" data-rv>Ceritakan olahraganya, kami <em>pilihkan tapenya</em></h2>
+        <p data-rv>Sebutkan cabang olahraga dan bagian tubuh yang mau di-taping. Admin membalas dengan pilihan tape dan harganya.</p>
+        <p class="cta-fact" data-rv>Konsultasi lewat WhatsApp, gratis.</p>
+        <button class="tombol" type="button" data-rv data-wa="Halo GG Sport17! Saya mau konsultasi pilih tape yang cocok."><svg><use href="#i-wa"/></svg>Chat WhatsApp</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="kaki" id="kontak">
+  <div class="kaki-merek">
+    <a class="merek" href="#top"><svg class="logo besar"><use href="#logo"/></svg><span>GG Sport17</span></a>
+    <p class="redup">Toko perlengkapan taping dan sport health. Produk original untuk atlet dan pecinta olahraga.</p>
+  </div>
+  <nav aria-label="Belanja">
+    <h3>Belanja</h3>
+    <a href="#jenis">Jenis tape</a>
+    <a href="#rak">Rak warna</a>
+    <a href="#produk">Semua produk</a>
+  </nav>
+  <nav aria-label="Kontak">
+    <h3>Kontak</h3>
+    <ul>
+      <li><a href="#" data-wa="Halo GG Sport17!" id="ftr-wa">WhatsApp</a></li>
+      <li><a href="#" id="ftr-shopee" target="_blank" rel="noopener">Shopee: Gg-Sport17</a></li>
+      <li><a href="https://ggsport17.netlify.app/" target="_blank" rel="noopener">Toko asli</a></li>
+      <li><a href="#top">Kembali ke atas</a></li>
+    </ul>
+  </nav>
+  <p class="imprint redup">© <span id="year"></span> GG Sport17</p>
+</footer>
+
+<div class="dock">
+  <button class="tombol" type="button" id="cart-open"><svg><use href="#i-cart"/></svg><span class="dock-lbl">Keranjang</span><span class="cart-count" id="cart-count" hidden>0</span></button>
+</div>
+
+<!-- Detail produk -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="pd-name" hidden>
+  <div class="modal-bg" data-close></div>
+  <div class="modal-box">
+    <button class="icon-btn modal-x" data-close aria-label="Tutup"><svg><use href="#i-close"/></svg></button>
+    <div class="pd" id="pd"></div>
+  </div>
+</div>
+
+<!-- Keranjang -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-bg" data-close-cart></div>
+  <aside class="drawer-box" role="dialog" aria-modal="true" aria-label="Keranjang">
+    <div class="drawer-hd">
+      <h3>Keranjang</h3>
+      <button class="icon-btn" data-close-cart aria-label="Tutup"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <div class="drawer-body" id="cart-body"></div>
+    <div class="drawer-ft" id="cart-ft"></div>
+  </aside>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="products.js?v=9"></script>
+<script src="models/models.js?v=9"></script>
+<script src="images/hasil/hasil.js?v=9"></script>
+<script>window.GG_DEMO = true;</script>
+<script src="app.js?v=10"></script>
+<script src="pita.js?v=9"></script>
+<script type="module" src="scene3d.js?v=9"></script>
+<script src="/assets/js/demo-core.js"></script>
+</body>
+</html>

@@ -9,9 +9,11 @@
   window.waLink = function (text) { return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text); };
 
   var body = document.body, slug = body.dataset.demo, label = body.dataset.label;
-  var own = body.dataset.fiktif === "false"; // karya milik Bikinin sendiri (brand kit, studio 3D)
-  var tag = own ? "<b class=\"demo-sendiri\">Karya sendiri</b>" : "<b>Proyek konsep<span class=\"demo-pj\"> – brand fiktif</span></b>";
-  var ket = own ? "Karya milik Bikinin Studio sendiri" : "Nama usaha dan harga di sini contoh";
+  // data-fiktif: "false" = karya milik Bikinin sendiri (brand kit, studio 3D); "asli" = karya untuk klien nyata; lainnya = proyek konsep
+  var asli = body.dataset.fiktif === "asli";
+  var own = body.dataset.fiktif === "false";
+  var tag = asli ? "<b class=\"demo-asli\">Karya asli</b>" : own ? "<b class=\"demo-sendiri\">Karya sendiri</b>" : "<b>Proyek konsep<span class=\"demo-pj\"> – brand fiktif</span></b>";
+  var ket = asli ? "Karya untuk klien nyata" : own ? "Karya milik Bikinin Studio sendiri" : "Nama usaha dan harga di sini contoh";
 
   var bar = document.createElement("div");
   bar.className = "demo-bar"; bar.setAttribute("role", "region"); bar.setAttribute("aria-label", "Informasi demo");

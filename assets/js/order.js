@@ -27,7 +27,7 @@
 
   // ---- Util ----
   var fieldMsg = { nama: "Nama wajib diisi, 2–80 karakter.", segmen: "Pilih segmen Anda.", layanan: "Pilih layanan yang Anda butuhkan.", deadline: "Tanggal tenggat tidak boleh sebelum hari ini.", referensi: "Tulis alamat lengkap yang diawali https://.", detail: "Detail maksimal 2000 karakter.", kontak: "Masukkan nomor WhatsApp atau alamat email yang benar.", setuju: "Centang persetujuan agar brief dapat kami catat." };
-  var order = ["nama", "usaha", "segmen", "layanan", "paket_teks", "budget", "deadline", "referensi", "detail", "kontak", "setuju"];
+  var order = ["nama", "usaha", "segmen", "pesanan_via", "layanan", "paket_teks", "budget", "deadline", "referensi", "detail", "kontak", "setuju"];
   function setErr(id, msg) {
     var e = $(id + "-e"), el = $(id);
     if (!e) return;
@@ -65,6 +65,7 @@
     if (kode) L.push("Kode pesanan: " + kode);
     L.push("Nama: " + val("nama"));
     if (val("usaha")) L.push("Usaha/instansi: " + val("usaha"));
+    if (val("pesanan_via")) L.push("Pesanan saat ini lewat: " + label("pesanan_via"));
     L.push("Layanan: " + label("layanan") + (val("paket_teks") ? " · Paket: " + val("paket_teks") : ""));
     if (est > 0) L.push("Estimasi kalkulator: " + $("estimasi_t").value);
     var ab = [val("budget") ? "Anggaran: " + label("budget") : "", val("deadline") ? "Tenggat: " + val("deadline") : ""].filter(Boolean).join(" · ");
@@ -102,7 +103,7 @@
     sending = true; btn.textContent = "Mengirim…"; btn.setAttribute("aria-disabled", "true"); btn.disabled = true;
     var k = val("kontak");
     var payload = {
-      nama: val("nama"), usaha: val("usaha"), segmen: val("segmen"), layanan: val("layanan"), paket_teks: val("paket_teks"),
+      nama: val("nama"), usaha: val("usaha"), segmen: val("segmen"), pesanan_via: val("pesanan_via") || undefined, layanan: val("layanan"), paket_teks: val("paket_teks"),
       budget: val("budget") || undefined, deadline: val("deadline") || undefined, referensi: val("referensi") || undefined, detail: val("detail"),
       dokumen: [].map.call(form.querySelectorAll('input[name="dokumen"]:checked'), function (c) { return c.value; }),
       halaman: location.pathname, setuju: true, consent_version: "2026-10-25", t_start: tStart, kode_cadangan: $("kode_cadangan").value,

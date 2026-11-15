@@ -7,7 +7,7 @@
   var rp = function (n) { return "Rp " + Math.round(n).toLocaleString("id-ID"); };
   var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
   var q = new URLSearchParams(location.search);
-  var st = { cat: G[q.get("l")] ? q.get("l") : "desain", idx: 0, qty: 1, express: false, rev: 0, maint: false };
+  var st = { cat: G[q.get("l")] ? q.get("l") : Object.keys(G)[0], idx: 0, qty: 1, express: false, rev: 0, maint: false };
   var $ = function (id) { return document.getElementById(id); };
 
   box.innerHTML =

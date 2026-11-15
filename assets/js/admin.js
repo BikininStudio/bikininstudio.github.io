@@ -10,12 +10,13 @@
   var STATUS = [["baru", "Baru"], ["dihubungi", "Sudah dihubungi"], ["penawaran_dikirim", "Penawaran dikirim"], ["deal", "Deal"], ["dikerjakan", "Sedang dikerjakan"], ["menunggu_revisi", "Menunggu tanggapan klien"], ["menunggu_pelunasan", "Menunggu pelunasan"], ["selesai", "Selesai"], ["batal", "Batal"], ["spam", "Spam"]];
   var SLABEL = {}; STATUS.forEach(function (s) { SLABEL[s[0]] = s[1]; });
   var BUDGET = { lt_100rb: "Di bawah Rp 100rb", "100_300rb": "Rp 100–300rb", "300rb_1jt": "Rp 300rb–1jt", "1_3jt": "Rp 1–3jt", "3_10jt": "Rp 3–10jt", gt_10jt: "Di atas Rp 10jt", belum: "Belum ditentukan" };
+  var PESANAN = { whatsapp: "WhatsApp", dm: "DM Instagram atau Facebook", telepon: "Telepon atau SMS", buku: "Dicatat di buku", marketplace: "Marketplace atau aplikasi pesan-antar", belum: "Belum ada pesanan masuk" };
   var DOC = { penawaran: "Penawaran harga", perjanjian: "Perjanjian kerja", nda: "NDA", invoice: "Invoice" };
   var SEG = { umkm: "UMKM", pelajar: "Pelajar", perusahaan: "Perusahaan", lainnya: "Lainnya" };
   var RLABEL = { menunggu: "Menunggu", disetujui: "Disetujui", ditolak: "Ditolak", disembunyikan: "Disembunyikan" };
 
   var sb = null, tab = "pesanan", idleTimer = null;
-  var ls = { page: 0, status: "", q: "" };
+  var ls = { page: 0, status: "", via: "", q: "" };
 
   // ---------- util ----------
   function h(tag, attrs) {
@@ -131,13 +132,17 @@
     var sel = h("select", { id: "fs", "aria-label": "Filter status" }, h("option", { value: "", text: "Semua status" }));
     STATUS.forEach(function (s) { sel.appendChild(h("option", { value: s[0], text: s[1] })); });
     sel.value = ls.status;
+    var selVia = h("select", { id: "fv", "aria-label": "Filter saluran pesanan" }, h("option", { value: "", text: "Semua saluran pesanan" }));
+    Object.keys(PESANAN).forEach(function (k) { selVia.appendChild(h("option", { value: k, text: PESANAN[k] })); });
+    selVia.value = ls.via;
+    selVia.addEventListener("change", function () { ls.via = selVia.value; ls.page = 0; load(); });
     var q = h("input", { type: "text", id: "fq", placeholder: "Cari nama atau kode", "aria-label": "Cari nama atau kode", value: ls.q, autocomplete: "off" });
     var out = h("div", { "aria-live": "polite" });
     var timer;
     sel.addEventListener("change", function () { ls.status = sel.value; ls.page = 0; load(); });
     q.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(function () { ls.q = q.value; ls.page = 0; load(); }, 350); });
     var title = h("h1", { text: "Pesanan" });
-    box.appendChild(h("div", { class: "adm-h" }, title)); box.appendChild(h("div", { class: "adm-bar" }, q, sel)); box.appendChild(out);
+    box.appendChild(h("div", { class: "adm-h" }, title)); box.appendChild(h("div", { class: "adm-bar" }, q, sel, selVia)); box.appendChild(out);
     load();
     sb.from("orders").select("id", { count: "exact", head: true }).eq("status", "baru").then(function (r) {
       if (!r.error && r.count != null) { title.textContent = "Pesanan"; tabBtn.textContent = "Pesanan" + (r.count ? " · Baru (" + r.count + ")" : ""); }
@@ -147,6 +152,7 @@
       var qq = ls.q.replace(/[,()%*\\:"']/g, " ").trim();
       var qr = sb.from("orders").select("id,kode,created_at,nama,layanan,paket_teks,deadline,status", { count: "exact" }).order("created_at", { ascending: false }).range(ls.page * PER, ls.page * PER + PER - 1);
       if (ls.status) qr = qr.eq("status", ls.status);
+      if (ls.via) qr = qr.eq("pesanan_via", ls.via);
       if (qq) qr = qr.or("kode.ilike.%" + qq + "%,nama.ilike.%" + qq + "%");
       qr.then(function (r) {
         out.textContent = "";
@@ -201,7 +207,7 @@
       o.kontak_wa || o.kontak_email ? dl([["WhatsApp", o.kontak_wa ? "+" + o.kontak_wa : ""], ["Email", o.kontak_email ? h("a", { href: "mailto:" + o.kontak_email, text: o.kontak_email }) : ""]]) : h("p", { text: "Klien tidak mencantumkan kontak balik." }),
       wa ? h("div", { class: "adm-actions" }, wa) : null);
     var need = h("section", { class: "adm-card" }, h("h2", { text: "Kebutuhan" }), dl([
-      ["Nama", o.nama], ["Usaha", o.usaha], ["Segmen", SEG[o.segmen] || o.segmen], ["Layanan", o.layanan], ["Paket", o.paket_teks], ["Estimasi", o.estimasi != null ? rp(o.estimasi) : ""], ["Opsi estimasi", opsi],
+      ["Nama", o.nama], ["Usaha", o.usaha], ["Segmen", SEG[o.segmen] || o.segmen], ["Pesanan saat ini lewat", o.pesanan_via ? (PESANAN[o.pesanan_via] || o.pesanan_via) : ""], ["Layanan", o.layanan], ["Paket", o.paket_teks], ["Estimasi", o.estimasi != null ? rp(o.estimasi) : ""], ["Opsi estimasi", opsi],
       ["Anggaran", o.budget ? (BUDGET[o.budget] || o.budget) : ""], ["Tenggat", o.deadline ? fmtDate(o.deadline) : ""], ["Referensi", ref], ["Detail", o.detail],
       ["Halaman asal", o.halaman_asal], ["Dikirim", fmtTime(o.created_at)], ["Persetujuan data", fmtTime(o.consent_at) + " (versi " + o.consent_version + ")"]]));
     var docs = h("section", { class: "adm-card" }, h("h2", { text: "Dokumen diminta" }),
