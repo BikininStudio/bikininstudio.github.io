@@ -106,11 +106,12 @@
       nama: val("nama"), usaha: val("usaha"), segmen: val("segmen"), pesanan_via: val("pesanan_via") || undefined, layanan: val("layanan"), paket_teks: val("paket_teks"),
       budget: val("budget") || undefined, deadline: val("deadline") || undefined, referensi: val("referensi") || undefined, detail: val("detail"),
       dokumen: [].map.call(form.querySelectorAll('input[name="dokumen"]:checked'), function (c) { return c.value; }),
-      halaman: location.pathname, setuju: true, consent_version: "2026-10-25", t_start: tStart, kode_cadangan: $("kode_cadangan").value,
+      halaman: location.pathname, setuju: true, consent_version: form.getAttribute("data-consent"), t_start: tStart, kode_cadangan: $("kode_cadangan").value,
     };
     if (est > 0) { payload.estimasi = est; payload.estimasi_opsi = estOpsi; }
     if (k) { if (k.indexOf("@") > -1) payload.kontak_email = k; else payload.kontak_wa = k; }
-    var utm = {}; ["utm_source", "utm_medium", "utm_campaign"].forEach(function (u) { if (q.get(u)) utm[u] = q.get(u); }); if (Object.keys(utm).length) payload.utm = utm;
+    var utm = {}; var saved = {}; try { saved = JSON.parse(sessionStorage.getItem("bk_utm") || "{}") || {}; } catch (e) {}
+    ["utm_source", "utm_medium", "utm_campaign"].forEach(function (u) { var v = q.get(u) || saved[u]; if (v) utm[u] = v; }); if (Object.keys(utm).length) payload.utm = utm;
     window.BikininAPI.submitBrief(payload).then(function (r) {
       sending = false; btn.disabled = false; btn.removeAttribute("aria-disabled"); btn.textContent = "Kirim brief";
       if (r.ok && r.kode) {

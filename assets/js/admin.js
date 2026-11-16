@@ -207,7 +207,7 @@
       o.kontak_wa || o.kontak_email ? dl([["WhatsApp", o.kontak_wa ? "+" + o.kontak_wa : ""], ["Email", o.kontak_email ? h("a", { href: "mailto:" + o.kontak_email, text: o.kontak_email }) : ""]]) : h("p", { text: "Klien tidak mencantumkan kontak balik." }),
       wa ? h("div", { class: "adm-actions" }, wa) : null);
     var need = h("section", { class: "adm-card" }, h("h2", { text: "Kebutuhan" }), dl([
-      ["Nama", o.nama], ["Usaha", o.usaha], ["Segmen", SEG[o.segmen] || o.segmen], ["Pesanan saat ini lewat", o.pesanan_via ? (PESANAN[o.pesanan_via] || o.pesanan_via) : ""], ["Layanan", o.layanan], ["Paket", o.paket_teks], ["Estimasi", o.estimasi != null ? rp(o.estimasi) : ""], ["Opsi estimasi", opsi],
+      ["Nama", o.nama], ["Usaha", o.usaha], ["Segmen", SEG[o.segmen] || o.segmen], ["Sumber link", o.utm ? [o.utm.utm_source, o.utm.utm_medium, o.utm.utm_campaign].filter(Boolean).join(" / ") : ""], ["Pesanan saat ini lewat", o.pesanan_via ? (PESANAN[o.pesanan_via] || o.pesanan_via) : ""], ["Layanan", o.layanan], ["Paket", o.paket_teks], ["Estimasi", o.estimasi != null ? rp(o.estimasi) : ""], ["Opsi estimasi", opsi],
       ["Anggaran", o.budget ? (BUDGET[o.budget] || o.budget) : ""], ["Tenggat", o.deadline ? fmtDate(o.deadline) : ""], ["Referensi", ref], ["Detail", o.detail],
       ["Halaman asal", o.halaman_asal], ["Dikirim", fmtTime(o.created_at)], ["Persetujuan data", fmtTime(o.consent_at) + " (versi " + o.consent_version + ")"]]));
     var docs = h("section", { class: "adm-card" }, h("h2", { text: "Dokumen diminta" }),
