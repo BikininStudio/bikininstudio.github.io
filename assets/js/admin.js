@@ -6,7 +6,7 @@
   var outBtn = document.getElementById("out");
   var live = document.getElementById("live");
   var PER = 25, IDLE_MS = 8 * 3600 * 1000, LAST_KEY = "bkn_admin_last";
-  var REVIEW_URL = "https://bikininstudio.github.io/ulasan/?kode=";
+  var REVIEW_URL = "https://bikininstudio.com/ulasan/?kode=";
   var STATUS = [["baru", "Baru"], ["dihubungi", "Sudah dihubungi"], ["penawaran_dikirim", "Penawaran dikirim"], ["deal", "Deal"], ["dikerjakan", "Sedang dikerjakan"], ["menunggu_revisi", "Menunggu tanggapan klien"], ["menunggu_pelunasan", "Menunggu pelunasan"], ["selesai", "Selesai"], ["batal", "Batal"], ["spam", "Spam"]];
   var SLABEL = {}; STATUS.forEach(function (s) { SLABEL[s[0]] = s[1]; });
   var BUDGET = { lt_100rb: "Di bawah Rp 100rb", "100_300rb": "Rp 100–300rb", "300rb_1jt": "Rp 300rb–1jt", "1_3jt": "Rp 1–3jt", "3_10jt": "Rp 3–10jt", gt_10jt: "Di atas Rp 10jt", belum: "Belum ditentukan" };

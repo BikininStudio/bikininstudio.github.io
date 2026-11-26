@@ -35,12 +35,13 @@
   }
 
   function draw(p) {
-    // 1) satu kata yang berganti (0 - .2): tiap kata masuk dari bawah, ditahan, lalu naik keluar.
-    //    Satu elemen saja, jadi tidak pernah ada lima kata bertumpuk atau tertimpa kartu.
-    var n = WORDS.length, wp = clamp(p / 0.2) * n, idx = Math.min(n - 1, Math.floor(wp)), local = wp - idx;
-    if (p >= 0.2) { idx = n - 1; local = 1; }
+    // 1) satu kata yang berganti (0 - .26): tiap kata masuk dari bawah, ditahan, lalu naik keluar.
+    //    Satu elemen saja (tidak ada lima kata bertumpuk). Kartu karya mulai masuk sejak .05,
+    //    jadi kata raksasa tidak pernah berdiri sendirian di satu layar penuh.
+    var n = WORDS.length, wp = clamp(p / 0.26) * n, idx = Math.min(n - 1, Math.floor(wp)), local = wp - idx;
+    if (p >= 0.26) { idx = n - 1; local = 1; }
     if (word.textContent !== WORDS[idx]) word.textContent = WORDS[idx];
-    var wIn = out3(clamp(local / .18)), wOut = idx === n - 1 ? out3(seg(p, .18, .22)) : out3(seg(local, .84, 1));
+    var wIn = out3(clamp(local / .18)), wOut = idx === n - 1 ? out3(seg(p, .23, .27)) : out3(seg(local, .84, 1));
     var wo = wIn * (1 - wOut); word.style.opacity = wo.toFixed(3); word.style.visibility = wo < .005 ? "hidden" : "";
     word.style.transform = "translate3d(0," + f2((1 - wIn) * 44 - wOut * 44) + "px,0) scale(" + (1.1 - .1 * wIn).toFixed(4) + ")";
 
@@ -50,11 +51,11 @@
     glow.style.opacity = ((.38 * g0 + .62 * g) * (1 - .25 * inout(gEnd))).toFixed(3);
     glow.style.transform = "scale(" + (.6 + .4 * g).toFixed(4) + ")";
 
-    // 3) kartu: berputar masuk dari kedalaman (.22 - .62), lalu lewat kamera (.66 - .86)
+    // 3) kartu: berputar masuk dari kedalaman (.05 - .45), lalu lewat kamera (.66 - .86)
     var pos = hp ? POS_HP : POS;
     for (var k = 0; k < cards.length; k++) {
       var c = cards[k], f = pos[k % pos.length];
-      var tin = out3(seg(p, .22 + k * .022, .44 + k * .022));
+      var tin = out3(seg(p, .05 + k * .022, .27 + k * .022));
       var tout = in2(seg(p, .66 + (k % 3) * .02, .82 + (k % 3) * .02));
       var ang = (1 - tin) * (1.4 + (k % 2) * .6) * (k % 2 ? -1 : 1);
       var cs = Math.cos(ang), sn = Math.sin(ang);

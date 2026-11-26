@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://bikininstudio.github.io/sitemap.xml
+Sitemap: https://bikininstudio.com/sitemap.xml

@@ -46,7 +46,7 @@
       canExpress() && '<div class="calc-opt"><label class="check"><input id="calc-express" type="checkbox"' + (st.express ? " checked" : "") + "><span>Ekspres 1x24 jam (+30%, menyesuaikan antrean)</span></label></div>",
       canRev() && '<div class="calc-opt field"><label for="calc-rev">Revisi tambahan (di luar jatah paket, Rp 10rb per revisi)</label><input id="calc-rev" type="number" inputmode="numeric" min="0" max="20" value="' + st.rev + '"></div>',
       web && '<div class="calc-opt"><label class="check"><input id="calc-maint" type="checkbox"' + (st.maint ? " checked" : "") + "><span>Maintenance bulanan (update isi &amp; perbaikan, Rp 100rb/bulan)</span></label></div>",
-      web && '<p class="help">Domain &amp; hosting dibayar terpisah, sekitar Rp 300–800rb per tahun.</p>',
+      web && '<p class="help">Hosting landing page gratis; domain dibayar terpisah, mulai sekitar Rp 20rb per tahun.</p>',
     ].filter(Boolean).join("");
     update();
   }
