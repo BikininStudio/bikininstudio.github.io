@@ -30,7 +30,7 @@
     /* Tata letak: laporan cetak dengan satu sumbu tegak di 42% lebar. Warna mengikuti logo di web. */
     @font-face { font-family: "Chivo"; font-style: normal; font-weight: 100 900; font-display: swap; src: url("/assets/fonts/chivo-var.woff2") format("woff2"); }
     :root {
-      --ink: #0A1620; --paper: #F4F1EC; --page: #EBEBE7; --step: #DDDCD6; --or: #E0612A; --grey: #3A4650;
+      --ink: #0A1620; --paper: #F4F1EC; --page: #EBEBE7; --step: #DDDCD6; --or: #3DB4FF; --grey: #3A4650;
       --m: clamp(16px, 3vw, 44px); --axis: 42%; --gap: clamp(96px, 13vw, 200px);
       --font: "Chivo", Arial, sans-serif;
       --t-xl: clamp(46px, 7.6vw, 124px); --t-l: clamp(32px, 4.4vw, 68px); --t-m: clamp(21px, 2vw, 28px); --t-b: 18px; --t-s: 16px;
@@ -250,8 +250,8 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <symbol id="glyph" viewBox="0 0 440 440"><path fill="currentColor" d="M124 102a30 30 0 0 1 60 0v72.7A95 95 0 1 1 184 351.3V358h-60zM219 225a38 38 0 1 0 0 76 38 38 0 0 0 0-76z" fill-rule="evenodd"/><circle fill="var(--dot, currentColor)" cx="314" cy="99" r="41"/></symbol>
-      <symbol id="tile-ink" viewBox="0 0 440 440"><rect width="440" height="440" rx="110" fill="#0A1620"/><use href="#glyph" width="440" height="440" style="color:#F4F1EC;--dot:#E0612A"/></symbol>
-      <symbol id="tile-paper" viewBox="0 0 440 440"><rect width="440" height="440" rx="110" fill="#F4F1EC"/><use href="#glyph" width="440" height="440" style="color:#0A1620;--dot:#E0612A"/></symbol>
+      <symbol id="tile-ink" viewBox="0 0 440 440"><rect width="440" height="440" rx="110" fill="#0A1620"/><use href="#glyph" width="440" height="440" style="color:#F4F1EC;--dot:#3DB4FF"/></symbol>
+      <symbol id="tile-paper" viewBox="0 0 440 440"><rect width="440" height="440" rx="110" fill="#F4F1EC"/><use href="#glyph" width="440" height="440" style="color:#0A1620;--dot:#3DB4FF"/></symbol>
       <symbol id="tile-mono" viewBox="0 0 440 440"><rect width="440" height="440" rx="110" fill="#0A1620"/><use href="#glyph" width="440" height="440" style="color:#F4F1EC;--dot:#F4F1EC"/></symbol>
     </defs>
   </svg>
@@ -262,7 +262,7 @@
         <svg viewBox="0 0 440 440" width="440" height="440">
           <g><circle class="g-line" pathLength="1" cx="219" cy="263" r="95"/><circle class="g-line" pathLength="1" cx="219" cy="263" r="38"/><circle class="g-line" pathLength="1" cx="314" cy="99" r="41"/><line class="g-line" pathLength="1" x1="124" y1="-40" x2="124" y2="480"/><line class="g-line" pathLength="1" x1="184" y1="-40" x2="184" y2="480"/></g>
           <path class="g-body" fill="#F4F1EC" fill-rule="evenodd" d="M124 102a30 30 0 0 1 60 0v72.7A95 95 0 1 1 184 351.3V358h-60zM219 225a38 38 0 1 0 0 76 38 38 0 0 0 0-76z"/>
-          <circle class="g-dot" cx="314" cy="99" r="41" fill="#E0612A"/>
+          <circle class="g-dot" cx="314" cy="99" r="41" fill="#3DB4FF"/>
         </svg>
       </div>
       <figure class="m-3d"><img src="img/logo-3d.webp" alt="Logo b dan titik versi 3D di beranda Bikinin Studio" width="640" height="600"></figure>
@@ -282,10 +282,10 @@
       <div class="l in">
         <figure class="size-fig">
           <svg viewBox="0 0 640 640" role="img" aria-label="Logo dengan ruang kosong selebar satu titik di keempat sisinya">
-            <rect x="0" y="0" width="640" height="640" fill="#E0612A" opacity=".2"/>
+            <rect x="0" y="0" width="640" height="640" fill="#3DB4FF" opacity=".2"/>
             <rect x="100" y="100" width="440" height="440" fill="#EEECE6"/>
             <svg x="100" y="100" width="440" height="440" viewBox="0 0 440 440"><use href="#tile-ink"/></svg>
-            <g fill="#E0612A"><circle cx="50" cy="50" r="41"/><circle cx="590" cy="50" r="41"/><circle cx="50" cy="590" r="41"/><circle cx="590" cy="590" r="41"/></g>
+            <g fill="#3DB4FF"><circle cx="50" cy="50" r="41"/><circle cx="590" cy="50" r="41"/><circle cx="50" cy="590" r="41"/><circle cx="590" cy="590" r="41"/></g>
           </svg>
         </figure>
       </div>
@@ -312,7 +312,7 @@
       <div class="versions">
         <div class="v v-a in"><svg class="v-big" viewBox="0 0 440 440" aria-hidden="true"><use href="#tile-ink"/></svg><span class="lock"><svg aria-hidden="true"><use href="#tile-ink"/></svg>Bikinin Studio</span><div><h3>Versi utama</h3><p class="use">Dipakai di latar terang: web, penawaran, invoice, dan kop surat.</p></div></div>
         <div class="v v-b in" style="--i:1"><span class="lock"><svg aria-hidden="true"><use href="#tile-paper"/></svg>Bikinin</span><div><h3>Versi terang</h3><p class="use">Dipakai di latar gelap dan foto yang pekat.</p></div></div>
-        <div class="v v-c in" style="--i:2"><svg style="width:92px;height:92px" aria-hidden="true"><use href="#tile-mono"/></svg><div><h3>Di atas oranye</h3><p class="use">Titik ikut berwarna kertas agar tidak hilang.</p></div></div>
+        <div class="v v-c in" style="--i:2"><svg style="width:92px;height:92px" aria-hidden="true"><use href="#tile-mono"/></svg><div><h3>Di atas biru es</h3><p class="use">Titik ikut berwarna kertas agar tidak hilang.</p></div></div>
         <div class="v v-d in" style="--i:3"><div class="v-row"><span class="stack"><svg aria-hidden="true"><use href="#tile-ink"/></svg>Bikinin Studio</span><svg class="stamp" aria-hidden="true"><use href="#glyph"/></svg></div><div><h3>Tumpuk dan cap satu warna</h3><p class="use" style="max-width:52ch">Versi tumpuk untuk stiker dan kemasan. Versi tanpa ubin untuk cap karet, bordir, dan sablon satu warna.</p></div></div>
       </div>
     </section>
@@ -341,10 +341,10 @@
     <section class="frame" id="warna">
       <div class="axis"><div class="r">
         <h2 class="in">Kertas dulu, tinta kemudian</h2>
-        <p class="lede in" style="--i:1">Oranye dipakai sedikit, untuk tombol dan titik. Lebar bidang di bawah ini mengikuti porsi pemakaiannya.</p>
+        <p class="lede in" style="--i:1">Biru es dipakai sedikit, untuk tombol dan titik. Lebar bidang di bawah ini mengikuti porsi pemakaiannya.</p>
       </div></div>
       <div class="bar in" aria-hidden="true">
-        <div style="background:#F4F1EC">60%</div><div style="background:#0A1620;color:#F4F1EC">28%</div><div style="background:#3A4650;color:#F4F1EC">9%</div><div style="background:#E0612A"></div>
+        <div style="background:#F4F1EC">60%</div><div style="background:#0A1620;color:#F4F1EC">28%</div><div style="background:#3A4650;color:#F4F1EC">9%</div><div style="background:#3DB4FF"></div>
       </div>
       <div class="scroll in" style="--i:1">
         <table class="colors">
@@ -354,7 +354,7 @@
             <tr><th scope="row">Kertas</th><td>#F4F1EC</td><td>244, 241, 236</td><td>Latar dan huruf b pada ubin</td><td><button class="copy" type="button" data-hex="#F4F1EC">Salin kode</button></td></tr>
             <tr><th scope="row">Tinta</th><td>#0A1620</td><td>10, 22, 32</td><td>Ubin logo, judul, dan teks</td><td><button class="copy" type="button" data-hex="#0A1620">Salin kode</button></td></tr>
             <tr><th scope="row">Abu tinta</th><td>#3A4650</td><td>58, 70, 80</td><td>Teks kedua</td><td><button class="copy" type="button" data-hex="#3A4650">Salin kode</button></td></tr>
-            <tr><th scope="row">Oranye</th><td>#E0612A</td><td>224, 97, 42</td><td>Titik logo dan tombol utama</td><td><button class="copy" type="button" data-hex="#E0612A">Salin kode</button></td></tr>
+            <tr><th scope="row">Biru es</th><td>#3DB4FF</td><td>61, 180, 255</td><td>Titik logo dan tombol utama</td><td><button class="copy" type="button" data-hex="#3DB4FF">Salin kode</button></td></tr>
           </tbody>
         </table>
       </div>

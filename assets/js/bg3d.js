@@ -1,10 +1,9 @@
 // Latar 3D untuk semua halaman (v8 "meja studio", 2026-11-05).
 // Benda-benda dari pekerjaan Bikinin Studio, dibuat dari kaca dan melayang pelan:
-// kursor kaca, kurva pen tool dengan titik jangkar,
-// contoh warna (swatch), dan di beranda logo "b" kaca yang bisa diseret. Latar pasir polos, kalem.
+// kini hanya logo "b" kaca di beranda (hiasan kursor/pena/swatch sudah dibuang). Latar pasir polos, kalem.
 // Hemat: berhenti saat tab tersembunyi, resolusi dibatasi, satu frame diam bila reduced-motion.
 const VENDOR = "/assets/vendor/three/";
-const GROUND = 0x0a1218, ORANGE = 0x3db4ff, INK = 0x0a1620, SAND = 0xf4f1ec;
+const GROUND = 0x0a1218, ACCENT = 0x3db4ff;
 
 export async function start(opts = {}) {
   const T = await import(VENDOR + "three.module.min.js");
@@ -42,61 +41,19 @@ export async function start(opts = {}) {
     clearcoat: 1, clearcoatRoughness: 0.05, specularIntensity: 0.9, envMapIntensity: 1.1,
     iridescence: small ? 0.1 : 0.3, iridescenceIOR: 1.3, iridescenceThicknessRange: [200, 500],
   }, o));
-  const gPane = glass({ envMapIntensity: 0.55, specularIntensity: 0.5, iridescence: 0.12, thickness: 0.4 });
   const gSolid = (c, r = 0.35) => new T.MeshStandardMaterial({ color: c, roughness: r, metalness: 0 });
 
   const world = new T.Group(); scene.add(world);
   const items = [];
   // fx/fy: posisi relatif lebar/tinggi layar; fs: skala relatif tinggi layar; rot: kemiringan dasar
-  const put = (obj, fx, fy, z, fs, rot, depth, spin = 0.15) => { obj.userData = { fx, fy, z, fs, rot, depth, spin, ph: Math.random() * 6.3 }; world.add(obj); items.push(obj); return obj; };
 
-  const rrect = (w, h, r) => { const s = new T.Shape(), x = -w / 2, y = -h / 2; s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r); s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h); s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r); s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y); return s; };
-  const bev = (d) => ({ depth: d, bevelEnabled: true, bevelThickness: 0.03, bevelSize: 0.03, bevelSegments: small ? 2 : 4, curveSegments: small ? 6 : 12 });
 
-  // ---- Kursor kaca ----
-  const cursor = () => {
-    const s = new T.Shape(); s.moveTo(0, 0); s.lineTo(0, -1); s.lineTo(0.27, -0.76); s.lineTo(0.46, -1.15); s.lineTo(0.6, -1.08); s.lineTo(0.41, -0.7); s.lineTo(0.74, -0.68); s.closePath();
-    const geo = new T.ExtrudeGeometry(s, bev(0.12)); geo.center();
-    return new T.Mesh(geo, glass({ thickness: 1, attenuationColor: new T.Color(0x9fb1bc), attenuationDistance: 1.6 }));
-  };
-
-  // ---- Kurva pen tool: garis oranye, titik jangkar putih, pegangan kaca ----
-  const pen = () => {
-    const g = new T.Group();
-    const p0 = new T.Vector3(-1, -0.4, 0), c1 = new T.Vector3(-0.4, 0.9, 0), c2 = new T.Vector3(0.4, -1, 0), p1 = new T.Vector3(1, 0.35, 0);
-    const curve = new T.CubicBezierCurve3(p0, c1, c2, p1);
-    g.add(new T.Mesh(new T.TubeGeometry(curve, small ? 60 : 120, 0.035, 12, false), gSolid(ORANGE, 0.3)));
-    const anchor = new T.BoxGeometry(0.13, 0.13, 0.13), hnd = new T.SphereGeometry(0.07, 24, 12);
-    const line = new T.MeshStandardMaterial({ color: INK, roughness: 0.5 });
-    [[p0, c1], [p1, c2]].forEach(([a, c]) => {
-      const m = new T.Mesh(anchor, gSolid(0xffffff, 0.4)); m.position.copy(a); g.add(m);
-      const h = new T.Mesh(hnd, glass({ thickness: 0.3 })); h.position.copy(c); g.add(h);
-      const l = new T.Mesh(new T.CylinderGeometry(0.008, 0.008, a.distanceTo(c), 6), line);
-      l.position.copy(a).add(c).multiplyScalar(0.5); l.lookAt(c); l.rotateX(Math.PI / 2); g.add(l);
-    });
-    return g;
-  };
-
-  // ---- Contoh warna brand ----
-  const swatches = () => {
-    const g = new T.Group(), geo = new T.ExtrudeGeometry(rrect(0.42, 0.42, 0.08), bev(0.08));
-    [ORANGE, INK, SAND].forEach((c, i) => { const m = new T.Mesh(geo, gSolid(c, 0.4)); m.position.set(i * 0.5 - 0.5, 0, 0); g.add(m); });
-    const cover = new T.Mesh(new T.ExtrudeGeometry(rrect(1.56, 0.62, 0.12), bev(0.06)), gPane); cover.position.z = 0.14; g.add(cover);
-    return g;
-  };
-
-  if (centre) {
-    // beranda: hanya logo "b" (hiasan kursor/pena/swatch dibuang 2026-11-12 agar fokus)
-  } else {
-    put(cursor(), 0.43, -0.36, 1, 0.05, [0, 0, 0.35], 1.1, 0.3);
-    // kanan atas: kiri atas tempat judul halaman, kurva tadinya memotong label dan judul
-    put(pen(), 0.44, 0.3, 0, 0.08, [0.2, 0.1, 0.1], 1.0);
-  }
+  // Hiasan kursor/pena/swatch dibuang: beranda 2026-11-12, halaman dalam 2026-11-26 (permintaan Kuro, terasa tempelan).
 
   // ---- Logo "b" kaca (beranda) ----
   let logo = null;
   if (centre) {
-    const { shapes } = await import("/assets/js/hero3d.js?v=mwx4sb1h");
+    const { shapes } = await import("/assets/js/hero3d.js?v=mwxkks5m");
     const { body, dot } = shapes(T);
     const ex = { depth: 0.5, bevelEnabled: true, bevelThickness: 0.1, bevelSize: 0.07, bevelSegments: small ? 3 : 6, curveSegments: small ? 20 : 48 };
     const gB = new T.ExtrudeGeometry(body, ex);
@@ -105,7 +62,7 @@ export async function start(opts = {}) {
     gB.translate(-cx, -cy, -ex.depth / 2);
     const gD = new T.ExtrudeGeometry(dot, ex); gD.translate(-cx, -cy, -ex.depth / 2);
     logo = new T.Group();
-    logo.add(new T.Mesh(gB, glass({ thickness: 2.2, transmission: 0.55, roughness: 0.18, color: 0xeef7ff, attenuationColor: new T.Color(0xcfeaff), attenuationDistance: 4, envMapIntensity: 2.6, specularIntensity: 1, iridescence: 0.15, emissive: 0x1b3a52, emissiveIntensity: 0.6 })), new T.Mesh(gD, gSolid(ORANGE, 0.3)));
+    logo.add(new T.Mesh(gB, glass({ thickness: 2.2, transmission: 0.55, roughness: 0.18, color: 0xeef7ff, attenuationColor: new T.Color(0xcfeaff), attenuationDistance: 4, envMapIntensity: 2.6, specularIntensity: 1, iridescence: 0.15, emissive: 0x1b3a52, emissiveIntensity: 0.6 })), new T.Mesh(gD, gSolid(ACCENT, 0.3)));
     world.add(logo);
   }
 

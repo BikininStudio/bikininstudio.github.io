@@ -47,7 +47,7 @@
     items.forEach(function (li, i) {
       li.classList.remove("on");
       var w = li.offsetWidth, h = li.offsetHeight;
-      peek = narrow ? w * 0.32 : 0;
+      peek = 0; // label karya wajib utuh: kartu tidak boleh keluar layar (dulu HP mengintip 32%)
       var side = i % 2 ? -1 : 1;
       if (count[side] >= max) side = -side;
       if (count[side] >= max) { li.style.visibility = "hidden"; return; }
