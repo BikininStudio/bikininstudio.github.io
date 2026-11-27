@@ -132,6 +132,8 @@
   function openAt(i) {
     if (raf) { cancelAnimationFrame(raf); raf = 0; tPrev = 0; }
     open = i; hover = -1; speed = 0; fill(items[i].querySelector(".bs-b"));
+    // HP memuat thumbnail 540 px untuk rak; saat panel dibuka (membesar) minta versi 960 px supaya tetap tajam
+    var im = items[i].querySelector(".bs-scr img"); if (im && im.sizes !== "960px") im.sizes = "960px";
     clearTimeout(hideT); det.hidden = false; void det.offsetWidth;
     [].forEach.call(hero.querySelectorAll(".hero-in"), function (el) { el.style.animation = "none"; });
     items.forEach(function (li, k) { li.classList.toggle("dim", k !== i); li.classList.add("tr"); });
@@ -139,6 +141,11 @@
     var li = items[i];
     put(li, "opacity", "1"); put(li, "visibility", "");
     place(li, S.narrow ? S.W / 2 : S.W * 0.71, S.narrow ? 16 + S.Hn / 2 : S.Hh * 0.5, 0, S.narrow ? 0 : -12, 1);
+    // HP: panel terbuka menempel di atas hero; bila halaman sudah digulir, bawa hero tepat di bawah header supaya panel tidak tertutup
+    if (S.narrow) {
+      var hd = document.querySelector("header"), top = hd ? hd.getBoundingClientRect().bottom : 0, dy = hero.getBoundingClientRect().top - top;
+      if (Math.abs(dy) > 4) window.scrollBy({ top: dy, behavior: still ? "auto" : "smooth" });
+    }
     setTimeout(function () { if (open === i) det.querySelector(".bd-h").focus({ preventScroll: true }); }, still ? 0 : 320);
   }
 
@@ -186,6 +193,11 @@
     if ("IntersectionObserver" in window) new IntersectionObserver(function (es) { seen = es[0].isIntersecting; diam(); if (seen) req(); }).observe(hero);
     req();
   }
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(start); else start();
+  // HP (2026-11-27, audit kecepatan): rak baru dimulai setelah halaman selesai dimuat + browser senggang,
+  // supaya judul (LCP) tidak berebut CPU dengan rak. Desktop tetap mulai saat font siap.
+  var later = function (fn) { var go = function () { if (window.requestIdleCallback) requestIdleCallback(fn, { timeout: 1500 }); else setTimeout(fn, 300); };
+    if (document.readyState === "complete") go(); else addEventListener("load", go, { once: true }); };
+  if (hero.offsetWidth < 700) later(start);
+  else if (document.fonts && document.fonts.ready) document.fonts.ready.then(start); else start();
   addEventListener("resize", function () { clearTimeout(resizeT); resizeT = setTimeout(function () { measure(); if (S.ok) { draw(); req(); } }, 150); });
 })();

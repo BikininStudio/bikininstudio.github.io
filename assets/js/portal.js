@@ -8,7 +8,6 @@
   if (!sec || !window.requestAnimationFrame) return;
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  sec.classList.add("ptl-on");
   var stage = sec.querySelector(".ptl-stage");
   var rig = sec.querySelector(".ptl-rig") || stage;
   var word = sec.querySelector(".ptl-words span");
@@ -104,11 +103,20 @@
   }
 
   var req = function () { if (on && !raf) raf = requestAnimationFrame(tick); };
-  measure(); draw(clamp((scrollY - top) / span));
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function (es) { on = es[0].isIntersecting; if (on) { measure(); req(); } }, { rootMargin: "100px 0px" }).observe(sec);
-  } else on = true;
-  addEventListener("scroll", req, { passive: true });
+  // 2026-11-27 (audit kecepatan HP): seksi ini di bawah lipatan, jadi disiapkan setelah halaman selesai dimuat
+  // (saat senggang) atau saat gulir pertama, bukan saat memuat (dulu memaksa hitung tata letak 130 ms di HP).
+  var ready = false;
+  function init() {
+    if (ready) return; ready = true;
+    sec.classList.add("ptl-on");
+    measure(); draw(clamp((scrollY - top) / span));
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { on = es[0].isIntersecting; if (on) { measure(); req(); } }, { rootMargin: "100px 0px" }).observe(sec);
+    } else on = true;
+  }
+  var arm = function () { if (window.requestIdleCallback) requestIdleCallback(init, { timeout: 1500 }); else setTimeout(init, 300); };
+  if (scrollY > 0) init(); else if (document.readyState === "complete") arm(); else addEventListener("load", arm, { once: true });
+  addEventListener("scroll", function () { if (!ready) init(); req(); }, { passive: true });
   addEventListener("resize", function () { measure(); lastDrawn = -1; req(); });
   if (fine) stage.addEventListener("pointermove", function (e) { tmx = e.clientX / W * 2 - 1; tmy = e.clientY / H * 2 - 1; req(); }, { passive: true });
   // fokus keyboard ke kartu/judul yang sedang tak tampil: lompat ke titik yang terlihat
