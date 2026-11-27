@@ -142,7 +142,7 @@ later(function () {
       if (started || still || !h3d.getClientRects().length) return;
       if (hero.classList.contains("fx-off")) { pendingGo(); return; }
       started = true;
-      import("/assets/js/hero3d.js?v=mwyxdl67").then(function (m) { return m.start(h3d, hero, { small: !desk }); }).then(function (c) { ctl = c; }).catch(function () { started = false; });
+      import("/assets/js/hero3d.js?v=mwz0auf9").then(function (m) { return m.start(h3d, hero, { small: !desk }); }).then(function (c) { ctl = c; }).catch(function () { started = false; });
     };
     var pendingGo = function () { hero.__pend = go; };
     var idle = function () { window.requestIdleCallback ? requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 2500); };
@@ -311,11 +311,21 @@ later(function () {
   var go = function () {
     if (started) return; started = true;
     ["pointermove", "scroll", "keydown", "pointerdown"].forEach(function (ev) { removeEventListener(ev, go); });
-    import("/assets/js/bg3d.js?v=mwyxdl67").then(function (m) { var h = document.querySelector(".mono-hero, .bento-hero"); return m.start({ grab: h, hero: h, layout: h && h.classList.contains("bento-hero") ? "centre" : "" }); }).catch(function () { started = false; });
+    import("/assets/js/bg3d.js?v=mwz0auf9").then(function (m) { var h = document.querySelector(".mono-hero, .bento-hero"); return m.start({ grab: h, hero: h, layout: h && h.classList.contains("bento-hero") ? "centre" : "" }); }).catch(function () { started = false; });
   };
   var arm = function () {
     ["pointermove", "scroll", "keydown", "pointerdown"].forEach(function (ev) { addEventListener(ev, go, { once: true, passive: true }); });
     if (window.requestIdleCallback) requestIdleCallback(go, { timeout: 2500 }); else setTimeout(go, 2500);
   };
   if (document.readyState === "complete") arm(); else addEventListener("load", arm);
+})();
+
+// Demo tersemat (iframe data-src): baru dimuat saat hampir terlihat (loading="lazy" bawaan Chrome memuatnya terlalu awal, memberatkan HP)
+(function () {
+  var fr = document.querySelectorAll("iframe[data-src]");
+  if (!fr.length) return;
+  var load = function (f) { if (f.dataset.src) { f.src = f.dataset.src; f.removeAttribute("data-src"); } };
+  if (!("IntersectionObserver" in window)) { [].forEach.call(fr, load); return; }
+  var io = new IntersectionObserver(function (en) { en.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); load(e.target); } }); }, { rootMargin: "300px 0px" });
+  [].forEach.call(fr, function (f) { io.observe(f); });
 })();
